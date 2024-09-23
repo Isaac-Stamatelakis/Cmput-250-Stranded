@@ -8,24 +8,15 @@ namespace Rooms {
         private Room currentRoom;
         public void Start() {
             Room[] rooms = GetComponentsInChildren<Room>();
-            List<RoomNode> nodes = new List<RoomNode>();
             foreach (Room room in rooms) {
-                Debug.Log($"{room.name} {room.getMidpoint()}");
-                List<RoomDoor> doors = room.generateDoors();
-                foreach (RoomDoor roomDoor in doors) {
-                    Debug.Log($"{room.name} {roomDoor}");
-                }
-                RoomNode roomNode = new RoomNode(room,doors);
-                nodes.Add(roomNode);
+                room.generateDoors();
             }
-            for (int i = 0; i < nodes.Count; i++) {
-                Vector3Int currentMidpoint = nodes[i].Room.getMidpoint();
-                foreach (RoomDoor roomDoor in nodes[i].Connections) {
+            for (int i = 0; i < rooms.Length; i++) {
+                foreach (RoomDoor roomDoor in rooms[i].RoomDoors) {
                     int smallestDistance = int.MaxValue;
                     RoomDoor closestConnection = null;
-                    for (int j = i+1; j < nodes.Count; j++) {
-                        Vector3Int otherMidpoint = nodes[j].Room.getMidpoint();
-                        foreach (RoomDoor otherRoomDoor in nodes[j].Connections) {
+                    for (int j = i+1; j < rooms.Length; j++) {
+                        foreach (RoomDoor otherRoomDoor in rooms[j].RoomDoors) {
                             if (!roomDoor.isParallelTo(otherRoomDoor)) {
                                 continue;
                             }
@@ -58,30 +49,6 @@ namespace Rooms {
             }
         }
 
-    }
-
-    public class RoomNode {
-        private Room room;
-        public Room Room => room;
-        private List<RoomDoor> connections;
-        public List<RoomDoor> Connections => connections;
-
-        public RoomNode(Room room, List<RoomDoor> connections)
-        {
-            this.room = room;
-            this.connections = connections;
-        }
-    }
-
-    public class AdjacentRoomDoor {
-        private Room adjcaentRoom;
-        private RoomDoor roomDoor;
-
-        public AdjacentRoomDoor(Room adjcaentRoom, RoomDoor roomDoor)
-        {
-            this.adjcaentRoom = adjcaentRoom;
-            this.roomDoor = roomDoor;
-        }
     }
 }
 
