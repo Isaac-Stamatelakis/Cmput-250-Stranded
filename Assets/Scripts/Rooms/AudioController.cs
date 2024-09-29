@@ -7,15 +7,15 @@ public class AudioController : MonoBehaviour
     private static AudioController _instance;
     public static AudioController Instance { get { return _instance; } }
 
-    public AudioSource audioSource; // The AudioSource component to play player sounds
-    public AudioSource backgroundAudioSource; // A separate AudioSource for the background sound
-    public AudioClip playerWalking;  // The walking sound clip
-    public AudioClip playerRunning;  // The running sound clip
-    public AudioClip backgroundMusic;  // The background music sound clip
+    public AudioSource audioSource; 
+    public AudioSource backgroundAudioSource; 
+    public AudioClip playerWalking;  
+    public AudioClip playerRunning; 
+    public AudioClip backgroundMusic; 
 
     void Awake()
     {
-        // Singleton pattern to ensure only one instance of AudioController exists
+        
         if (_instance != null && _instance != this)
         {
             Destroy(gameObject);
@@ -23,40 +23,38 @@ public class AudioController : MonoBehaviour
         else
         {
             _instance = this;
-            DontDestroyOnLoad(gameObject);  // Keeps the AudioController active across scenes if needed
+            DontDestroyOnLoad(gameObject);  
         }
     }
 
-    // Start is called before the first frame update
+    
     void Start()
     {
-        // Play background music at the start
+        
         PlayBackgroundMusic();
     }
 
-    // Method to play the player walking sound
+    
     public void PlayPlayerWalking()
     {
         if (!audioSource.isPlaying || audioSource.clip != playerWalking)
         {
             audioSource.clip = playerWalking;
-            audioSource.loop = true; // Loop the sound while walking
+            audioSource.loop = true; 
             audioSource.Play();
         }
     }
 
-    // Method to play the player running sound
     public void PlayPlayerRunning()
     {
         if (!audioSource.isPlaying || audioSource.clip != playerRunning)
         {
             audioSource.clip = playerRunning;
-            audioSource.loop = true; // Loop the sound while running
+            audioSource.loop = true; 
             audioSource.Play();
         }
     }
 
-    // Method to stop playing the walking or running sound
     public void StopPlayerWalking()
     {
         if (audioSource.isPlaying)
@@ -65,13 +63,12 @@ public class AudioController : MonoBehaviour
         }
     }
 
-    // Method to play the background music
     public void PlayBackgroundMusic()
     {
         if (backgroundAudioSource != null && backgroundMusic != null)
         {
             backgroundAudioSource.clip = backgroundMusic;
-            backgroundAudioSource.loop = true; // Loop the background music
+            backgroundAudioSource.loop = true; 
             backgroundAudioSource.Play();
         }
     }
