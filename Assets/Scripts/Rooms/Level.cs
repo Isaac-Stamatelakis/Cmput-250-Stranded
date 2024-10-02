@@ -65,6 +65,7 @@ namespace Rooms {
             loadedRoomObject.reset();
             loadedRoomObject.setRoom(room);
             room.load(tileMapDict,loadedRoomObject);
+            Camera.main.GetComponent<RoomCameraControl>().setBounds(room.Bounds);
         }
 
         private void connectRoomDoors() {

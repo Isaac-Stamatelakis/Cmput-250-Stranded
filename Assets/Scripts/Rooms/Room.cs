@@ -25,6 +25,7 @@ namespace Rooms {
             }
         }
         private RoomBounds bounds;
+        public RoomBounds Bounds => bounds;
         private Dictionary<TileMapLayer, TileBase[,]> layerTileDict;
         private List<RoomDoor> doors;
         public List<RoomDoor> RoomDoors => doors;
