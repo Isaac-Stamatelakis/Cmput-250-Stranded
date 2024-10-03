@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private GameObject attackArea = default;
+    public GameObject attackArea = default;
 
     private bool attacking = false;
 
@@ -14,7 +14,6 @@ public class PlayerAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        attackArea = transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
@@ -37,8 +36,7 @@ public class PlayerAttack : MonoBehaviour
             }
 
         }
-    }
-
+    } 
     private void Attack()
     {
         attacking = true;
