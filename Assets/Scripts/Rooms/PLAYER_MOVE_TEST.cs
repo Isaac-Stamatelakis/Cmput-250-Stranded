@@ -72,6 +72,7 @@ public class PLAYER_MOVE_TEST : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         RoomDoorObject roomDoorObject = collision.gameObject.GetComponent<RoomDoorObject>();
+           
         if (roomDoorObject != null) {
             roomDoorObject.switchRoom(transform);
         }
