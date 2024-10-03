@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public GameObject attackArea = default;
+    public GameObject attackArea;
 
     private bool attacking = false;
 
