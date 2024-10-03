@@ -9383,6 +9383,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc47d8f5e69ed3438c4d08cc580493d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floorTileMap: {fileID: 0}
+  wallTileMap: {fileID: 0}
+  doorTileMap: {fileID: 0}
 --- !u!1 &1156531976
 GameObject:
   m_ObjectHideFlags: 0
@@ -34864,7 +34867,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 7
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -34974,7 +34977,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 7
+      m_TileSpriteIndex: 3
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -35564,7 +35567,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 7
+      m_TileSpriteIndex: 2
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -35674,7 +35677,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 7
+      m_TileSpriteIndex: 0
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -36715,21 +36718,21 @@ Tilemap:
   - m_RefCount: 210
     m_Data: {fileID: 11400000, guid: b4ed67b61ba7e8e4ba753b712a29ea96, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: 23d41dba307a1b64e92d4337f09d9f18, type: 3}
   - m_RefCount: 28
     m_Data: {fileID: 21300000, guid: 0d0854c171af87f46b6e4e90f17fd5de, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: d08c8284e2803464093f5d15999aa2b5, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: 2290bf0933201b7468a5d0323b9852ea, type: 3}
   - m_RefCount: 16
     m_Data: {fileID: 21300000, guid: f9cbbea96397b814c91fc2d2af231cee, type: 3}
   - m_RefCount: 28
     m_Data: {fileID: 21300000, guid: 5e53f040418a9214c9e168cb10871c14, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 118
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: 0667e953dc971d24a9f3a9802a38d8bd, type: 3}
+  - m_RefCount: 114
     m_Data: {fileID: 21300000, guid: 20c2362dfd4667a469568ae830fa0450, type: 3}
   - m_RefCount: 16
     m_Data: {fileID: 21300000, guid: 1e062c2f78e71a943bedd86d053bb9dd, type: 3}
@@ -67902,10 +67905,6 @@ PrefabInstance:
     - target: {fileID: 1056940559014103366, guid: 2d7ccb3d3509f554ca99934b99293286, type: 3}
       propertyPath: m_Name
       value: Main Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 1056940559014103371, guid: 2d7ccb3d3509f554ca99934b99293286, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d7ccb3d3509f554ca99934b99293286, type: 3}

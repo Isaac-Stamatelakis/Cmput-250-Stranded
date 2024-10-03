@@ -47,7 +47,7 @@ namespace Rooms {
         }
 
         public static (Direction, Direction) getDoorDirection(RoomDoor a, RoomDoor b) {
-            LineDirection lineDirection = a.getDirection();
+            LineDirection lineDirection = a.GetLineDirection();
             if (lineDirection == LineDirection.Vertical) {
                 if (a.StartPosition.x > b.StartPosition.x) {
                     return (Direction.Left,Direction.Right);
@@ -65,10 +65,11 @@ namespace Rooms {
 
         public static RoomDoorObject createRoomDoorObject(RoomDoor roomDoor) {
             GameObject gameObject = new GameObject();
-            gameObject.name = $"Connection to {roomDoor.Connection.Room.name}";
+            //gameObject.name = $"Connection to {roomDoor.Connection.Room.name}";
+            gameObject.name = "Connection";
             BoxCollider2D boxCollider2D = gameObject.AddComponent<BoxCollider2D>();
             boxCollider2D.gameObject.layer = LayerMask.NameToLayer(GlobalUtils.WALL_LAYER_NAME);
-            LineDirection lineDirection = roomDoor.getDirection();
+            LineDirection lineDirection = roomDoor.GetLineDirection();
             Vector2 size = new Vector3(1.25f,roomDoor.Size) * GlobalUtils.TILE_SIZE;
             if (lineDirection == LineDirection.Horizontal) {
                 boxCollider2D.size = new Vector2(size.y,size.x);

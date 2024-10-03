@@ -19,10 +19,12 @@ namespace Rooms {
         private Direction direction;
         public Direction Direction => direction;
         private BoundsInt bounds;
-        public RoomDoor(Vector3Int point, Room room) {
-            this.room = room;
+        public RoomDoor(Vector3Int point) {
             this.startPosition = point;
             this.endPosition = point;
+        }
+        public void setRoom(Room room) {
+            this.room = room;
         }
         /// <summary>
         ///
@@ -51,9 +53,24 @@ namespace Rooms {
         }
 
         public bool isParallelTo(RoomDoor roomDoor) {
-            return 
-                (startPosition.x == roomDoor.startPosition.x && endPosition.x == roomDoor.endPosition.x) ||
-                (startPosition.y == roomDoor.startPosition.y && endPosition.y == roomDoor.endPosition.y);
+            if (roomDoor.GetLineDirection() != GetLineDirection()) {
+                return false;
+            }
+            LineDirection lineDirection = GetLineDirection();
+            if (lineDirection == LineDirection.Horizontal) {
+                return startPosition.x == roomDoor.startPosition.x && 
+                    endPosition.x == roomDoor.endPosition.x &&
+                    startPosition.y != roomDoor.startPosition.y;
+            } else {
+                return startPosition.y == roomDoor.startPosition.y && 
+                    endPosition.y == roomDoor.endPosition.y &&
+                    startPosition.x != roomDoor.startPosition.x;
+            }
+            
+
+                    
+
+      
         }
 
         public Vector3 getMidpoint() {
@@ -64,7 +81,7 @@ namespace Rooms {
             if (!isParallelTo(roomDoor)) {
                 return int.MaxValue;
             }
-            LineDirection direction = getDirection();
+            LineDirection direction = GetLineDirection();
             if (direction == LineDirection.Vertical) {
                 return startPosition.x - roomDoor.startPosition.x;
             } else {
@@ -72,18 +89,35 @@ namespace Rooms {
             }
         }
 
-        public LineDirection getDirection() {
+        public LineDirection GetLineDirection() {
             if (startPosition.x == endPosition.x) {
                 return LineDirection.Vertical;
-            } else {
+            }
+            if (startPosition.y == EndPosition.y) {
                 return LineDirection.Horizontal;
             }
+            return LineDirection.Horizontal;
         }
 
-        private bool pointOnLine(Vector3Int point) {
+        public bool pointOnLine(Vector3Int point) {
             return 
                 (point.x == startPosition.x && point.x == endPosition.x) ||
                 (point.y == startPosition.y && point.y == endPosition.y);
+        }
+
+        public bool adjacentPointOnLine(Vector3Int point) {
+            if (!pointOnLine(point)) {
+                return false;
+            }
+            if (pointAdjacent(startPosition,point)) {
+                return true;
+            }
+            return pointAdjacent(endPosition,point);
+        }
+
+        private bool pointAdjacent(Vector3Int a, Vector3Int b) {
+            Vector3Int dif = a-b;
+            return dif.x == 1 || dif.x == -1 || dif.y == -1 || dif.y == 1;
         }
 
         public Vector3 getEnterPosition(Vector3 playerPosition) {
@@ -106,7 +140,7 @@ namespace Rooms {
 
         public override string ToString()
         {
-            return $"Start: {startPosition}, End: {endPosition}";
+            return $"Direction: {GetLineDirection()} Start: {startPosition}, End: {endPosition}";
         }
     }
 }

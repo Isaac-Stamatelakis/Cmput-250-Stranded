@@ -4,19 +4,47 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 namespace Rooms {
-
+    
+    public enum TileMapLayer {
+        Floor,
+        Wall,
+        Door
+    }
     public interface IRoom {
         public void load();
         public void unload();
     }
-    public class Room : MonoBehaviour, IRoom
+    public class Room
     {
-        [SerializeField] private Tilemap wallTileMap;
-        [SerializeField] private Tilemap doorTileMap;
-        [SerializeField] private Transform roomDoorContainer;
-        private List<RoomDoor> roomDoors;
-        public List<RoomDoor> RoomDoors => roomDoors;
-        
+        public Room(RoomBounds bounds, Dictionary<TileMapLayer, TileBase[,]> layerTileDict, List<RoomDoor> doors) {
+            this.bounds = bounds;
+            this.layerTileDict = layerTileDict;
+            this.doors = doors;
+            foreach (RoomDoor roomDoor in doors) {
+                roomDoor.setRoom(this);
+            }
+        }
+        private RoomBounds bounds;
+        public RoomBounds Bounds => bounds;
+        private Dictionary<TileMapLayer, TileBase[,]> layerTileDict;
+        private List<RoomDoor> doors;
+        public List<RoomDoor> RoomDoors => doors;
+        public void load(Dictionary<TileMapLayer, Tilemap> tileMapDict, LoadedRoom loadedRoom) {
+            activeDoors(loadedRoom.doorContainer);
+            foreach (var kvp in layerTileDict) {
+                Tilemap tilemap = tileMapDict[kvp.Key];
+                TileBase[,] tiles = kvp.Value;
+                for (int x = 0; x < tiles.GetLength(0); x++) {
+                    for (int y = 0; y < tiles.GetLength(1); y++) {
+                        tilemap.SetTile(new Vector3Int(x+bounds.XMin,y+bounds.YMin,0),tiles[x,y]);
+                    }
+                }
+            }
+        }
+        public void unload() {
+
+        }
+        /*
         public List<RoomDoor> generateDoors() {
             roomDoors = new List<RoomDoor>();
             BoundsInt doorBounds = wallTileMap.cellBounds;
@@ -45,18 +73,14 @@ namespace Rooms {
             }    
             return roomDoors;
         }
-
-        public Vector3Int getMidpoint() {
-            BoundsInt boundsInt = wallTileMap.cellBounds;
-            return new Vector3Int((boundsInt.xMax+boundsInt.xMin)/2,(boundsInt.yMax+boundsInt.yMin)/2);
-        }
+        */
 
 
-        public void activeDoors() {
-            foreach (RoomDoor roomDoor in roomDoors) {
+        public void activeDoors(Transform container) {
+            foreach (RoomDoor roomDoor in doors) {
                 if (roomDoor.Connection != null && roomDoor.Connection.Room.isClear()) {
                     RoomDoorObject roomDoorObject = RoomUtils.createRoomDoorObject(roomDoor);
-                    roomDoorObject.transform.SetParent(roomDoorContainer,false);
+                    roomDoorObject.transform.SetParent(container,false);
                 }
             }
         }
@@ -67,18 +91,17 @@ namespace Rooms {
 
         public void load()
         {
-            gameObject.SetActive(true);
-            activeDoors();
+            
         }
-
+        /*
         public void unload()
         {
             for (int i = 0; i < roomDoorContainer.childCount; i++) {
                 GameObject.Destroy(roomDoorContainer.GetChild(i).gameObject);
             }
             gameObject.SetActive(false);
-            
         }
+        */
     }
 
     public enum LineDirection {
