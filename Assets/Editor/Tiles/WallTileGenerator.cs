@@ -9,8 +9,8 @@ public class WallTileGenerator : EditorWindow {
     private Sprite loneSprite;
     private Sprite downLoneSprite;
     private Sprite surroundedSprite;
-    private int wallHeight = 12;
     private int size = 16;
+    private int borderSize = 1;
     private string tileName;
     [MenuItem("Tools/Tile/Wall")]
     public static void ShowWindow()
@@ -39,20 +39,6 @@ public class WallTileGenerator : EditorWindow {
         GUILayout.FlexibleSpace();
         EditorGUILayout.EndHorizontal();
 
-        EditorGUILayout.Space();
-        EditorGUILayout.BeginHorizontal();
-        EditorGUILayout.LabelField("Size:", GUILayout.Width(70));
-        size = EditorGUILayout.IntField(size);
-        GUILayout.FlexibleSpace();
-        EditorGUILayout.EndHorizontal();
-
-        EditorGUILayout.Space();
-        EditorGUILayout.BeginHorizontal();
-        EditorGUILayout.LabelField("Wall Height:", GUILayout.Width(70));
-        wallHeight = EditorGUILayout.IntField(wallHeight);
-        GUILayout.FlexibleSpace();
-        EditorGUILayout.EndHorizontal();
-
         EditorGUILayout.BeginHorizontal();
         EditorGUILayout.LabelField("Tile Name:", GUILayout.Width(70));
         tileName = EditorGUILayout.TextField(tileName);
@@ -74,7 +60,6 @@ public class WallTileGenerator : EditorWindow {
         Color[] surroundedPixels = surroundedSprite.texture.GetPixels();
         Color[] downOnlyPixels = downLoneSprite.texture.GetPixels();
         
-
         if (lonePixels.Length != surroundedPixels.Length) {
             Debug.LogError("Provided sprites must be the same size!");
             return;
@@ -89,44 +74,69 @@ public class WallTileGenerator : EditorWindow {
             Color[] overridePixels = down ? surroundedPixels : downOnlyPixels;
             Color[] pixels = copyArray(lonePixels);
             if (down) { // Copy all pixels from surrounded except top row, left most column and right most column
-                int start = right ? 0 : 1;
-                int end = left ? size : size-1 ;
-                for (int y = 0; y < size-1; y++) { // Start from the second row
-                    for (int x = start; x < end; x++) {
+                for (int y = 0; y < size-borderSize; y++) { // Start from the second row
+                    for (int x = borderSize; x < size-borderSize; x++) {
                         pixels[y * size + x] = surroundedPixels[y * size + x];
                     }
                 }
             }
             if (up) { // Copy top row from surrounded
-                int start = right ? 0 : 1;
-                int end = left ? size : size-1 ;
-                for (int x = start; x < end; x++) {
+                for (int x = borderSize; x < size-borderSize; x++) {
                     pixels[size*size-x-1] = overridePixels[size*size-x-1]; // Copy top row
                 }
             }
+            
             if (left) { // Copy left most column from surrounded
-                int start = !down ? 0 : 1;
-                int end = !up ? size-1: size;
-                for (int y = 1; y < size-1; y++) {
+                int start = down ? 0 : borderSize;
+                int end = up ? size : size-borderSize;
+                for (int y = start; y < end; y++) {
                     pixels[y * size] = overridePixels[y * size]; // Copy leftmost column
                 }
             }
             if (right) {
-                int start = !down ? 0 : 1;
-                int end = !up ? size-1 : size;
-                for (int y = 1; y < size-1; y++) {
+                int start = down ? 0 : borderSize;
+                int end = up ? size : size-borderSize;
+                for (int y = start; y < end; y++) {
                     pixels[y * size + (size - 1)] = overridePixels[y * size + (size - 1)]; // Copy rightmost column
                 }
             }
             Sprite sprite = saveSprite(pixels,path,spriteName,size,size);
             List<int> neighbors = getNeighborRules(up,left,down,right);
-            RuleTile.TilingRule rule = new RuleTile.TilingRule();
-            rule.m_ColliderType = Tile.ColliderType.Grid;
-            rule.m_Sprites = new Sprite[1];
-            rule.m_Sprites[0] = sprite;
-            rule.m_Neighbors = neighbors;
-            ruleTile.m_TilingRules.Add(rule);
+            addRule(ruleTile,neighbors,sprite);
+            
         }
+
+        // Other surrounded sprites
+        for (int i = 0; i < 4; i++) {
+            bool up = i < 2;
+            bool left = i % 2 == 0;
+            
+            Color[] pixels = copyArray(surroundedPixels);
+            int startX = left ? 0 : size-borderSize;
+            int endX = left ? borderSize : size;
+            int startY = !up ? 0 : size-borderSize;
+            int endY = !up ? borderSize : size;
+
+            for (int x = startX; x < endX; x++) {
+                for (int y = startY; y < endY; y++) {
+                    pixels[y*size + x] = lonePixels[y*size+x];
+                }
+            }
+            string spriteName = tileName;
+            if (up && left) {
+                spriteName += "_UPLEFT";
+            } else if (up && !left) {
+                spriteName += "_UPRIGHT";
+            } else if (!up && left) {
+                spriteName += "_DOWNLEFT";
+            } else {
+                spriteName += "_DOWNRIGHT";
+            }
+            Sprite sprite = saveSprite(pixels,path,spriteName,size,size);
+            List<int> neighbors = getNeighborRules(true,true,true,true,up_left:up&&left,up_right:up&&!left,down_left:!up&&left,down_right:!up&&!left);
+            addRule(ruleTile,neighbors,sprite);
+        }
+
         
         ruleTile.name = $"{tileName}";
         AssetDatabase.CreateAsset(ruleTile,Path.Combine(path,$"{ruleTile.name}.asset"));
@@ -134,6 +144,16 @@ public class WallTileGenerator : EditorWindow {
         
     }
 
+    
+
+    private void addRule(RuleTile ruleTile , List<int> neighbors, Sprite sprite) {
+        RuleTile.TilingRule rule = new RuleTile.TilingRule();
+        rule.m_ColliderType = Tile.ColliderType.Grid;
+        rule.m_Sprites = new Sprite[1];
+        rule.m_Sprites[0] = sprite;
+        rule.m_Neighbors = neighbors;
+        ruleTile.m_TilingRules.Add(rule);
+    }
     private Color[] copyArray(Color[] input) {
         Color[] pixels = new Color[input.Length];
         for (int i = 0; i < input.Length; i++) {
@@ -180,16 +200,16 @@ public class WallTileGenerator : EditorWindow {
             neighborRules[6] = 1;
         }
         if (up_right) {
-            neighborRules[0] = 1;
+            neighborRules[2] = 0;
         }
         if (up_left) {
-            neighborRules[2] = 1;
+            neighborRules[0] = 0;
         }
         if (down_left) {
-            neighborRules[5] = 1;
+            neighborRules[5] = 0;
         }
         if (down_right) {
-            neighborRules[7] = 1;
+            neighborRules[7] = 0;
         }
         return neighborRules;
     }
