@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using System;
 using System.Linq;
+using PlayerModule;
 
 namespace Rooms {
     public class Level : MonoBehaviour
@@ -18,7 +19,7 @@ namespace Rooms {
         [SerializeField] private Transform spawnPositionObject;
         private List<Room> rooms = new List<Room>();
         private Dictionary<TileMapLayer, Tilemap> tileMapDict;
-        private Dictionary<Vector2Int, RoomElementCollection> positionRoomElementCollectionDict; 
+        private Dictionary<Vector2Int, Transform> positionRoomElementCollectionDict; 
         private static Level instance;
         public static Level Instance => instance;
         public void Awake() {
@@ -108,18 +109,20 @@ namespace Rooms {
 
         private void loadSpawnPosition() {
             spawnPosition = new Vector2Int((int)spawnPositionObject.transform.position.x,(int)spawnPositionObject.transform.position.y);
-            // TODO REPLACE THIS WITH SINGLETON 
-            GameObject.Find("TestPlayer").transform.position = spawnPositionObject.transform.position;
+            Player player = Player.Instance;
+            player.transform.position = new Vector3(spawnPositionObject.transform.position.x,spawnPositionObject.transform.position.y,player.transform.position.z);
+        
             GameObject.Destroy(spawnPositionObject.gameObject);
         }
 
         private void loadRoomElements() {
-            positionRoomElementCollectionDict = new Dictionary<Vector2Int, RoomElementCollection>();
+            positionRoomElementCollectionDict = new Dictionary<Vector2Int, Transform>();
             for (int i = 0; i < roomElementContainer.childCount; i++) {
                 Transform child = roomElementContainer.GetChild(i);
                 Vector2Int position = new Vector2Int((int)child.position.x,(int)child.position.y);
                 RoomElement[] roomElements = child.GetComponentsInChildren<RoomElement>();
-                positionRoomElementCollectionDict[position] = new RoomElementCollection("Test",roomElements);
+                child.GetComponent<MeshRenderer>().enabled = false;
+                positionRoomElementCollectionDict[position] = child;
                 child.gameObject.SetActive(false);
             }
         }
@@ -152,7 +155,7 @@ namespace Rooms {
             queue.Enqueue(start);
             RoomBounds roomBounds = new RoomBounds(start);
             Dictionary<Vector2Int, List<TileBase>> positionTileDict = new Dictionary<Vector2Int, List<TileBase>>();
-            RoomElementCollection roomElementCollection = null;
+            Transform roomElementCollection = null;
             while (queue.Count > 0) {
                 Vector2Int current = queue.Dequeue();
                 int x = current.x - bounds.xMin;
@@ -229,7 +232,7 @@ namespace Rooms {
                         layerTileDict[layer][xIndex,yIndex] = tile;
                     }
                 }
-                rooms.Add(new Room(roomBounds,layerTileDict,roomDoors));
+                rooms.Add(new Room(roomBounds,layerTileDict,roomDoors,roomElementCollection));
                 
             }
         }

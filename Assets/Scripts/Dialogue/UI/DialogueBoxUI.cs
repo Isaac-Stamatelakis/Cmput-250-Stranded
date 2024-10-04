@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using PlayerModule;
 
 namespace Dialogue {
     public delegate void IndexCallback(int index);
@@ -31,6 +32,7 @@ namespace Dialogue {
         }
         public void DisplayDialogue(DialogObject dialogue) {
             skipChars = 0;
+            Player.Instance.setDialog(dialogue!=null);
             if (dialogue == null) {
                 gameObject.SetActive(false);
                 return;

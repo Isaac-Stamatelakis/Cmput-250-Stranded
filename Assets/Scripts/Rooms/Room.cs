@@ -16,10 +16,11 @@ namespace Rooms {
     }
     public class Room
     {
-        public Room(RoomBounds bounds, Dictionary<TileMapLayer, TileBase[,]> layerTileDict, List<RoomDoor> doors) {
+        public Room(RoomBounds bounds, Dictionary<TileMapLayer, TileBase[,]> layerTileDict, List<RoomDoor> doors, Transform roomObjects) {
             this.bounds = bounds;
             this.layerTileDict = layerTileDict;
             this.doors = doors;
+            this.roomObjects = roomObjects;
             foreach (RoomDoor roomDoor in doors) {
                 roomDoor.setRoom(this);
             }
@@ -29,6 +30,8 @@ namespace Rooms {
         private Dictionary<TileMapLayer, TileBase[,]> layerTileDict;
         private List<RoomDoor> doors;
         public List<RoomDoor> RoomDoors => doors;
+        private List<ZombieSpawnInstruction> zombieSpawnInstructions;
+        private Transform roomObjects;
         public void load(Dictionary<TileMapLayer, Tilemap> tileMapDict, LoadedRoom loadedRoom) {
             activeDoors(loadedRoom.doorContainer);
             foreach (var kvp in layerTileDict) {
@@ -40,9 +43,16 @@ namespace Rooms {
                     }
                 }
             }
+            if (roomObjects != null) {
+                roomObjects.gameObject.SetActive(true);
+            }
+            
         }
         public void unload() {
-
+            if (roomObjects != null) {
+                roomObjects.gameObject.SetActive(false);
+            } 
+            
         }
         /*
         public List<RoomDoor> generateDoors() {

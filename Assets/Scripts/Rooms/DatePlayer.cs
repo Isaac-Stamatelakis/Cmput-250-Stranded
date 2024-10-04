@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PlayerModule;
 
 using Rooms;
 public class DatePlayer : MonoBehaviour
 {
-    public Transform playerTransform; 
     public float followSpeed = 8f;    
     public float followDistance = 5f;  
     public float stopDistance = 2f;    
@@ -23,6 +23,7 @@ public class DatePlayer : MonoBehaviour
         
         if (!isCollidingWithPlayer)
         {
+            Transform playerTransform = Player.Instance.transform;
             float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
 
             if (distanceToPlayer > stopDistance)
@@ -47,12 +48,6 @@ public class DatePlayer : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isCollidingWithPlayer = true;
-        }
-
-        RoomDoorObject roomDoorObject = collision.gameObject.GetComponent<RoomDoorObject>();
-        if (roomDoorObject != null)
-        {
-            roomDoorObject.switchRoom(transform);
         }
     }
 
