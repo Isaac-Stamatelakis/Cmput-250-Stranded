@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PlayerModule;
 using Rooms;
 namespace Dialogue {
     public class DialogueSequencer : TriggerableEvent

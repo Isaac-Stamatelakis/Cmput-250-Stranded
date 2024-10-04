@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-namespace Player {
+namespace PlayerModule {
     public class PlayerDeathScreenUI : MonoBehaviour
     {
         [SerializeField] private Button button;

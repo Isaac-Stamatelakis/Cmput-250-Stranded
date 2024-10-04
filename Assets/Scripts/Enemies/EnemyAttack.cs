@@ -6,13 +6,13 @@ public class EnemyAttack : MonoBehaviour
 {
     private int damage = 5;
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnCollisionStay2D(Collision2D collider)
     {
         // Check if the object the enemy collided with has a PlayerHealth component
-        if (collider.GetComponent<PlayerHealth>() != null)
+        if (collider.gameObject.GetComponent<PlayerHealth>() != null)
         {
             // Get the PlayerHealth component and apply damage
-            PlayerHealth health = collider.GetComponent<PlayerHealth>();
+            PlayerHealth health = collider.gameObject.GetComponent<PlayerHealth>();
             health.Damage(damage);
         }
     }

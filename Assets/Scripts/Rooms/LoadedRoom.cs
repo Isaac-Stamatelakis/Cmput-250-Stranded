@@ -15,6 +15,10 @@ namespace Rooms {
             GlobalUtils.deleteChildren(triggerContainer);
             GlobalUtils.deleteChildren(interactableContainer);
             GlobalUtils.deleteChildren(doorContainer);
+            if (room != null) {
+                room.unload();
+            }
+            
         }
         public void setRoom(Room room) {
             this.room = room;
