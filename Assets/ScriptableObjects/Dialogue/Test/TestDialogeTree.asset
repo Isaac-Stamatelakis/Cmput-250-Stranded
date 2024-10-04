@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5409dc8a8bf34c4fac0ce7c8959d6d7, type: 3}
   m_Name: TestDialogeTree
   m_EditorClassIdentifier: 
-  Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
-  Text: How are you doing today?
+  Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
+  Text: How are you holding up? Do you think you can keep going?
   responses:
-  - Text: What kind of question is that? How do you think I'm doing given the state
-      you're in.
+  - Text: Tell me the truth. How bad is it?
     dialog: {fileID: 11400000, guid: 78735e3502d004a4cb6f084b8df2c19c, type: 2}
-  - Text: Great! I was thinking about breaking up with you so this makes it much
-      easier.
+  - Text: We should find a place to rest. Can you walk?
     dialog: {fileID: 11400000, guid: dbe8962e4f2aebf43a5c7802a6248559, type: 2}
+  - Text: You don't have to push yourself for me. I can do this alone.
+    dialog: {fileID: 11400000, guid: d88a373fe82f84e85ad64a3cd1ee1e6c, type: 2}

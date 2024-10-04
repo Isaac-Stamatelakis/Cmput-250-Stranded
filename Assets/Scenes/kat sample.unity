@@ -9463,6 +9463,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc47d8f5e69ed3438c4d08cc580493d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floorTileMap: {fileID: 0}
+  wallTileMap: {fileID: 0}
+  doorTileMap: {fileID: 0}
 --- !u!1 &1156531976
 GameObject:
   m_ObjectHideFlags: 0
@@ -68358,10 +68361,6 @@ PrefabInstance:
     - target: {fileID: 1056940559014103366, guid: 2d7ccb3d3509f554ca99934b99293286, type: 3}
       propertyPath: m_Name
       value: Main Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 1056940559014103371, guid: 2d7ccb3d3509f554ca99934b99293286, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d7ccb3d3509f554ca99934b99293286, type: 3}

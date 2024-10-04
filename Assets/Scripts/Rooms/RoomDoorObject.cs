@@ -10,12 +10,10 @@ namespace Rooms {
             this.roomDoor = roomDoor;
         }
         public void switchRoom(Transform playerTransform) {
-            Room room = GetComponentInParent<Room>();
-            room.unload();
-            roomDoor.Connection.Room.load();
+            Room room = roomDoor.Room;
+            Level.Instance.loadRoom(roomDoor.Connection.Room);
             Vector3 spawnPosition = roomDoor.Connection.getEnterPosition(playerTransform.position);
             playerTransform.position = spawnPosition;
-
         }
     }
 }
