@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Player;
 
-public class Health : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int health = 100;
     [SerializeField] PlayerDeathScreenUI playerDeathScreenUIPrefab;
