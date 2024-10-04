@@ -11,11 +11,13 @@ public class DatePlayer : MonoBehaviour
     public float stopDistance = 2f;    
 
     private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
     private bool isCollidingWithPlayer = false;  
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); 
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -40,6 +42,8 @@ public class DatePlayer : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
         }
+        spriteRenderer.flipX = transform.position.x < Player.Instance.transform.position.x;
+
     }
 
     // Stop the love interest when colliding with the player

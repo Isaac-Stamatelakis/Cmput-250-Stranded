@@ -8,6 +8,7 @@ namespace PlayerModule {
     {
         Rigidbody2D rb;
         SpriteRenderer spriteRenderer;
+        public PlayerWalkSFX playerWalkSFX;
         
         private bool isMoving = false;
         private bool isRunning = false;
@@ -51,29 +52,18 @@ namespace PlayerModule {
             
             rb.velocity = moveDirection.normalized * currentSpeed;
 
-            if (moveDirection != Vector3.zero)
-            {
-                if (!isMoving)
+            isMoving = moveDirection != Vector3.zero;
+            if (isMoving) {
+                if (isRunning)
                 {
-                    if (isRunning)
-                    {
-                        AudioController.Instance.PlayPlayerRunning();
-                    }
-                    else
-                    {
-                        AudioController.Instance.PlayPlayerWalking();
-                    }
-                    isMoving = true;
+                    playerWalkSFX.playSound(PlayerWalkSFX.PlayerMovementSound.Run);
+                }
+                else
+                {
+                    playerWalkSFX.playSound(PlayerWalkSFX.PlayerMovementSound.Walk);
                 }
             }
-            else
-            {
-                if (isMoving)
-                {
-                    AudioController.Instance.StopPlayerWalking();
-                    isMoving = false;
-                }
-            }
+            
         }
 
         void OnCollisionEnter2D(Collision2D collision)
