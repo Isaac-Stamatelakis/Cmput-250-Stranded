@@ -87,6 +87,7 @@ SpriteAtlas:
   - {fileID: -1219781853, guid: 233109c75e08c5b449616c0b1edb7c2e, type: 3}
   - {fileID: 1898907337, guid: 233109c75e08c5b449616c0b1edb7c2e, type: 3}
   - {fileID: -501653047, guid: 233109c75e08c5b449616c0b1edb7c2e, type: 3}
+  - {fileID: 21300000, guid: 8cf396096aea22243babff7d3fd69bc3, type: 3}
   - {fileID: 21300000, guid: 9bff6a3a92556dd4883b3f1705b6e7b0, type: 3}
   - {fileID: 21300000, guid: 1210b5aa85466204b82b32e911c68ec0, type: 3}
   - {fileID: 21300000, guid: a6ade97b79b183f44bff0d31bc33450d, type: 3}
@@ -133,6 +134,7 @@ SpriteAtlas:
   - wall_test_2_1
   - wall_test_2_2
   - wall_test_2_3
+  - cure
   - test_zombie_girl (1)
   - player_test
   - test_floor_3
