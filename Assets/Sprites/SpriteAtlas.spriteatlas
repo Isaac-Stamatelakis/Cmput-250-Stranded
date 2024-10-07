@@ -51,6 +51,7 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 53563401cc113d54bbe4cee2bb0f76f1, type: 3}
+  - {fileID: 21300000, guid: 735a69f249799084286decddb706f774, type: 3}
   - {fileID: 21300000, guid: ffb12b03355ebc041a5f6f2343fc146d, type: 3}
   - {fileID: 21300000, guid: 5b5bf825b98f7824a852a8597c7b335f, type: 3}
   - {fileID: 21300000, guid: 04c15376bed926548a4133baaa3b20e9, type: 3}
@@ -97,6 +98,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: ffbda62ed92da8b40b81d02b4112ae17, type: 3}
   m_PackedSpriteNamesToIndex:
   - zombie_test
+  - ruler
   - void_back
   - test_floor
   - down_only

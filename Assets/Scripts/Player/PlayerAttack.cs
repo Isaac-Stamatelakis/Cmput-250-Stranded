@@ -4,42 +4,37 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public GameObject attackArea = default;
+    public GameObject attackArea = default; // The ruler or attack area
 
     private bool attacking = false;
 
-    private float timeToAttack = 0.25f;
+    private float timeToAttack = 0.25f; // Duration for how long the ruler/attack area stays active
     private float timer = 0f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0)) // Left-click
         {
             Attack();
         }
 
-        if(attacking)
+        if (attacking)
         {
             timer += Time.deltaTime;
 
-            if(timer >= timeToAttack)
+            if (timer >= timeToAttack)
             {
                 timer = 0;
                 attacking = false;
-                attackArea.SetActive(attacking);
+                attackArea.SetActive(false); // Disable attack area after time runs out
             }
-
         }
-    } 
+    }
+
     private void Attack()
     {
         attacking = true;
-        attackArea.SetActive(attacking);
+        attackArea.SetActive(true); // Show the ruler or attack area
     }
 }
