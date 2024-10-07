@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using PlayerModule;
-using PlayerModule;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -45,6 +44,7 @@ public class PlayerHealth : MonoBehaviour
         if (health > maxHealth) {
             health = maxHealth;
         }
+        playerUI.displayHealth(health,maxHealth);
     }
     public void FixedUpdate() {
         if (invincibleFrames > 0) {

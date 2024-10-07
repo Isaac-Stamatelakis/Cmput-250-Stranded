@@ -32,8 +32,8 @@ namespace Rooms {
         public List<RoomDoor> RoomDoors => doors;
         private List<ZombieSpawnInstruction> zombieSpawnInstructions;
         private Transform roomObjects;
-        public void load(Dictionary<TileMapLayer, Tilemap> tileMapDict, LoadedRoom loadedRoom) {
-            activeDoors(loadedRoom.doorContainer);
+        public void load(Dictionary<TileMapLayer, Tilemap> tileMapDict, LoadedRoom loadedRoom, RoomDoorObject roomDoorObjectPrefab) {
+            activeDoors(loadedRoom.doorContainer, roomDoorObjectPrefab);
             foreach (var kvp in layerTileDict) {
                 Tilemap tilemap = tileMapDict[kvp.Key];
                 TileBase[,] tiles = kvp.Value;
@@ -86,11 +86,13 @@ namespace Rooms {
         */
 
 
-        public void activeDoors(Transform container) {
+        public void activeDoors(Transform container, RoomDoorObject prefab) {
             foreach (RoomDoor roomDoor in doors) {
-                if (roomDoor.Connection != null && roomDoor.Connection.Room.isClear()) {
-                    RoomDoorObject roomDoorObject = RoomUtils.createRoomDoorObject(roomDoor);
+                if (roomDoor.Connection != null) {
+                    RoomDoorObject roomDoorObject = GameObject.Instantiate(prefab);
                     roomDoorObject.transform.SetParent(container,false);
+                    roomDoorObject.setRoomDoor(roomDoor);
+                    
                 }
             }
         }

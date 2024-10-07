@@ -14,6 +14,7 @@ namespace Rooms {
         [SerializeField] private Tilemap doorTileMap;
         [SerializeField] private Transform roomElementContainer;
         [SerializeField] private LoadedRoom loadedRoomObject;
+        [SerializeField] private RoomDoorObject roomDoorObjectPrefab;
         private Vector2Int spawnPosition;
         private int spawnRoomIndex = -1;
         [SerializeField] private Transform spawnPositionObject;
@@ -65,7 +66,7 @@ namespace Rooms {
             clearTileMaps();
             loadedRoomObject.reset();
             loadedRoomObject.setRoom(room);
-            room.load(tileMapDict,loadedRoomObject);
+            room.load(tileMapDict,loadedRoomObject,roomDoorObjectPrefab);
             Camera.main.GetComponent<RoomCameraControl>().setBounds(room.Bounds);
         }
 
