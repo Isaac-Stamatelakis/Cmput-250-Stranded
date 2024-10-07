@@ -8,12 +8,14 @@ public interface IInteractableGameObject {
     public void unhighlight();
     public string getInteractText();
     public Vector3 getPosition();
+    public bool isInteractable();
 }
 public abstract class InteractableGameObject<T> : MonoBehaviour, IInteractableGameObject where T : InteractableObject
 {
     [SerializeField] protected T interactableObject;
     [SerializeField] protected Material highlightShader;
     private Material defaultMaterial;
+    protected bool interactable = true;
     public virtual void Start() {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         defaultMaterial = spriteRenderer.material;
@@ -45,5 +47,10 @@ public abstract class InteractableGameObject<T> : MonoBehaviour, IInteractableGa
     public Vector3 getPosition()
     {
         return transform.position;
+    }
+
+    public bool isInteractable()
+    {
+        return interactable;
     }
 }

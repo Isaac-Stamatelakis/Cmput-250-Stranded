@@ -95,6 +95,7 @@ SpriteAtlas:
   - {fileID: 1309408167, guid: 596cf25c174ce9941978f30312d04be7, type: 3}
   - {fileID: 21300000, guid: 6824f5dc142b361458ef3ec6e6771019, type: 3}
   - {fileID: 21300000, guid: f202750d3f9eed34694a6bdfd3f37893, type: 3}
+  - {fileID: 21300000, guid: b748c9cdaaab07147804a29a36ae2b8b, type: 3}
   - {fileID: 21300000, guid: ffbda62ed92da8b40b81d02b4112ae17, type: 3}
   m_PackedSpriteNamesToIndex:
   - zombie_test
@@ -142,6 +143,7 @@ SpriteAtlas:
   - test_wall_3_0
   - lone_test
   - IMG_1169
+  - med_kit
   - test_floor_2
   m_RenderDataMap: {}
   m_Tag: SpriteAtlas

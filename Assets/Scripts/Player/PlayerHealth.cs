@@ -39,6 +39,13 @@ public class PlayerHealth : MonoBehaviour
             Die();
         }
     }
+
+    public void Heal(float amount) {
+        this.health += amount;
+        if (health > maxHealth) {
+            health = maxHealth;
+        }
+    }
     public void FixedUpdate() {
         if (invincibleFrames > 0) {
             invincibleFrames --;

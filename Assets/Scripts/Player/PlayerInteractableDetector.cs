@@ -16,7 +16,7 @@ namespace PlayerModule {
         }
         public void Update() {
             DatePlayer datePlayer = Player.Instance.DatePlayer;
-            if (currentObject != null) {
+            if (currentObject != null && currentObject.isInteractable()) {
                 InteractableUIController.Instance.display(InteractableDisplayType.Interactable,currentObject.getInteractText(),currentObject.getPosition());
                 datePlayer.setHighlight(false);
                 if (Input.GetKeyDown(KeyCode.E)) {
@@ -46,17 +46,17 @@ namespace PlayerModule {
             );
             IInteractableGameObject closestHit = GetClosestHit(hits);
             if (closestHit == null) {
-                if (currentObject != null) {
+                if (currentObject != null && currentObject.isInteractable()) {
                     currentObject.unhighlight();
-                    currentObject = null;
                 }
+                currentObject = null;
                 return;
             }
             
             if (closestHit.Equals(currentObject)) {
                 return;
             }
-            if (currentObject != null) {
+            if (currentObject != null && currentObject.isInteractable()) {
                 currentObject.unhighlight();
             }
             closestHit.highlight();

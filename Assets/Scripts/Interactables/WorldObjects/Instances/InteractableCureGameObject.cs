@@ -11,6 +11,6 @@ public class InteractableCureGameObject : InteractableGameObject<InteractableObj
 
     public override void interact()
     {
-        Debug.Log(name);
+        Debug.Log("TRIGGERING ENDING CUTSCENE");
     }
 }

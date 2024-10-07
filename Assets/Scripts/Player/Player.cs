@@ -24,6 +24,10 @@ namespace PlayerModule {
             this.transform.position = position;
             DatePlayer.transform.position = position;
         }
+
+        public void Heal(float amount) {
+            GetComponent<PlayerHealth>().Heal(amount);
+        }
     }
 
 }
