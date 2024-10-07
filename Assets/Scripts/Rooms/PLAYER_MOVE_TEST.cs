@@ -23,6 +23,7 @@ namespace PlayerModule {
 
         public void Update() {
             if (!Player.Instance.CanMove) {
+                rb.velocity = Vector2.zero;
                 return;
             }
             Vector3 moveDirection = Vector3.zero;

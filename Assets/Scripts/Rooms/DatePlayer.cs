@@ -72,6 +72,9 @@ public class DatePlayer : MonoBehaviour
         }
     }
     public void Talk() {
+        if (DialogUIController.Instance.ShowingDialog) {
+            return;
+        }
         DialogObject dialogObject = cycleDialogues();
         DialogUIController.Instance.DisplayDialogue(dialogObject);
     }

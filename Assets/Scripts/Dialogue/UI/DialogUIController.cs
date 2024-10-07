@@ -8,6 +8,7 @@ namespace Dialogue {
         [SerializeField] private DialogueBoxUI dialogueBoxUI;
         private static DialogUIController instance;
         public static DialogUIController Instance => instance;
+        public bool ShowingDialog => dialogueBoxUI.gameObject.activeInHierarchy;
         public void Awake() {
             instance = this;
         }
