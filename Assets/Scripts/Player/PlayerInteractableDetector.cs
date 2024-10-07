@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rooms;
 namespace PlayerModule {
     public class PlayerInteractableDetector : MonoBehaviour
     {
@@ -11,25 +12,28 @@ namespace PlayerModule {
         }
         public void FixedUpdate() {
             DetectInteractables();
+            
+        }
+        public void Update() {
+            DatePlayer datePlayer = Player.Instance.DatePlayer;
             if (currentObject != null) {
-                InteractableUIController.Instance.display(InteractableDisplayType.Interactable,currentObject.getInteractText());
+                InteractableUIController.Instance.display(InteractableDisplayType.Interactable,currentObject.getInteractText(),currentObject.getPosition());
+                datePlayer.setHighlight(false);
+                if (Input.GetKeyDown(KeyCode.E)) {
+                    currentObject.interact();
+                }
                 return;
             }
             bool nearDate = IsNearDate();
+            datePlayer.setHighlight(nearDate);
             if (nearDate) {
-                InteractableUIController.Instance.display(InteractableDisplayType.TalkToDate,"To Talk to Your Date");
+                InteractableUIController.Instance.display(InteractableDisplayType.TalkToDate,"Talk",datePlayer.transform.position);
+                if (Input.GetKeyDown(KeyCode.E)) {
+                    Player.Instance.DatePlayer.Talk();
+                }
                 return;
             }
             InteractableUIController.Instance.hide();
-        }
-
-        public void Update() {
-            if (currentObject == null) {
-                return;
-            }
-            if (Input.GetKeyDown(KeyCode.E)) {
-                currentObject.interact();
-            }
         }
 
         private void DetectInteractables() {
@@ -60,7 +64,9 @@ namespace PlayerModule {
         }
 
         private bool IsNearDate() {
-            return false;
+            DatePlayer datePlayer = Player.Instance.DatePlayer;
+            float distance = Vector2.Distance(transform.position,datePlayer.transform.position); // Use Vector2 to ignore z value
+            return distance < GlobalUtils.PLAYER_INTERACTABLE_DETECTION_RANGE;
         }
 
         private IInteractableGameObject GetClosestHit(RaycastHit2D[] hits) {

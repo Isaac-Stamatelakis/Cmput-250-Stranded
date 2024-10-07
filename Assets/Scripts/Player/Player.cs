@@ -7,7 +7,7 @@ namespace PlayerModule {
     {
         private static Player instance;
         public static Player Instance => instance;
-        public DatePlayer datePlayer;
+        public DatePlayer DatePlayer;
         private bool inCutscene;
         private bool inDialog;
         public bool CanMove => !inCutscene && !inDialog;
@@ -22,7 +22,7 @@ namespace PlayerModule {
         }
         public void SetPosition(Vector3 position) {
             this.transform.position = position;
-            datePlayer.transform.position = position;
+            DatePlayer.transform.position = position;
         }
     }
 

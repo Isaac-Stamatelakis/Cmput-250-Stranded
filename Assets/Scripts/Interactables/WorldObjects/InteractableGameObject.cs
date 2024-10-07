@@ -7,6 +7,7 @@ public interface IInteractableGameObject {
     public void highlight();
     public void unhighlight();
     public string getInteractText();
+    public Vector3 getPosition();
 }
 public abstract class InteractableGameObject<T> : MonoBehaviour, IInteractableGameObject where T : InteractableObject
 {
@@ -40,4 +41,9 @@ public abstract class InteractableGameObject<T> : MonoBehaviour, IInteractableGa
     }
 
     public abstract string getInteractText();
+
+    public Vector3 getPosition()
+    {
+        return transform.position;
+    }
 }

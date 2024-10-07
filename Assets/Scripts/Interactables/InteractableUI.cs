@@ -7,14 +7,12 @@ using TMPro;
 
 public class InteractableUI : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI textElement;
-    private string displayText;
-    public void Start() {
-        displayText = textElement.text;
-    }
+    [SerializeField] private TextMeshProUGUI contentText;
+    [SerializeField] private TextMeshProUGUI keyText;
     public void display(string key, string text) {
         gameObject.SetActive(true);
-        textElement.text = displayText.Replace("[KEY]",key).Replace("[TEXT]",text);
+        contentText.text = text;
+        keyText.text = key;
     }
     public void hide() {
         gameObject.SetActive(false);
