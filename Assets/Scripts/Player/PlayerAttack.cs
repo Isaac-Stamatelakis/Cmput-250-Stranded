@@ -1,20 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public GameObject attackArea = default; // The ruler or attack area
+    public GameObject attackArea = default;
+    public Image weaponImage;
 
     private bool attacking = false;
-
-    private float timeToAttack = 0.25f; // Duration for how long the ruler/attack area stays active
+    private bool attackPerformed = false;
+    public Weapon weapon;
     private float timer = 0f;
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Left-click
+        if (Input.GetMouseButtonDown(0) && !attackPerformed)
         {
             Attack();
         }
@@ -23,18 +24,33 @@ public class PlayerAttack : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            if (timer >= timeToAttack)
+            if (timer >= weapon.attackTime)
             {
                 timer = 0;
                 attacking = false;
-                attackArea.SetActive(false); // Disable attack area after time runs out
+                attackArea.SetActive(false);
+                weaponImage.gameObject.SetActive(false);
+
+                
+                AttackArea attackAreaScript = attackArea.GetComponent<AttackArea>();
+                if (attackAreaScript != null)
+                {
+                    attackAreaScript.ResetDamageFlag();
+                }
+
+                attackPerformed = false;
             }
+
         }
     }
 
     private void Attack()
     {
         attacking = true;
-        attackArea.SetActive(true); // Show the ruler or attack area
+        attackPerformed = true;
+        attackArea.SetActive(true);
+
+        weaponImage.sprite = weapon.artwork;
+        weaponImage.gameObject.SetActive(true);
     }
 }
