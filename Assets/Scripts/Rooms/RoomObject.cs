@@ -7,7 +7,7 @@ namespace Rooms {
         [SerializeField] private MeshRenderer textIndicator;
 
         public void Start() {
-            if (textIndicator != null) {
+            if (textIndicator != null && textIndicator.gameObject != gameObject) {
                 textIndicator.gameObject.SetActive(false);
             }
         }

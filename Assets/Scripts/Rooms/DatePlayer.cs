@@ -97,6 +97,9 @@ public class DatePlayer : MonoBehaviour
     }
 
     public void setHighlight(bool highlight) {
+        if (spriteRenderer==null) {
+            return;
+        }
         spriteRenderer.material = highlight ? HighlightShader : defaultShader;
     }
 

@@ -20,6 +20,7 @@ public class NewLevelInteractableObject : InteractableGameObject
 
     public override void interact()
     {
+        LevelManager.getInstance().CurrentLevelPrefab = newLevel;
         SceneManager.LoadScene("LevelScene");
     }
     public override void highlight()
@@ -33,6 +34,6 @@ public class NewLevelInteractableObject : InteractableGameObject
     }
     public override bool isInteractable()
     {
-        return Level.Instance.CurrentRoomClear();
+        return LevelManager.getInstance().CurrentLevel.CurrentRoomClear();
     }
 }

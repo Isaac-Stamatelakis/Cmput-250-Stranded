@@ -53,7 +53,7 @@ namespace Rooms {
                 return;
             }
             Room room = roomDoor.Room;
-            Level.Instance.loadRoom(roomDoor.Connection.Room);
+            LevelManager.getInstance().CurrentLevel.loadRoom(roomDoor.Connection.Room);
             Vector3 spawnPosition = roomDoor.Connection.getEnterPosition(playerTransform.position);
             Player.Instance.SetPosition(spawnPosition);
         }

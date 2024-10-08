@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelSceneLoader : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
+namespace Rooms {
+    public class LevelSceneLoader : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public Level defaultLevel;
+        public void Start() {
+            LevelManager levelManager = LevelManager.getInstance();
+            if (levelManager.CurrentLevelPrefab == null) {
+                levelManager.CurrentLevelPrefab = defaultLevel;
+            }
+            Level level = GameObject.Instantiate(levelManager.CurrentLevelPrefab);
+            levelManager.CurrentLevel = level;
+            level.Load();
+            Debug.Log($"Level {level.name} Loaded");
+            GameObject.Destroy(gameObject);
+        }
     }
 }
+

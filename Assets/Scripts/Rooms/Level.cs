@@ -15,19 +15,14 @@ namespace Rooms {
         [SerializeField] private Transform roomElementContainer;
         [SerializeField] private LoadedRoom loadedRoomObject;
         [SerializeField] private RoomDoorObject roomDoorObjectPrefab;
+        [SerializeField] private DatePlayer datePlayer;
         private Vector2Int spawnPosition;
         private int spawnRoomIndex = -1;
         [SerializeField] private Transform spawnPositionObject;
         private List<Room> rooms = new List<Room>();
         private Dictionary<TileMapLayer, Tilemap> tileMapDict;
         private Dictionary<Vector2Int, RoomObject> positionRoomObjectCollection; 
-        private static Level instance;
-        public static Level Instance => instance;
-        public void Awake() {
-            instance = this;
-        }
-
-        public void Start() {
+        public void Load() {
             tileMapDict = new Dictionary<TileMapLayer, Tilemap>();
             tileMapDict[TileMapLayer.Floor] = floorTileMap;
             tileMapDict[TileMapLayer.Wall] = wallTileMap;
@@ -38,6 +33,7 @@ namespace Rooms {
             connectRoomDoors();
             deactivateRoomElements();
             loadRoom(rooms[spawnRoomIndex]);
+            Player.Instance.DatePlayer = datePlayer;
         }
 
         public bool CurrentRoomClear() {
