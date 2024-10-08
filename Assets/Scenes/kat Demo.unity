@@ -106,15 +106,15 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 0.8
     agentHeight: 2
-    agentSlope: 45
+    agentSlope: 36.7
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.26666668
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -4100,7 +4100,7 @@ GameObject:
   - component: {fileID: 1362476185}
   m_Layer: 7
   m_Name: WallTileMap
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17249,9 +17249,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039d291b025264989b09dfe3be100da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followSpeed: 6
-  followDistance: 1
-  stopDistance: 6
+  boostSpeed: 20
+  followDistance: 2
+  stopDistance: 1
+  maxDistance: 10
 --- !u!58 &1578191240
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -54904,7 +54905,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.4375
+  orthographic size: 11.125
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -55086,6 +55087,7 @@ GameObject:
   - component: {fileID: 8891646704651383394}
   - component: {fileID: 8891646704651383395}
   - component: {fileID: 8891646704651383396}
+  - component: {fileID: 8891646704651383397}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -55177,9 +55179,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0000009536743, y: 0.037273288}
   serializedVersion: 2
-  m_Radius: 0.45
+  m_Radius: 0.7854605
 --- !u!114 &8891646704651383389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55193,6 +55195,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerWalkSFX: {fileID: 1397159169}
+  isMoving: 0
+  isRunning: 0
   walkSpeed: 10
   runSpeed: 20
 --- !u!50 &8891646704651383391
@@ -55278,3 +55282,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackArea: {fileID: 384720324584867355}
+--- !u!61 &8891646704651383397
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8891646704651383361}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.14909315}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.4599998, y: 2.5071483}
+    newSize: {x: 0.48, y: 0.48}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.2236023, y: 2.208962}
+  m_EdgeRadius: 0
