@@ -1,80 +1,79 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
 using Rooms;
-public class PLAYER_MOVE_TEST : MonoBehaviour
-{
-    Rigidbody2D rb;
-    
-    private bool isMoving = false;
-    private bool isRunning = false;
 
-    public float walkSpeed = 10f;
-    public float runSpeed = 20f;
+namespace PlayerModule {
+    public class PLAYER_MOVE_TEST : MonoBehaviour
+    {
+        Rigidbody2D rb;
+        SpriteRenderer spriteRenderer;
+        public PlayerWalkSFX playerWalkSFX;
 
-    public void Start() {
-        rb = GetComponent<Rigidbody2D>();
-    }
+        public bool isMoving = false;   
+        public bool isRunning = false;  
 
-    public void Update() {
-        Vector3 moveDirection = Vector3.zero;
+        public float walkSpeed = 10f;
+        public float runSpeed = 20f;
 
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-        {
-            moveDirection += Vector3.up;
-        }
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-        {
-            moveDirection += Vector3.down;
-        }
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            moveDirection += Vector3.left;
-        }
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            moveDirection += Vector3.right;
+        public void Start() {
+            rb = GetComponent<Rigidbody2D>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
-        isRunning = Input.GetKey(KeyCode.R);
-        
-        float currentSpeed = isRunning ? runSpeed : walkSpeed;
-        
-        rb.velocity = moveDirection.normalized * currentSpeed;
+        public void Update() {
+            if (!Player.Instance.CanMove) {
+                return;
+            }
 
-        if (moveDirection != Vector3.zero)
-        {
-            if (!isMoving)
+            Vector3 moveDirection = Vector3.zero;
+
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
+                moveDirection += Vector3.up;
+            }
+            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+            {
+                moveDirection += Vector3.down;
+            }
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            {
+                moveDirection += Vector3.left;
+                spriteRenderer.flipX = true;
+            }
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            {
+                moveDirection += Vector3.right;
+                spriteRenderer.flipX= false;
+            }
+
+            isRunning = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+
+            float currentSpeed = isRunning ? runSpeed : walkSpeed;
+
+            rb.velocity = moveDirection.normalized * currentSpeed;
+
+            isMoving = moveDirection != Vector3.zero;
+            if (isMoving) {
                 if (isRunning)
                 {
-                    AudioController.Instance.PlayPlayerRunning();
+                    playerWalkSFX.playSound(PlayerWalkSFX.PlayerMovementSound.Run);
                 }
                 else
                 {
-                    AudioController.Instance.PlayPlayerWalking();
+                    playerWalkSFX.playSound(PlayerWalkSFX.PlayerMovementSound.Walk);
                 }
-                isMoving = true;
             }
         }
-        else
+
+        void OnCollisionEnter2D(Collision2D collision)
         {
-            if (isMoving)
-            {
-                AudioController.Instance.StopPlayerWalking();
-                isMoving = false;
+            RoomDoorObject roomDoorObject = collision.gameObject.GetComponent<RoomDoorObject>();
+
+            if (roomDoorObject != null) {
+                roomDoorObject.switchRoom(transform);
             }
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        RoomDoorObject roomDoorObject = collision.gameObject.GetComponent<RoomDoorObject>();
-        if (roomDoorObject != null) {
-            roomDoorObject.switchRoom(transform);
-        }
-    }
 }
-
