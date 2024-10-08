@@ -3,58 +3,59 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rooms;
 
-namespace PlayerModule {
+namespace PlayerModule
+{
     public class PLAYER_MOVE_TEST : MonoBehaviour
     {
         Rigidbody2D rb;
         SpriteRenderer spriteRenderer;
         public PlayerWalkSFX playerWalkSFX;
-        
-        private bool isMoving = false;
-        private bool isRunning = false;
+
+        public bool isMoving = false;   
+        public bool isRunning = false;  
 
         public float walkSpeed = 10f;
         public float runSpeed = 20f;
 
-        public void Start() {
+        Vector2 moveDirection;
+
+        public void Start()
+        {
             rb = GetComponent<Rigidbody2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
-
         public void Update() {
             if (!Player.Instance.CanMove) {
                 rb.velocity = Vector2.zero;
-                return;
             }
-            Vector3 moveDirection = Vector3.zero;
+            moveDirection = Vector2.zero;
 
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
-                moveDirection += Vector3.up;
+                moveDirection += Vector2.up;
             }
             if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
-                moveDirection += Vector3.down;
+                moveDirection += Vector2.down;
             }
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
-                moveDirection += Vector3.left;
+                moveDirection += Vector2.left;
                 spriteRenderer.flipX = true;
             }
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
-                moveDirection += Vector3.right;
-                spriteRenderer.flipX= false;
+                moveDirection += Vector2.right;
+                spriteRenderer.flipX = false;
             }
 
-            isRunning = Input.GetKey(KeyCode.R);
-            
+            isRunning = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
             float currentSpeed = isRunning ? runSpeed : walkSpeed;
-            
-            rb.velocity = moveDirection.normalized * currentSpeed;
+            moveDirection = moveDirection.normalized * currentSpeed;
 
-            isMoving = moveDirection != Vector3.zero;
-            if (isMoving) {
+            isMoving = moveDirection != Vector2.zero;
+            if (isMoving)
+            {
                 if (isRunning)
                 {
                     playerWalkSFX.playSound(PlayerWalkSFX.PlayerMovementSound.Run);
@@ -64,19 +65,24 @@ namespace PlayerModule {
                     playerWalkSFX.playSound(PlayerWalkSFX.PlayerMovementSound.Walk);
                 }
             }
-            
+        }
+
+        void FixedUpdate()
+        {
+            if (moveDirection != Vector2.zero)
+            {
+                rb.MovePosition(rb.position + moveDirection * Time.fixedDeltaTime);
+            }
         }
 
         void OnCollisionEnter2D(Collision2D collision)
         {
             RoomDoorObject roomDoorObject = collision.gameObject.GetComponent<RoomDoorObject>();
-            
-            if (roomDoorObject != null) {
+
+            if (roomDoorObject != null)
+            {
                 roomDoorObject.switchRoom(transform);
             }
         }
     }
-
 }
-
-
