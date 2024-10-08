@@ -8,6 +8,8 @@ using Rooms;
 
 public class DatePlayer : MonoBehaviour
 {
+    private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
     public float followSpeed = 8f;      
     public Material HighlightShader;
     private Material defaultShader;
@@ -21,7 +23,6 @@ public class DatePlayer : MonoBehaviour
     public float maxDistance = 10f;     
 
     private Vector2 playerOffset = new Vector2(0, -0.5f); 
-    private bool isCollidingWithPlayer = false;
 
     private Vector2 lastPosition;         
     private int stuckFrames = 0;          
