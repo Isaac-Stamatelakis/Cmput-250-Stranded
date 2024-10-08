@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Tech Demo.unity
+    path: Assets/Scenes/Nina Copy.unity
     guid: deb3cb38da21c5445984b49724a33360
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: f2eeeca86c7a54d3c85c74d0159f2b89, type: 2}

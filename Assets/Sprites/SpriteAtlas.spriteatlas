@@ -51,6 +51,7 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 53563401cc113d54bbe4cee2bb0f76f1, type: 3}
+  - {fileID: 21300000, guid: 735a69f249799084286decddb706f774, type: 3}
   - {fileID: 21300000, guid: ffb12b03355ebc041a5f6f2343fc146d, type: 3}
   - {fileID: 21300000, guid: 5b5bf825b98f7824a852a8597c7b335f, type: 3}
   - {fileID: 21300000, guid: 04c15376bed926548a4133baaa3b20e9, type: 3}
@@ -87,8 +88,8 @@ SpriteAtlas:
   - {fileID: -1219781853, guid: 233109c75e08c5b449616c0b1edb7c2e, type: 3}
   - {fileID: 1898907337, guid: 233109c75e08c5b449616c0b1edb7c2e, type: 3}
   - {fileID: -501653047, guid: 233109c75e08c5b449616c0b1edb7c2e, type: 3}
-  - {fileID: 21300000, guid: 6c1e23984ccd62f42ab09d36ab680d0c, type: 3}
-  - {fileID: 21300000, guid: 8cf396096aea22243babff7d3fd69bc3, type: 3}
+  - {fileID: 21300000, guid: 612479b8375f6bb40baf0c69b1a0a93a, type: 3}
+  - {fileID: 21300000, guid: 93cb60d8c6415a649b4a5fef6f9aaed6, type: 3}
   - {fileID: 21300000, guid: 9bff6a3a92556dd4883b3f1705b6e7b0, type: 3}
   - {fileID: 21300000, guid: 1210b5aa85466204b82b32e911c68ec0, type: 3}
   - {fileID: 21300000, guid: a6ade97b79b183f44bff0d31bc33450d, type: 3}
@@ -100,6 +101,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: ffbda62ed92da8b40b81d02b4112ae17, type: 3}
   m_PackedSpriteNamesToIndex:
   - zombie_test
+  - ruler
   - void_back
   - test_floor
   - down_only
@@ -138,6 +140,8 @@ SpriteAtlas:
   - wall_test_2_3
   - stair_test
   - cure
+  - textbook
+  - compass
   - test_zombie_girl (1)
   - player_test
   - test_floor_3
