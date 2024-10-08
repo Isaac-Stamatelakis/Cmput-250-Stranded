@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PlayerModule;
+using Dialogue;
+using System.Linq;
 using Rooms;
 
 public class DatePlayer : MonoBehaviour
 {
+    public float followSpeed = 8f;      
+    public Material HighlightShader;
+    private Material defaultShader;
+    private bool isCollidingWithPlayer = false;  
+    public List<DialogObject> RandomDialogues;
+    private List<DialogObject> selectableRandomDialogues;
+    private Queue<DialogObject> unselectableRandomDialogues;
     public float boostSpeed = 20f;
     public float followDistance = 2f;     
     public float stopDistance = 1f;      
     public float maxDistance = 10f;     
 
-    private Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer;
     private Vector2 playerOffset = new Vector2(0, -0.5f); 
     private bool isCollidingWithPlayer = false;
 
@@ -24,6 +31,8 @@ public class DatePlayer : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        SetRandomDialogues(RandomDialogues);
+        this.defaultShader = spriteRenderer.material;
         lastPosition = transform.position; 
     }
 
@@ -110,5 +119,67 @@ public class DatePlayer : MonoBehaviour
         {
             isCollidingWithPlayer = false;
         }
+    }
+    public void Talk() {
+        if (DialogUIController.Instance.ShowingDialog) {
+            return;
+        }
+        DialogObject dialogObject = cycleDialogues();
+        DialogUIController.Instance.DisplayDialogue(dialogObject);
+    }
+
+    private DialogObject cycleDialogues() {
+        if (RandomDialogues.Count == 0) {
+            return null;
+        }
+        if (RandomDialogues.Count == 1) {
+            return RandomDialogues[0];
+        }
+        int ran = UnityEngine.Random.Range(0,selectableRandomDialogues.Count);
+        DialogObject randomlySelected = selectableRandomDialogues[ran];
+        selectableRandomDialogues.RemoveAt(ran);
+        unselectableRandomDialogues.Enqueue(randomlySelected);
+
+        DialogObject newlySelectable = unselectableRandomDialogues.Dequeue();
+        selectableRandomDialogues.Add(newlySelectable);
+        return randomlySelected;
+    }
+
+    public void setHighlight(bool highlight) {
+        if (spriteRenderer==null) {
+            return;
+        }
+        spriteRenderer.material = highlight ? HighlightShader : defaultShader;
+    }
+
+    private void ShuffleList(List<DialogObject> list)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            var temp = list[i];
+            int randomIndex = Random.Range(i, list.Count);
+            list[i] = list[randomIndex];
+            list[randomIndex] = temp;
+        }
+    }
+
+    public void SetRandomDialogues(List<DialogObject> dialogObjects) {
+        this.RandomDialogues = dialogObjects;
+        if (dialogObjects == null || dialogObjects.Count == 1) {
+            return;
+        }
+        List<DialogObject> shuffledList = new List<DialogObject>(dialogObjects);
+        ShuffleList(shuffledList);
+
+        selectableRandomDialogues = new List<DialogObject>();
+        unselectableRandomDialogues = new Queue<DialogObject>();
+        for (int i = 0; i < shuffledList.Count; i++) {
+            if (i % 2 == 0) {
+                selectableRandomDialogues.Add(shuffledList[i]);
+            } else {
+                unselectableRandomDialogues.Enqueue(shuffledList[i]);
+            }
+        }
+
     }
 }

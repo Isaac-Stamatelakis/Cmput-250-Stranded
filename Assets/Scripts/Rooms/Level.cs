@@ -14,18 +14,15 @@ namespace Rooms {
         [SerializeField] private Tilemap doorTileMap;
         [SerializeField] private Transform roomElementContainer;
         [SerializeField] private LoadedRoom loadedRoomObject;
+        [SerializeField] private RoomDoorObject roomDoorObjectPrefab;
+        [SerializeField] private DatePlayer datePlayer;
         private Vector2Int spawnPosition;
         private int spawnRoomIndex = -1;
         [SerializeField] private Transform spawnPositionObject;
         private List<Room> rooms = new List<Room>();
         private Dictionary<TileMapLayer, Tilemap> tileMapDict;
-        private Dictionary<Vector2Int, Transform> positionRoomElementCollectionDict; 
-        private static Level instance;
-        public static Level Instance => instance;
-        public void Awake() {
-            instance = this;
-        }
-        public void Start() {
+        private Dictionary<Vector2Int, RoomObject> positionRoomObjectCollection; 
+        public void Load() {
             tileMapDict = new Dictionary<TileMapLayer, Tilemap>();
             tileMapDict[TileMapLayer.Floor] = floorTileMap;
             tileMapDict[TileMapLayer.Wall] = wallTileMap;
@@ -34,7 +31,13 @@ namespace Rooms {
             loadRoomElements();
             generateRooms();
             connectRoomDoors();
+            deactivateRoomElements();
             loadRoom(rooms[spawnRoomIndex]);
+            Player.Instance.DatePlayer = datePlayer;
+        }
+
+        public bool CurrentRoomClear() {
+            return loadedRoomObject.isClear();
         }
 
         private bool doorsIntersectWall(RoomDoor a, RoomDoor b) {
@@ -64,10 +67,45 @@ namespace Rooms {
         public void loadRoom(Room room) {
             clearTileMaps();
             loadedRoomObject.reset();
-            loadedRoomObject.setRoom(room);
-            room.load(tileMapDict,loadedRoomObject);
+            loadRoomTileMap(room);
+            loadRoomDoors(room);
+            loadRoomObject(room);
+            loadedRoomObject.loadRoom(room);
             Camera.main.GetComponent<RoomCameraControl>().setBounds(room.Bounds);
         }
+
+        private void loadRoomTileMap(Room room) {
+            RoomBounds bounds = room.Bounds;
+            foreach (var kvp in room.LayerTileDict) {
+                Tilemap tilemap = tileMapDict[kvp.Key];
+                TileBase[,] tiles = kvp.Value;
+                for (int x = 0; x < tiles.GetLength(0); x++) {
+                    for (int y = 0; y < tiles.GetLength(1); y++) {
+                        tilemap.SetTile(new Vector3Int(x+bounds.XMin,y+bounds.YMin,0),tiles[x,y]);
+                    }
+                }
+            }
+        }
+
+        private void loadRoomDoors(Room room) {
+            foreach (RoomDoor roomDoor in room.RoomDoors) {
+                if (roomDoor.Connection != null) {
+                    RoomDoorObject roomDoorObject = GameObject.Instantiate(roomDoorObjectPrefab);
+                    roomDoorObject.transform.SetParent(loadedRoomObject.doorContainer,false);
+                    roomDoorObject.setRoomDoor(roomDoor);  
+                }
+            }
+        }
+
+        private void loadRoomObject(Room room) {
+            if (room.RoomObjectContainer != null) {
+                room.RoomObjectContainer.gameObject.SetActive(true);
+            }
+        }
+
+        
+
+
 
         private void connectRoomDoors() {
             for (int i = 0; i < rooms.Count; i++) {
@@ -116,14 +154,21 @@ namespace Rooms {
         }
 
         private void loadRoomElements() {
-            positionRoomElementCollectionDict = new Dictionary<Vector2Int, Transform>();
+            positionRoomObjectCollection = new Dictionary<Vector2Int, RoomObject>();
             for (int i = 0; i < roomElementContainer.childCount; i++) {
                 Transform child = roomElementContainer.GetChild(i);
+                RoomObject roomObject = child.GetComponent<RoomObject>();
+                if (roomObject == null) {
+                    continue;
+                }
                 Vector2Int position = new Vector2Int((int)child.position.x,(int)child.position.y);
-                RoomElement[] roomElements = child.GetComponentsInChildren<RoomElement>();
-                child.GetComponent<MeshRenderer>().enabled = false;
-                positionRoomElementCollectionDict[position] = child;
-                child.gameObject.SetActive(false);
+                positionRoomObjectCollection[position] = roomObject;
+            }
+        }
+
+        private void deactivateRoomElements() {
+            foreach (RoomObject roomObject in positionRoomObjectCollection.Values) {
+                roomObject.gameObject.SetActive(false);
             }
         }
 
@@ -155,7 +200,7 @@ namespace Rooms {
             queue.Enqueue(start);
             RoomBounds roomBounds = new RoomBounds(start);
             Dictionary<Vector2Int, List<TileBase>> positionTileDict = new Dictionary<Vector2Int, List<TileBase>>();
-            Transform roomElementCollection = null;
+            RoomObject roomElementCollection = null;
             while (queue.Count > 0) {
                 Vector2Int current = queue.Dequeue();
                 int x = current.x - bounds.xMin;
@@ -171,8 +216,8 @@ namespace Rooms {
                 if (seen[x,y]) {
                     continue;
                 }
-                if (positionRoomElementCollectionDict.ContainsKey(current)) {
-                    roomElementCollection = positionRoomElementCollectionDict[current];
+                if (positionRoomObjectCollection.ContainsKey(current)) {
+                    roomElementCollection = positionRoomObjectCollection[current];
                 }
                 seen[x,y] = true;
                 if (wallTileMap.GetTile(vector) == null && doorTileMap.GetTile(vector) == null) {
@@ -233,7 +278,6 @@ namespace Rooms {
                     }
                 }
                 rooms.Add(new Room(roomBounds,layerTileDict,roomDoors,roomElementCollection));
-                
             }
         }
 
@@ -294,7 +338,9 @@ namespace Rooms {
         
 
         public void FixedUpdate() {
-            
+            if (!loadedRoomObject.Room.isClear() && loadedRoomObject.isClear()) {
+                loadedRoomObject.setRoomClear();
+            }
         }
 
     }

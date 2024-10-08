@@ -24,14 +24,10 @@ namespace PlayerModule
             rb = GetComponent<Rigidbody2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
-
-        public void Update()
-        {
-            if (!Player.Instance.CanMove)
-            {
-                return;
+        public void Update() {
+            if (!Player.Instance.CanMove) {
+                rb.velocity = Vector2.zero;
             }
-
             moveDirection = Vector2.zero;
 
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))

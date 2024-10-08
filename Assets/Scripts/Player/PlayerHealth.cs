@@ -55,11 +55,16 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public void FixedUpdate()
-    {
-        if (invincibleFrames > 0)
-        {
-            invincibleFrames--;
+    public void Heal(float amount) {
+        this.health += amount;
+        if (health > maxHealth) {
+            health = maxHealth;
+        }
+        playerUI.displayHealth(health,maxHealth);
+    }
+    public void FixedUpdate() {
+        if (invincibleFrames > 0) {
+            invincibleFrames --;
         }
     }
 
