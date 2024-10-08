@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PlayerModule;
-public class MedKitObject : InteractableGameObject<InteractableObject>
+public class MedKitObject : InteractableGameObject
 {
     public override string getInteractText()
     {

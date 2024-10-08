@@ -20,11 +20,7 @@ namespace Rooms {
                 boxCollider2D.size = size;
             }
             transform.position = roomDoor.getMidpoint()+new Vector3(0.5f,0.5f);
-            if (roomDoor.Connection.Room.isClear()) {
-                light2D.color = Color.yellow;
-            } else {
-                light2D.color = Color.black;
-            }
+            setClear(roomDoor.Room.isClear());
             Direction direction = roomDoor.Direction;
             switch (direction) {
                 case Direction.Down:
@@ -40,7 +36,17 @@ namespace Rooms {
                     light2D.transform.localPosition = Vector3.left;
                     break;
             }
+        }
 
+        public void setClear(bool roomClear) {
+            bool connectionClear = roomDoor.Connection.Room.isClear();
+            if (connectionClear && roomClear) {
+                light2D.color = Color.green;
+            } else if (connectionClear || roomClear) {
+                light2D.color = Color.yellow;
+            } else {
+                light2D.color = Color.black;
+            }
         }
         public void switchRoom(Transform playerTransform) {
             if (!roomDoor.Room.isClear() && !roomDoor.Connection.Room.isClear()) {

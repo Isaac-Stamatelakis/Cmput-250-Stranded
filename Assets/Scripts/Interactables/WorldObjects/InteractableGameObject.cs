@@ -10,24 +10,19 @@ public interface IInteractableGameObject {
     public Vector3 getPosition();
     public bool isInteractable();
 }
-public abstract class InteractableGameObject<T> : MonoBehaviour, IInteractableGameObject where T : InteractableObject
+public abstract class InteractableGameObject : MonoBehaviour, IInteractableGameObject
 {
-    [SerializeField] protected T interactableObject;
+    
     [SerializeField] protected Material highlightShader;
-    private Material defaultMaterial;
+    protected Material defaultMaterial;
     protected bool interactable = true;
     public virtual void Start() {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         defaultMaterial = spriteRenderer.material;
-        if (spriteRenderer == null) {
-            Debug.LogWarning($"Interactable Object {name} has no Sprite Renderer");
-        } else {
-            spriteRenderer.sprite = interactableObject.getSprite();
-        }
     }
     public abstract void interact();
 
-    public void highlight()
+    public virtual void highlight()
     {
         if (highlightShader != null) {
             GetComponent<SpriteRenderer>().material = highlightShader;
@@ -35,7 +30,7 @@ public abstract class InteractableGameObject<T> : MonoBehaviour, IInteractableGa
         
     }
 
-    public void unhighlight()
+    public virtual void unhighlight()
     {
         if (highlightShader != null) {
             GetComponent<SpriteRenderer>().material = defaultMaterial;
@@ -49,7 +44,7 @@ public abstract class InteractableGameObject<T> : MonoBehaviour, IInteractableGa
         return transform.position;
     }
 
-    public bool isInteractable()
+    public virtual bool isInteractable()
     {
         return interactable;
     }

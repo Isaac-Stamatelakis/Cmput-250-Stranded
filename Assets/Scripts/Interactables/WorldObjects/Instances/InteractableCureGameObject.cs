@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractableCureGameObject : InteractableGameObject<InteractableObject>
+public class InteractableCureGameObject : InteractableGameObject
 {
     public override string getInteractText()
     {

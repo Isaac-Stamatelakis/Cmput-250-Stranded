@@ -87,6 +87,9 @@ namespace PlayerModule {
                 if (hitInteractableGameObjects.Length > 1) {
                     Debug.LogWarning($"Interactable Game Object {hits[i].collider.name} has multiple interactable components");
                 }
+                if (!hitInteractableGameObject.isInteractable()) {
+                    continue;
+                }
                 float distance = Vector3.Distance(transform.position,hits[i].transform.position);
                 bool closest = distance < closestDistance;
                 if (closest) {
