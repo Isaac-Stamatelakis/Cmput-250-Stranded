@@ -12,7 +12,13 @@ namespace PlayerModule {
         }
         public void FixedUpdate() {
             DetectInteractables();
-            
+        }
+
+        public void OnCollisionEnter2D(Collision2D collider2D) {
+            PickupObject pickupObject = collider2D.gameObject.GetComponent<PickupObject>();
+            if (pickupObject != null) {
+                pickupObject.pickup();
+            }
         }
         public void Update() {
             DatePlayer datePlayer = Player.Instance.DatePlayer;
