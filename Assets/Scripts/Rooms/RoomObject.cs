@@ -20,6 +20,7 @@ namespace Rooms {
                 RoomZombieSpawner roomZombieSpawner = child.GetComponent<RoomZombieSpawner>();
                 if (roomZombieSpawner != null) {
                     spawnInstructions.AddRange(roomZombieSpawner.GetSpawnInstructions());
+                    GameObject.Destroy(roomZombieSpawner.gameObject);
                     continue;
                 }
                 // This method is not recommended to use, use room zombie spawners instead

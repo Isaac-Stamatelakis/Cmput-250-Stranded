@@ -22,30 +22,34 @@ namespace Rooms {
             transform.position = roomDoor.getMidpoint()+new Vector3(0.5f,0.5f);
             setClear(roomDoor.Room.isClear());
             Direction direction = roomDoor.Direction;
+            
             switch (direction) {
                 case Direction.Down:
-                    light2D.transform.localPosition = Vector3.up;
+                    light2D.transform.localPosition = Vector3.down/2f;
+                    light2D.transform.rotation = Quaternion.Euler(0f, 0f, 180f);
                     break;
                 case Direction.Up:
-                    light2D.transform.localPosition = Vector3.down;
+                    light2D.transform.localPosition = Vector3.up/2f;
                     break;
                 case Direction.Right:
-                    light2D.transform.localPosition = Vector3.right;
+                    light2D.transform.localPosition = Vector3.left/2f;
+                    light2D.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
                     break;
                 case Direction.Left:
-                    light2D.transform.localPosition = Vector3.left;
+                    light2D.transform.localPosition = Vector3.right/2f;
+                    light2D.transform.rotation = Quaternion.Euler(0f, 0f, 270f);
                     break;
             }
         }
 
         public void setClear(bool roomClear) {
             bool connectionClear = roomDoor.Connection.Room.isClear();
-            if (connectionClear && roomClear) {
+            if (connectionClear) {
                 light2D.color = Color.green;
-            } else if (connectionClear || roomClear) {
-                light2D.color = Color.yellow;
-            } else {
+            } else if (!connectionClear && !roomClear) {
                 light2D.color = Color.black;
+            } else {
+                light2D.color = Color.red;
             }
         }
         public void switchRoom(Transform playerTransform) {
