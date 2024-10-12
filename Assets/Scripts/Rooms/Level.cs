@@ -237,7 +237,7 @@ namespace Rooms {
                     }
                     return;
                 }
-                roomBounds.expand(1); // Expand to include walls & doors
+                //roomBounds.expand(1); // Expand to include walls & doors
                 HashSet<Vector2Int> seenBorder = new HashSet<Vector2Int>();
                 List<RoomDoor> roomDoors = new List<RoomDoor>();
                 // Depth first search the border of the room to find any gaps and doors
@@ -259,6 +259,7 @@ namespace Rooms {
                         continue;
                     }
                     DFSBorder(kvp.Key,roomBounds,null,seenBorder, positionTileDict, roomDoors);
+                    // Found a tile on the border. Since the border is connected we can break after
                     break;
                     
                 }
@@ -289,7 +290,7 @@ namespace Rooms {
             Dictionary<Vector2Int, List<TileBase>> positionTileDict,
             List<RoomDoor> roomDoors
             ) {
-            if (current.x < roomBounds.XMin || current.x > roomBounds.XMax || current.y < roomBounds.YMin || current.y > roomBounds.YMax || seenBorder.Contains(current)) {
+            if (seenBorder.Contains(current)) {
                 return;
             }
             seenBorder.Add(current);
@@ -299,6 +300,7 @@ namespace Rooms {
             if (!wallTile && !doorTile) {
                 return;
             }
+            roomBounds.expand(current);
             if (doorTile) {
                 if (roomDoors.Count == 0) {
                     roomDoors.Add(new RoomDoor(vector));
