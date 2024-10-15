@@ -10,6 +10,7 @@ namespace PlayerModule
         Rigidbody2D rb;
         SpriteRenderer spriteRenderer;
         public PlayerWalkSFX playerWalkSFX;
+        public Animator animator;
 
         public bool isMoving = false;   
         public bool isRunning = false;  
@@ -25,44 +26,71 @@ namespace PlayerModule
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
         public void Update() {
+
             moveDirection = Vector2.zero;
             if (!Player.Instance.CanMove) {
                 return;
             }
-            
+            moveDirection = Vector2.zero;
 
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
-                moveDirection += Vector2.up;
+                setAnimationsFalse();
             }
-            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+            else if (moveUp)
+            {
+                moveDirection += Vector2.up;
+                setAnimationsFalse();
+                animator.SetBool("isBack", true);
+            }
+            else if (moveDown)
             {
                 moveDirection += Vector2.down;
+                setAnimationsFalse();
+                animator.SetBool("isForwards", true);
             }
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            if (moveLeft && moveRight)
+            {
+                setAnimationsFalse();
+            }
+            else if (moveLeft)
             {
                 moveDirection += Vector2.left;
-                spriteRenderer.flipX = true;
+                setAnimationsFalse();
+                animator.SetBool("isLeft", true);
             }
-            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            else if (moveRight)
             {
                 moveDirection += Vector2.right;
-                spriteRenderer.flipX = false;
+                setAnimationsFalse();
+                animator.SetBool("isRight", true);
             }
-
+            if (!moveUp && !moveDown && !moveLeft && !moveRight)
+            {
+                setAnimationsFalse();
+            }
             isRunning = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
             float currentSpeed = isRunning ? runSpeed : walkSpeed;
-            moveDirection = moveDirection.normalized * currentSpeed;
+            if (moveDirection != Vector2.zero)
+            {
+                moveDirection = moveDirection.normalized * currentSpeed;
+            }
+            else
+            {
+                moveDirection = Vector2.zero;
+            }
 
             isMoving = moveDirection != Vector2.zero;
             if (isMoving)
             {
                 if (isRunning)
                 {
+                    animator.speed = 1.5f;
                     playerWalkSFX.playSound(PlayerWalkSFX.PlayerMovementSound.Run);
                 }
                 else
                 {
+                    animator.speed = 1.0f;
                     playerWalkSFX.playSound(PlayerWalkSFX.PlayerMovementSound.Walk);
                 }
             }
@@ -84,6 +112,14 @@ namespace PlayerModule
             {
                 roomDoorObject.switchRoom(transform);
             }
+        }
+
+        void setAnimationsFalse()
+        {
+            animator.SetBool("isForwards", false);
+            animator.SetBool("isRight", false);
+            animator.SetBool("isLeft", false);
+            animator.SetBool("isBack", false);
         }
     }
 }

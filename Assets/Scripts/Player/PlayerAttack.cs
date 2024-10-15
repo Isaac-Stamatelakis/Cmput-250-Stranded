@@ -1,17 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public GameObject attackArea = default;
-    public Image weaponImage;
-
+    public GameObject attackArea;
+    public Animator playerAnimator;
     private bool attacking = false;
     private bool attackPerformed = false;
-    public Weapon weapon;
+    public Weapon currentWeapon;
     private float timer = 0f;
+    public AudioSource audioSource;
+    private RuntimeAnimatorController originalAnimatorController;
+    void Start()
+    {
+        originalAnimatorController = playerAnimator.runtimeAnimatorController;
+        audioSource = GetComponentInChildren<AudioSource>();
+    }
 
     void Update()
     {
@@ -24,33 +27,65 @@ public class PlayerAttack : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            if (timer >= weapon.attackTime)
+            if (timer >= currentWeapon.attackTime)
             {
                 timer = 0;
                 attacking = false;
                 attackArea.SetActive(false);
-                weaponImage.gameObject.SetActive(false);
 
-                
                 AttackArea attackAreaScript = attackArea.GetComponent<AttackArea>();
                 if (attackAreaScript != null)
                 {
                     attackAreaScript.ResetDamageFlag();
                 }
-
                 attackPerformed = false;
             }
-
         }
     }
 
     private void Attack()
     {
+        if (playerAnimator.runtimeAnimatorController == originalAnimatorController)
+        {
+            return; 
+        }
         attacking = true;
         attackPerformed = true;
         attackArea.SetActive(true);
+        audioSource.PlayOneShot(currentWeapon.swingSound);
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0;
 
-        weaponImage.sprite = weapon.artwork;
-        weaponImage.gameObject.SetActive(true);
+        if (mousePosition.x < transform.position.x)
+        {
+            playerAnimator.SetTrigger("AttackLeft");
+        }
+        else
+        {
+            playerAnimator.SetTrigger("AttackRight");
+        }
+
+        AttackArea attackAreaScript = attackArea.GetComponent<AttackArea>();
+        if (attackAreaScript != null)
+        {
+            attackAreaScript.SetWeapon(currentWeapon);
+        }
+    }
+
+    
+    public void SetWeapon(Weapon newWeapon)
+    {
+        currentWeapon = newWeapon;
+
+        
+        if (newWeapon.weaponAnimatorOverride != null)
+        {
+            playerAnimator.runtimeAnimatorController = newWeapon.weaponAnimatorOverride;
+        }
+        else
+        {
+            
+            playerAnimator.runtimeAnimatorController = originalAnimatorController;
+        }
     }
 }
