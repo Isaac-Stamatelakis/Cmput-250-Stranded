@@ -1,26 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;   
 
 public class AttackArea : MonoBehaviour
 {
-    public Transform player;
-    public Image weaponImage;
-
+    public Transform player;  
     public Weapon weapon;
+    private PolygonCollider2D polygonCollider;
 
-    private bool hasDamaged = false; 
+    private bool hasDamaged = false;
+    void Start()
+    {
+        polygonCollider = GetComponent<PolygonCollider2D>();
+        SetColliderPointsBasedOnWeapon();
+    }
 
     void Update()
     {
-      
+        if (weapon == null) return;
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;
-        Vector3 direction = (mousePosition - player.position).normalized;
-        transform.position = player.position + direction * weapon.range;
-        transform.up = direction;
-        weaponImage.transform.position = Camera.main.WorldToScreenPoint(transform.position);
+
+        
+        if (mousePosition.x < player.position.x)
+        {
+            
+            transform.position = player.position + Vector3.left * weapon.range;
+        }
+        else
+        {
+            
+            transform.position = player.position + Vector3.right * weapon.range;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -28,10 +39,34 @@ public class AttackArea : MonoBehaviour
         
         if (!hasDamaged && collider.GetComponent<EnemyHealth>() != null)
         {
+            
             EnemyHealth health = collider.GetComponent<EnemyHealth>();
             health.Damage(weapon.damage);
             hasDamaged = true; 
         }
+    }
+
+    public void SetColliderPointsBasedOnWeapon()
+    {
+        if (polygonCollider != null && weapon != null)
+        {
+            
+            Vector2[] points = polygonCollider.points;
+
+            if (points.Length > 0)
+            {
+                points[0] = new Vector2(weapon.range, 0);
+                polygonCollider.points = points;
+            }
+        }
+    }
+
+
+
+    public void SetWeapon(Weapon newWeapon)
+    {
+        weapon = newWeapon;
+        SetColliderPointsBasedOnWeapon();
     }
 
     
