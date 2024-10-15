@@ -26,12 +26,12 @@ namespace PlayerModule
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
         public void Update() {
-            
+
+            moveDirection = Vector2.zero;
             if (!Player.Instance.CanMove) {
-                rb.velocity = Vector2.zero;
                 return;
             }
-            moveDirection = Vector2.zero;
+            
 
             bool moveUp = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
             bool moveDown = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);

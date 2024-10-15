@@ -19,19 +19,30 @@ namespace Dialogue {
         private DialogueTree currentTree;
         private DialogObject currentDialog;
         private int skipChars = 0;
-        public void Start() {
-            countinueButton.onClick.AddListener(() => {
-                if (writing) {
+        private Color baseButtonColor;
+        public void Awake() {
+            baseButtonColor = countinueButton.GetComponent<Image>().color;
+            countinueButton.onClick.AddListener(countinuePress);
+        }
+
+        public void Update() {
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                countinuePress();
+            }
+        }
+
+        private void countinuePress() {
+            if (writing) {
                     skipChars += 10;
                 } else {
                     if (currentDialog is DialogSentence dialogSentence) {
                         DisplayDialogue(dialogSentence.nextDialog);
                     }
                 }
-            });
         }
         public void DisplayDialogue(DialogObject dialogue) {
             skipChars = 0;
+            countinueButton.GetComponent<Image>().color = baseButtonColor;
             Player.Instance.setDialog(dialogue!=null);
             if (dialogue == null) {
                 gameObject.SetActive(false);
@@ -66,20 +77,35 @@ namespace Dialogue {
             string displayText = "";
             foreach (char c in text) {
                 displayText += c;
-                ContentText.text = $"{displayText} ...";
+                ContentText.text = $"{displayText}";
                 if (skipChars > 0) {
                     skipChars--;
                     yield return new WaitForEndOfFrame();
                 } else {
-                    yield return new WaitForSeconds(0.1f);
+                    yield return new WaitForSeconds(0.05f);
                 }
             }
             ContentText.text = displayText;
             this.writing = false;
+            
             if (currentDialog is DialogueTree dialogueTree) {
                 displayResponses(dialogueTree);
+            } else {
+                StartCoroutine(flashButton(true));
             }
+        }
 
+        private IEnumerator flashButton(bool on) {
+            if (on) {
+                Color limeGreen = new Color(81f/255f, 1f, 0,1f);
+                countinueButton.GetComponent<Image>().color = limeGreen;
+            } else {
+                countinueButton.GetComponent<Image>().color = baseButtonColor;
+            }
+            if (!writing) {
+                yield return new WaitForSeconds(0.75f);
+                StartCoroutine(flashButton(!on));
+            }
         }
     }
 }
