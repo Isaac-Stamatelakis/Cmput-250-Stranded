@@ -8,3 +8,6 @@
 
 # Assets
 !Assets/
+
+#Ignore Editor Creations
+/Assets/EditorCreations/

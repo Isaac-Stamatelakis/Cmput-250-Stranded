@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using UnityEngine.Tilemaps;
+using System;
 
 namespace Rooms {
     public static class RoomUtils
@@ -80,6 +82,196 @@ namespace Rooms {
             roomDoorObject.transform.position = roomDoor.getMidpoint()+new Vector3(0.5f,0.5f);
             roomDoorObject.setRoomDoor(roomDoor);
             return roomDoorObject;
+        }
+
+        public static List<Room> generateRooms(LevelData levelData) {
+            BoundsInt wallBounds = levelData.TileMapDict[TileMapLayer.Wall].cellBounds;
+            BoundsInt doorBounds = levelData.TileMapDict[TileMapLayer.Door].cellBounds;
+            Vector3Int size = wallBounds.size;
+            bool[,] seen = new bool[size.x,size.y];
+            Vector2Int[] directions = {
+                Vector2Int.up,
+                Vector2Int.down,
+                Vector2Int.left,
+                Vector2Int.right
+            };
+            List<Room> rooms = new List<Room>();
+            for (int x = wallBounds.xMin; x < wallBounds.xMax; x++) {
+                for (int y = wallBounds.yMin; y < wallBounds.yMax; y++) {
+                    int xIndexed = x - wallBounds.xMin;
+                    int yIndexed = y - wallBounds.yMin;
+                    if (seen[xIndexed,yIndexed]) {
+                        continue;
+                    }
+                    FloodFill(new Vector2Int(x,y),seen,wallBounds, directions, levelData, rooms);
+                }
+            }
+            return rooms;
+        }
+
+        private static void FloodFill(
+            Vector2Int start, 
+            bool[,] seen, 
+            BoundsInt bounds, 
+            Vector2Int[] directions,  
+            LevelData levelData, 
+            List<Room> rooms) {
+            Queue<Vector2Int> queue = new Queue<Vector2Int>();
+            queue.Enqueue(start);
+            RoomBounds roomBounds = new RoomBounds(start);
+            Dictionary<Vector2Int, List<TileBase>> positionTileDict = new Dictionary<Vector2Int, List<TileBase>>();
+            RoomObject roomElementCollection = null;
+            while (queue.Count > 0) {
+                Vector2Int current = queue.Dequeue();
+                int x = current.x - bounds.xMin;
+                int y = current.y - bounds.yMin;
+                if (x < 0 || x >= seen.GetLength(0) || y < 0 || y >= seen.GetLength(1)) {
+                    continue;
+                }
+                Vector3Int vector = (Vector3Int) current;
+                positionTileDict[current] = getTileList(vector, levelData.TileMapDict);
+                if (current == levelData.SpawnPosition) {
+                    levelData.SpawnRoomIndex = rooms.Count;
+                }
+                if (seen[x,y]) {
+                    continue;
+                }
+                if (levelData.PositionRoomObjectCollection.ContainsKey(current)) {
+                    roomElementCollection = levelData.PositionRoomObjectCollection[current];
+                }
+                seen[x,y] = true;
+                if (levelData.GetTile(vector,TileMapLayer.Wall) == null && levelData.GetTile(vector,TileMapLayer.Door) == null) {
+                    roomBounds.expand(current);
+                    foreach (Vector2Int direction in directions)
+                    {
+                        Vector2Int neighbor = current + direction;
+                        queue.Enqueue(neighbor);
+                    }
+                } 
+            }
+            if (!roomBounds.empty()) {
+                bool enclosed = roomBounds.XMax != bounds.xMax && roomBounds.XMin != bounds.xMin && roomBounds.YMax != bounds.yMax && roomBounds.YMin != bounds.yMin;
+                if (!enclosed) {
+                    if (levelData.SpawnRoomIndex != -1) {
+                        Debug.LogWarning("PLAYER SPAWN POSITION OUT OF BOUNDS");
+                    }
+                    return;
+                }
+                //roomBounds.expand(1); // Expand to include walls & doors
+                HashSet<Vector2Int> seenBorder = new HashSet<Vector2Int>();
+                List<RoomDoor> roomDoors = new List<RoomDoor>();
+                // Depth first search the border of the room to find any gaps and doors
+                // Has to be a wall on the border which is adjacent to a door
+                foreach (var kvp in positionTileDict) {
+                    bool hasWall = kvp.Value[1] != null;
+                    if (!hasWall) {
+                        continue;
+                    }
+                    bool hasAdjcaentDoor = false;
+                    foreach (Vector2Int directionVector in directions) {
+                        Vector2Int pos = kvp.Key + directionVector;
+                        if (levelData.GetTile((Vector3Int)pos,TileMapLayer.Door) != null) {
+                            hasAdjcaentDoor = true;
+                            break;
+                        }
+                    }
+                    if (!hasAdjcaentDoor) {
+                        continue;
+                    }
+                    DFSBorder(kvp.Key,roomBounds,null,seenBorder, positionTileDict, roomDoors, levelData);
+                    // Found a tile on the border. Since the border is connected we can break after
+                    break;
+                    
+                }
+                int DOOR_TILE_INDEX = 2;
+                foreach (RoomDoor roomDoor in roomDoors) {
+                    if (roomDoor.GetLineDirection() == LineDirection.Horizontal) {
+                        int y = roomDoor.StartPosition.y;
+                        for (int x = roomDoor.StartPosition.x; x <= roomDoor.EndPosition.x; x++) {
+                            Vector2Int vector = new Vector2Int(x,y);
+                            if (positionTileDict.ContainsKey(vector)) {
+                                positionTileDict[vector][DOOR_TILE_INDEX] = null;
+                            }
+                        }
+                    }
+                }
+                Dictionary<TileMapLayer, TileBase[,]> layerTileDict = new Dictionary<TileMapLayer, TileBase[,]>();
+                List<TileMapLayer> layers = Enum.GetValues(typeof(TileMapLayer)).Cast<TileMapLayer>().ToList();
+                Vector2Int size = roomBounds.Size;
+                foreach (TileMapLayer layer in layers) {
+                    layerTileDict[layer] = new TileBase[size.x,size.y];
+                }
+                foreach (var kvp in positionTileDict) {
+                    int xIndex = kvp.Key.x - roomBounds.XMin;
+                    int yIndex = kvp.Key.y - roomBounds.YMin;      
+                    for (int i = 0; i < layers.Count; i++) {
+                        TileMapLayer layer = layers[i];
+                        TileBase tile = kvp.Value[i];
+                        layerTileDict[layer][xIndex,yIndex] = tile;
+                    }
+                }
+                rooms.Add(new Room(roomBounds,layerTileDict,roomDoors,roomElementCollection));
+            }
+        }
+
+        private static void DFSBorder(
+            Vector2Int current, 
+            RoomBounds roomBounds, 
+            Direction? originDirection, 
+            HashSet<Vector2Int> seenBorder, 
+            Dictionary<Vector2Int, List<TileBase>> positionTileDict,
+            List<RoomDoor> roomDoors,
+            LevelData levelData
+            ) {
+            if (seenBorder.Contains(current)) {
+                return;
+            }
+            seenBorder.Add(current);
+            Vector3Int vector = (Vector3Int) current;
+            bool wallTile = levelData.GetTile(vector,TileMapLayer.Wall) != null;
+            bool doorTile = levelData.GetTile(vector,TileMapLayer.Door) != null;
+            if (!wallTile && !doorTile) {
+                return;
+            }
+            roomBounds.expand(current);
+            if (!positionTileDict.ContainsKey(current)) {
+                positionTileDict[current] = getTileList(vector,levelData.TileMapDict);
+            }
+            if (doorTile) {
+                if (roomDoors.Count == 0) {
+                    roomDoors.Add(new RoomDoor(vector));
+                } else {
+                    RoomDoor roomDoor = roomDoors.Last();
+                    if (roomDoor.adjacentPointOnLine(vector)) {
+                        roomDoor.expand(vector);
+                    } else {
+                        roomDoors.Add(new RoomDoor(vector));
+                    }
+                }
+            }
+            
+            // Don't search in a direction we've came from
+            if (originDirection != Direction.Right) {
+                DFSBorder(current+Vector2Int.left,roomBounds,Direction.Left,seenBorder, positionTileDict, roomDoors, levelData);
+            }
+            if (originDirection != Direction.Left) {
+                DFSBorder(current+Vector2Int.right,roomBounds,Direction.Right,seenBorder, positionTileDict, roomDoors, levelData);
+            }
+            if (originDirection != Direction.Down) {
+                DFSBorder(current+Vector2Int.up,roomBounds,Direction.Up,seenBorder, positionTileDict, roomDoors, levelData);
+            }
+            if (originDirection != Direction.Up) {
+                DFSBorder(current+Vector2Int.down,roomBounds,Direction.Down,seenBorder, positionTileDict, roomDoors, levelData);
+            }
+
+        }
+
+        private static List<TileBase> getTileList(Vector3Int vector, Dictionary<TileMapLayer, Tilemap> tileMapDict) {
+            return new List<TileBase>{
+                tileMapDict[TileMapLayer.Floor].GetTile(vector),
+                tileMapDict[TileMapLayer.Wall].GetTile(vector),
+                tileMapDict[TileMapLayer.Door].GetTile(vector)
+            };
         }
     }
 }

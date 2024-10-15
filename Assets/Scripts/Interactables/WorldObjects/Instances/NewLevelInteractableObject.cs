@@ -14,14 +14,22 @@ public class NewLevelInteractableObject : InteractableGameObject
     }
     public override string getInteractText()
     {
-        return "Proceed to the Next Level";
-        return $"Proceed to {newLevel.name}";
+        bool clear = LevelManager.getInstance().CurrentLevel.CurrentRoomClear();
+        if (clear) {
+            return newLevel != null ? $"<color=green>Proceed to {newLevel.name}</color>" : "";
+        } else {
+            return "<color=red>Kill all zombies to proceed</color>";
+        }
     }
 
     public override void interact()
     {
-        LevelManager.getInstance().CurrentLevelPrefab = newLevel;
-        SceneManager.LoadScene("LevelScene");
+        bool clear = LevelManager.getInstance().CurrentLevel.CurrentRoomClear();
+        if (clear) {
+            LevelManager.getInstance().CurrentLevelPrefab = newLevel;
+            SceneManager.LoadScene("LevelScene");
+        }
+        
     }
     public override void highlight()
     {
@@ -31,9 +39,5 @@ public class NewLevelInteractableObject : InteractableGameObject
     public override void unhighlight()
     {
         GetComponent<TilemapRenderer>().material = defaultMaterial;
-    }
-    public override bool isInteractable()
-    {
-        return LevelManager.getInstance().CurrentLevel.CurrentRoomClear();
     }
 }

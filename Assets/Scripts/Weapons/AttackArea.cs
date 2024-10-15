@@ -7,7 +7,6 @@ public class AttackArea : MonoBehaviour
 {
     public Transform player;
     public Image weaponImage;
-
     public Weapon weapon;
 
     private bool hasDamaged = false; 

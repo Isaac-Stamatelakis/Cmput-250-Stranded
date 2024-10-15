@@ -83,9 +83,9 @@ namespace Rooms {
             }
             LineDirection direction = GetLineDirection();
             if (direction == LineDirection.Vertical) {
-                return startPosition.x - roomDoor.startPosition.x;
+                return Mathf.Abs(startPosition.x - roomDoor.startPosition.x);
             } else {
-                return startPosition.y - roomDoor.startPosition.y;
+                return Mathf.Abs(startPosition.y - roomDoor.startPosition.y);
             }
         }
 
@@ -122,7 +122,7 @@ namespace Rooms {
 
         public Vector3 getEnterPosition(Vector3 playerPosition) {
             Vector3 midpoint = getMidpoint();
-            float seperation = GlobalUtils.TILE_SIZE;
+            float seperation = GlobalUtils.TILE_SIZE*1.5f;
             switch (direction) {
                 case Direction.Right:
                     return new Vector3(midpoint.x-seperation,playerPosition.y,playerPosition.z);

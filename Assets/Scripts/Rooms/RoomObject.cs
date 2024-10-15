@@ -7,8 +7,13 @@ namespace Rooms {
         [SerializeField] private MeshRenderer textIndicator;
 
         public void Start() {
-            if (textIndicator != null && textIndicator.gameObject != gameObject) {
-                textIndicator.gameObject.SetActive(false);
+            if (textIndicator != null) {
+                bool isThis = textIndicator.gameObject == gameObject;
+                if (isThis) {
+                    textIndicator.enabled = false;
+                } else {
+                    textIndicator.gameObject.SetActive(false);
+                }
             }
         }
         public List<ZombieSpawnInstruction> GetZombieSpawnInstructions() {
@@ -20,6 +25,7 @@ namespace Rooms {
                 RoomZombieSpawner roomZombieSpawner = child.GetComponent<RoomZombieSpawner>();
                 if (roomZombieSpawner != null) {
                     spawnInstructions.AddRange(roomZombieSpawner.GetSpawnInstructions());
+                    GameObject.Destroy(roomZombieSpawner.gameObject);
                     continue;
                 }
                 // This method is not recommended to use, use room zombie spawners instead
