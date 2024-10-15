@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class AttackArea : MonoBehaviour
 {
+<<<<<<< HEAD
     public Transform player;  
+=======
+    public Transform player;
+    public Image weaponImage;
+>>>>>>> b0cc8d336100d1c22223cf2d154be756d134bb45
     public Weapon weapon;
     private PolygonCollider2D polygonCollider;
 
