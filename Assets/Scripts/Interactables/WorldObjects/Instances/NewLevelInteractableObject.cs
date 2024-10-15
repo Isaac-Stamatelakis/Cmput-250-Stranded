@@ -16,7 +16,7 @@ public class NewLevelInteractableObject : InteractableGameObject
     {
         bool clear = LevelManager.getInstance().CurrentLevel.CurrentRoomClear();
         if (clear) {
-            return newLevel != null ? $"Proceed to {newLevel.name}" : "";
+            return newLevel != null ? $"<color=green>Proceed to {newLevel.name}</color>" : "";
         } else {
             return "<color=red>Kill all zombies to proceed</color>";
         }
