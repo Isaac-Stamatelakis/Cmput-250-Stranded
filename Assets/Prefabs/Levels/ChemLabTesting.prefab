@@ -2712,7 +2712,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4323780544758729427}
 <<<<<<<< HEAD:Assets/Prefabs/Levels/ChemLabTesting.prefab
+<<<<<<<< HEAD:Assets/Prefabs/Levels/ChemLabTesting.prefab
   m_RootOrder: 6
+========
+  m_RootOrder: 5
+>>>>>>>> b0cc8d336100d1c22223cf2d154be756d134bb45:Assets/Prefabs/Levels/ChemLab.prefab
 ========
   m_RootOrder: 5
 >>>>>>>> b0cc8d336100d1c22223cf2d154be756d134bb45:Assets/Prefabs/Levels/ChemLab.prefab
@@ -3041,7 +3045,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
 <<<<<<<< HEAD:Assets/Prefabs/Levels/ChemLabTesting.prefab
+<<<<<<<< HEAD:Assets/Prefabs/Levels/ChemLabTesting.prefab
   - {fileID: 4947499491907182424}
+========
+>>>>>>>> b0cc8d336100d1c22223cf2d154be756d134bb45:Assets/Prefabs/Levels/ChemLab.prefab
 ========
 >>>>>>>> b0cc8d336100d1c22223cf2d154be756d134bb45:Assets/Prefabs/Levels/ChemLab.prefab
   - {fileID: 1133678558537766647}
@@ -35004,7 +35011,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4323780544758729427}
 <<<<<<<< HEAD:Assets/Prefabs/Levels/ChemLabTesting.prefab
+<<<<<<<< HEAD:Assets/Prefabs/Levels/ChemLabTesting.prefab
   m_RootOrder: 4
+========
+  m_RootOrder: 3
+>>>>>>>> b0cc8d336100d1c22223cf2d154be756d134bb45:Assets/Prefabs/Levels/ChemLab.prefab
 ========
   m_RootOrder: 3
 >>>>>>>> b0cc8d336100d1c22223cf2d154be756d134bb45:Assets/Prefabs/Levels/ChemLab.prefab
@@ -35165,7 +35176,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4323780544758729427}
 <<<<<<<< HEAD:Assets/Prefabs/Levels/ChemLabTesting.prefab
+<<<<<<<< HEAD:Assets/Prefabs/Levels/ChemLabTesting.prefab
   m_RootOrder: 5
+========
+  m_RootOrder: 4
+>>>>>>>> b0cc8d336100d1c22223cf2d154be756d134bb45:Assets/Prefabs/Levels/ChemLab.prefab
 ========
   m_RootOrder: 4
 >>>>>>>> b0cc8d336100d1c22223cf2d154be756d134bb45:Assets/Prefabs/Levels/ChemLab.prefab
@@ -35403,7 +35418,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4323780544758729427}
 <<<<<<<< HEAD:Assets/Prefabs/Levels/ChemLabTesting.prefab
+<<<<<<<< HEAD:Assets/Prefabs/Levels/ChemLabTesting.prefab
   m_RootOrder: 2
+========
+  m_RootOrder: 1
+>>>>>>>> b0cc8d336100d1c22223cf2d154be756d134bb45:Assets/Prefabs/Levels/ChemLab.prefab
 ========
   m_RootOrder: 1
 >>>>>>>> b0cc8d336100d1c22223cf2d154be756d134bb45:Assets/Prefabs/Levels/ChemLab.prefab
@@ -51655,6 +51674,9 @@ Tilemap:
     m_Data: {r: 0.95789945, g: 0.59092456, b: 0.6490214, a: 1}
   - m_RefCount: 0
     m_Data: {r: 1.4226e-40, g: 1.4226e-40, b: 1.4226e-40, a: 1.4226e-40}
+<<<<<<<< HEAD:Assets/Prefabs/Levels/ChemLabTesting.prefab
+>>>>>>>> b0cc8d336100d1c22223cf2d154be756d134bb45:Assets/Prefabs/Levels/ChemLab.prefab
+========
 >>>>>>>> b0cc8d336100d1c22223cf2d154be756d134bb45:Assets/Prefabs/Levels/ChemLab.prefab
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -52193,7 +52215,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4323780544758729427}
 <<<<<<<< HEAD:Assets/Prefabs/Levels/ChemLabTesting.prefab
+<<<<<<<< HEAD:Assets/Prefabs/Levels/ChemLabTesting.prefab
   m_RootOrder: 3
+========
+  m_RootOrder: 2
+>>>>>>>> b0cc8d336100d1c22223cf2d154be756d134bb45:Assets/Prefabs/Levels/ChemLab.prefab
 ========
   m_RootOrder: 2
 >>>>>>>> b0cc8d336100d1c22223cf2d154be756d134bb45:Assets/Prefabs/Levels/ChemLab.prefab
@@ -52238,6 +52264,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 5}
   m_EdgeRadius: 0
+<<<<<<<< HEAD:Assets/Prefabs/Levels/ChemLabTesting.prefab
 <<<<<<<< HEAD:Assets/Prefabs/Levels/ChemLabTesting.prefab
 --- !u!1 &4687217836886795716
 GameObject:
@@ -53819,6 +53846,8 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!1001 &485882272133640603
 ========
+========
+>>>>>>>> b0cc8d336100d1c22223cf2d154be756d134bb45:Assets/Prefabs/Levels/ChemLab.prefab
 --- !u!1001 &2043545281786891358
 PrefabInstance:
   m_ObjectHideFlags: 0

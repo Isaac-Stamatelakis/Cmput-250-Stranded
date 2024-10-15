@@ -31,14 +31,9 @@ namespace PlayerModule
             if (!Player.Instance.CanMove) {
                 return;
             }
-            
+            moveDirection = Vector2.zero;
 
-            bool moveUp = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
-            bool moveDown = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
-            bool moveLeft = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
-            bool moveRight = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
-
-            if (moveUp && moveDown)
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
                 setAnimationsFalse();
             }
