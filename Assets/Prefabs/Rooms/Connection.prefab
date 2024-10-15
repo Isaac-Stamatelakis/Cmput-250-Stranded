@@ -74,6 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   light2D: {fileID: 7797217640151410536}
   boxCollider2D: {fileID: 1023575071861990531}
+  thirdInstructionManager: {fileID: 8483182987089735034, guid: 5ba62828433e3436b9d707c14a0a73a8, type: 3}
 --- !u!1 &5140660919537261771
 GameObject:
   m_ObjectHideFlags: 0

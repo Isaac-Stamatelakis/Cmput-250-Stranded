@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemies
   - Wall
+  - Zombie
   layers:
   - Default
   - TransparentFX
