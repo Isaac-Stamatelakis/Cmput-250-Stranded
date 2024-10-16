@@ -13,7 +13,8 @@ namespace PlayerModule
         public Animator animator;
 
         public bool isMoving = false;   
-        public bool isRunning = false;  
+        public bool isRunning = false;
+        private PlayerAttack playerAttack;
 
         public float walkSpeed = 10f;
         public float runSpeed = 20f;
@@ -31,44 +32,41 @@ namespace PlayerModule
             if (!Player.Instance.CanMove) {
                 return;
             }
-            moveDirection = Vector2.zero;
 
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-            {
-                setAnimationsFalse();
-            }
-            else if (moveUp)
+
+            bool moveUp = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
+            bool moveDown = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
+            bool moveLeft = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
+            bool moveRight = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
+
+            // Handle vertical movement
+            if (moveUp && !moveDown)
             {
                 moveDirection += Vector2.up;
                 setAnimationsFalse();
                 animator.SetBool("isBack", true);
             }
-            else if (moveDown)
+            else if (moveDown && !moveUp)
             {
                 moveDirection += Vector2.down;
                 setAnimationsFalse();
                 animator.SetBool("isForwards", true);
             }
-            if (moveLeft && moveRight)
-            {
-                setAnimationsFalse();
-            }
-            else if (moveLeft)
+
+            // Handle horizontal movement
+            if (moveLeft && !moveRight)
             {
                 moveDirection += Vector2.left;
                 setAnimationsFalse();
                 animator.SetBool("isLeft", true);
             }
-            else if (moveRight)
+            else if (moveRight && !moveLeft)
             {
                 moveDirection += Vector2.right;
                 setAnimationsFalse();
                 animator.SetBool("isRight", true);
             }
-            if (!moveUp && !moveDown && !moveLeft && !moveRight)
-            {
-                setAnimationsFalse();
-            }
+            
             isRunning = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
             float currentSpeed = isRunning ? runSpeed : walkSpeed;
             if (moveDirection != Vector2.zero)
@@ -78,7 +76,9 @@ namespace PlayerModule
             else
             {
                 moveDirection = Vector2.zero;
+                setAnimationsFalse();
             }
+            
 
             isMoving = moveDirection != Vector2.zero;
             if (isMoving)
