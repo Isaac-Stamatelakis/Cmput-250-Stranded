@@ -3,79 +3,123 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rooms;
 
-namespace PlayerModule {
+namespace PlayerModule
+{
     public class PLAYER_MOVE_TEST : MonoBehaviour
     {
         Rigidbody2D rb;
         SpriteRenderer spriteRenderer;
         public PlayerWalkSFX playerWalkSFX;
-        
-        private bool isMoving = false;
-        private bool isRunning = false;
+        public Animator animator;
+
+        public bool isMoving = false;   
+        public bool isRunning = false;  
 
         public float walkSpeed = 10f;
         public float runSpeed = 20f;
 
-        public void Start() {
+        Vector2 moveDirection;
+
+        public void Start()
+        {
             rb = GetComponent<Rigidbody2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
-
         public void Update() {
+
+            moveDirection = Vector2.zero;
             if (!Player.Instance.CanMove) {
                 return;
             }
-            Vector3 moveDirection = Vector3.zero;
+            moveDirection = Vector2.zero;
 
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
-                moveDirection += Vector3.up;
+                setAnimationsFalse();
             }
-            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+            else if (moveUp)
             {
-                moveDirection += Vector3.down;
+                moveDirection += Vector2.up;
+                setAnimationsFalse();
+                animator.SetBool("isBack", true);
             }
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            else if (moveDown)
             {
-                moveDirection += Vector3.left;
-                spriteRenderer.flipX = true;
+                moveDirection += Vector2.down;
+                setAnimationsFalse();
+                animator.SetBool("isForwards", true);
             }
-            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            if (moveLeft && moveRight)
             {
-                moveDirection += Vector3.right;
-                spriteRenderer.flipX= false;
+                setAnimationsFalse();
             }
-
-            isRunning = Input.GetKey(KeyCode.R);
-            
+            else if (moveLeft)
+            {
+                moveDirection += Vector2.left;
+                setAnimationsFalse();
+                animator.SetBool("isLeft", true);
+            }
+            else if (moveRight)
+            {
+                moveDirection += Vector2.right;
+                setAnimationsFalse();
+                animator.SetBool("isRight", true);
+            }
+            if (!moveUp && !moveDown && !moveLeft && !moveRight)
+            {
+                setAnimationsFalse();
+            }
+            isRunning = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
             float currentSpeed = isRunning ? runSpeed : walkSpeed;
-            
-            rb.velocity = moveDirection.normalized * currentSpeed;
+            if (moveDirection != Vector2.zero)
+            {
+                moveDirection = moveDirection.normalized * currentSpeed;
+            }
+            else
+            {
+                moveDirection = Vector2.zero;
+            }
 
-            isMoving = moveDirection != Vector3.zero;
-            if (isMoving) {
+            isMoving = moveDirection != Vector2.zero;
+            if (isMoving)
+            {
                 if (isRunning)
                 {
+                    animator.speed = 1.5f;
                     playerWalkSFX.playSound(PlayerWalkSFX.PlayerMovementSound.Run);
                 }
                 else
                 {
+                    animator.speed = 1.0f;
                     playerWalkSFX.playSound(PlayerWalkSFX.PlayerMovementSound.Walk);
                 }
             }
-            
+        }
+
+        void FixedUpdate()
+        {
+            if (moveDirection != Vector2.zero)
+            {
+                rb.MovePosition(rb.position + moveDirection * Time.fixedDeltaTime);
+            }
         }
 
         void OnCollisionEnter2D(Collision2D collision)
         {
             RoomDoorObject roomDoorObject = collision.gameObject.GetComponent<RoomDoorObject>();
-            
-            if (roomDoorObject != null) {
+
+            if (roomDoorObject != null)
+            {
                 roomDoorObject.switchRoom(transform);
             }
         }
+
+        void setAnimationsFalse()
+        {
+            animator.SetBool("isForwards", false);
+            animator.SetBool("isRight", false);
+            animator.SetBool("isLeft", false);
+            animator.SetBool("isBack", false);
+        }
     }
-
 }
-
-
