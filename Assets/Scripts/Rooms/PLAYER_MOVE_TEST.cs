@@ -13,7 +13,8 @@ namespace PlayerModule
         public Animator animator;
 
         public bool isMoving = false;   
-        public bool isRunning = false;  
+        public bool isRunning = false;
+        private PlayerAttack playerAttack;
 
         public float walkSpeed = 10f;
         public float runSpeed = 20f;
@@ -31,7 +32,7 @@ namespace PlayerModule
             if (!Player.Instance.CanMove) {
                 return;
             }
-            moveDirection = Vector2.zero;
+
 
             bool moveUp = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
             bool moveDown = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
@@ -65,6 +66,7 @@ namespace PlayerModule
                 setAnimationsFalse();
                 animator.SetBool("isRight", true);
             }
+            
             isRunning = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
             float currentSpeed = isRunning ? runSpeed : walkSpeed;
             if (moveDirection != Vector2.zero)
@@ -74,7 +76,9 @@ namespace PlayerModule
             else
             {
                 moveDirection = Vector2.zero;
+                setAnimationsFalse();
             }
+            
 
             isMoving = moveDirection != Vector2.zero;
             if (isMoving)
