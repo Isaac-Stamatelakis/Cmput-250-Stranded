@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5409dc8a8bf34c4fac0ce7c8959d6d7, type: 3}
+  m_Name: Level0-0
+  m_EditorClassIdentifier: 
+  Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
+  Text: "Something\u2019s been bothering me..."
+  responses:
+  - Text: "Do you think we\u2019ll find the cure in time?"
+    dialog: {fileID: 11400000, guid: 2e33caaca20e7514ea6563f999264287, type: 2}
+  - Text: 'Do you think anyone else survived?
+
+'
+    dialog: {fileID: 11400000, guid: f93fd6a192f45ad4a975e250581c17f1, type: 2}
+  - Text: What if this whole place is a trap?
+    dialog: {fileID: 11400000, guid: b3465c7cc1392481286792ab11e26a92, type: 2}
