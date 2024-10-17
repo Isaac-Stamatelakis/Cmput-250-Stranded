@@ -2569,6 +2569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackArea: {fileID: 384720324584867355}
   playerAnimator: {fileID: 8891646704651383393}
+  attacking: 0
   currentWeapon: {fileID: 0}
   audioSource: {fileID: 0}
 --- !u!114 &8891646704651383397

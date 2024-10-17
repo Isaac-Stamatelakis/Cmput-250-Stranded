@@ -63,7 +63,9 @@ public class DatePlayer : MonoBehaviour
 
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer, distanceToPlayer);
 
-                if (hit.collider != null && hit.collider.CompareTag("Wall"))
+
+
+                if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
                 {
                     Vector2 avoidanceDirection = Vector3.Cross(directionToPlayer, Vector3.forward).normalized;
                     rb.MovePosition(rb.position + (directionToPlayer + avoidanceDirection * 0.5f) * currentFollowSpeed * Time.fixedDeltaTime);
