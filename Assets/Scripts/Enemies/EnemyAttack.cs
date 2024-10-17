@@ -14,6 +14,7 @@ public class EnemyAttack : MonoBehaviour
             // Get the PlayerHealth component and apply damage
             PlayerHealth health = collider.gameObject.GetComponent<PlayerHealth>();
             health.Damage(damage);
+            Debug.Log("damge player");
         }
     }
 }
