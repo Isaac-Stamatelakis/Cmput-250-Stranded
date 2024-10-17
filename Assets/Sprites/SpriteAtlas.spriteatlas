@@ -149,6 +149,15 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 04c15376bed926548a4133baaa3b20e9, type: 3}
   - {fileID: 21300000, guid: b2bd997649a922f4d99256f0e5aa1ee5, type: 3}
   - {fileID: 21300000, guid: b86b4f96e4e675a439a310dfdea1d575, type: 3}
+  - {fileID: -236295315, guid: 032437a660c0ba24e8f8bcb826215368, type: 3}
+  - {fileID: -1072468361, guid: 032437a660c0ba24e8f8bcb826215368, type: 3}
+  - {fileID: -1923531527, guid: 032437a660c0ba24e8f8bcb826215368, type: 3}
+  - {fileID: -2058997330, guid: 032437a660c0ba24e8f8bcb826215368, type: 3}
+  - {fileID: 877726719, guid: 032437a660c0ba24e8f8bcb826215368, type: 3}
+  - {fileID: -1301552504, guid: 032437a660c0ba24e8f8bcb826215368, type: 3}
+  - {fileID: -1866545821, guid: 032437a660c0ba24e8f8bcb826215368, type: 3}
+  - {fileID: -107717168, guid: 032437a660c0ba24e8f8bcb826215368, type: 3}
+  - {fileID: -731281942, guid: 032437a660c0ba24e8f8bcb826215368, type: 3}
   - {fileID: 21300000, guid: 409af4b6ee5723a4d8199ba1e77b95a3, type: 3}
   - {fileID: 21300000, guid: 3ddefdb627fbc34429e954ff97c2530c, type: 3}
   - {fileID: 21300000, guid: 73e418c684f0d9f4591c2e28c0cd99f4, type: 3}
@@ -411,6 +420,15 @@ SpriteAtlas:
   - down_only
   - DoorTop_U_False_L_False_D_True_R_False
   - BrickTop_U_False_L_True_D_False_R_False
+  - zombie sprite_1
+  - zombie sprite_0
+  - zombie sprite_3
+  - zombie sprite_2
+  - zombie sprite_5
+  - zombie sprite_4
+  - zombie sprite_7
+  - zombie sprite_6
+  - zombie sprite_8
   - LabWallBottom_U_True_L_True_D_False_R_False_diag
   - DoorTop_U_True_L_False_D_False_R_True_diag
   - LabWallBottom_U_True_L_False_D_False_R_True_diag
