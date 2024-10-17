@@ -16,6 +16,6 @@ MonoBehaviour:
   damage: 20
   range: 1
   attackTime: 1
-  artwork: {fileID: 21300000, guid: 612479b8375f6bb40baf0c69b1a0a93a, type: 3}
+  artwork: {fileID: -2085929203, guid: 3b180545ac820ed42ac6bdd7e7f89650, type: 3}
   swingSound: {fileID: 8300000, guid: 231fedde51baf32478f3cb7110bbd07d, type: 3}
-  weaponAnimatorOverride: {fileID: 0}
+  weaponAnimatorOverride: {fileID: 22100000, guid: 9dcc58173b58db347a538a7c9776af10, type: 2}
