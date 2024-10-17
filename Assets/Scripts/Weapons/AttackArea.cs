@@ -22,11 +22,16 @@ public class AttackArea : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        
+        if (weapon == null) {
+            return;
+        }
         if (!hasDamaged && collider.GetComponent<EnemyHealth>() != null)
         {
             
             EnemyHealth health = collider.GetComponent<EnemyHealth>();
+            if (health == null) {
+                return;
+            }
             health.Damage(weapon.damage);
             hasDamaged = true; 
         }
