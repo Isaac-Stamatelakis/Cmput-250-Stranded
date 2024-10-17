@@ -17,21 +17,7 @@ public class AttackArea : MonoBehaviour
 
     void Update()
     {
-        if (weapon == null) return;
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0;
-
         
-        if (mousePosition.x < player.position.x)
-        {
-            
-            transform.position = player.position + Vector3.left * weapon.range;
-        }
-        else
-        {
-            
-            transform.position = player.position + Vector3.right * weapon.range;
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -58,6 +44,17 @@ public class AttackArea : MonoBehaviour
                 points[0] = new Vector2(weapon.range, 0);
                 polygonCollider.points = points;
             }
+        }
+
+        // Set direction of attack
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0;
+
+        bool left = mousePosition.x < player.position.x;
+        if (left) {
+            transform.rotation = Quaternion.Euler(0, 0, 180);
+        } else { // right
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 
