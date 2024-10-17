@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float health = 100;
     [SerializeField] PlayerDeathScreenUI playerDeathScreenUIPrefab;
     [SerializeField] private PlayerUI playerUI;
+    [SerializeField] private PlayerHurtSFX playerHurtSFX;
     private bool dead;
     private float maxHealth;
     private int invincibleFrames = 0; // Initialize to zero
@@ -42,6 +43,8 @@ public class PlayerHealth : MonoBehaviour
         if (health <= 0)
         {
             health = 0;
+        } else {
+            playerHurtSFX.PlaySound(PlayerHurtSound.Damaged);
         }
 
         if (playerUI != null)
@@ -76,6 +79,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
         dead = true;
+        playerHurtSFX.PlaySound(PlayerHurtSound.Death);
 
         // Check if the death screen UI prefab and Canvas exist
         if (playerDeathScreenUIPrefab != null)

@@ -68,6 +68,9 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 1f49e7d06c1b27c429b04760aa3a6906, type: 3}
   - {fileID: 21300000, guid: 16ff3ae053892bb4198921f0336c3c5a, type: 3}
   - {fileID: 21300000, guid: 53563401cc113d54bbe4cee2bb0f76f1, type: 3}
+  - {fileID: 866840054, guid: f1a898210273d3d4b88bbada090e8c13, type: 3}
+  - {fileID: -70782601, guid: f1a898210273d3d4b88bbada090e8c13, type: 3}
+  - {fileID: 2048008651, guid: f1a898210273d3d4b88bbada090e8c13, type: 3}
   - {fileID: 21300000, guid: 117882417cad36f40bfb164c9d76987b, type: 3}
   - {fileID: 21300000, guid: b624eb41e65b1034abee37faabc8f8ab, type: 3}
   - {fileID: 21300000, guid: aa950351ae3ab9a4096866d8cbb1fb32, type: 3}
@@ -278,7 +281,10 @@ SpriteAtlas:
   - {fileID: 21300000, guid: ab38ac0d7c204024f8b18b3cd3650270, type: 3}
   - {fileID: 21300000, guid: e646452d74052754a9bec141b57038be, type: 3}
   - {fileID: 21300000, guid: ba1fc72dfbb06e74a803fe08924a3d90, type: 3}
-  - {fileID: 21300000, guid: 6fbb7a7db5a0b6245b061085e6b17435, type: 3}
+  - {fileID: 1083434175, guid: 6fbb7a7db5a0b6245b061085e6b17435, type: 3}
+  - {fileID: 1881419148, guid: 6fbb7a7db5a0b6245b061085e6b17435, type: 3}
+  - {fileID: 200005989, guid: 6fbb7a7db5a0b6245b061085e6b17435, type: 3}
+  - {fileID: -1777937131, guid: 6fbb7a7db5a0b6245b061085e6b17435, type: 3}
   - {fileID: 21300000, guid: b748c9cdaaab07147804a29a36ae2b8b, type: 3}
   - {fileID: 21300000, guid: 3d6e33edb600b894084c60b86bf718ed, type: 3}
   - {fileID: 21300000, guid: 6f425afd3c4c8484e8c295877344b0f4, type: 3}
@@ -330,6 +336,9 @@ SpriteAtlas:
   - LabWallBottom_U_False_L_True_D_False_R_False
   - BrickTop_U_False_L_True_D_True_R_False
   - zombie_test
+  - zombie_slatters_2
+  - zombie_slatters_1
+  - zombie_slatters_0
   - DoorTop_U_True_L_False_D_False_R_False
   - BrickTop_U_False_L_False_D_False_R_True
   - LabWallBottom_U_False_L_True_D_True_R_False
@@ -540,7 +549,10 @@ SpriteAtlas:
   - LabWallBorder_U_True_L_True_D_True_R_False
   - BrickTop_U_True_L_False_D_True_R_False
   - hallway_floor
-  - test_bloodied_wall
+  - test_bloodied_wall_2
+  - test_bloodied_wall_3
+  - test_bloodied_wall_0
+  - test_bloodied_wall_1
   - med_kit
   - DoorTop_U_False_L_False_D_True_R_True_diag
   - BrickWall_U_False_L_True_D_True_R_False

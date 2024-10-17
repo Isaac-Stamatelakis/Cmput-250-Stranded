@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using PlayerModule;
 using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 namespace Dialogue {
     public class CutsceneAnimator : MonoBehaviour
