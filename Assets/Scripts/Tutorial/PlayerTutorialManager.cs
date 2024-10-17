@@ -1,75 +1,98 @@
 using UnityEngine;
 using TMPro;
+using Dialogue;
 
 public class PlayerTutorialManager : MonoBehaviour
 {
-    public TextMeshProUGUI firstInstructionText;  
-    public TextMeshProUGUI secondInstructionText; 
-    public TextMeshProUGUI thirdInstructionText;  
-    public GameObject dialogueTutorial;          
+    public TextMeshProUGUI firstInstructionText;
+    public TextMeshProUGUI secondInstructionText;
+    public TextMeshProUGUI thirdInstructionText;
+    public GameObject dialogueTutorial;
 
     private bool waitingForMovement = true;
     private bool waitingForRun = false;
     private bool waitingForThirdInstruction = false;
+    private bool firstInstructionReadyToShow = false;
 
     void Start()
     {
-        ShowFirstInstruction();
+        firstInstructionText.gameObject.SetActive(false);
+        secondInstructionText.gameObject.SetActive(false);
+        thirdInstructionText.gameObject.SetActive(false);
+        if (dialogueTutorial != null)
+        {
+            dialogueTutorial.SetActive(false);
+        }
     }
 
     void Update()
     {
-        if (waitingForMovement && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) ||
-                                   Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) ||
-                                   Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)))
+        if (DialogUIController.Instance != null && !DialogUIController.Instance.ShowingDialog)
         {
-            waitingForMovement = false;
-            ShowSecondInstruction();
-        }
+            if (!firstInstructionReadyToShow)
+            {
+                firstInstructionReadyToShow = true;
+                ShowFirstInstruction();
+                if (dialogueTutorial != null)
+                {
+                    dialogueTutorial.SetActive(true);
+                }
+            }
 
-        if (waitingForRun && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
-        {
-            waitingForRun = false;
-            ShowThirdInstruction();  
-        }
+            if (waitingForMovement && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) ||
+                                       Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) ||
+                                       Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)))
+            {
+                waitingForMovement = false;
+                ShowSecondInstruction();
+            }
 
-        if (waitingForThirdInstruction && Input.GetKeyDown(KeyCode.Space))
-        {
-            HideAllInstructions();  
+            if (waitingForRun && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
+            {
+                waitingForRun = false;
+                ShowThirdInstruction();
+            }
+
+            if (waitingForThirdInstruction && Input.GetKeyDown(KeyCode.Space))
+            {
+                HideAllInstructions();
+            }
         }
     }
 
     void ShowFirstInstruction()
     {
-        firstInstructionText.gameObject.SetActive(true);   
+        firstInstructionText.gameObject.SetActive(true);
         secondInstructionText.gameObject.SetActive(false);
-        thirdInstructionText.gameObject.SetActive(false);  
+        thirdInstructionText.gameObject.SetActive(false);
         waitingForMovement = true;
     }
 
     void ShowSecondInstruction()
     {
-        firstInstructionText.gameObject.SetActive(false);  
-        secondInstructionText.gameObject.SetActive(true);  
+        firstInstructionText.gameObject.SetActive(false);
+        secondInstructionText.gameObject.SetActive(true);
         waitingForRun = true;
     }
 
     void ShowThirdInstruction()
     {
-        secondInstructionText.gameObject.SetActive(false);  
-        thirdInstructionText.gameObject.SetActive(true);    
-        waitingForThirdInstruction = true;                 
+        secondInstructionText.gameObject.SetActive(false);
+        thirdInstructionText.gameObject.SetActive(true);
+        waitingForThirdInstruction = true;
     }
 
     void HideAllInstructions()
     {
         firstInstructionText.gameObject.SetActive(false);
         secondInstructionText.gameObject.SetActive(false);
-        thirdInstructionText.gameObject.SetActive(false);  
+        thirdInstructionText.gameObject.SetActive(false);
 
-        if (dialogueTutorial != null)
+        // Notify DialogueTutorialController to stop showing the tutorial
+        DialogueTutorialController dialogueTutorialController = FindObjectOfType<DialogueTutorialController>();
+        if (dialogueTutorialController != null)
         {
-            dialogueTutorial.SetActive(false); 
+            dialogueTutorialController.CompleteTutorial();
         }
     }
 }

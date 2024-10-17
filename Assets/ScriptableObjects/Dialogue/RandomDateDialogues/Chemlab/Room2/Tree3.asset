@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5409dc8a8bf34c4fac0ce7c8959d6d7, type: 3}
+  m_Name: Tree3
+  m_EditorClassIdentifier: 
+  Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
+  Text: Do you regret coming this far?
+  responses:
+  - Text: If you could go back, would you have stayed behind?
+    dialog: {fileID: 11400000, guid: ebc88c8bf126f422ba84104570da7e1a, type: 2}
+  - Text: "If we didn\u2019t come here, we might have had a chance to escape."
+    dialog: {fileID: 11400000, guid: bffde28007aa84a5e9ef103b9360dcbe, type: 2}
