@@ -11,7 +11,7 @@ public class MedKitObject : InteractableGameObject
 
     public override void interact()
     {
-        Player.Instance.Heal(5);
+        Player.Instance.Heal(25);
         interactable = false;
         GameObject.Destroy(gameObject);
     }

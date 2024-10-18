@@ -1,5 +1,6 @@
 using UnityEngine;
 using Dialogue;
+using PlayerModule;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -9,14 +10,13 @@ public class PlayerAttack : MonoBehaviour
     private bool attackPerformed = false;  
     public Weapon currentWeapon;           
     private float timer = 0f;             
-    public AudioSource audioSource;           
+    public PlayerAttackSFX attackSFX;           
     private RuntimeAnimatorController originalAnimatorController;
     private int attackLayerIndex;
 
     void Start()
     {
         originalAnimatorController = playerAnimator.runtimeAnimatorController;
-        audioSource = GetComponentInChildren<AudioSource>();
         attackLayerIndex = playerAnimator.GetLayerIndex("Attack Layer");
 
     }
@@ -50,7 +50,7 @@ public class PlayerAttack : MonoBehaviour
         attacking = true;                     
         attackPerformed = true;               
         attackArea.SetActive(true);          
-        audioSource.PlayOneShot(currentWeapon.swingSound);  
+        attackSFX.PlaySound(currentWeapon,AttackSFX.Swing);
 
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;

@@ -61,6 +61,9 @@ namespace Rooms {
                 spawnedEnemyInstructionDict[spawned] = zombieSpawnInstruction;
                 spawned.gameObject.SetActive(true);
                 spawned.transform.SetParent(enemyContainer,false);
+                Vector3 position = spawned.transform.position;
+                position.z = 0;
+                spawned.transform.position = position;
             }
         }
 
