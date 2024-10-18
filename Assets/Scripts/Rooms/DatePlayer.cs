@@ -26,7 +26,10 @@ public class DatePlayer : MonoBehaviour
 
     private Vector2 lastPosition;         
     private int stuckFrames = 0;          
-    private int maxStuckFrames = 60;     
+    private int maxStuckFrames = 60;
+
+    private Animator animator;
+    public bool isInCutscene = false;
 
     void Start()
     {
@@ -34,14 +37,19 @@ public class DatePlayer : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         SetRandomDialogues(RandomDialogues);
         this.defaultShader = spriteRenderer.material;
-        lastPosition = transform.position; 
+        lastPosition = transform.position;
+        animator = GetComponent<Animator>();
     }
 
     void FixedUpdate()  
     {
-        if (!Player.Instance.CanMove) {
-    return;
-            }
+        if (isInCutscene || !Player.Instance.CanMove)
+        {
+            animator.SetBool("date_left", false);
+            animator.SetBool("date_right", false);
+            return;
+        }
+
         if (!isCollidingWithPlayer)
         {
             Transform playerTransform = Player.Instance.transform;
@@ -94,10 +102,22 @@ public class DatePlayer : MonoBehaviour
                 }
 
                 lastPosition = transform.position;
+                if (directionToPlayer.x < 0)
+                {
+                    animator.SetBool("date_left", true);
+                    animator.SetBool("date_right", false);
+                }
+                else if (directionToPlayer.x > 0)
+                {
+                    animator.SetBool("date_right", true);
+                    animator.SetBool("date_left", false);
+                }
             }
-            else
+            else if(distanceToPlayer < stopDistance && !Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.DownArrow))
             {
-                rb.velocity = Vector2.zero; 
+                rb.velocity = Vector2.zero;
+                animator.SetBool("date_left", false);
+                animator.SetBool("date_right", false);
             }
         }
         else
@@ -105,7 +125,6 @@ public class DatePlayer : MonoBehaviour
             rb.velocity = Vector2.zero;
         }
 
-        spriteRenderer.flipX = transform.position.x < Player.Instance.transform.position.x;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
