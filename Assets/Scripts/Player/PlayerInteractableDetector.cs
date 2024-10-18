@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Rooms;
+using Dialogue;
 namespace PlayerModule {
     public class PlayerInteractableDetector : MonoBehaviour
     {
@@ -21,6 +22,10 @@ namespace PlayerModule {
             }
         }
         public void Update() {
+            if (!Player.Instance.CanMove) {
+                InteractableUIController.Instance.hide();
+                return;
+            }
             DatePlayer datePlayer = Player.Instance.DatePlayer;
             if (currentObject != null && currentObject.isInteractable()) {
                 InteractableUIController.Instance.display(InteractableDisplayType.Interactable,currentObject.getInteractText(),currentObject.getPosition());

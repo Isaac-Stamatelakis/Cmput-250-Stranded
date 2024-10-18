@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a9fd90a19506f540a7da3094e78b735, type: 3}
+  m_Name: ChemLab3-4-end Collection
+  m_EditorClassIdentifier: 
+  dialogs:
+  - {fileID: 11400000, guid: 1f5914eed38a74c8b9b2f39d77751d34, type: 2}
+  - {fileID: 11400000, guid: bfecf12281a694438b80a03e4767adb3, type: 2}
+  - {fileID: 11400000, guid: f0f87df5acbc144f0b832c0b10afcd70, type: 2}

@@ -22,6 +22,7 @@ namespace Rooms {
         private Dictionary<TileMapLayer, Tilemap> tileMapDict;
         private Dictionary<Vector2Int, RoomObject> positionRoomObjectCollection; 
         public void Load() {
+            Player.Instance.DatePlayer = datePlayer;
             tileMapDict = new Dictionary<TileMapLayer, Tilemap>();
             tileMapDict[TileMapLayer.Floor] = floorTileMap;
             tileMapDict[TileMapLayer.Wall] = wallTileMap;
@@ -33,7 +34,7 @@ namespace Rooms {
             connectRoomDoors();
             deactivateRoomElements();
             loadRoom(rooms[levelData.SpawnRoomIndex]);
-            Player.Instance.DatePlayer = datePlayer;
+            
         }
 
         public bool CurrentRoomClear() {

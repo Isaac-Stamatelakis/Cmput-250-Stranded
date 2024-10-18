@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Dialogue;
+
 namespace Rooms {
     public class RoomObject : MonoBehaviour
     {
         [SerializeField] private MeshRenderer textIndicator;
+        public DialogCollection DateRandomDialogs;
+        public DialogObject OnRoomClearDialog;
 
         public void Start() {
             if (textIndicator != null) {

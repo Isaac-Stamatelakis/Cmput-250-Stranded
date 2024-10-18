@@ -1,4 +1,5 @@
 using UnityEngine;
+using Dialogue;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !attackPerformed)
+        if (!DialogUIController.Instance.ShowingDialog && Input.GetMouseButtonDown(0) && !attackPerformed)
         {
             Attack();
         }

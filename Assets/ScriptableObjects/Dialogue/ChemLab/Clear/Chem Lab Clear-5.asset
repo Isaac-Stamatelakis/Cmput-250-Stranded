@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cae2666990c0bb459d13c257dd7c11f, type: 3}
-  m_Name: Datetree4-1
+  m_Name: Chem Lab Clear-5
   m_EditorClassIdentifier: 
-  Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
-  Text: I trust you. Stay sharp!
-  nextDialog: {fileID: 11400000}
+  Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
+  Text: "Me too. For a moment, I wasn\u2019t sure we\u2019d survive"
+  nextDialog: {fileID: 11400000, guid: 4ee261c7d1e96a545b60696b05e724b5, type: 2}

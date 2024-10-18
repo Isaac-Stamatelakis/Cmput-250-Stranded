@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Dialogue;
+using PlayerModule;
 
 namespace Rooms {
     public class LoadedRoom : MonoBehaviour
@@ -38,10 +40,15 @@ namespace Rooms {
                 RoomDoorObject roomDoorObject = doorContainer.GetChild(i).GetComponent<RoomDoorObject>();
                 roomDoorObject.setClear(true);
             }
+            if (room.RoomObjectContainer.OnRoomClearDialog != null) {
+                DialogUIController.Instance.DisplayDialogue(room.RoomObjectContainer.OnRoomClearDialog);
+            }
         }
 
-        
         public void loadRoom(Room room) {
+            if (room.RoomObjectContainer.DateRandomDialogs != null) {
+                Player.Instance.DatePlayer.SetRandomDialogues(room.RoomObjectContainer.DateRandomDialogs.dialogs);
+            }
             this.room = room;
             loadRoomEnemies(room);
         }

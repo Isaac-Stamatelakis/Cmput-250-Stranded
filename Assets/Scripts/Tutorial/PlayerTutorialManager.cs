@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using Dialogue;
+using UnityEngine.UI;
 
 public class PlayerTutorialManager : MonoBehaviour
 {
@@ -12,13 +14,18 @@ public class PlayerTutorialManager : MonoBehaviour
     private bool waitingForRun = false;
     private bool waitingForThirdInstruction = false;
 
-    void Start()
-    {
-        ShowFirstInstruction();
-    }
-
     void Update()
     {
+        // Hard coded, change later
+        Image image = gameObject.GetComponent<Image>();
+        if (DialogUIController.Instance.ShowingDialog) {
+            image.enabled = false;
+            return;
+        }
+        if (waitingForMovement) {
+            ShowFirstInstruction();
+        }
+        image.enabled = true;
         if (waitingForMovement && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) ||
                                    Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) ||
                                    Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)))
@@ -33,13 +40,13 @@ public class PlayerTutorialManager : MonoBehaviour
             ShowThirdInstruction();  
         }
 
-        if (waitingForThirdInstruction && Input.GetKeyDown(KeyCode.Space))
+        if (waitingForThirdInstruction && Input.GetMouseButtonDown(0))
         {
             HideAllInstructions();  
         }
     }
 
-    void ShowFirstInstruction()
+    public void ShowFirstInstruction()
     {
         firstInstructionText.gameObject.SetActive(true);   
         secondInstructionText.gameObject.SetActive(false);
@@ -63,13 +70,6 @@ public class PlayerTutorialManager : MonoBehaviour
 
     void HideAllInstructions()
     {
-        firstInstructionText.gameObject.SetActive(false);
-        secondInstructionText.gameObject.SetActive(false);
-        thirdInstructionText.gameObject.SetActive(false);  
-
-        if (dialogueTutorial != null)
-        {
-            dialogueTutorial.SetActive(false); 
-        }
+        GameObject.Destroy(gameObject);
     }
 }
