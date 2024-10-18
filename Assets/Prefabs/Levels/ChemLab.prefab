@@ -1564,8 +1564,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56ae338c99aace46b44c8a04b17461f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: {fileID: 713640088753423759, guid: 018ec43ca72eedd49b393fce8649166e, type: 3}
-  SpawnAmount: 3
+  zombie: {fileID: 1209337982418823840, guid: e5b800083bd6496418596d8e3197a919, type: 3}
+  SpawnAmount: 1
   SpawnRange: 2
 --- !u!212 &4959895320623442464
 SpriteRenderer:
@@ -2311,8 +2311,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56ae338c99aace46b44c8a04b17461f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: {fileID: 713640088753423759, guid: 018ec43ca72eedd49b393fce8649166e, type: 3}
-  SpawnAmount: 2
+  zombie: {fileID: 1209337982418823840, guid: e5b800083bd6496418596d8e3197a919, type: 3}
+  SpawnAmount: 1
   SpawnRange: 2
 --- !u!212 &1129401743423087274
 SpriteRenderer:
@@ -3031,6 +3031,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3509376833060490075}
   - component: {fileID: 1585611268533578532}
+  - component: {fileID: 6960585974251361543}
+  - component: {fileID: 2571474479869657257}
   m_Layer: 0
   m_Name: oak_table
   m_TagString: Untagged
@@ -3105,6 +3107,48 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!208 &6960585974251361543
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795376920034660319}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.0630001, y: 1.0630001, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!61 &2571474479869657257
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795376920034660319}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.125, y: 2.125}
+    newSize: {x: 2.125, y: 2.125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.125, y: 2.125}
+  m_EdgeRadius: 0
 --- !u!1 &1956174751279140442
 GameObject:
   m_ObjectHideFlags: 0
@@ -3659,8 +3703,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56ae338c99aace46b44c8a04b17461f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: {fileID: 713640088753423759, guid: 018ec43ca72eedd49b393fce8649166e, type: 3}
-  SpawnAmount: 3
+  zombie: {fileID: 1209337982418823840, guid: e5b800083bd6496418596d8e3197a919, type: 3}
+  SpawnAmount: 1
   SpawnRange: 2
 --- !u!212 &6097891926185443144
 SpriteRenderer:
@@ -4441,8 +4485,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56ae338c99aace46b44c8a04b17461f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: {fileID: 713640088753423759, guid: 018ec43ca72eedd49b393fce8649166e, type: 3}
-  SpawnAmount: 3
+  zombie: {fileID: 1209337982418823840, guid: e5b800083bd6496418596d8e3197a919, type: 3}
+  SpawnAmount: 1
   SpawnRange: 2
 --- !u!212 &104016418258908857
 SpriteRenderer:
@@ -4631,7 +4675,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 2432
+    m_Bits: 4294967295
   m_UseGeometry: 0
   m_DefaultArea: 1
   m_IgnoreNavMeshAgent: 1
@@ -4642,7 +4686,7 @@ MonoBehaviour:
   m_VoxelSize: 0.1
   m_BuildHeightMesh: 0
   m_HideEditorLogs: 0
-  m_NavMeshData: {fileID: 23800000, guid: ee79cf6ed212e0d4fba28ba614b7d166, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: d7265a0f381489d46a12cffd73f42aaa, type: 2}
 --- !u!114 &7821367010945247901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4961,7 +5005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56ae338c99aace46b44c8a04b17461f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: {fileID: 713640088753423759, guid: 018ec43ca72eedd49b393fce8649166e, type: 3}
+  zombie: {fileID: 1209337982418823840, guid: e5b800083bd6496418596d8e3197a919, type: 3}
   SpawnAmount: 2
   SpawnRange: 1
 --- !u!212 &8599489489700032790
@@ -5066,7 +5110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56ae338c99aace46b44c8a04b17461f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: {fileID: 713640088753423759, guid: 018ec43ca72eedd49b393fce8649166e, type: 3}
+  zombie: {fileID: 1209337982418823840, guid: e5b800083bd6496418596d8e3197a919, type: 3}
   SpawnAmount: 2
   SpawnRange: 1
 --- !u!212 &1392460348489652892
@@ -5131,6 +5175,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3032278857044107382}
   - component: {fileID: 7022402062567138395}
+  - component: {fileID: 1980660507366798421}
+  - component: {fileID: 4580170713458034213}
   m_Layer: 0
   m_Name: oak_table (1)
   m_TagString: Untagged
@@ -5206,6 +5252,48 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!208 &1980660507366798421
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3619403590485453188}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.0630001, y: 1.0630001, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
+--- !u!61 &4580170713458034213
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3619403590485453188}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.125, y: 2.125}
+    newSize: {x: 2.125, y: 2.125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.125, y: 2.125}
+  m_EdgeRadius: 0
 --- !u!1 &3656038786830594666
 GameObject:
   m_ObjectHideFlags: 0
@@ -6831,8 +6919,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56ae338c99aace46b44c8a04b17461f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: {fileID: 713640088753423759, guid: 018ec43ca72eedd49b393fce8649166e, type: 3}
-  SpawnAmount: 2
+  zombie: {fileID: 1209337982418823840, guid: e5b800083bd6496418596d8e3197a919, type: 3}
+  SpawnAmount: 1
   SpawnRange: 2
 --- !u!212 &8708619019448092009
 SpriteRenderer:
@@ -7020,8 +7108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56ae338c99aace46b44c8a04b17461f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: {fileID: 713640088753423759, guid: 018ec43ca72eedd49b393fce8649166e, type: 3}
-  SpawnAmount: 3
+  zombie: {fileID: 1209337982418823840, guid: e5b800083bd6496418596d8e3197a919, type: 3}
+  SpawnAmount: 2
   SpawnRange: 2
 --- !u!212 &6636111852151659113
 SpriteRenderer:
@@ -7151,6 +7239,7 @@ GameObject:
   - component: {fileID: 4323780544019587317}
   - component: {fileID: 4323780544019587318}
   - component: {fileID: 4323780544019587319}
+  - component: {fileID: 6603859982161194734}
   m_Layer: 7
   m_Name: DoorTileMap
   m_TagString: Untagged
@@ -7797,6 +7886,22 @@ CompositeCollider2D:
       - {x: -26.999971, y: 5}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
+--- !u!114 &6603859982161194734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4323780544019587315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &4323780544127715089
 GameObject:
   m_ObjectHideFlags: 0
@@ -8359,6 +8464,7 @@ GameObject:
   - component: {fileID: 4323780544876738667}
   - component: {fileID: 4323780544876738665}
   - component: {fileID: 4323780544876738666}
+  - component: {fileID: 8108440008701386331}
   m_Layer: 0
   m_Name: FloorTileMap
   m_TagString: Untagged
@@ -37792,9 +37898,9 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
   - m_RefCount: 72
-    m_Data: {r: 0.9067869, g: 0.38136014, b: 0.5489348, a: 1}
+    m_Data: {r: 0.7635061, g: 0.43217698, b: 0.51783335, a: 1}
   - m_RefCount: 0
-    m_Data: {r: 9.2906e-41, g: 9.2906e-41, b: 9.2906e-41, a: 9.2906e-41}
+    m_Data: {r: 1.34138e-40, g: 1.34138e-40, b: 1.34138e-40, a: 1.34138e-40}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -37868,6 +37974,22 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &8108440008701386331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4323780544876738676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 0
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &4323780545133371053
 GameObject:
   m_ObjectHideFlags: 0
@@ -38151,7 +38273,6 @@ GameObject:
   - component: {fileID: 4323780545658843745}
   - component: {fileID: 4323780545658843746}
   - component: {fileID: 2577425110770979285}
-  - component: {fileID: 8669465362202902447}
   m_Layer: 7
   m_Name: WallTileMap
   m_TagString: Untagged
@@ -53325,9 +53446,9 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {r: 6.669e-41, g: 6.669e-41, b: 6.669e-41, a: 6.669e-41}
   - m_RefCount: 478
-    m_Data: {r: 0.81848407, g: 0.47397807, b: 0.56361395, a: 1}
+    m_Data: {r: 0.9009018, g: 0.38577935, b: 0.555992, a: 1}
   - m_RefCount: 0
-    m_Data: {r: 9.2962e-41, g: 9.2962e-41, b: 9.2962e-41, a: 9.2962e-41}
+    m_Data: {r: 1.34194e-40, g: 1.34194e-40, b: 1.34194e-40, a: 1.34194e-40}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -53670,20 +53791,6 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!114 &8669465362202902447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4323780545658843756}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 709c8d6349be44c68dff3d220992400c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AffectedAgents: ffffffff
-  m_TileModifiers: []
 --- !u!1 &4323780545706821502
 GameObject:
   m_ObjectHideFlags: 0
@@ -54322,7 +54429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56ae338c99aace46b44c8a04b17461f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: {fileID: 713640088753423759, guid: 018ec43ca72eedd49b393fce8649166e, type: 3}
+  zombie: {fileID: 1209337982418823840, guid: e5b800083bd6496418596d8e3197a919, type: 3}
   SpawnAmount: 2
   SpawnRange: 2
 --- !u!212 &5594574413474046128
@@ -54511,8 +54618,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56ae338c99aace46b44c8a04b17461f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: {fileID: 713640088753423759, guid: 018ec43ca72eedd49b393fce8649166e, type: 3}
-  SpawnAmount: 2
+  zombie: {fileID: 1209337982418823840, guid: e5b800083bd6496418596d8e3197a919, type: 3}
+  SpawnAmount: 1
   SpawnRange: 2
 --- !u!212 &29850763654366738
 SpriteRenderer:
@@ -54616,7 +54723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56ae338c99aace46b44c8a04b17461f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: {fileID: 713640088753423759, guid: 018ec43ca72eedd49b393fce8649166e, type: 3}
+  zombie: {fileID: 1209337982418823840, guid: e5b800083bd6496418596d8e3197a919, type: 3}
   SpawnAmount: 2
   SpawnRange: 2
 --- !u!212 &413350621844622426
@@ -55230,7 +55337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56ae338c99aace46b44c8a04b17461f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: {fileID: 713640088753423759, guid: 018ec43ca72eedd49b393fce8649166e, type: 3}
+  zombie: {fileID: 1209337982418823840, guid: e5b800083bd6496418596d8e3197a919, type: 3}
   SpawnAmount: 5
   SpawnRange: 5
 --- !u!212 &2208217934333535804
@@ -57716,7 +57823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56ae338c99aace46b44c8a04b17461f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: {fileID: 713640088753423759, guid: 018ec43ca72eedd49b393fce8649166e, type: 3}
+  zombie: {fileID: 1209337982418823840, guid: e5b800083bd6496418596d8e3197a919, type: 3}
   SpawnAmount: 5
   SpawnRange: 5
 --- !u!212 &616859509454314302
@@ -58351,8 +58458,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56ae338c99aace46b44c8a04b17461f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: {fileID: 713640088753423759, guid: 018ec43ca72eedd49b393fce8649166e, type: 3}
-  SpawnAmount: 7
+  zombie: {fileID: 1209337982418823840, guid: e5b800083bd6496418596d8e3197a919, type: 3}
+  SpawnAmount: 2
   SpawnRange: 5
 --- !u!212 &2076126654793745628
 SpriteRenderer:
@@ -58624,7 +58731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56ae338c99aace46b44c8a04b17461f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: {fileID: 713640088753423759, guid: 018ec43ca72eedd49b393fce8649166e, type: 3}
+  zombie: {fileID: 1209337982418823840, guid: e5b800083bd6496418596d8e3197a919, type: 3}
   SpawnAmount: 1
   SpawnRange: 0
 --- !u!212 &700955813328743935
@@ -58902,7 +59009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56ae338c99aace46b44c8a04b17461f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: {fileID: 713640088753423759, guid: 018ec43ca72eedd49b393fce8649166e, type: 3}
+  zombie: {fileID: 1209337982418823840, guid: e5b800083bd6496418596d8e3197a919, type: 3}
   SpawnAmount: 2
   SpawnRange: 2
 --- !u!212 &3926118302559239092
@@ -59521,8 +59628,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56ae338c99aace46b44c8a04b17461f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: {fileID: 713640088753423759, guid: 018ec43ca72eedd49b393fce8649166e, type: 3}
-  SpawnAmount: 2
+  zombie: {fileID: 1209337982418823840, guid: e5b800083bd6496418596d8e3197a919, type: 3}
+  SpawnAmount: 1
   SpawnRange: 2
 --- !u!212 &5824614572612051901
 SpriteRenderer:
