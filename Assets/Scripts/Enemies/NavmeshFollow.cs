@@ -36,11 +36,14 @@ public class NavmeshFollow : MonoBehaviour
         hasCollided = false;
 
         zom.speed = speed;
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (!hasCollided) {
             anim.SetBool("isWalking", true);
 
@@ -56,11 +59,9 @@ public class NavmeshFollow : MonoBehaviour
         }
 
         sr.flipX = transform.position.x > player.transform.position.x;
-        
-        
     }
 
-    private IEnumerator moveTo(Vector3 position) {
+    private IEnumerator moveTo(Vector2 position) {
         yield return null;
         zom.enabled = true;
         zom.SetDestination(position);
