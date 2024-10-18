@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Compass Animator
+  m_Controller: {fileID: 9100000, guid: 243e0869827fc374f86b65c4c06cd9dc, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 997602171af3a0749b684a958c0b79b8, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b20ebf3bda58f5c4b831ea2ed76de3d7, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 49b6b08a2fcf6f04d8b669b6ba750c5d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 16009887443be454b88b434599351e46, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: dad506da0238d2344b189acdd80d970e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 57ce29936e1c47f4790287bcf377f39c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ff85be6b06ecafa4084567336936d54f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 0a9de44817c223445979df57ecd0fd8d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 048b2fbc2b122644f99b01174006e440, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5554e38c703b34446bfc8d87267ec82a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7f87e7d445bded848bf8aceac94d66b4, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 89e7c6530f9910e4ba1b6271a322e97f, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e7006a5a08afd7746bf96b532ddc2551, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e971a9597b1772e408e1cdde136d17c4, type: 2}
