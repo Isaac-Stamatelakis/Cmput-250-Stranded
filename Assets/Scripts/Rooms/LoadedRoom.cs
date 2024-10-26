@@ -8,16 +8,12 @@ namespace Rooms {
     public class LoadedRoom : MonoBehaviour
     {
         public Transform enemyContainer;
-        public Transform triggerContainer;
-        public Transform interactableContainer;
         public Transform doorContainer;
         private Room room;
         public Room Room => room;
         private Dictionary<GameObject, ZombieSpawnInstruction> spawnedEnemyInstructionDict;
         public void reset() {
             GlobalUtils.deleteChildren(enemyContainer);
-            GlobalUtils.deleteChildren(triggerContainer);
-            GlobalUtils.deleteChildren(interactableContainer);
             GlobalUtils.deleteChildren(doorContainer);
             if (room != null && room.RoomObjectContainer != null) {
                 updateEnemySpawnInstructions();
@@ -40,9 +36,14 @@ namespace Rooms {
                 RoomDoorObject roomDoorObject = doorContainer.GetChild(i).GetComponent<RoomDoorObject>();
                 roomDoorObject.setClear(true);
             }
+            IRoomClearListener[] clearActions = room.RoomObjectContainer.GetComponentsInChildren<IRoomClearListener>();
+            foreach (IRoomClearListener clearListener in clearActions) {
+                clearListener.trigger();
+            }
             if (room.RoomObjectContainer.OnRoomClearDialog != null) {
                 DialogUIController.Instance.DisplayDialogue(room.RoomObjectContainer.OnRoomClearDialog);
             }
+
         }
 
         public void loadRoom(Room room) {
@@ -70,6 +71,10 @@ namespace Rooms {
         public bool isClear() {
             return enemyContainer.childCount==0;
         }
+    }
+
+    public interface IRoomClearListener {
+        public void trigger();
     }
 }
 

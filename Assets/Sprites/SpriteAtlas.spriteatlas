@@ -131,6 +131,7 @@ SpriteAtlas:
   - {fileID: -1000222541, guid: 7fde8d62846c60a45877398bffe0e36c, type: 3}
   - {fileID: 21300000, guid: d850b4725991b734fbee65e70087c88d, type: 3}
   - {fileID: 21300000, guid: f0a47c72998f7f04e96b7dba28a2aa6d, type: 3}
+  - {fileID: 21300000, guid: cde5e382ade47d94f9efbe0e273dde77, type: 3}
   - {fileID: 21300000, guid: 261e26827eccd6e4ca5d09bb8c833239, type: 3}
   - {fileID: 21300000, guid: 2fcc35925d5fe734e920d200f8f6faa1, type: 3}
   - {fileID: 21300000, guid: 070090e280ba0b5468f6aaec72220dd6, type: 3}
@@ -362,6 +363,7 @@ SpriteAtlas:
   - {fileID: 943794068, guid: 3ce944ae6269dec439f83b1625bedb3d, type: 3}
   - {fileID: 21300000, guid: 3f0e21fe1e767ad4686cc381f78cf606, type: 3}
   - {fileID: 21300000, guid: aea55a0f09b594e479bdc27a34de7146, type: 3}
+  - {fileID: 21300000, guid: 66e76c0f6dc5dc84cad0e64e99da782e, type: 3}
   - {fileID: 21300000, guid: e4464c6f06e60244dbcb77c7b4a11be7, type: 3}
   - {fileID: 21300000, guid: ebce359fabe2b6c4ba5db25ceebec26f, type: 3}
   - {fileID: 21300000, guid: 35f1f2af598986942bb87c003d98b9d7, type: 3}
@@ -464,6 +466,7 @@ SpriteAtlas:
   - b_right_attack2
   - BrickTop_U_True_L_True_D_True_R_True
   - LabWallTop_U_False_L_True_D_False_R_True
+  - back_arrow
   - BrickWall_U_True_L_True_D_False_R_True
   - LabWallBorder_U_False_L_True_D_False_R_True
   - DoorTop_U_True_L_True_D_False_R_True
@@ -695,6 +698,7 @@ SpriteAtlas:
   - torn_pages_3
   - flask
   - LabWallBorder_U_True_L_True_D_True_R_True
+  - experience_book
   - BrickWall_U_False_L_False_D_True_R_False
   - Brick Wall 2_U_False_L_False_D_True_R_True
   - LabWallTop_U_False_L_True_D_False_R_False

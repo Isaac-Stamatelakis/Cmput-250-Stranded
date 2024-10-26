@@ -33,5 +33,41 @@ namespace PlayerModule {
             }
             GetComponent<PlayerHealth>().Heal(amount);
         }
+
+        public PlayerData serialize() {
+            PlayerHealth playerHealth = GetComponent<PlayerHealth>();
+            PlayerLevelComponent playerLevelComponent = GetComponent<PlayerLevelComponent>();
+            PlayerAttack playerAttack = GetComponent<PlayerAttack>();
+            float health = playerHealth.Health;
+            // Prevents healing from increase max health
+            if (playerLevelComponent.hasUpgrade(PlayerUpgrade.Health)) {
+                health -= PlayerUpgradeUtils.HEALTH_UPGRADE_MODIFER;
+            }
+            return new PlayerData(
+                level: playerLevelComponent.PlayerLevel.Level,
+                experience: playerLevelComponent.PlayerLevel.Experience,
+                health: health,
+                upgrades: playerLevelComponent.PlayerUpgrades,
+                weapon: playerAttack.currentWeapon
+            );
+        }
+
+        public void unseralize(PlayerData playerData) {
+            PlayerHealth playerHealth = GetComponent<PlayerHealth>();
+            PlayerLevelComponent playerLevelComponent = GetComponent<PlayerLevelComponent>();
+            PlayerAttack playerAttack = GetComponent<PlayerAttack>();
+
+            playerHealth.setHealth(playerData.Health);
+            playerAttack.SetWeapon(playerData.weapon);
+            foreach (PlayerUpgrade playerUpgrade in playerData.upgrades) {
+                playerLevelComponent.addComponent(playerUpgrade);
+            }
+            playerLevelComponent.setExperienceAndLevel(new PlayerLevel(playerData.Experience,playerData.Level));
+
+            // Refresh uis
+            playerHealth.Damage(0);
+            playerLevelComponent.addExperience(0);
+            
+        }
     }
 }

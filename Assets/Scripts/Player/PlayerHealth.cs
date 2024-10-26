@@ -13,6 +13,8 @@ public class PlayerHealth : MonoBehaviour
     private bool dead;
     private float maxHealth;
     private int invincibleFrames = 0; // Initialize to zero
+    public float Health => health;
+    public float MaxHealth => maxHealth;
 
     public void Start()
     {
@@ -21,6 +23,10 @@ public class PlayerHealth : MonoBehaviour
         {
             playerUI.displayHealth(health, maxHealth);
         }
+    }
+
+    public void setHealth(float health) {
+        this.health = health;
     }
 
     // Update is called once per frame
@@ -37,7 +43,11 @@ public class PlayerHealth : MonoBehaviour
         {
             throw new System.ArgumentOutOfRangeException("Cannot have negative Damage");
         }
-        if (GetComponent<PlayerLevelComponent>().DateAura) {
+        PlayerLevelComponent playerLevelComponent = GetComponent<PlayerLevelComponent>();
+        if (playerLevelComponent.hasUpgrade(PlayerUpgrade.DamageReduction)) {
+            amount = Mathf.FloorToInt(amount * PlayerUpgradeUtils.DAMAGE_REDUCTION_MODIFIER);
+        }
+        if (playerLevelComponent.DateAura) {
             amount = Mathf.FloorToInt(amount * PlayerUpgradeUtils.DAMAGE_REDUCTION_MODIFIER);
         }
         this.health -= amount;

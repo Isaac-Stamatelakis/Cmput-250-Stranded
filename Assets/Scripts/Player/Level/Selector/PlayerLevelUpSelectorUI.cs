@@ -38,7 +38,6 @@ namespace PlayerModule {
             if (playerLevelComponent.RemainingUpgrades <= 0) {
                 playerExperienceUI.hideLevelUpOption();
             }
-            playerExperienceUI.displayUpgrade(playerUpgrades[index]);
         }
 
         public void displayDescription(int index) {

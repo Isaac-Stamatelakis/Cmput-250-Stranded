@@ -10,6 +10,7 @@ namespace PlayerModule {
         Health,
         Speed,
         Healing,
+        DamageReduction,
         DateAura,
         DateHeal,
         DateAttack
@@ -22,9 +23,15 @@ namespace PlayerModule {
         public static float HEAL_UPGRADE_MODIFIER = 1.5f;
         public static float DAMAGE_REDUCTION_MODIFIER = 0.8f;
         public static int DATE_KILL_HEAL_COUNT = 5;
-        public static int DATE_KILL_HEAL_AMOUNT = 5;
-        public static string formatPercentIncrease(float val) {
-            return (val -1).ToString("P0");
+        public static int DATE_KILL_HEAL_AMOUNT = 10;
+        public static string formatPercentIncrease(float val, bool inverse=false) {
+            float percent;
+            if (inverse) {
+                percent = 1-val;
+            } else {
+                percent = val-1;
+            }
+            return (percent).ToString("P0").Replace(" ","");
         }
     }
 
@@ -39,10 +46,12 @@ namespace PlayerModule {
                     return $"Speed Increase\nMove {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.SPEED_UPGRADE_MODIFIER)} faster!";
                 case PlayerUpgrade.Healing:
                     return $"Healing Increase\nHeal {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.HEAL_UPGRADE_MODIFIER)} more!";
+                case PlayerUpgrade.DamageReduction:
+                    return $"Damage Reduction\nReduce Damage by {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.DAMAGE_REDUCTION_MODIFIER,true)}!";
                 case PlayerUpgrade.DateAura:
                     return $"Date Aura\nStand near your date for a buff!";
                 case PlayerUpgrade.DateHeal:
-                    return $"Date Heal\nKill {PlayerUpgradeUtils.DATE_KILL_HEAL_COUNT} enemies for your date to heal you {PlayerUpgradeUtils.DATE_KILL_HEAL_AMOUNT}!";
+                    return $"Date Heal\nKill {PlayerUpgradeUtils.DATE_KILL_HEAL_COUNT} enemies for your date to heal you {PlayerUpgradeUtils.DATE_KILL_HEAL_AMOUNT} health!";
                 case PlayerUpgrade.DateAttack:
                     return $"Date Attack\nYour date aids you in combat!";
                 default:
@@ -54,7 +63,9 @@ namespace PlayerModule {
     {
         private PlayerUI playerUI;
         private PlayerLevel playerLevel = new PlayerLevel();
-        private HashSet<PlayerUpgrade> playerUpgrades = new HashSet<PlayerUpgrade>();
+        public PlayerLevel PlayerLevel => playerLevel;
+        private List<PlayerUpgrade> playerUpgrades = new List<PlayerUpgrade>();
+        public List<PlayerUpgrade> PlayerUpgrades => playerUpgrades;
         private List<PlayerUpgrade> nextSelectableUpgrades;
         public List<PlayerUpgrade> SelectableUpgrades => nextSelectableUpgrades;
         public int RemainingUpgrades => playerLevel.Level-playerUpgrades.Count;
@@ -63,9 +74,11 @@ namespace PlayerModule {
             return playerUpgrades.Contains(playerUpgrade);
         }
         public void Start() {
-            playerUI = Player.Instance.PlayerUI;
             nextSelectableUpgrades = generateSelectableUpgrades();
-            playerUI.PlayerExperienceUI.displayLevelUpOption();
+        }
+
+        public void setExperienceAndLevel(PlayerLevel playerLevel) {
+            this.playerLevel = playerLevel;
         }
 
         private List<PlayerUpgrade> generateSelectableUpgrades() {
@@ -95,7 +108,7 @@ namespace PlayerModule {
 
         public void addExperience(int amount) {
             bool leveledUp = playerLevel.addExperience(amount);
-            playerUI.PlayerExperienceUI.displayExperience(playerLevel.Level,playerLevel.Experience,playerLevel.getLevelUpExperience());
+            Player.Instance.PlayerUI.PlayerExperienceUI.displayExperience(playerLevel.Level,playerLevel.Experience,playerLevel.getLevelUpExperience());
             if (leveledUp) {
                 playerUI.PlayerExperienceUI.displayLevelUpOption();
             }
@@ -110,6 +123,9 @@ namespace PlayerModule {
             }
             // Only has an effect with certain upgrades
             Player.Instance.DatePlayer.activeUpgrade(playerUpgrade);
+
+            PlayerUI playerUI = Player.Instance.PlayerUI;
+            playerUI.PlayerExperienceUI.displayUpgrade(playerUpgrade);
         }
         
     }
@@ -117,6 +133,17 @@ namespace PlayerModule {
     public class PlayerLevel {
         public int Experience;
         public int Level;
+
+        public PlayerLevel()
+        {
+        }
+
+        public PlayerLevel(int experience, int level)
+        {
+            Experience = experience;
+            Level = level;
+        }
+
         // Adds experience. Returns true if player levels up
         public bool addExperience(int amount) {
             Experience += amount;
