@@ -37,7 +37,7 @@ public class PlayerExperienceUI : MonoBehaviour
             Debug.LogWarning("Experience values not set in playerui");
             return;
         }
-        experienceText.text = level.ToString();
+        experienceText.text = (level+1).ToString();
         experienceScrollbar.size = experience/levelUpExperience;
     }
     public Sprite getUpgradeSprite(PlayerUpgrade playerUpgrade) {

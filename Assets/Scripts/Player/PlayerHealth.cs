@@ -18,15 +18,21 @@ public class PlayerHealth : MonoBehaviour
 
     public void Start()
     {
-        this.maxHealth = health;
+        // If max health is zero then player has not been unseraialized from data
+        bool initalized = maxHealth > 0;
+        if (!initalized) {
+            setHealth(health);
+        }
+
+    }
+
+    public void setHealth(float currentHealth) {
+        this.maxHealth = this.health;
+        this.health = currentHealth;
         if (playerUI != null)
         {
             playerUI.displayHealth(health, maxHealth);
         }
-    }
-
-    public void setHealth(float health) {
-        this.health = health;
     }
 
     // Update is called once per frame

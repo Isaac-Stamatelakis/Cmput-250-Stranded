@@ -21,8 +21,8 @@ namespace Rooms {
                 player.unseralize(levelManager.playerData);
                 Debug.Log("Loaded player data from level manager");
             }
-            
-            
+            Player.Instance.refreshUI();
+   
             GameObject.Destroy(gameObject);
         }
     }

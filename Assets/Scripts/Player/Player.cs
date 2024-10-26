@@ -63,11 +63,14 @@ namespace PlayerModule {
                 playerLevelComponent.addComponent(playerUpgrade);
             }
             playerLevelComponent.setExperienceAndLevel(new PlayerLevel(playerData.Experience,playerData.Level));
+        }
 
-            // Refresh uis
+        public void refreshUI() {
+            PlayerHealth playerHealth = GetComponent<PlayerHealth>();
+            PlayerLevelComponent playerLevelComponent = GetComponent<PlayerLevelComponent>();
+
             playerHealth.Damage(0);
             playerLevelComponent.addExperience(0);
-            
         }
     }
 }

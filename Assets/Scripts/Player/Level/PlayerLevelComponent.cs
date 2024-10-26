@@ -61,7 +61,6 @@ namespace PlayerModule {
     }
     public class PlayerLevelComponent : MonoBehaviour
     {
-        private PlayerUI playerUI;
         private PlayerLevel playerLevel = new PlayerLevel();
         public PlayerLevel PlayerLevel => playerLevel;
         private List<PlayerUpgrade> playerUpgrades = new List<PlayerUpgrade>();
@@ -108,7 +107,8 @@ namespace PlayerModule {
 
         public void addExperience(int amount) {
             bool leveledUp = playerLevel.addExperience(amount);
-            Player.Instance.PlayerUI.PlayerExperienceUI.displayExperience(playerLevel.Level,playerLevel.Experience,playerLevel.getLevelUpExperience());
+            PlayerUI playerUI = Player.Instance.PlayerUI;
+            playerUI.PlayerExperienceUI.displayExperience(playerLevel.Level,playerLevel.Experience,playerLevel.getLevelUpExperience());
             if (leveledUp) {
                 playerUI.PlayerExperienceUI.displayLevelUpOption();
             }

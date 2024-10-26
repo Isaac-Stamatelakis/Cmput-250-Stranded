@@ -16,7 +16,11 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 0710794242ed2ef4492387258e7f35b3
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: c75a74096c426c14b85fea80e6cf78c4
+    m_Address: Assets/Prefabs/Levels/IsaacTesting/IsaacLabTest.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0c20d41d8418843358f07bc3edfdfd8c, type: 2}
   m_SchemaSet:
