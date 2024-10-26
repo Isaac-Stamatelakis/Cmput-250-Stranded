@@ -11,7 +11,8 @@ namespace PlayerModule {
         private bool inCutscene;
         private bool inDialog;
         public bool CanMove => !inCutscene && !inDialog;
-        private PlayerLevel playerExperienceData = new PlayerLevel();
+        [SerializeField] private PlayerUI playerUI;
+        public PlayerUI PlayerUI => playerUI;
         public void setCutscene(bool inCutscene) {
             this.inCutscene = inCutscene;
         }
@@ -27,12 +28,10 @@ namespace PlayerModule {
         }
 
         public void Heal(float amount) {
+            if (GetComponent<PlayerLevelComponent>().hasUpgrade(PlayerUpgrade.Healing)) {
+                amount *= 1.5f;
+            }
             GetComponent<PlayerHealth>().Heal(amount);
-        }
-
-        public void giveExperience(int experience) {
-            bool levelUp = playerExperienceData.addExperience(experience);
-            
         }
     }
 }

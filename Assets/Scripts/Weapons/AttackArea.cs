@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PlayerModule;
 
 public class AttackArea : MonoBehaviour
 {
     public Transform player;  
     public Weapon weapon;
     private PolygonCollider2D polygonCollider;
-
+    private PlayerLevelComponent playerLevelComponent;
     private bool hasDamaged = false;
     void Start()
     {
         polygonCollider = GetComponent<PolygonCollider2D>();
         SetColliderPointsBasedOnWeapon();
+        playerLevelComponent = Player.Instance.GetComponent<PlayerLevelComponent>();
     }
 
     void Update()
@@ -32,7 +34,11 @@ public class AttackArea : MonoBehaviour
             if (health == null) {
                 return;
             }
-            health.Damage(weapon.damage);
+            int damage = weapon.damage;
+            if (playerLevelComponent.hasUpgrade(PlayerUpgrade.Attack)) {
+                damage = (int) (damage *1.2f);
+            }
+            health.Damage(damage);
             hasDamaged = true; 
         }
     }
