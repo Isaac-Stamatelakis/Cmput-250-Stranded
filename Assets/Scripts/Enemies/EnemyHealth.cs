@@ -40,6 +40,10 @@ public class EnemyHealth : MonoBehaviour
     private void Die()
     {
         Player.Instance.GetComponent<PlayerLevelComponent>().addExperience(experience);
+        DateHealUpgrade dateHealUpgrade = Player.Instance.DatePlayer.GetComponentInChildren<DateHealUpgrade>();
+        if (dateHealUpgrade != null) {
+            dateHealUpgrade.addKill();
+        }
         Destroy(gameObject);
     }
 }

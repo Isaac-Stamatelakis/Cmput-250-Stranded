@@ -18,27 +18,44 @@ namespace Dialogue {
         private bool writing;
         private DialogueTree currentTree;
         private DialogObject currentDialog;
-        private int skipChars = 0;
+        private float skipChars = 0;
         private Color baseButtonColor;
+        private bool canFastSkip = true;
         public void Awake() {
             baseButtonColor = countinueButton.GetComponent<Image>().color;
             countinueButton.onClick.AddListener(countinuePress);
         }
 
         public void Update() {
-            if (Input.GetKeyDown(KeyCode.Space)) {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
                 countinuePress();
+            }
+            if (Input.GetKey(KeyCode.Space) && canFastSkip)
+            {
+                countineHold();
+            }
+
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                //canFastSkip = true;
             }
         }
 
         private void countinuePress() {
             if (writing) {
-                    skipChars += 10;
-                } else {
-                    if (currentDialog is DialogSentence dialogSentence) {
-                        DisplayDialogue(dialogSentence.nextDialog);
-                    }
-                }
+                return;
+            }
+            if (currentDialog is DialogSentence dialogSentence) {
+                //canFastSkip = false;
+                DisplayDialogue(dialogSentence.nextDialog);
+            }
+        }
+
+        private void countineHold() {
+            if (writing) {
+                skipChars += 50*Time.deltaTime;
+            }
         }
         public void DisplayDialogue(DialogObject dialogue) {
             skipChars = 0;

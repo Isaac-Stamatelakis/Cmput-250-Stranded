@@ -21,6 +21,7 @@ public class PlayerExperienceUI : MonoBehaviour
             instantiated.display(Player.Instance.GetComponent<PlayerLevelComponent>().SelectableUpgrades);
             Canvas canvas = GameObject.FindFirstObjectByType<Canvas>();
             instantiated.transform.SetParent(canvas.transform,false);
+            hideLevelUpOption();
         });
         levelUpButton.gameObject.SetActive(false);
         playerUpgradeSpriteDict = new Dictionary<PlayerUpgrade, Sprite>();

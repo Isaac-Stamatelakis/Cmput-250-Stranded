@@ -37,7 +37,9 @@ public class PlayerHealth : MonoBehaviour
         {
             throw new System.ArgumentOutOfRangeException("Cannot have negative Damage");
         }
-
+        if (GetComponent<PlayerLevelComponent>().DateAura) {
+            amount = Mathf.FloorToInt(amount * PlayerUpgradeUtils.DAMAGE_REDUCTION_MODIFIER);
+        }
         this.health -= amount;
 
         if (health <= 0)
@@ -64,6 +66,11 @@ public class PlayerHealth : MonoBehaviour
             health = maxHealth;
         }
         playerUI.displayHealth(health,maxHealth);
+    }
+
+    public void IncreaseHealth(float amount) {
+        maxHealth += amount;
+        Heal(amount);
     }
     public void FixedUpdate() {
         if (invincibleFrames > 0) {

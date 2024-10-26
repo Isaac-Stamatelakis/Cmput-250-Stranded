@@ -15,11 +15,36 @@ namespace PlayerModule {
         DateAttack
     }
 
+    public static class PlayerUpgradeUtils {
+        public static readonly float DAMAGE_UPGRADE_MODIFIER = 1.2f;
+        public static readonly float SPEED_UPGRADE_MODIFIER = 1.25f;
+        public static int HEALTH_UPGRADE_MODIFER = 25;
+        public static float HEAL_UPGRADE_MODIFIER = 1.5f;
+        public static float DAMAGE_REDUCTION_MODIFIER = 0.8f;
+        public static int DATE_KILL_HEAL_COUNT = 5;
+        public static int DATE_KILL_HEAL_AMOUNT = 5;
+        public static string formatPercentIncrease(float val) {
+            return (val -1).ToString("P0");
+        }
+    }
+
     public static class PlayerUpgradeExtension {
         public static string getDescription(this PlayerUpgrade playerUpgrade) {
             switch (playerUpgrade) {
                 case PlayerUpgrade.Attack:
-                    return "+Attack\nDeal an additional 20% damage!";
+                    return $"Attack Increase\nDeal an additional {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.DAMAGE_UPGRADE_MODIFIER)} damage!";
+                case PlayerUpgrade.Health:
+                    return $"Health Increase\nGain {PlayerUpgradeUtils.HEALTH_UPGRADE_MODIFER} health";
+                case PlayerUpgrade.Speed:
+                    return $"Speed Increase\nMove {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.SPEED_UPGRADE_MODIFIER)} faster!";
+                case PlayerUpgrade.Healing:
+                    return $"Healing Increase\nHeal {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.HEAL_UPGRADE_MODIFIER)} more!";
+                case PlayerUpgrade.DateAura:
+                    return $"Date Aura\nStand near your date for a buff!";
+                case PlayerUpgrade.DateHeal:
+                    return $"Date Heal\nKill {PlayerUpgradeUtils.DATE_KILL_HEAL_COUNT} enemies for your date to heal you {PlayerUpgradeUtils.DATE_KILL_HEAL_AMOUNT}!";
+                case PlayerUpgrade.DateAttack:
+                    return $"Date Attack\nYour date aids you in combat!";
                 default:
                     return "";
             }
@@ -32,6 +57,8 @@ namespace PlayerModule {
         private HashSet<PlayerUpgrade> playerUpgrades = new HashSet<PlayerUpgrade>();
         private List<PlayerUpgrade> nextSelectableUpgrades;
         public List<PlayerUpgrade> SelectableUpgrades => nextSelectableUpgrades;
+        public int RemainingUpgrades => playerLevel.Level-playerUpgrades.Count;
+        public bool DateAura = false;
         public bool hasUpgrade(PlayerUpgrade playerUpgrade) {
             return playerUpgrades.Contains(playerUpgrade);
         }
@@ -76,6 +103,13 @@ namespace PlayerModule {
 
         public void addComponent(PlayerUpgrade playerUpgrade) {
             playerUpgrades.Add(playerUpgrade);
+            switch (playerUpgrade) {
+                case PlayerUpgrade.Health:
+                    Player.Instance.GetComponent<PlayerHealth>().IncreaseHealth(PlayerUpgradeUtils.HEALTH_UPGRADE_MODIFER);
+                    break;
+            }
+            // Only has an effect with certain upgrades
+            Player.Instance.DatePlayer.activeUpgrade(playerUpgrade);
         }
         
     }

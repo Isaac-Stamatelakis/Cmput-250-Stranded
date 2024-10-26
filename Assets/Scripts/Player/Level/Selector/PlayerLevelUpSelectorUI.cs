@@ -13,10 +13,12 @@ namespace PlayerModule {
         [SerializeField] PlayerUpgradeUIElement uiElementPrefab;
         private List<PlayerUpgrade> playerUpgrades;
         public void display(List<PlayerUpgrade> playerUpgrades) {
+            PlayerExperienceUI playerExperienceUI = Player.Instance.PlayerUI.PlayerExperienceUI;
             backButton.onClick.AddListener(() => {
+                playerExperienceUI.displayLevelUpOption();
                 GameObject.Destroy(gameObject);
             });
-            PlayerExperienceUI playerExperienceUI = Player.Instance.PlayerUI.PlayerExperienceUI;
+            
             this.playerUpgrades = playerUpgrades;
             for (int i = 0; i < playerUpgrades.Count; i++) {
                 PlayerUpgrade playerUpgrade = playerUpgrades[i];
@@ -33,7 +35,9 @@ namespace PlayerModule {
             playerLevelComponent.addComponent(playerUpgrades[index]);
             playerLevelComponent.iterateUpgrades();
             PlayerExperienceUI playerExperienceUI = Player.Instance.PlayerUI.PlayerExperienceUI;
-            playerExperienceUI.hideLevelUpOption();
+            if (playerLevelComponent.RemainingUpgrades <= 0) {
+                playerExperienceUI.hideLevelUpOption();
+            }
             playerExperienceUI.displayUpgrade(playerUpgrades[index]);
         }
 

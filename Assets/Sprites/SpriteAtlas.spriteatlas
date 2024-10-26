@@ -314,6 +314,10 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 2d17fc3b0e660444e9ffd5ccec4f58f6, type: 3}
   - {fileID: 21300000, guid: 7706f04b68c17ac4f9e08733a353404f, type: 3}
   - {fileID: 21300000, guid: a999674b837fbfd4fb6d8a8c207bc1dc, type: 3}
+  - {fileID: 1265189343, guid: 60e4b17b224ef2e4292896b57f1b5c0e, type: 3}
+  - {fileID: 1959149597, guid: 60e4b17b224ef2e4292896b57f1b5c0e, type: 3}
+  - {fileID: -1336405133, guid: 60e4b17b224ef2e4292896b57f1b5c0e, type: 3}
+  - {fileID: 466411068, guid: 60e4b17b224ef2e4292896b57f1b5c0e, type: 3}
   - {fileID: 21300000, guid: a6ade97b79b183f44bff0d31bc33450d, type: 3}
   - {fileID: 21300000, guid: 18f2ff7b166af8e408e89288fde5032a, type: 3}
   - {fileID: 21300000, guid: ee919cab9439f8d46b949ab2e68642c0, type: 3}
@@ -643,6 +647,10 @@ SpriteAtlas:
   - Brick Wall 2_U_True_L_True_D_False_R_False
   - BrickWall_U_True_L_False_D_True_R_True
   - BrickTop_U_False_L_True_D_True_R_True
+  - test_aura_2
+  - test_aura_3
+  - test_aura_0
+  - test_aura_1
   - test_floor_3
   - Brick Wall 2_U_True_L_False_D_False_R_True
   - LabWallBottom_U_True_L_True_D_True_R_True

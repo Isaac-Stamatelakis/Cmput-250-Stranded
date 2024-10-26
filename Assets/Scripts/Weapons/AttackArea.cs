@@ -36,7 +36,10 @@ public class AttackArea : MonoBehaviour
             }
             int damage = weapon.damage;
             if (playerLevelComponent.hasUpgrade(PlayerUpgrade.Attack)) {
-                damage = (int) (damage *1.2f);
+                damage = (int) (damage * PlayerUpgradeUtils.DAMAGE_UPGRADE_MODIFIER);
+            }
+            if (playerLevelComponent.DateAura) {
+                damage = (int) (damage * PlayerUpgradeUtils.DAMAGE_UPGRADE_MODIFIER);
             }
             health.Damage(damage);
             hasDamaged = true; 
