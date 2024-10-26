@@ -7,7 +7,7 @@ using PlayerModule;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private int health = 20;
-
+    [SerializeField] private float experience = 5;
     private bool flashingColor = false;
 
     public void Damage(int amount)

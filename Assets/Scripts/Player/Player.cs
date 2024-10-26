@@ -11,6 +11,7 @@ namespace PlayerModule {
         private bool inCutscene;
         private bool inDialog;
         public bool CanMove => !inCutscene && !inDialog;
+        private PlayerLevel playerExperienceData = new PlayerLevel();
         public void setCutscene(bool inCutscene) {
             this.inCutscene = inCutscene;
         }
@@ -28,6 +29,10 @@ namespace PlayerModule {
         public void Heal(float amount) {
             GetComponent<PlayerHealth>().Heal(amount);
         }
-    }
 
+        public void giveExperience(int experience) {
+            bool levelUp = playerExperienceData.addExperience(experience);
+            
+        }
+    }
 }
