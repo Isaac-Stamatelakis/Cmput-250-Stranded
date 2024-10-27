@@ -61,6 +61,8 @@ namespace PlayerModule {
     }
     public class PlayerLevelComponent : MonoBehaviour
     {
+        [SerializeField] private Material dateAuraShader;
+        private Material defaultShader;
         private PlayerLevel playerLevel = new PlayerLevel();
         public PlayerLevel PlayerLevel => playerLevel;
         private List<PlayerUpgrade> playerUpgrades = new List<PlayerUpgrade>();
@@ -68,16 +70,28 @@ namespace PlayerModule {
         private List<PlayerUpgrade> nextSelectableUpgrades;
         public List<PlayerUpgrade> SelectableUpgrades => nextSelectableUpgrades;
         public int RemainingUpgrades => playerLevel.Level-playerUpgrades.Count;
-        public bool DateAura = false;
+        private bool dateAura = false;
+        public bool DateAura => dateAura;
         public bool hasUpgrade(PlayerUpgrade playerUpgrade) {
             return playerUpgrades.Contains(playerUpgrade);
         }
         public void Start() {
             nextSelectableUpgrades = generateSelectableUpgrades();
+            defaultShader = GetComponent<SpriteRenderer>().sharedMaterial;
+            addExperience(250000);
         }
 
         public void setExperienceAndLevel(PlayerLevel playerLevel) {
             this.playerLevel = playerLevel;
+        }
+
+        public void setDateAura(bool state) {
+            if (state == dateAura) {
+                return;
+            }
+            this.dateAura = state;
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.material = dateAura ? dateAuraShader : defaultShader;
         }
 
         private List<PlayerUpgrade> generateSelectableUpgrades() {
@@ -147,13 +161,15 @@ namespace PlayerModule {
         // Adds experience. Returns true if player levels up
         public bool addExperience(int amount) {
             Experience += amount;
-            int levelUpRequirement = getLevelUpExperience();
-            if (Experience >= levelUpRequirement) {
-                Experience -= levelUpRequirement;
+            int levelRequirement = getLevelUpExperience();
+            bool leveledUp = false;
+            while (Experience >= levelRequirement) {
+                Experience -= levelRequirement;
                 Level++;
-                return true;
+                levelRequirement = getLevelUpExperience();
+                leveledUp = true;
             }
-            return false;
+            return leveledUp;
         }
 
         public int getLevelUpExperience() {

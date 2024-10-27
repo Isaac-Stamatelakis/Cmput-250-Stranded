@@ -5,6 +5,7 @@ using PlayerModule;
 
 public class DateHealUpgrade : MonoBehaviour
 {
+    [SerializeField] private LineRenderer linePrefab;
     private int counter;
     public void addKill() {
         counter ++;
@@ -14,7 +15,30 @@ public class DateHealUpgrade : MonoBehaviour
         }
     }
 
-    public void healPlayer() {
-        Player.Instance.Heal(PlayerUpgradeUtils.DATE_KILL_HEAL_AMOUNT);
+    public void Start() {
+        
     }
+
+    public void FixedUpdate() {
+        
+    }
+
+    public void healPlayer() {
+        Player player = Player.Instance;
+        player.Heal(PlayerUpgradeUtils.DATE_KILL_HEAL_AMOUNT);
+
+        Vector3 playerPosition = player.transform.position;
+    
+        LineRenderer lineRenderer = GameObject.Instantiate(linePrefab);
+        lineRenderer.SetPosition(0, transform.position);
+        lineRenderer.SetPosition(1, playerPosition);
+        lineRenderer.transform.SetParent(transform,false);
+        StartCoroutine(deleteLine(lineRenderer.gameObject));
+    }
+
+    private IEnumerator deleteLine(GameObject lineObject) {
+        yield return new WaitForSeconds(0.25f);
+        GameObject.Destroy(lineObject);
+    }
+    
 }

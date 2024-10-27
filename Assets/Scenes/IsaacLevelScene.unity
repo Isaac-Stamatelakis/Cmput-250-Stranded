@@ -3458,7 +3458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49d5e12b809b4ff4e9651c8638c5c744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DateAura: 0
+  dateAuraShader: {fileID: 2100000, guid: f29076f5b50f7124f8c97637561a0a19, type: 2}
 --- !u!212 &5351703665322397889
 SpriteRenderer:
   m_ObjectHideFlags: 0

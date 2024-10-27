@@ -14,6 +14,6 @@ public class DateAuraUpgrade : MonoBehaviour
     }
     public void FixedUpdate() {
         RaycastHit2D hit = Physics2D.CircleCast(transform.position, 3, Vector2.zero, Mathf.Infinity, playerLayer);
-        playerLevelComponent.DateAura = hit.collider != null;
+        playerLevelComponent.setDateAura(hit.collider != null);
     }
 }

@@ -17,8 +17,12 @@ public class PlayerExperienceUI : MonoBehaviour
     private Dictionary<PlayerUpgrade, Sprite> playerUpgradeSpriteDict;
     public void Start() {
         levelUpButton.onClick.AddListener(() => {
+            PlayerLevelComponent playerLevelComponent = Player.Instance.GetComponent<PlayerLevelComponent>();
+            if (playerLevelComponent.SelectableUpgrades.Count == 0) {
+                return;
+            }
             PlayerLevelUpSelectorUI instantiated = GameObject.Instantiate(playerLevelUpSelectorUIPrefab);
-            instantiated.display(Player.Instance.GetComponent<PlayerLevelComponent>().SelectableUpgrades);
+            instantiated.display(playerLevelComponent.SelectableUpgrades);
             Canvas canvas = GameObject.FindFirstObjectByType<Canvas>();
             instantiated.transform.SetParent(canvas.transform,false);
             hideLevelUpOption();
@@ -48,6 +52,10 @@ public class PlayerExperienceUI : MonoBehaviour
     }
 
     public void displayLevelUpOption() {
+        PlayerLevelComponent playerLevelComponent = Player.Instance.GetComponent<PlayerLevelComponent>();
+        if (playerLevelComponent.SelectableUpgrades.Count == 0) {
+            return;
+        }
         levelUpButton.gameObject.SetActive(true);
         Color[] levelUpColors = {
             Color.red,     // Color for Level Up
