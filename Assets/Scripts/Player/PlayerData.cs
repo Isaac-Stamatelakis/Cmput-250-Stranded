@@ -19,6 +19,15 @@ namespace PlayerModule {
             this.upgrades = upgrades;
             this.weapon = weapon;
         }
+
+        public override string ToString()
+        {
+            return  $"Level: {Level}|" +
+                    $"Experience: {Experience}|" +
+                    $"Health: {Health}|" +
+                    $"Upgrades: {string.Join(", ", upgrades)}|" +
+                    $"Weapon: {weapon.name}";
+        }
     }
 }
 

@@ -35,7 +35,6 @@ namespace PlayerModule {
             playerLevelComponent.addComponent(playerUpgrades[index]);
             playerLevelComponent.iterateUpgrades();
             PlayerExperienceUI playerExperienceUI = Player.Instance.PlayerUI.PlayerExperienceUI;
-            Debug.Log(playerLevelComponent.RemainingUpgrades);
             if (playerLevelComponent.RemainingUpgrades <= 0) {
                 playerExperienceUI.hideLevelUpOption();
             } else {

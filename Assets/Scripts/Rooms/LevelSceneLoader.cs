@@ -19,7 +19,7 @@ namespace Rooms {
             if (levelManager.playerData != null) {
                 Player player = Player.Instance;
                 player.unseralize(levelManager.playerData);
-                Debug.Log("Loaded player data from level manager");
+                Debug.Log($"Unserialized Player Data: {levelManager.playerData}");
             }
             Player.Instance.refreshUI();
    

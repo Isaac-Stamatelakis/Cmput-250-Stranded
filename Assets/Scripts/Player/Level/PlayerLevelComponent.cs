@@ -78,7 +78,6 @@ namespace PlayerModule {
         public void Start() {
             nextSelectableUpgrades = generateSelectableUpgrades();
             defaultShader = GetComponent<SpriteRenderer>().sharedMaterial;
-            addExperience(250000);
         }
 
         public void setExperienceAndLevel(PlayerLevel playerLevel) {
