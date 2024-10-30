@@ -15,13 +15,13 @@ namespace TitleScreen {
         [SerializeField] private GameObject datePlayer;
         [SerializeField] private GameObject player;
         public static readonly int SCREEN_WIDTH = 32;
-        public static readonly int SCREEN_HEIGHT = 7;
+        public static readonly int SCREEN_HEIGHT = 14;
         public static readonly int SCREEN_HEIGHT_OFFSET = 4;
         
-        private readonly int MIN_SPAWN_TIME = 50;
+        private readonly int MIN_SPAWN_TIME = 25;
         private readonly int SPAWN_TIME = 500;
         private int counter;
-        private readonly int SPAWN_TIME_DEREASE = 5;
+        private readonly int SPAWN_TIME_DEREASE = 10;
         int spawns = 0;
         public void Start() {
             counter = SPAWN_TIME;
@@ -29,7 +29,7 @@ namespace TitleScreen {
 
         public void FixedUpdate() {
             counter ++;
-            if (counter < SPAWN_TIME-SPAWN_TIME_DEREASE*5 || counter < MIN_SPAWN_TIME) {
+            if (counter < SPAWN_TIME-SPAWN_TIME_DEREASE*spawns || counter < MIN_SPAWN_TIME) {
                 return;
             }
             TitleScreenZombiePattern pattern = createRandomPattern();

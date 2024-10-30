@@ -51,7 +51,13 @@ namespace TitleScreen {
         public static int getWeight(this ZombiePattern zombiePattern) {
             switch (zombiePattern) {
                 case ZombiePattern.Single:
-                    return 3;
+                    return 5;
+                case ZombiePattern.Arrow:
+                    return 2;
+                case ZombiePattern.Line:
+                    return 2;
+                case ZombiePattern.Circle:
+                    return 1;
                 default:
                     return 1;
             }

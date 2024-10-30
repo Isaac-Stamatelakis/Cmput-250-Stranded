@@ -11,7 +11,7 @@ namespace TitleScreen {
         [SerializeField] private RotationCounter yCounter;
         [SerializeField] private RotationCounter zCounter;
         private List<RotationCounter> counters;
-        private bool speedUp = true;
+        private bool speedUp;
         private int speedUpCounter = 0;
         public int SpeedUpModifier = 50;
         public void Start() {

@@ -2508,6 +2508,7 @@ MonoBehaviour:
   scrollbar: {fileID: 619392168}
   text: {fileID: 2074259559}
   playerExperienceUI: {fileID: 952397996}
+  pauseScreenPrefab: {fileID: 1804075523573016661, guid: f3a2258edc8cea94fa89da16f7dc700c, type: 3}
 --- !u!1 &1777107586
 GameObject:
   m_ObjectHideFlags: 0
