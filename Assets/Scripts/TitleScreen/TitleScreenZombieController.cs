@@ -18,10 +18,10 @@ namespace TitleScreen {
         public static readonly int SCREEN_HEIGHT = 14;
         public static readonly int SCREEN_HEIGHT_OFFSET = 4;
         
-        private readonly int MIN_SPAWN_TIME = 25;
-        private readonly int SPAWN_TIME = 500;
+        public int MIN_SPAWN_TIME = 25;
+        public int SPAWN_TIME = 500;
         private int counter;
-        private readonly int SPAWN_TIME_DEREASE = 10;
+        public int SPAWN_TIME_DEREASE = 10;
         int spawns = 0;
         public void Start() {
             counter = SPAWN_TIME;
