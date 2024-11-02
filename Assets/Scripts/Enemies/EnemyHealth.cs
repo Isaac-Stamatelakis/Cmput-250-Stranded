@@ -7,7 +7,7 @@ using PlayerModule;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private int health = 20;
-
+    [SerializeField] private int experience = 5;
     private bool flashingColor = false;
 
     public void Damage(int amount)
@@ -39,6 +39,11 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
+        Player.Instance.GetComponent<PlayerLevelComponent>().addExperience(experience);
+        DateHealUpgrade dateHealUpgrade = Player.Instance.DatePlayer.GetComponentInChildren<DateHealUpgrade>();
+        if (dateHealUpgrade != null) {
+            dateHealUpgrade.addKill();
+        }
         Destroy(gameObject);
     }
 }
