@@ -13,10 +13,22 @@ public class PlayerHealth : MonoBehaviour
     private bool dead;
     private float maxHealth;
     private int invincibleFrames = 0; // Initialize to zero
+    public float Health => health;
+    public float MaxHealth => maxHealth;
 
     public void Start()
     {
-        this.maxHealth = health;
+        // If max health is zero then player has not been unseraialized from data
+        bool initalized = maxHealth > 0;
+        if (!initalized) {
+            setHealth(health);
+        }
+
+    }
+
+    public void setHealth(float currentHealth) {
+        this.maxHealth = this.health;
+        this.health = currentHealth;
         if (playerUI != null)
         {
             playerUI.displayHealth(health, maxHealth);
@@ -37,7 +49,13 @@ public class PlayerHealth : MonoBehaviour
         {
             throw new System.ArgumentOutOfRangeException("Cannot have negative Damage");
         }
-
+        PlayerLevelComponent playerLevelComponent = GetComponent<PlayerLevelComponent>();
+        if (playerLevelComponent.hasUpgrade(PlayerUpgrade.DamageReduction)) {
+            amount = Mathf.FloorToInt(amount * PlayerUpgradeUtils.DAMAGE_REDUCTION_MODIFIER);
+        }
+        if (playerLevelComponent.DateAura) {
+            amount = Mathf.FloorToInt(amount * PlayerUpgradeUtils.DAMAGE_REDUCTION_MODIFIER);
+        }
         this.health -= amount;
 
         if (health <= 0)
@@ -64,6 +82,11 @@ public class PlayerHealth : MonoBehaviour
             health = maxHealth;
         }
         playerUI.displayHealth(health,maxHealth);
+    }
+
+    public void IncreaseHealth(float amount) {
+        maxHealth += amount;
+        Heal(amount);
     }
     public void FixedUpdate() {
         if (invincibleFrames > 0) {

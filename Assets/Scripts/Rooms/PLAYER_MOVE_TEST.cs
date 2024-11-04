@@ -9,6 +9,7 @@ namespace PlayerModule
     {
         Rigidbody2D rb;
         SpriteRenderer spriteRenderer;
+        PlayerLevelComponent playerLevelComponent;
         public PlayerWalkSFX playerWalkSFX;
         public Animator animator;
 
@@ -25,6 +26,8 @@ namespace PlayerModule
         {
             rb = GetComponent<Rigidbody2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
+            playerLevelComponent = GetComponent<PlayerLevelComponent>();
+
         }
         public void Update() {
             if (!Player.Instance.CanMove) {
@@ -69,6 +72,9 @@ namespace PlayerModule
             
             isRunning = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
             float currentSpeed = isRunning ? runSpeed : walkSpeed;
+            if (playerLevelComponent.hasUpgrade(PlayerUpgrade.Speed)) {
+                currentSpeed *= 1.25f;
+            }
             if (moveDirection != Vector2.zero)
             {
                 moveDirection = moveDirection.normalized * currentSpeed;
