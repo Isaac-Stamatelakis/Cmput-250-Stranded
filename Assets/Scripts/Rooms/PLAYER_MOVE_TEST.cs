@@ -16,6 +16,7 @@ namespace PlayerModule
         public bool isMoving = false;   
         public bool isRunning = false;
         private PlayerAttack playerAttack;
+        public bool isInCutscene = false;
 
         public float walkSpeed = 10f;
         public float runSpeed = 20f;
@@ -30,7 +31,8 @@ namespace PlayerModule
 
         }
         public void Update() {
-            if (!Player.Instance.CanMove) {
+            if (!Player.Instance.CanMove || isInCutscene) {
+                setAnimationsFalse();
                 rb.velocity = Vector2.zero;
                 return;
             }

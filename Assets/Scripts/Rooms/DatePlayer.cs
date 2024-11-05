@@ -45,8 +45,10 @@ public class DatePlayer : MonoBehaviour
     {
         if (isInCutscene || !Player.Instance.CanMove)
         {
-            animator.SetBool("date_left", false);
             animator.SetBool("date_right", false);
+            animator.SetBool("date_left", false);
+            animator.SetBool("face_left", true);
+            animator.SetBool("face_right", false);
             return;
         }
 
@@ -63,12 +65,10 @@ public class DatePlayer : MonoBehaviour
             {
                 currentFollowSpeed = boostSpeed; 
             }
-
+            Vector2 targetPosition = (Vector2)playerTransform.position + playerOffset;
+            Vector2 directionToPlayer = (targetPosition - (Vector2)transform.position).normalized;
             if (distanceToPlayer > stopDistance)
             {
-                Vector2 targetPosition = (Vector2)playerTransform.position + playerOffset;
-                Vector2 directionToPlayer = (targetPosition - (Vector2)transform.position).normalized;
-
                 RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer, distanceToPlayer);
 
 
@@ -106,18 +106,34 @@ public class DatePlayer : MonoBehaviour
                 {
                     animator.SetBool("date_left", true);
                     animator.SetBool("date_right", false);
+                    animator.SetBool("face_left", false);
+                    animator.SetBool("face_right", false);
                 }
                 else if (directionToPlayer.x > 0)
                 {
                     animator.SetBool("date_right", true);
                     animator.SetBool("date_left", false);
+                    animator.SetBool("face_left", false);
+                    animator.SetBool("face_right", false);
                 }
             }
             else if(distanceToPlayer < stopDistance && !Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.DownArrow))
             {
+                if (directionToPlayer.x < 0)
+                {
+                    animator.SetBool("date_right", false);
+                    animator.SetBool("date_left", false);
+                    animator.SetBool("face_left", true);
+                    animator.SetBool("face_right", false);
+                }
+                else if (directionToPlayer.x > 0)
+                {
+                    animator.SetBool("date_right", false);
+                    animator.SetBool("date_left", false);
+                    animator.SetBool("face_right", true);
+                    animator.SetBool("face_left", false);
+                }
                 rb.velocity = Vector2.zero;
-                animator.SetBool("date_left", false);
-                animator.SetBool("date_right", false);
             }
         }
         else
