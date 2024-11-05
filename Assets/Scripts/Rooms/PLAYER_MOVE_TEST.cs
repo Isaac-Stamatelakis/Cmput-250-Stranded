@@ -31,13 +31,12 @@ namespace PlayerModule
 
         }
         public void Update() {
-            if (!Player.Instance.CanMove || isInCutscene) {
+            moveDirection = Vector2.zero;
+            if (!Player.Instance.CanMove) {
                 setAnimationsFalse();
                 rb.velocity = Vector2.zero;
                 return;
             }
-            moveDirection = Vector2.zero;
-
 
             bool moveUp = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
             bool moveDown = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
@@ -120,7 +119,7 @@ namespace PlayerModule
 
             if (roomDoorObject != null)
             {
-                roomDoorObject.switchRoom(transform);
+                roomDoorObject.switchRoom();
             }
         }
 

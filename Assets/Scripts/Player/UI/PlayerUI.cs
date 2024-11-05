@@ -14,7 +14,7 @@ namespace PlayerModule {
         public PlayerExperienceUI PlayerExperienceUI => playerExperienceUI;
 
         public void displayHealth(float current, float max) {
-            text.text = $"{current} / {max}";
+            text.text = $"{current:F0} / {max:F0}";
             scrollbar.size = current/max;
         }
 

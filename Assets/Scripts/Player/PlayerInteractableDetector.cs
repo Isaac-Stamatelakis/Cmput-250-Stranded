@@ -37,7 +37,7 @@ namespace PlayerModule {
             }
             bool nearDate = IsNearDate();
             datePlayer.setHighlight(nearDate);
-            if (nearDate) {
+            if (nearDate && LevelManager.getInstance().CurrentLevel.CurrentRoomClear()) {
                 InteractableUIController.Instance.display(InteractableDisplayType.TalkToDate,"Talk",datePlayer.transform.position);
                 if (Input.GetKeyDown(KeyCode.E)) {
                     Player.Instance.DatePlayer.Talk();
