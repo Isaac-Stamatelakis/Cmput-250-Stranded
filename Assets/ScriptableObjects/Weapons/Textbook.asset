@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Textbook
   m_EditorClassIdentifier: 
   weaponName: Textbook
-  damage: 15
+  damage: 30
   range: 2
   attackTime: 1
+  knockback: 1
   artwork: {fileID: -2085929203, guid: 3b180545ac820ed42ac6bdd7e7f89650, type: 3}
   swingSound: {fileID: 8300000, guid: 231fedde51baf32478f3cb7110bbd07d, type: 3}
   weaponAnimatorOverride: {fileID: 22100000, guid: 9dcc58173b58db347a538a7c9776af10, type: 2}

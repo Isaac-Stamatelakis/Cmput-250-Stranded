@@ -7,6 +7,7 @@ public class Weapon : ScriptableObject
     public int damage;
     public float range;
     public float attackTime;
+    public float knockback;
     public Sprite artwork;
     public AudioClip swingSound;
     public AnimatorOverrideController weaponAnimatorOverride; 
