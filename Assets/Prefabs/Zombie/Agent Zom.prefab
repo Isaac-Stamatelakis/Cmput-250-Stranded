@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1209337982418823850}
   - component: {fileID: 1209337982418823845}
   - component: {fileID: 4643692383435145670}
+  - component: {fileID: 2408326886758780420}
   m_Layer: 10
   m_Name: Agent Zom
   m_TagString: Untagged
@@ -160,6 +161,7 @@ MonoBehaviour:
   zom: {fileID: 1209337982418823847}
   speed: 5
   animSpeed: 0.1
+  weapon: {fileID: 0}
 --- !u!114 &1209337982418823850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,3 +208,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!50 &2408326886758780420
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209337982418823840}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
+  m_Constraints: 0

@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Ruler
   m_EditorClassIdentifier: 
   weaponName: Ruler
-  damage: 5
-  range: 2
+  damage: 50
+  range: 3
   attackTime: 0.3
+  knockback: 0.5
   artwork: {fileID: -1876883597, guid: a0d52061926150a43af36a030553b4c5, type: 3}
   swingSound: {fileID: 8300000, guid: 6e22a3fd2fbdae94d863d40feb3c6da6, type: 3}
   weaponAnimatorOverride: {fileID: 22100000, guid: 519915d03e4a61f4987e01724aad4bc1, type: 2}
