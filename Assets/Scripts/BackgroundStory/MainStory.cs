@@ -7,6 +7,6 @@ public class MainStory : MonoBehaviour
 {
     private void OnEnable()
     {
-        SceneManager.LoadScene("LevelScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("IsaacLevelScene 1", LoadSceneMode.Single);
     }
 }
