@@ -16,8 +16,10 @@ namespace PlayerModule {
         private VoidCallBack callBack;
         public void display(List<PlayerUpgrade> playerUpgrades) {
             PlayerExperienceUI playerExperienceUI = Player.Instance.PlayerUI.PlayerExperienceUI;
+            Player.Instance.setDialog(true);
             backButton.onClick.AddListener(() => {
                 playerExperienceUI.displayLevelUpOption();
+                playerExperienceUI.setSelectorDisplayed(false);
                 GameObject.Destroy(gameObject);
             });
             
@@ -60,6 +62,10 @@ namespace PlayerModule {
                 return;
             }
             upgradeDescription.text = playerUpgrades[index].getDescription();
+        }
+
+        public void OnDestroy() {
+            Player.Instance.setDialog(false);
         }
     }
     public delegate void IndexCallBack(int index);

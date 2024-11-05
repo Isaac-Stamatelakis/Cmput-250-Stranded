@@ -30,12 +30,12 @@ namespace PlayerModule
 
         }
         public void Update() {
+            moveDirection = Vector2.zero;
             if (!Player.Instance.CanMove) {
+                setAnimationsFalse();
                 rb.velocity = Vector2.zero;
                 return;
             }
-            moveDirection = Vector2.zero;
-
 
             bool moveUp = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
             bool moveDown = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
