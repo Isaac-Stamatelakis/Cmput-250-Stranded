@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PlayerModule;
 
 namespace Rooms {
     public class LevelSceneLoader : MonoBehaviour
@@ -15,6 +16,13 @@ namespace Rooms {
             levelManager.CurrentLevel = level;
             level.Load();
             Debug.Log($"Level {level.name} Loaded");
+            if (levelManager.playerData != null) {
+                Player player = Player.Instance;
+                player.unseralize(levelManager.playerData);
+                Debug.Log($"Unserialized Player Data: {levelManager.playerData}");
+            }
+            Player.Instance.refreshUI();
+   
             GameObject.Destroy(gameObject);
         }
     }

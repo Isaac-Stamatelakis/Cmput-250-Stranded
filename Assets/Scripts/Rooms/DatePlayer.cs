@@ -204,4 +204,28 @@ public class DatePlayer : MonoBehaviour
         }
 
     }
+
+    public void activeUpgrade(PlayerUpgrade playerUpgrade) {
+        switch (playerUpgrade) {
+            case PlayerUpgrade.DateAura:
+                activateComponent<DateAuraUpgrade>();
+                break;
+            case PlayerUpgrade.DateHeal:
+                activateComponent<DateHealUpgrade>();
+                break;
+            case PlayerUpgrade.DateAttack:
+                activateComponent<DateAttackUpgrade>();
+                break;
+        }
+    }
+
+    private T activateComponent<T>() where T : MonoBehaviour {
+        T component = GetComponentInChildren<T>(true);
+        if (component == null) {
+            Debug.LogWarning($"Date Player doesn't have component {typeof(T).Name}");
+            return default(T);
+        }
+        component.gameObject.SetActive(true);
+        return component;
+    }
 }
