@@ -118,7 +118,7 @@ namespace PlayerModule
 
             if (roomDoorObject != null)
             {
-                roomDoorObject.switchRoom(transform);
+                roomDoorObject.switchRoom();
             }
         }
 

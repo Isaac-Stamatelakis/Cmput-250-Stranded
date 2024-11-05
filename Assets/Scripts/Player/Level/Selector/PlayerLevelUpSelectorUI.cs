@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 namespace PlayerModule {
+    public delegate void VoidCallBack();
     public class PlayerLevelUpSelectorUI : MonoBehaviour
     {
         [SerializeField] private Button backButton;
@@ -12,6 +13,7 @@ namespace PlayerModule {
         [SerializeField] private GridLayoutGroup upgradeList;
         [SerializeField] PlayerUpgradeUIElement uiElementPrefab;
         private List<PlayerUpgrade> playerUpgrades;
+        private VoidCallBack callBack;
         public void display(List<PlayerUpgrade> playerUpgrades) {
             PlayerExperienceUI playerExperienceUI = Player.Instance.PlayerUI.PlayerExperienceUI;
             backButton.onClick.AddListener(() => {
@@ -29,6 +31,11 @@ namespace PlayerModule {
             }
         }
 
+        public void display(List<PlayerUpgrade> playerUpgrades, VoidCallBack callBack) {
+            this.display(playerUpgrades);
+            this.callBack = callBack;
+        }
+
         public void upgradeSelect(int index) {
             GameObject.Destroy(gameObject);
             PlayerLevelComponent playerLevelComponent = Player.Instance.GetComponent<PlayerLevelComponent>();
@@ -37,6 +44,10 @@ namespace PlayerModule {
             PlayerExperienceUI playerExperienceUI = Player.Instance.PlayerUI.PlayerExperienceUI;
             if (playerLevelComponent.RemainingUpgrades <= 0) {
                 playerExperienceUI.hideLevelUpOption();
+                playerExperienceUI.setSelectorDisplayed(false);
+                if (callBack != null) {
+                    callBack();
+                }
             } else {
                 playerExperienceUI.displayLevelUpOption();
             }
