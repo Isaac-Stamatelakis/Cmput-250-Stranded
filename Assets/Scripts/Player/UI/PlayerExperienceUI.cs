@@ -10,22 +10,17 @@ public class PlayerExperienceUI : MonoBehaviour
     [SerializeField] private Scrollbar experienceScrollbar;
     [SerializeField] private TextMeshProUGUI experienceText;
     [SerializeField] private FancyTextUI levelUpText;
+    [SerializeField] private TextMeshProUGUI experienceTextRatio;
     [SerializeField] private Button levelUpButton;
     [SerializeField] private PlayerLevelUpSelectorUI playerLevelUpSelectorUIPrefab;
     [SerializeField] private GridLayoutGroup selectedUpgradeDisplay;
     [SerializeField] List<PlayerUpgradeSpritePair> playerUpgradeSpritePairs;
     private Dictionary<PlayerUpgrade, Sprite> playerUpgradeSpriteDict;
+    private bool selectorDisplayed;
+    public bool SelectorDisplayed => selectorDisplayed;
     public void Start() {
         levelUpButton.onClick.AddListener(() => {
-            PlayerLevelComponent playerLevelComponent = Player.Instance.GetComponent<PlayerLevelComponent>();
-            if (playerLevelComponent.SelectableUpgrades.Count == 0) {
-                return;
-            }
-            PlayerLevelUpSelectorUI instantiated = GameObject.Instantiate(playerLevelUpSelectorUIPrefab);
-            instantiated.display(playerLevelComponent.SelectableUpgrades);
-            Canvas canvas = GameObject.FindFirstObjectByType<Canvas>();
-            instantiated.transform.SetParent(canvas.transform,false);
-            hideLevelUpOption();
+            displayLevelSelector(null);
         });
         levelUpButton.gameObject.SetActive(false);
         playerUpgradeSpriteDict = new Dictionary<PlayerUpgrade, Sprite>();
@@ -36,6 +31,26 @@ public class PlayerExperienceUI : MonoBehaviour
             playerUpgradeSpriteDict[pair.PlayerUpgrade] = pair.Sprite;
         }
     }
+
+    public void displayLevelSelector(VoidCallBack callBack) {
+        if (selectorDisplayed) {
+            return;
+        }
+        selectorDisplayed = true;
+        PlayerLevelComponent playerLevelComponent = Player.Instance.GetComponent<PlayerLevelComponent>();
+        if (playerLevelComponent.SelectableUpgrades.Count == 0) {
+            return;
+        }
+        PlayerLevelUpSelectorUI instantiated = GameObject.Instantiate(playerLevelUpSelectorUIPrefab);
+        instantiated.display(playerLevelComponent.SelectableUpgrades,callBack);
+        Canvas canvas = GameObject.FindFirstObjectByType<Canvas>();
+        instantiated.transform.SetParent(canvas.transform,false);
+        hideLevelUpOption();
+    }
+
+    public void setSelectorDisplayed(bool state) {
+        selectorDisplayed = state;
+    }
     public void displayExperience(int level, float experience, float levelUpExperience) {
         if (experienceText == null || experienceScrollbar == null) {
             Debug.LogWarning("Experience values not set in playerui");
@@ -43,6 +58,7 @@ public class PlayerExperienceUI : MonoBehaviour
         }
         experienceText.text = (level+1).ToString();
         experienceScrollbar.size = experience/levelUpExperience;
+        experienceTextRatio.text = $"{experience} / {levelUpExperience}";
     }
     public Sprite getUpgradeSprite(PlayerUpgrade playerUpgrade) {
         if (playerUpgradeSpriteDict.ContainsKey(playerUpgrade)) {

@@ -39,19 +39,19 @@ namespace PlayerModule {
         public static string getDescription(this PlayerUpgrade playerUpgrade) {
             switch (playerUpgrade) {
                 case PlayerUpgrade.Attack:
-                    return $"Attack Increase\nDeal an additional {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.DAMAGE_UPGRADE_MODIFIER)} damage!";
+                    return $"Strength Increase\nDeal an additional {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.DAMAGE_UPGRADE_MODIFIER)} damage!";
                 case PlayerUpgrade.Health:
                     return $"Health Increase\nGain {PlayerUpgradeUtils.HEALTH_UPGRADE_MODIFER} health";
                 case PlayerUpgrade.Speed:
-                    return $"Speed Increase\nMove {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.SPEED_UPGRADE_MODIFIER)} faster!";
+                    return $"Coffee\nMove {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.SPEED_UPGRADE_MODIFIER)} faster!";
                 case PlayerUpgrade.Healing:
                     return $"Healing Increase\nHeal {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.HEAL_UPGRADE_MODIFIER)} more!";
                 case PlayerUpgrade.DamageReduction:
-                    return $"Damage Reduction\nReduce Damage by {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.DAMAGE_REDUCTION_MODIFIER,true)}!";
+                    return $"Pet Rock\nReduce Damage by {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.DAMAGE_REDUCTION_MODIFIER,true)}!";
                 case PlayerUpgrade.DateAura:
                     return $"Date Aura\nStand near your date for a buff!";
                 case PlayerUpgrade.DateHeal:
-                    return $"Date Heal\nKill {PlayerUpgradeUtils.DATE_KILL_HEAL_COUNT} enemies for your date to heal you {PlayerUpgradeUtils.DATE_KILL_HEAL_AMOUNT} health!";
+                    return $"Increased Love\nKill {PlayerUpgradeUtils.DATE_KILL_HEAL_COUNT} enemies for your date to heal you {PlayerUpgradeUtils.DATE_KILL_HEAL_AMOUNT} health!";
                 case PlayerUpgrade.DateAttack:
                     return $"Date Attack\nYour date aids you in combat!";
                 default:

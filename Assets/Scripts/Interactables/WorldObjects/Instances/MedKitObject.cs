@@ -6,11 +6,19 @@ public class MedKitObject : InteractableGameObject
 {
     public override string getInteractText()
     {
-        return "Heal";
+        PlayerHealth playerHealth = Player.Instance.GetComponent<PlayerHealth>();
+        if (playerHealth.isFull()) {
+            return "<color=red>Can't Heal\nToo Healthy</color>";
+        }
+        return "<color=green>Heal</color>";
     }
 
     public override void interact()
     {
+        PlayerHealth playerHealth = Player.Instance.GetComponent<PlayerHealth>();
+        if (playerHealth.isFull()) {
+            return;
+        }
         Player.Instance.Heal(25);
         interactable = false;
         GameObject.Destroy(gameObject);

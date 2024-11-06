@@ -52,10 +52,26 @@ namespace Rooms {
                 light2D.color = Color.red;
             }
         }
-        public void switchRoom(Transform playerTransform) {
+        public void switchRoom() {
             if (!roomDoor.Room.isClear() && !roomDoor.Connection.Room.isClear()) {
                 return;
             }
+            
+            if (roomDoor.Room.isClear()) {
+                PlayerUI playerUI = Player.Instance.PlayerUI;
+                PlayerLevelComponent playerLevelComponent = Player.Instance.GetComponent<PlayerLevelComponent>();
+                int upgrades = playerLevelComponent.RemainingUpgrades;
+                PlayerExperienceUI playerExperienceUI = playerUI.PlayerExperienceUI;
+                if (upgrades > 0 && !playerExperienceUI.SelectorDisplayed) {
+                    playerExperienceUI.displayLevelSelector(doSwitch);
+                    return;
+                } 
+            }
+            doSwitch();
+        }
+
+        private void doSwitch() {
+            Transform playerTransform = Player.Instance.transform;
             Room room = roomDoor.Room;
             LevelManager.getInstance().CurrentLevel.loadRoom(roomDoor.Connection.Room);
             Vector3 spawnPosition = roomDoor.Connection.getEnterPosition(playerTransform.position);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using PlayerModule;
 
 public class PauseScreen : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PauseScreen : MonoBehaviour
     [SerializeField] private PauseScreenVerifier pauseScreenVerifierPrefab;
 
     public void Start() {
+        Player.Instance.setDialog(true);
         Time.timeScale = 0;
         resume.onClick.AddListener(() => {
             
@@ -41,6 +43,7 @@ public class PauseScreen : MonoBehaviour
     }
 
     public void OnDestroy() {
+        Player.Instance.setDialog(false);
         Time.timeScale = 1;
     }
 }

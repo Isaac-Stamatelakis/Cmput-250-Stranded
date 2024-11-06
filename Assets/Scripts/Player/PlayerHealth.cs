@@ -35,6 +35,12 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public bool isFull() {
+        float epsilon = 0.1f;
+        return maxHealth-health < epsilon;
+
+    }
+
     // Update is called once per frame
     public void Damage(int amount)
     {

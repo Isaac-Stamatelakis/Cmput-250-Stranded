@@ -37896,9 +37896,15 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
   - m_RefCount: 72
+<<<<<<< HEAD
     m_Data: {r: 0.9982929, g: 0.6712886, b: 0.7188901, a: 1}
   - m_RefCount: 0
     m_Data: {r: 0.8763506, g: 0.5705803, b: 0.6535691, a: 1}
+=======
+    m_Data: {r: 0.764367, g: 0.33903837, b: 0.46595398, a: 1}
+  - m_RefCount: 0
+    m_Data: {r: 7.2949e-41, g: 7.2949e-41, b: 7.2949e-41, a: 7.2949e-41}
+>>>>>>> 25e6fcd82c412e3b2569b2b6ba3e1383c0d99418
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -61114,6 +61120,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4323780544392805945}
     m_Modifications:
+    - target: {fileID: 1808107331279037815, guid: 787582c9acd708141ac7cdd049966ec9, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 725a650afa37f8248bd61990b1667536, type: 2}
     - target: {fileID: 2181094096543893687, guid: 787582c9acd708141ac7cdd049966ec9, type: 3}
       propertyPath: m_IsActive
       value: 0

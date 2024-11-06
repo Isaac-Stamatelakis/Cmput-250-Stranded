@@ -181,8 +181,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ffb12b03355ebc041a5f6f2343fc146d, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: e285aa89773864ac09ef6a97dc6eb5b8, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -369,15 +369,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 34103b297a8bd40b9aa828ca6960405a, type: 2}
+  m_sharedMaterial: {fileID: -7387239278094043309, guid: 34103b297a8bd40b9aa828ca6960405a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -394,13 +394,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -462,7 +462,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &819748802
 RectTransform:
   m_ObjectHideFlags: 0
@@ -479,10 +479,10 @@ RectTransform:
   m_Father: {fileID: 1445627364}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 250, y: -175}
+  m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &819748803
 MonoBehaviour:
@@ -541,7 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7176471, g: 0.26666668, b: 0.6627451, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.75686276, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -642,6 +642,9 @@ MonoBehaviour:
   zombiePrefab: {fileID: 6569496640405209135, guid: ec73721508b5f9c49b152334555f9726, type: 3}
   datePlayer: {fileID: 0}
   player: {fileID: 0}
+  MIN_SPAWN_TIME: 25
+  SPAWN_TIME: 500
+  SPAWN_TIME_DEREASE: 10
 --- !u!4 &1081228308
 Transform:
   m_ObjectHideFlags: 0
@@ -764,7 +767,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1445627365
@@ -787,7 +790,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 500, y: 100}
+  m_CellSize: {x: 600, y: 120}
   m_Spacing: {x: 0, y: 25}
   m_Constraint: 1
   m_ConstraintCount: 1
@@ -941,7 +944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7169812, g: 0.26650053, b: 0.6606711, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.7534852, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -978,6 +981,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd6cf41a74a44bd489d88069c2a575a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Background: {fileID: 19139977}
+  HoverColor: {r: 0.1981132, g: 0, b: 0, a: 1}
+  FadeSpeed: 1
 --- !u!1 &1698940212
 GameObject:
   m_ObjectHideFlags: 0
@@ -1401,8 +1407,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 400}
-  m_SizeDelta: {x: 600, y: 100}
+  m_AnchoredPosition: {x: 0, y: 344}
+  m_SizeDelta: {x: 800, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6494328242736973809
 GameObject:
@@ -1476,13 +1482,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xCounter:
     Max: 89
-    Modifier: 0.25
+    Modifier: 0.1
   yCounter:
     Max: 73
-    Modifier: 0.25
+    Modifier: 0.1
   zCounter:
     Max: 66
-    Modifier: 0.1
+    Modifier: 0.03
   SpeedUpModifier: 50
 --- !u!114 &6494328242736973814
 MonoBehaviour:
@@ -1505,7 +1511,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.078431375, g: 0.30980393, b: 0, a: 1}
+    m_NormalColor: {r: 0.38426974, g: 0.0019935528, b: 0.5283019, a: 1}
     m_HighlightedColor: {r: 0.3584906, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0.35686275, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 0.35686275, g: 0, b: 0, a: 1}
@@ -1558,15 +1564,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: ZOM COM
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 34103b297a8bd40b9aa828ca6960405a, type: 2}
+  m_sharedMaterial: {fileID: -7387239278094043309, guid: 34103b297a8bd40b9aa828ca6960405a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190335
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1583,8 +1589,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 72
+  m_fontSize: 120
+  m_fontSizeBase: 120
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

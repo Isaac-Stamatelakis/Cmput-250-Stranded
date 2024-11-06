@@ -13,8 +13,10 @@ public class NavmeshFollow : MonoBehaviour
     private Vector3 target;
     private bool hasCollided;
     private SpriteRenderer sr;
+    private Rigidbody2D rb;
     public int speed = 5;
     public float animSpeed = 0.1f;
+    public Weapon weapon;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +33,9 @@ public class NavmeshFollow : MonoBehaviour
         obs.enabled = false;
         obs.carveOnlyStationary = false;
         obs.carving = true;
+
+        rb = GetComponent<Rigidbody2D>();
+        rb.isKinematic = true;
 
         player = Player.Instance;
         hasCollided = false;
@@ -79,6 +84,12 @@ public class NavmeshFollow : MonoBehaviour
             anim.SetBool("isAttacking", true);
             Debug.Log("collided with player");
             hasCollided = true;
+
+            Vector2 knockback = (transform.position - coll.transform.position).normalized;
+            rb.isKinematic = false;
+            rb.AddForce(knockback * weapon.knockback, ForceMode2D.Impulse);
+
+            StartCoroutine(ReenableKinematicAfterKnockback());
         }
     }
 
@@ -88,5 +99,11 @@ public class NavmeshFollow : MonoBehaviour
         Debug.Log("stopped colliding");
         hasCollided = false;
         
+    }
+    private IEnumerator ReenableKinematicAfterKnockback()
+    {
+        yield return new WaitForSeconds(0.5f);
+        rb.velocity = Vector2.zero;
+        rb.isKinematic = true;
     }
 }
