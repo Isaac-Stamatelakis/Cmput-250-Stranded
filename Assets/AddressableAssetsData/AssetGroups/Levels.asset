@@ -21,6 +21,18 @@ MonoBehaviour:
     m_Address: Assets/Prefabs/Levels/IsaacTesting/IsaacLabTest.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: d15520d77815d3b4e93eb7bca8be47f4
+    m_Address: Assets/Prefabs/Levels/Beta/ChemLab.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 41ccefc90fe5e7f409df69018656adc0
+    m_Address: Assets/Prefabs/Levels/Beta/CompLab.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: b90fcb6a5c64dab478d065d67caaf1e3
+    m_Address: Assets/Prefabs/Levels/Beta/DeansOffice.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0c20d41d8418843358f07bc3edfdfd8c, type: 2}
   m_SchemaSet:
