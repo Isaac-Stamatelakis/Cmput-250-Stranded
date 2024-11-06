@@ -37896,9 +37896,15 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
   - m_RefCount: 72
+<<<<<<< HEAD
+    m_Data: {r: 0.9982929, g: 0.6712886, b: 0.7188901, a: 1}
+  - m_RefCount: 0
+    m_Data: {r: 0.8763506, g: 0.5705803, b: 0.6535691, a: 1}
+=======
     m_Data: {r: 0.764367, g: 0.33903837, b: 0.46595398, a: 1}
   - m_RefCount: 0
     m_Data: {r: 7.2949e-41, g: 7.2949e-41, b: 7.2949e-41, a: 7.2949e-41}
+>>>>>>> 25e6fcd82c412e3b2569b2b6ba3e1383c0d99418
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -38213,7 +38219,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4323780545495980426}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.0384445, y: 7.952734, z: -18.399597}
+  m_LocalPosition: {x: -48.461548, y: -28.047272, z: -18.399597}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -61186,7 +61192,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2551090849647706152, guid: 787582c9acd708141ac7cdd049966ec9, type: 3}
   m_PrefabInstance: {fileID: 2262615589083793236}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 4323780545706821502}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 039d291b025264989b09dfe3be100da0, type: 3}
@@ -61197,6 +61203,27 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 2551090849647706153, guid: 787582c9acd708141ac7cdd049966ec9, type: 3}
   m_PrefabInstance: {fileID: 2262615589083793236}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4323780545706821502 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2551090849647706154, guid: 787582c9acd708141ac7cdd049966ec9, type: 3}
+  m_PrefabInstance: {fileID: 2262615589083793236}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4495916088595754658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4323780545706821502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7845af3a33db7485d8561870518d322a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcDialogue:
+  - "Your companion, infected but holding on. They were exposed to the virus in the
+    Chem Lab and are now fighting a losing battle against the infection. They need
+    the cure\u2014before it\u2019s too late."
 --- !u!1001 &2320428242179926322
 PrefabInstance:
   m_ObjectHideFlags: 0
