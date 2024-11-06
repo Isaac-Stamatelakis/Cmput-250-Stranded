@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 549c0abd1be31f1478b0d787f3a6d47b
+guid: 8e08eb1644d013c41b6dccfba7913624
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -105,76 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ZombieBoss_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 512f300f239dd7642926c73527655979
-      internalID: -1258940765
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ZombieBoss_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0fea8f51b1c99be46a2fac38d34efeb4
-      internalID: -711830584
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ZombieBoss_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d9b34c3f9a1233b4b9f723f3ae2d3a8d
-      internalID: 1466043877
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ZombieBoss_3
+      name: fastZombie_0
       rect:
         serializedVersion: 2
         x: 0
         y: 64
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +119,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1341fedc770e91f4fbce32a6a77aeca9
-      internalID: -22425245
+      spriteID: 20341f48c7f98544789803beda01dbab
+      internalID: 1625801912
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ZombieBoss_4
+      name: fastZombie_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e78057456ab84f84bb2416f1d90036e1
+      internalID: -729756382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fastZombie_2
       rect:
         serializedVersion: 2
         x: 64
         y: 64
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 653d8885edd52c54db3fcf6e57bba444
-      internalID: 201270764
+      spriteID: 0970ac046889a90409e4977c997e1077
+      internalID: -1217585041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ZombieBoss_5
+      name: fastZombie_3
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
-        width: 64
-        height: 64
+        x: 0
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +182,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ceb3d413ad771a49adc42bdc7fb579f
-      internalID: 27794204
+      spriteID: 90e2dd9dd83d14441aae2a49c0fce005
+      internalID: 1706988009
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ZombieBoss_6
+      name: fastZombie_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e70ae9fc3e2e32541b0953896a596443
+      internalID: -600516970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fastZombie_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35671cd3b2a2c1742b9745240dac2ff0
+      internalID: -1007966442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fastZombie_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,20 +245,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6239ee85fb6bd984f8c77569a2bacf25
-      internalID: -1587428160
+      spriteID: 7f3a2c88334328a4bbbe7154e9b2a8e8
+      internalID: -604683495
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ZombieBoss_7
+      name: fastZombie_7
       rect:
         serializedVersion: 2
-        x: 64
+        x: 32
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,8 +266,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70354e28a83006340b6eeb5b371a7f0b
-      internalID: -108895302
+      spriteID: 1d0abb5cf77b7ce499ca001a7706cb67
+      internalID: 821490672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fastZombie_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e54c797d680d56b4da3aac53637a9ac2
+      internalID: 1029848511
       vertices: []
       indices: 
       edges: []
@@ -283,14 +304,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ZombieBoss_0: -1258940765
-      ZombieBoss_1: -711830584
-      ZombieBoss_2: 1466043877
-      ZombieBoss_3: -22425245
-      ZombieBoss_4: 201270764
-      ZombieBoss_5: 27794204
-      ZombieBoss_6: -1587428160
-      ZombieBoss_7: -108895302
+      fastZombie_0: 1625801912
+      fastZombie_1: -729756382
+      fastZombie_2: -1217585041
+      fastZombie_3: 1706988009
+      fastZombie_4: -600516970
+      fastZombie_5: -1007966442
+      fastZombie_6: -604683495
+      fastZombie_7: 821490672
+      fastZombie_8: 1029848511
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
