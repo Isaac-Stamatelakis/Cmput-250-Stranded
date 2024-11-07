@@ -87,14 +87,14 @@ public class bossRoutine : MonoBehaviour
                     anim.SetBool("isAboutToShoot", false);
                     anim.SetBool("isShooting", true);
 
-                    Instantiate(projectile, transform.position + new Vector3(3,0,0), Quaternion.Euler(0,0,-90));
-                    Instantiate(projectile, transform.position + new Vector3(0,3,0), Quaternion.Euler(0,0,0));
-                    Instantiate(projectile, transform.position + new Vector3(-3,0,0), Quaternion.Euler(0,0,90));
-                    Instantiate(projectile, transform.position + new Vector3(0,-3,0), Quaternion.Euler(0,0,-180));
-                    Instantiate(projectile, transform.position + new Vector3(2,2,0), Quaternion.Euler(0,0,-45));
-                    Instantiate(projectile, transform.position + new Vector3(-2,2,0), Quaternion.Euler(0,0,45));
-                    Instantiate(projectile, transform.position + new Vector3(2,-2,0), Quaternion.Euler(0,0,-135));
-                    Instantiate(projectile, transform.position + new Vector3(-2,-2,0), Quaternion.Euler(0,0,135));
+                    Instantiate(projectile, transform.position + new Vector3(3.5f,0,0), Quaternion.Euler(0,0,-90));
+                    Instantiate(projectile, transform.position + new Vector3(0,3.5f,0), Quaternion.Euler(0,0,0));
+                    Instantiate(projectile, transform.position + new Vector3(-3.5f,0,0), Quaternion.Euler(0,0,90));
+                    Instantiate(projectile, transform.position + new Vector3(0,-3.5f,0), Quaternion.Euler(0,0,-180));
+                    Instantiate(projectile, transform.position + new Vector3(2.5f,2.5f,0), Quaternion.Euler(0,0,-45));
+                    Instantiate(projectile, transform.position + new Vector3(-2.5f,2.5f,0), Quaternion.Euler(0,0,45));
+                    Instantiate(projectile, transform.position + new Vector3(2.5f,-2.5f,0), Quaternion.Euler(0,0,-135));
+                    Instantiate(projectile, transform.position + new Vector3(-2.5f,-2.5f,0), Quaternion.Euler(0,0,135));
 
                     yield return new WaitForSeconds(0.5f);
                     anim.SetBool("isShooting", false);
@@ -114,7 +114,7 @@ public class bossRoutine : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D col) {
-        if (col.gameObject.name == "wallTileMap") {
+        if (col.gameObject.name == "WallTileMap") {
 
             StartCoroutine(finishChargeAttack());
             
