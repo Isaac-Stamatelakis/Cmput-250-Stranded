@@ -94,7 +94,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1258940765, guid: 549c0abd1be31f1478b0d787f3a6d47b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -197,6 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  experience: 5
 --- !u!114 &250383000893655803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,7 +210,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a9d9fc82ce0914f84fe4a1590e3759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
 --- !u!50 &250383000893655801
 Rigidbody2D:
   serializedVersion: 4
