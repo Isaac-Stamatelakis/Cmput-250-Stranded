@@ -114,7 +114,7 @@ public class bossRoutine : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D col) {
-        if (col.gameObject.name == "wallTilemap") {
+        if (col.gameObject.name == "wallTileMap") {
 
             StartCoroutine(finishChargeAttack());
             
