@@ -5783,7 +5783,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.29, y: -1.82}
+  m_AnchoredPosition: {x: 5.39, y: -1.82}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7220917604294849804
@@ -5800,7 +5800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombie: {fileID: 1209337982418823840, guid: 6ffec416bb3531c4f87df916b8d8ff0f, type: 3}
   SpawnAmount: 1
-  SpawnRange: 2
+  SpawnRange: 0
 --- !u!212 &8708619019448092009
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -43962,7 +43962,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.04, y: 0.61}
+  m_AnchoredPosition: {x: 5.96, y: 0.61}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &593404493435068388
@@ -43979,7 +43979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombie: {fileID: 1209337982418823840, guid: 6ffec416bb3531c4f87df916b8d8ff0f, type: 3}
   SpawnAmount: 1
-  SpawnRange: 2
+  SpawnRange: 0
 --- !u!212 &29850763654366738
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -48937,7 +48937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56ae338c99aace46b44c8a04b17461f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombie: {fileID: 1209337982418823840, guid: e5b800083bd6496418596d8e3197a919, type: 3}
+  zombie: {fileID: 1209337982418823840, guid: 6ffec416bb3531c4f87df916b8d8ff0f, type: 3}
   SpawnAmount: 1
   SpawnRange: 0
 --- !u!212 &700955813328743935
