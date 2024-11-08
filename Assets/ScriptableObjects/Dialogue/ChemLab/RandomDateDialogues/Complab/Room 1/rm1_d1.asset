@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cae2666990c0bb459d13c257dd7c11f, type: 3}
-  m_Name: Datetree3-1
+  m_Name: rm1_d1
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
-  Text: "No\u2026 I wouldn\u2019t. I\u2019d rather be here with you, even if it\u2019s
-    dangerous."
-  nextDialog: {fileID: 0}
+  Text: "Yeah\u2026 well, at least I\u2019m not alone. That makes it\u2026 a little
+    less terrifying."
+  nextDialog: {fileID: 11400000, guid: 53eafce65455c4069a18403f377c6be8, type: 2}

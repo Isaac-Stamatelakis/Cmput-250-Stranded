@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cae2666990c0bb459d13c257dd7c11f, type: 3}
-  m_Name: Datetree3-1
+  m_Name: drm2_p2
   m_EditorClassIdentifier: 
-  Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
-  Text: "No\u2026 I wouldn\u2019t. I\u2019d rather be here with you, even if it\u2019s
-    dangerous."
-  nextDialog: {fileID: 0}
+  Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
+  Text: "You\u2019re going to pay for this, Dean."
+  nextDialog: {fileID: 11400000, guid: b859b4ed5446c4aad923cf60490e0616, type: 2}
