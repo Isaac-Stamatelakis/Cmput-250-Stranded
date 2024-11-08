@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+public delegate void DialogCallBack();
 namespace Dialogue {
 
-    public delegate void DialogCallBack();
     public class DialogUIController : MonoBehaviour
     {
         [SerializeField] private DialogueBoxUI dialogueBoxUI;
