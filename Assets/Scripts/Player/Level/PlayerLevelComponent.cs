@@ -62,6 +62,7 @@ namespace PlayerModule {
     public class PlayerLevelComponent : MonoBehaviour
     {
         [SerializeField] private Material dateAuraShader;
+        [SerializeField] private PlayerLevelUpSFX sfx;
         private Material defaultShader;
         private PlayerLevel playerLevel = new PlayerLevel();
         public PlayerLevel PlayerLevel => playerLevel;
@@ -76,7 +77,6 @@ namespace PlayerModule {
             return playerUpgrades.Contains(playerUpgrade);
         }
         public void Start() {
-            nextSelectableUpgrades = generateSelectableUpgrades();
             defaultShader = GetComponent<SpriteRenderer>().sharedMaterial;
         }
 
@@ -93,7 +93,7 @@ namespace PlayerModule {
             spriteRenderer.material = dateAura ? dateAuraShader : defaultShader;
         }
 
-        private List<PlayerUpgrade> generateSelectableUpgrades() {
+        public List<PlayerUpgrade> generateSelectableUpgrades() {
             int NUMBER_OF_CHOICES = 2;
             PlayerUpgrade[] enumValues = (PlayerUpgrade[])Enum.GetValues(typeof(PlayerUpgrade));
             List<PlayerUpgrade> unselected = new List<PlayerUpgrade>();
@@ -123,6 +123,7 @@ namespace PlayerModule {
             PlayerUI playerUI = Player.Instance.PlayerUI;
             playerUI.PlayerExperienceUI.displayExperience(playerLevel.Level,playerLevel.Experience,playerLevel.getLevelUpExperience());
             if (leveledUp) {
+                sfx.PlaySoundClip(PlayerLevelSFX.LevelUp);
                 playerUI.PlayerExperienceUI.displayLevelUpOption();
             }
         }

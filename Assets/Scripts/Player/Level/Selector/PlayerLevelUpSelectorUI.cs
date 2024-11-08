@@ -46,12 +46,12 @@ namespace PlayerModule {
             PlayerExperienceUI playerExperienceUI = Player.Instance.PlayerUI.PlayerExperienceUI;
             if (playerLevelComponent.RemainingUpgrades <= 0) {
                 playerExperienceUI.hideLevelUpOption();
-                playerExperienceUI.setSelectorDisplayed(false);
                 if (callBack != null) {
                     callBack();
                 }
             } else {
-                playerExperienceUI.displayLevelUpOption();
+                playerExperienceUI.setSelectorDisplayed(false);
+                playerExperienceUI.displayLevelSelector(callBack);
             }
         }
 
@@ -62,9 +62,12 @@ namespace PlayerModule {
                 return;
             }
             upgradeDescription.text = playerUpgrades[index].getDescription();
+            
         }
 
         public void OnDestroy() {
+            PlayerExperienceUI playerExperienceUI = Player.Instance.PlayerUI.PlayerExperienceUI;
+            playerExperienceUI.setSelectorDisplayed(false);
             Player.Instance.setDialog(false);
         }
     }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Textbook
   m_EditorClassIdentifier: 
   weaponName: Textbook
-  damage: 30
+  damage: 20
   range: 2
   attackTime: 1
   knockback: 1

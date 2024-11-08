@@ -7,6 +7,8 @@ namespace Rooms {
     public class RoomObject : MonoBehaviour
     {
         [SerializeField] private MeshRenderer textIndicator;
+        [SerializeField] private EnemyHealth boss;
+        public EnemyHealth Boss => boss;
         public DialogCollection DateRandomDialogs;
         public DialogObject OnRoomClearDialog;
 
@@ -31,14 +33,6 @@ namespace Rooms {
                     spawnInstructions.AddRange(roomZombieSpawner.GetSpawnInstructions());
                     GameObject.Destroy(roomZombieSpawner.gameObject);
                     continue;
-                }
-                // This method is not recommended to use, use room zombie spawners instead
-                // TODO: Change this to an enemy script
-                EnemyHealth enemyHealth = child.GetComponent<EnemyHealth>();
-                if (enemyHealth != null) {
-                    ZombieSpawnInstruction zombieSpawnInstruction = new ZombieSpawnInstruction(enemyHealth.transform.position,enemyHealth.gameObject);
-                    spawnInstructions.Add(zombieSpawnInstruction);
-                    enemyHealth.gameObject.SetActive(false);
                 }
             }
             return spawnInstructions;

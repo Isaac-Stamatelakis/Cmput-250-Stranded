@@ -10,6 +10,7 @@ namespace Rooms {
         [SerializeField] private Light2D light2D;
         [SerializeField] private BoxCollider2D boxCollider2D;
         private RoomDoor roomDoor;
+        private bool locked;
         public void setRoomDoor(RoomDoor roomDoor) {
             this.roomDoor = roomDoor;
             LineDirection lineDirection = roomDoor.GetLineDirection();
@@ -43,6 +44,7 @@ namespace Rooms {
         }
 
         public void setClear(bool roomClear) {
+            locked = false;
             bool connectionClear = roomDoor.Connection.Room.isClear();
             if (connectionClear) {
                 light2D.color = Color.green;
@@ -52,7 +54,14 @@ namespace Rooms {
                 light2D.color = Color.red;
             }
         }
+        public void setLocked() {
+            this.locked = true;
+            light2D.color = Color.black;
+        }
         public void switchRoom() {
+            if (locked) {
+                return;
+            }
             if (!roomDoor.Room.isClear() && !roomDoor.Connection.Room.isClear()) {
                 return;
             }

@@ -69,6 +69,7 @@ namespace PlayerModule {
             PlayerHealth playerHealth = GetComponent<PlayerHealth>();
             PlayerLevelComponent playerLevelComponent = GetComponent<PlayerLevelComponent>();
 
+            playerLevelComponent.iterateUpgrades();
             playerHealth.Damage(0);
             playerLevelComponent.addExperience(0);
         }

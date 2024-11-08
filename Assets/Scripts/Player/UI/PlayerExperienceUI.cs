@@ -16,6 +16,7 @@ public class PlayerExperienceUI : MonoBehaviour
     [SerializeField] private GridLayoutGroup selectedUpgradeDisplay;
     [SerializeField] List<PlayerUpgradeSpritePair> playerUpgradeSpritePairs;
     private Dictionary<PlayerUpgrade, Sprite> playerUpgradeSpriteDict;
+    
     private bool selectorDisplayed;
     public bool SelectorDisplayed => selectorDisplayed;
     public void Start() {
@@ -38,6 +39,7 @@ public class PlayerExperienceUI : MonoBehaviour
         }
         selectorDisplayed = true;
         PlayerLevelComponent playerLevelComponent = Player.Instance.GetComponent<PlayerLevelComponent>();
+        playerLevelComponent.generateSelectableUpgrades();
         if (playerLevelComponent.SelectableUpgrades.Count == 0) {
             return;
         }

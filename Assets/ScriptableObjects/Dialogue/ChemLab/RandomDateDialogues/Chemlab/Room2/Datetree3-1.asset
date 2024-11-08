@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
   Text: "No\u2026 I wouldn\u2019t. I\u2019d rather be here with you, even if it\u2019s
-    dangerous.\u201D"
+    dangerous."
   nextDialog: {fileID: 0}
