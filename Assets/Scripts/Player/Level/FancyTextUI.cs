@@ -12,10 +12,8 @@ public class FancyTextUI : MonoBehaviour
     private string previouslyDisplayed;
     public void display(string text, Color[] colors) {
         this.colors = colors;
-        if (text != previouslyDisplayed) {
-            for (int i = 0 ; i < transform.childCount; i++) {
-                GameObject.Destroy(transform.GetChild(i).gameObject);
-            }
+        if (text == previouslyDisplayed) {
+            return;
         }
         previouslyDisplayed = text;
         foreach (char c in text) {
@@ -32,6 +30,7 @@ public class FancyTextUI : MonoBehaviour
         for (int i = 0 ; i < transform.childCount; i++) {
             GameObject.Destroy(transform.GetChild(i).gameObject);
         }
+        previouslyDisplayed = null;
     }
 
     private IEnumerator startAnimation() {
