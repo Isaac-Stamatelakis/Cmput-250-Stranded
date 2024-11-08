@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 4643692383435145670}
   - component: {fileID: 2408326886758780420}
   m_Layer: 10
-  m_Name: Agent Zom
+  m_Name: Agent Zom 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

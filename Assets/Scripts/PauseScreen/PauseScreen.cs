@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using PlayerModule;
+using Rooms;
 
 public class PauseScreen : MonoBehaviour
 {
@@ -22,6 +23,12 @@ public class PauseScreen : MonoBehaviour
 
         restart.onClick.AddListener(() => {
             PauseScreenVerifier pauseScreenVerifier = GameObject.Instantiate(pauseScreenVerifierPrefab);
+            pauseScreenVerifier.display(restartLevelCallback,"Are you sure you want to restart this level?", null,"Restart");
+            pauseScreenVerifier.transform.SetParent(transform,false);
+        });
+
+        restart.onClick.AddListener(() => {
+            PauseScreenVerifier pauseScreenVerifier = GameObject.Instantiate(pauseScreenVerifierPrefab);
             pauseScreenVerifier.display(restartCallback,"Are you sure you want to restart?", null,"Restart");
             pauseScreenVerifier.transform.SetParent(transform,false);
         });
@@ -36,6 +43,10 @@ public class PauseScreen : MonoBehaviour
 
     private void restartCallback() {
         SceneManager.LoadScene("LevelScene");
+    }
+
+    private void restartLevelCallback() {
+        LevelSceneLoader.loadCurrentLevel();
     }
 
     private void titleScreenCallback() {

@@ -235,11 +235,13 @@ MonoBehaviour:
   RandomDialogues:
   - {fileID: 11400000, guid: 2bf4a706725b8c5409ba3eed4b92b9c1, type: 2}
   - {fileID: 11400000, guid: e36906599ee8e484994ba00c039635fa, type: 2}
+  cureDialog: {fileID: 11400000, guid: 991005486c1a24c0db5a0270c9979102, type: 2}
   boostSpeed: 20
   followDistance: 1
   stopDistance: 6
   maxDistance: 10
   isInCutscene: 0
+  isCured: 0
 --- !u!95 &2551090849647706153
 Animator:
   serializedVersion: 5

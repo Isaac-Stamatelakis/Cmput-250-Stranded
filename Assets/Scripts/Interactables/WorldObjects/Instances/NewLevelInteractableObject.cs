@@ -35,7 +35,7 @@ public class NewLevelInteractableObject : InteractableGameObject, IRoomClearList
         if (clear) {
             levelManager.playerData = Player.Instance.serialize();
             LevelManager.getInstance().CurrentLevelPrefab = level;
-            SceneManager.LoadScene("IsaacLevelScene");
+            SceneManager.LoadScene("LevelScene");
         }
     }
 

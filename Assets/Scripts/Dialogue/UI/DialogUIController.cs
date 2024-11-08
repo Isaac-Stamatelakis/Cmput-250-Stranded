@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Dialogue {
+
+    public delegate void DialogCallBack();
     public class DialogUIController : MonoBehaviour
     {
         [SerializeField] private DialogueBoxUI dialogueBoxUI;
@@ -15,6 +17,11 @@ namespace Dialogue {
         public void DisplayDialogue(DialogObject dialogObject) {
             dialogueBoxUI.gameObject.SetActive(true);
             dialogueBoxUI.DisplayDialogue(dialogObject);
+        }
+
+        public void DisplayDialogue(DialogObject dialogObject, DialogCallBack callBack) {
+            dialogueBoxUI.gameObject.SetActive(true);
+            dialogueBoxUI.DisplayDialog(dialogObject,callBack);
         }
     }
 }
