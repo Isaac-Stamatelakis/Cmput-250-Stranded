@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zom: {fileID: 1209337982418823847}
-  speed: 25
+  speed: 15
   animSpeed: 0.2
   weapon: {fileID: 0}
 --- !u!114 &1209337982418823850
