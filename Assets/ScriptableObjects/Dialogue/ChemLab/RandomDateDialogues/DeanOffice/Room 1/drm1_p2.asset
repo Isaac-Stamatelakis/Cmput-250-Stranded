@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5409dc8a8bf34c4fac0ce7c8959d6d7, type: 3}
+  m_Name: drm1_p2
+  m_EditorClassIdentifier: 
+  Speaker: {fileID: 0}
+  Text: 
+  responses:
+  - Text: "Are you ready for this? If you want, you can stay back. I\u2019ll handle
+      him."
+    dialog: {fileID: 11400000, guid: 7ed5cc05703ee4848abe0cf057eaa0d8, type: 2}
+  - Text: "We\u2019ve come this far together. Let\u2019s end this, side by side."
+    dialog: {fileID: 11400000, guid: 9a915d7b21d3242899c5b59e3fd976e1, type: 2}
+  - Text: "Whatever happens, remember why we\u2019re here. For the cure, for everyone
+      we lost."
+    dialog: {fileID: 11400000, guid: e16b3fe260f814d5d986237e6aea0f7c, type: 2}

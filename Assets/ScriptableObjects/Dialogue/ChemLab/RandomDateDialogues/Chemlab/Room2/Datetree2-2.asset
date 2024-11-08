@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
   Text: "I\u2019m slower than you, but I\u2019ll do my best. I won\u2019t let you
-    down.\u201D"
+    down."
   nextDialog: {fileID: 0}
