@@ -12,19 +12,15 @@ namespace Dialogue {
         public Image PortraitImage;
         public TextMeshProUGUI NameText;
         public TextMeshProUGUI ContentText;
-        public Button countinueButton;
         public GridLayoutGroup responseList;
         public DialogueResponseUI responsePrefab;
+        public GameObject spaceInfoPanel;
         private bool writing;
         private DialogueTree currentTree;
         private DialogObject currentDialog;
         private float skipChars = 0;
         private Color baseButtonColor;
         private bool canFastSkip = true;
-        public void Awake() {
-            baseButtonColor = countinueButton.GetComponent<Image>().color;
-            countinueButton.onClick.AddListener(countinuePress);
-        }
 
         public void Update() {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -35,6 +31,7 @@ namespace Dialogue {
             {
                 countineHold();
             }
+
 
             if (Input.GetKeyUp(KeyCode.Space))
             {
@@ -59,12 +56,14 @@ namespace Dialogue {
         }
         public void DisplayDialogue(DialogObject dialogue) {
             skipChars = 0;
-            countinueButton.GetComponent<Image>().color = baseButtonColor;
             Player.Instance.setDialog(dialogue!=null);
             if (dialogue == null) {
                 gameObject.SetActive(false);
                 return;
             }
+            spaceInfoPanel.gameObject.SetActive(true);
+            TextMeshProUGUI spaceText = spaceInfoPanel.GetComponentInChildren<TextMeshProUGUI>();
+            spaceText.text = "Hold Space to Fast Forward";
             this.currentDialog = dialogue;
             for (int i = 0; i < responseList.transform.childCount; i++) {
                 GameObject.Destroy(responseList.transform.GetChild(i).gameObject);
@@ -106,22 +105,11 @@ namespace Dialogue {
             this.writing = false;
             
             if (currentDialog is DialogueTree dialogueTree) {
+                spaceInfoPanel.gameObject.SetActive(false);
                 displayResponses(dialogueTree);
             } else {
-                StartCoroutine(flashButton(true));
-            }
-        }
-
-        private IEnumerator flashButton(bool on) {
-            if (on) {
-                Color limeGreen = new Color(81f/255f, 1f, 0,1f);
-                countinueButton.GetComponent<Image>().color = limeGreen;
-            } else {
-                countinueButton.GetComponent<Image>().color = baseButtonColor;
-            }
-            if (!writing) {
-                yield return new WaitForSeconds(0.75f);
-                StartCoroutine(flashButton(!on));
+                TextMeshProUGUI spaceText = spaceInfoPanel.GetComponentInChildren<TextMeshProUGUI>();
+                spaceText.text = "<color=green>Press Space to Continue</color>";
             }
         }
     }
