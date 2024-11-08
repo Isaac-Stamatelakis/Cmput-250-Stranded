@@ -982,8 +982,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Background: {fileID: 19139977}
+  song: {fileID: 1698940214}
   HoverColor: {r: 0.1981132, g: 0, b: 0, a: 1}
   FadeSpeed: 1
+  pitchChangeRate: 0.02
 --- !u!1 &1698940212
 GameObject:
   m_ObjectHideFlags: 0
@@ -1511,7 +1513,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.38426974, g: 0.0019935528, b: 0.5283019, a: 1}
+    m_NormalColor: {r: 0, g: 0.20754719, b: 0.01230051, a: 1}
     m_HighlightedColor: {r: 0.3584906, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0.35686275, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 0.35686275, g: 0, b: 0, a: 1}
@@ -1571,8 +1573,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190335
-  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
