@@ -249,6 +249,15 @@ SpriteAtlas:
   - {fileID: 21300000, guid: f0ce35a5c9b72b04ebc692627cfd2297, type: 3}
   - {fileID: 21300000, guid: 2f8895e52f4f07243a5c9b3d9276fbfa, type: 3}
   - {fileID: 21300000, guid: 6fb849e578087944fa1b9efe6da59728, type: 3}
+  - {fileID: 1029848511, guid: 8e08eb1644d013c41b6dccfba7913624, type: 3}
+  - {fileID: -604683495, guid: 8e08eb1644d013c41b6dccfba7913624, type: 3}
+  - {fileID: 821490672, guid: 8e08eb1644d013c41b6dccfba7913624, type: 3}
+  - {fileID: -600516970, guid: 8e08eb1644d013c41b6dccfba7913624, type: 3}
+  - {fileID: -1007966442, guid: 8e08eb1644d013c41b6dccfba7913624, type: 3}
+  - {fileID: -1217585041, guid: 8e08eb1644d013c41b6dccfba7913624, type: 3}
+  - {fileID: 1706988009, guid: 8e08eb1644d013c41b6dccfba7913624, type: 3}
+  - {fileID: 1625801912, guid: 8e08eb1644d013c41b6dccfba7913624, type: 3}
+  - {fileID: -729756382, guid: 8e08eb1644d013c41b6dccfba7913624, type: 3}
   - {fileID: 21300000, guid: a1d581260bac13d478410b47bfcebc56, type: 3}
   - {fileID: 21300000, guid: a6e74b267651d1346bafc4a540c7139e, type: 3}
   - {fileID: 21300000, guid: 09c1344684ec634468288f11c0ef837d, type: 3}
@@ -719,6 +728,15 @@ SpriteAtlas:
   - ComputerLabLightGreen_U_True_L_False_D_True_R_False
   - LabWallTop_U_True_L_False_D_False_R_True_diag
   - ComputerBeigeWallBottom_U_True_L_True_D_True_R_True
+  - fastZombie_8
+  - fastZombie_6
+  - fastZombie_7
+  - fastZombie_4
+  - fastZombie_5
+  - fastZombie_2
+  - fastZombie_3
+  - fastZombie_0
+  - fastZombie_1
   - LabWallBottom_U_True_L_True_D_True_R_False
   - LabWallBottom_U_False_L_False_D_True_R_True_diag
   - LabWallBorder_U_False_L_False_D_True_R_False
