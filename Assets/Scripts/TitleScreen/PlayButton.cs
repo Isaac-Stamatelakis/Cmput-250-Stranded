@@ -15,7 +15,7 @@ namespace TitleScreen {
         public float FadeSpeed = 5f;
         private bool hovering;
         public float pitchChangeRate = 0.1f;
-        private static readonly string SCENE_NAME = "IsaacLevelScene";
+        private static readonly string SCENE_NAME = "BackgroundStory";
         void Start()
         {
             Button button = GetComponent<Button>();

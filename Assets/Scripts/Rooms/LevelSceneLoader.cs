@@ -12,6 +12,14 @@ namespace Rooms {
             if (levelManager.CurrentLevelPrefab == null) {
                 levelManager.CurrentLevelPrefab = defaultLevel;
             }
+            loadCurrentLevel();
+            Player.Instance.refreshUI();
+   
+            GameObject.Destroy(gameObject);
+        }
+
+        public static void loadCurrentLevel() {
+            LevelManager levelManager = LevelManager.getInstance();
             Level level = GameObject.Instantiate(levelManager.CurrentLevelPrefab);
             levelManager.CurrentLevel = level;
             level.Load();
@@ -22,8 +30,6 @@ namespace Rooms {
                 Debug.Log($"Unserialized Player Data: {levelManager.playerData}");
             }
             Player.Instance.refreshUI();
-   
-            GameObject.Destroy(gameObject);
         }
     }
 }

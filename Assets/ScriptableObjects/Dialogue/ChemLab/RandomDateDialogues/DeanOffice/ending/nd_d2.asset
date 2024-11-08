@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cae2666990c0bb459d13c257dd7c11f, type: 3}
   m_Name: nd_d2
   m_EditorClassIdentifier: 
-  Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
+  Speaker: {fileID: 11400000, guid: a8fd8c24f6240994bac53b5dd37d0a2d, type: 2}
   Text: "I don\u2019t know how to thank you. You saved me\u2026 when I thought all
     hope was lost. I didn\u2019t think anyone would risk this much for me."
   nextDialog: {fileID: 11400000, guid: 0453a58c493064f698c41f1791e46bc0, type: 2}

@@ -5,6 +5,7 @@ using PlayerModule;
 using Dialogue;
 using System.Linq;
 using Rooms;
+using UnityEngine.SceneManagement;
 
 public class DatePlayer : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class DatePlayer : MonoBehaviour
     public List<DialogObject> RandomDialogues;
     private List<DialogObject> selectableRandomDialogues;
     private Queue<DialogObject> unselectableRandomDialogues;
+    public DialogObject cureDialog;
     public float boostSpeed = 20f;
     public float followDistance = 2f;
     public float stopDistance = 1f;
@@ -172,11 +174,27 @@ public class DatePlayer : MonoBehaviour
         }
     }
 
-    public void Cure()
+    public IEnumerator Cure()
     {
         isCured = true;
-        animator.SetBool("isCured", isCured); // Set the isCured parameter in Animator
+        float delay = 0.1f;
+        while (delay > 0) {
+            animator.SetBool("isCured", true);
+            yield return new WaitForSeconds(delay);
+            animator.SetBool("isCured", false);
+            yield return new WaitForSeconds(delay);
+            delay -= 0.0025f;
+        }
+        animator.SetBool("isCured", true);
+        yield return new WaitForSeconds(1f);
+        DialogUIController.Instance.DisplayDialogue(cureDialog,goToEnd);
+        
     }
+
+    private void goToEnd() {
+        SceneManager.LoadScene("ending cutscene");
+    }
+
 
     public void Talk()
     {
