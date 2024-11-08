@@ -11,8 +11,6 @@ namespace Dialogue {
         void Start()
         {
             Player.Instance.setCutscene(true);
-            Player.Instance.GetComponent<Animator>().SetBool("isRight", true);
-            StartCoroutine(hardCode());
             PlayableDirector director = GetComponent<PlayableDirector>();
             var output = director.playableAsset.outputs;
             foreach (var binding in output) {
@@ -20,11 +18,6 @@ namespace Dialogue {
                 break;
             }
             director.stopped += onFinish;
-        }
-
-        private IEnumerator hardCode() {
-            yield return new WaitForSeconds(6.5f);
-            Player.Instance.GetComponent<Animator>().SetBool("isRight", false);
         }
         
         public void onFinish(PlayableDirector playableDirector) {

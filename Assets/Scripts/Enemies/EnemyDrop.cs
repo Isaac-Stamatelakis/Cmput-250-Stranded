@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemyDrop : MonoBehaviour
 {
     [SerializeField] private GameObject prefab;
-    public void OnDestroy() {
-        GameObject.Instantiate(prefab);
+    public void DropItem() {
+        GameObject instantiated = GameObject.Instantiate(prefab);
+        instantiated.transform.position = transform.position;
     }
 }

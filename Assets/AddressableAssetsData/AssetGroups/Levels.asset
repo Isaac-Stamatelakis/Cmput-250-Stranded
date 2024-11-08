@@ -29,7 +29,7 @@ MonoBehaviour:
     m_Address: Assets/Prefabs/Levels/Beta/CompLab.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: b90fcb6a5c64dab478d065d67caaf1e3
+  - m_GUID: 21f1c27a8880e0341a07644b3e577c25
     m_Address: Assets/Prefabs/Levels/Beta/DeansOffice.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []

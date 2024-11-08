@@ -11,6 +11,7 @@ namespace Rooms {
         public Transform doorContainer;
         private Room room;
         public Room Room => room;
+        public bool Locked = false;
         private Dictionary<GameObject, ZombieSpawnInstruction> spawnedEnemyInstructionDict;
         public void reset() {
             GlobalUtils.deleteChildren(enemyContainer);
@@ -25,13 +26,18 @@ namespace Rooms {
         private void updateEnemySpawnInstructions() {
             List<ZombieSpawnInstruction> updatedSpawnInstructions = new List<ZombieSpawnInstruction>();
             for (int i = 0; i < enemyContainer.childCount; i++) {
-                updatedSpawnInstructions.Add(spawnedEnemyInstructionDict[enemyContainer.GetChild(i).gameObject]);
+                GameObject enemy = enemyContainer.GetChild(i).gameObject;
+                if (spawnedEnemyInstructionDict.ContainsKey(enemy)) {
+                    updatedSpawnInstructions.Add(spawnedEnemyInstructionDict[enemy]);
+                }
+                
             }
             room.ZombieSpawnInstructions = updatedSpawnInstructions;
         }
 
         public void setRoomClear() {
             room.ZombieSpawnInstructions = new List<ZombieSpawnInstruction>();
+            Locked = false;
             for (int i = 0; i < doorContainer.childCount; i++) {
                 RoomDoorObject roomDoorObject = doorContainer.GetChild(i).GetComponent<RoomDoorObject>();
                 roomDoorObject.setClear(true);
@@ -65,6 +71,20 @@ namespace Rooms {
                 Vector3 position = spawned.transform.position;
                 position.z = 0;
                 spawned.transform.position = position;
+            }
+
+            if (room.RoomObjectContainer.Boss != null) {
+                BossHealthBar bossHealthBar = BossHealthBar.Instance;
+                bossHealthBar.gameObject.SetActive(true);
+                EnemyHealth boss = room.RoomObjectContainer.Boss;
+                boss.setHealthBar(bossHealthBar);
+                boss.gameObject.SetActive(true);
+                boss.transform.SetParent(enemyContainer);
+                 for (int i = 0; i < doorContainer.childCount; i++) {
+                    RoomDoorObject roomDoorObject = doorContainer.GetChild(i).GetComponent<RoomDoorObject>();
+                    roomDoorObject.setLocked();
+                }
+       
             }
         }
 

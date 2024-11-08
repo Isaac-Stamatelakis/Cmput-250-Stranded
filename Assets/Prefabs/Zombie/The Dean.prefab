@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 250383000215901853}
   - component: {fileID: 250383000215901852}
   - component: {fileID: 250383000215901858}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bossAnimations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: e2d34e63942853e4a987a029e88f4056, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -120,8 +120,9 @@ GameObject:
   - component: {fileID: 250383000893655800}
   - component: {fileID: 250383000893655803}
   - component: {fileID: 250383000893655801}
-  m_Layer: 0
-  m_Name: Boss
+  - component: {fileID: 3264359613910117900}
+  m_Layer: 10
+  m_Name: The Dean
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,8 +197,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca4ab0817f9b6a540ba668e11bb4b439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  experience: 5
+  health: 500
+  experience: 0
+  spriteRenderer: {fileID: 250383000215901858}
+  iconSprite: {fileID: -1258940765, guid: 549c0abd1be31f1478b0d787f3a6d47b, type: 3}
 --- !u!114 &250383000893655803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,3 +235,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &3264359613910117900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250383000893655798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5468b7a406e76543869288ac103775b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3402913811452322996, guid: 1aaa172a9ffce4a459815f0d13478728, type: 3}

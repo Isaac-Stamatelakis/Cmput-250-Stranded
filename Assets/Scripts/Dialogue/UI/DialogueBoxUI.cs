@@ -21,6 +21,7 @@ namespace Dialogue {
         private float skipChars = 0;
         private Color baseButtonColor;
         private bool canFastSkip = true;
+        private DialogCallBack callBack;
 
         public void Update() {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -54,11 +55,20 @@ namespace Dialogue {
                 skipChars += 50*Time.deltaTime;
             }
         }
+
+        public void DisplayDialog(DialogObject dialogue, DialogCallBack callBack) {
+            this.callBack = callBack;
+            DisplayDialogue(dialogue);
+        }
         public void DisplayDialogue(DialogObject dialogue) {
             skipChars = 0;
             Player.Instance.setDialog(dialogue!=null);
             if (dialogue == null) {
                 gameObject.SetActive(false);
+                if (callBack != null) {
+                    callBack();
+                    callBack = null;
+                }
                 return;
             }
             spaceInfoPanel.gameObject.SetActive(true);
