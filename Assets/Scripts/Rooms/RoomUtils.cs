@@ -168,21 +168,7 @@ namespace Rooms {
                 if (!isWall) {
                     continue;
                 }
-                /*
-                bool hasAdjcaentDoor = false;
-                foreach (Vector2Int directionVector in directions) {
-                    Vector2Int pos = kvp.Key + directionVector;
-                    if (levelData.GetTile((Vector3Int)pos,TileMapLayer.Door) != null) {
-                        hasAdjcaentDoor = true;
-                        break;
-                    }
-                }
-                if (!hasAdjcaentDoor) {
-                    continue;
-                }
-                */
                 DFSBorder(kvp.Key,roomBounds,null,seenBorder, positionTileDict, roomDoors, levelData);
-                Debug.Log(seenBorder.Count);
                 break;
                 // Found a tile on the border. Since the border is connected we can break after
                 //break;
