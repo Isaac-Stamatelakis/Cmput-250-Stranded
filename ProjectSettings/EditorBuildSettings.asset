@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TitleScene.unity
     guid: 64f2191a5cf392f48a739286857f5e85
+  - enabled: 1
+    path: Assets/Scenes/ending cutscene.unity
+    guid: 3a6858a12f4284555a70b9c88fda51e9
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: f2eeeca86c7a54d3c85c74d0159f2b89, type: 2}
