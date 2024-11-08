@@ -19,8 +19,6 @@ namespace Dialogue {
                 director.SetGenericBinding(binding.sourceObject, Player.Instance.GetComponent<Animator>());
                 break;
             }
-            
-            
             director.stopped += onFinish;
         }
 

@@ -908,6 +908,7 @@ GameObject:
   - component: {fileID: 1058603202846649726}
   - component: {fileID: 758880448083278094}
   - component: {fileID: 8660480905109732006}
+  - component: {fileID: 2391435065001469715}
   m_Layer: 0
   m_Name: oak_table
   m_TagString: Untagged
@@ -1008,6 +1009,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.125, y: 2.125}
   m_EdgeRadius: 0
+--- !u!208 &2391435065001469715
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968841909184137119}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.0630001, y: 1.0630001, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1031919990919931232
 GameObject:
   m_ObjectHideFlags: 0
@@ -18546,6 +18563,7 @@ GameObject:
   - component: {fileID: 2914071900550219344}
   - component: {fileID: 8322447097833764188}
   - component: {fileID: 1108189954280075283}
+  - component: {fileID: 1189432077707442136}
   m_Layer: 0
   m_Name: oak_table
   m_TagString: Untagged
@@ -18646,6 +18664,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.125, y: 2.125}
   m_EdgeRadius: 0
+--- !u!208 &1189432077707442136
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8046748801998788119}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.0630001, y: 1.0630001, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &8078227893456469864
 GameObject:
   m_ObjectHideFlags: 0
