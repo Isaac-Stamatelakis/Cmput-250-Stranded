@@ -19,7 +19,7 @@ public class PlayerTutorialManager : MonoBehaviour
         "Hold SHIFT to Run!",
         "Pick up a Weapon!",
         "Left Click to Attack!",
-        "Press ESC to Pause!",
+        "Press P to Pause!",
         "Go Through the Door!"
     };
 
@@ -52,7 +52,7 @@ public class PlayerTutorialManager : MonoBehaviour
                 }
                 break;
             case 4:
-                if (Input.GetKeyDown(KeyCode.Escape)) {
+                if (Input.GetKeyDown(KeyCode.P)) {
                     index ++;
                 }
                 break;

@@ -19,7 +19,7 @@ namespace PlayerModule {
         }
 
         public void Update() {
-            if (Input.GetKeyDown(KeyCode.Escape)) {
+            if (Input.GetKeyDown(KeyCode.P)) {
                 Transform canvasTransform = transform.parent;
                 PauseScreen pauseScreen = canvasTransform.GetComponentInChildren<PauseScreen>();
                 if (pauseScreen != null) {
