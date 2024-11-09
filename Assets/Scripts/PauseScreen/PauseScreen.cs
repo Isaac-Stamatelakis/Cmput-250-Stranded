@@ -47,14 +47,16 @@ public class PauseScreen : MonoBehaviour
     }
 
     private void restartCallback() {
+        LevelManager.getInstance().reset();
         SceneManager.LoadScene("LevelScene");
     }
 
     private void restartLevelCallback() {
-        LevelSceneLoader.loadCurrentLevel();
+        SceneManager.LoadScene("LevelScene");
     }
 
     private void titleScreenCallback() {
+        LevelManager.getInstance().reset();
         SceneManager.LoadScene("TitleScene");
     }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Playables;
 using UnityEngine.UI;
+using Rooms;
 
 public class EndCutsceneListener : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class EndCutsceneListener : MonoBehaviour
     void Start()
     {
         button.onClick.AddListener(() => {
+            LevelManager.getInstance().reset();
             SceneManager.LoadScene("TitleScene");
         });
         director = GetComponent<PlayableDirector>();

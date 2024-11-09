@@ -20,6 +20,11 @@ namespace Rooms
             }
             return instance;
         }
+
+        public void reset() {
+            CurrentLevel = null;
+            playerData = null;
+        }
     }
 }
 
