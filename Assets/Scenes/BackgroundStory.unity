@@ -1815,8 +1815,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "In the middle of it all, you and your date\u2014a chance meeting that
-    now feels like fate."
+  m_text: "Infected\u2026 but still fighting, still holding on. Together, you\u2019re
+    bound by more than just chance. Now, it's a race against time."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f0402d851f854424d8717162fd25cea7, type: 2}
   m_sharedMaterial: {fileID: -3060874664129871948, guid: f0402d851f854424d8717162fd25cea7, type: 2}
@@ -1943,7 +1943,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1435821190}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 85baf20e98dd3477ab12b91d87cf0150, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 1d6fa47804ec641bda68d89d66264d81, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -2039,6 +2039,44 @@ PlayableDirector:
     value: {fileID: 17152670}
   - key: {fileID: -8864289581983076419, guid: 85baf20e98dd3477ab12b91d87cf0150, type: 2}
     value: {fileID: 1013484954}
+  - key: {fileID: 6062170031300846292, guid: 3d2316c6eb6ad4b4eb628087c658486d, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -5683914123229377881, guid: 3d2316c6eb6ad4b4eb628087c658486d, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -7878670903208205084, guid: 1d6fa47804ec641bda68d89d66264d81, type: 2}
+    value: {fileID: 103757025}
+  - key: {fileID: -3095631730934029800, guid: 1d6fa47804ec641bda68d89d66264d81, type: 2}
+    value: {fileID: 295794665}
+  - key: {fileID: 2798724400575457811, guid: 1d6fa47804ec641bda68d89d66264d81, type: 2}
+    value: {fileID: 76544568}
+  - key: {fileID: -6876500768979878740, guid: 1d6fa47804ec641bda68d89d66264d81, type: 2}
+    value: {fileID: 303857853}
+  - key: {fileID: -5303488339318897534, guid: 1d6fa47804ec641bda68d89d66264d81, type: 2}
+    value: {fileID: 1616836836}
+  - key: {fileID: -1848612455843704740, guid: 1d6fa47804ec641bda68d89d66264d81, type: 2}
+    value: {fileID: 991533064}
+  - key: {fileID: -972128647167853086, guid: 1d6fa47804ec641bda68d89d66264d81, type: 2}
+    value: {fileID: 1395172795}
+  - key: {fileID: 8868451764046421153, guid: 1d6fa47804ec641bda68d89d66264d81, type: 2}
+    value: {fileID: 783369445}
+  - key: {fileID: -7420558361588388610, guid: 1d6fa47804ec641bda68d89d66264d81, type: 2}
+    value: {fileID: 669335994}
+  - key: {fileID: -1482800153108294241, guid: 1d6fa47804ec641bda68d89d66264d81, type: 2}
+    value: {fileID: 328523128}
+  - key: {fileID: 4311494336066856265, guid: 1d6fa47804ec641bda68d89d66264d81, type: 2}
+    value: {fileID: 323371220}
+  - key: {fileID: 7479590476042292399, guid: 1d6fa47804ec641bda68d89d66264d81, type: 2}
+    value: {fileID: 17152670}
+  - key: {fileID: -8864289581983076419, guid: 1d6fa47804ec641bda68d89d66264d81, type: 2}
+    value: {fileID: 1013484954}
+  - key: {fileID: 7859178448617289225, guid: 1d6fa47804ec641bda68d89d66264d81, type: 2}
+    value: {fileID: 1674287476}
+  - key: {fileID: -9222197799405490895, guid: 1d6fa47804ec641bda68d89d66264d81, type: 2}
+    value: {fileID: 1537855939}
+  - key: {fileID: 9006739029798402663, guid: 1d6fa47804ec641bda68d89d66264d81, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -5497318192690415765, guid: 1d6fa47804ec641bda68d89d66264d81, type: 2}
+    value: {fileID: 1426593382}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1435821192
@@ -2956,7 +2994,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10.1875
+  orthographic size: 9.484375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
