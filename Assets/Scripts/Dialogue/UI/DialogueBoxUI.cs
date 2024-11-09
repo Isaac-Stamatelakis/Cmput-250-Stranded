@@ -5,7 +5,8 @@ using UnityEngine.UI;
 using TMPro;
 using PlayerModule;
 
-namespace Dialogue {
+namespace Dialogue
+{
     public delegate void IndexCallback(int index);
     public class DialogueBoxUI : MonoBehaviour
     {
@@ -19,109 +20,134 @@ namespace Dialogue {
         private DialogueTree currentTree;
         private DialogObject currentDialog;
         private float skipChars = 0;
-        private Color baseButtonColor;
         private bool canFastSkip = true;
         private DialogCallBack callBack;
 
-        public void Update() {
+        public string CurrentDialog => currentDialog?.name;
+
+        public void Update()
+        {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                countinuePress();
+                continuePress();
             }
             if (Input.GetKey(KeyCode.Space) && canFastSkip)
             {
-                countineHold();
-            }
-
-
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                //canFastSkip = true;
+                continueHold();
             }
         }
 
-        private void countinuePress() {
-            if (writing) {
+        private void continuePress()
+        {
+            if (writing)
+            {
                 return;
             }
-            if (currentDialog is DialogSentence dialogSentence) {
-                //canFastSkip = false;
+            if (currentDialog is DialogSentence dialogSentence)
+            {
                 DisplayDialogue(dialogSentence.nextDialog);
             }
         }
 
-        private void countineHold() {
-            if (writing) {
-                skipChars += 50*Time.deltaTime;
+        private void continueHold()
+        {
+            if (writing)
+            {
+                skipChars += 50 * Time.deltaTime;
             }
         }
 
-        public void DisplayDialog(DialogObject dialogue, DialogCallBack callBack) {
+        // Overload to accept a callback
+        public void DisplayDialogue(DialogObject dialogue, DialogCallBack callBack)
+        {
             this.callBack = callBack;
-            DisplayDialogue(dialogue);
+            DisplayDialogue(dialogue); // Call the existing method to handle the dialogue display
         }
-        public void DisplayDialogue(DialogObject dialogue) {
+
+        public void DisplayDialogue(DialogObject dialogue)
+        {
             skipChars = 0;
-            Player.Instance.setDialog(dialogue!=null);
-            if (dialogue == null) {
+            Player.Instance.setDialog(dialogue != null);
+            if (dialogue == null)
+            {
                 gameObject.SetActive(false);
-                if (callBack != null) {
-                    callBack();
-                    callBack = null;
-                }
+                callBack?.Invoke(); // Invoke the callback if set
+                callBack = null;
                 return;
             }
+
+            // Check if this is the final dialogue ('nd_p3')
+            if (dialogue.name == "nd_p3")
+            {
+                // Trigger ending cutscene
+                NextSceneLoader.Instance.LoadScene("ending cutscene");
+                return;
+            }
+
             spaceInfoPanel.gameObject.SetActive(true);
             TextMeshProUGUI spaceText = spaceInfoPanel.GetComponentInChildren<TextMeshProUGUI>();
             spaceText.text = "Hold Space to Fast Forward";
             this.currentDialog = dialogue;
-            for (int i = 0; i < responseList.transform.childCount; i++) {
-                GameObject.Destroy(responseList.transform.GetChild(i).gameObject);
+
+            // Clear previous responses
+            for (int i = 0; i < responseList.transform.childCount; i++)
+            {
+                Destroy(responseList.transform.GetChild(i).gameObject);
             }
+
             this.PortraitImage.sprite = dialogue.Speaker.sprite;
             this.NameText.text = dialogue.Speaker.name;
             StartCoroutine(displayTextCoroutine(dialogue.Text));
         }
 
-        private void displayResponses(DialogueTree dialogueTree) {
+        private void displayResponses(DialogueTree dialogueTree)
+        {
             currentTree = dialogueTree;
-            for (int i = 0; i < dialogueTree.responses.Count; i++) {
-                DialogueResponseUI dialogueResponseUI = GameObject.Instantiate(responsePrefab);
-                dialogueResponseUI.transform.SetParent(responseList.transform,false);
-                DialogResponse dialogResponse = dialogueTree.responses[i];
-                dialogueResponseUI.display(dialogResponse.Text,i, responseClick);
+            foreach (var dialogResponse in dialogueTree.responses)
+            {
+                DialogueResponseUI dialogueResponseUI = Instantiate(responsePrefab);
+                dialogueResponseUI.transform.SetParent(responseList.transform, false);
+                dialogueResponseUI.display(dialogResponse.Text, dialogueTree.responses.IndexOf(dialogResponse), responseClick);
             }
         }
 
-        private void responseClick(int index) {
+        private void responseClick(int index)
+        {
             DialogObject dialogObject = currentTree.responses[index].dialog;
             DisplayDialogue(dialogObject);
         }
 
-        private IEnumerator displayTextCoroutine(string text) {
-            this.writing = true;
+        private IEnumerator displayTextCoroutine(string text)
+        {
+            writing = true;
             string displayText = "";
-            foreach (char c in text) {
+            foreach (char c in text)
+            {
                 displayText += c;
-                ContentText.text = $"{displayText}";
-                if (skipChars > 0) {
+                ContentText.text = displayText;
+                if (skipChars > 0)
+                {
                     skipChars--;
                     yield return new WaitForEndOfFrame();
-                } else {
+                }
+                else
+                {
                     yield return new WaitForSeconds(0.05f);
                 }
             }
             ContentText.text = displayText;
-            this.writing = false;
-            
-            if (currentDialog is DialogueTree dialogueTree) {
-                spaceInfoPanel.gameObject.SetActive(false);
+            writing = false;
+
+            if (currentDialog is DialogueTree dialogueTree)
+            {
+                spaceInfoPanel.SetActive(false);
                 displayResponses(dialogueTree);
-            } else {
+            }
+            else
+            {
                 TextMeshProUGUI spaceText = spaceInfoPanel.GetComponentInChildren<TextMeshProUGUI>();
                 spaceText.text = "<color=green>Press Space to Continue</color>";
             }
         }
     }
 }
-
