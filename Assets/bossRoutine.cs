@@ -44,6 +44,9 @@ public class bossRoutine : MonoBehaviour
         if (bounceBack) {
             transform.position += (bossPos - playerPos).normalized * (15 * Time.deltaTime);
         }
+        Vector3 position = transform.position;
+        position.z = -2;
+        transform.position = position;
     }
 
     IEnumerator canBossAttack() {
@@ -72,6 +75,7 @@ public class bossRoutine : MonoBehaviour
 
                     playerPos = player.transform.position;
                     bossPos = transform.position;
+                    
 
                     canChargeAttack = true;
                     canAttack = false;
@@ -86,15 +90,30 @@ public class bossRoutine : MonoBehaviour
 
                     anim.SetBool("isAboutToShoot", false);
                     anim.SetBool("isShooting", true);
+                    
+                    int ran = UnityEngine.Random.Range(0,2);
+                    float startAngle = 0;
+                    if (ran == 1) {
+                        startAngle = 22.5f;
+                    } 
+                    Vector3[] positions = new Vector3[]
+                    {
+                        new Vector3(3.5f, 0, 0),
+                        new Vector3(0, 3.5f, 0),
+                        new Vector3(-3.5f, 0, 0),
+                        new Vector3(0, -3.5f, 0),
+                        new Vector3(2.5f, 2.5f, 0),
+                        new Vector3(-2.5f, 2.5f, 0),
+                        new Vector3(2.5f, -2.5f, 0),
+                        new Vector3(-2.5f, -2.5f, 0)
+                    };
 
-                    Instantiate(projectile, transform.position + new Vector3(3.5f,0,0), Quaternion.Euler(0,0,-90));
-                    Instantiate(projectile, transform.position + new Vector3(0,3.5f,0), Quaternion.Euler(0,0,0));
-                    Instantiate(projectile, transform.position + new Vector3(-3.5f,0,0), Quaternion.Euler(0,0,90));
-                    Instantiate(projectile, transform.position + new Vector3(0,-3.5f,0), Quaternion.Euler(0,0,-180));
-                    Instantiate(projectile, transform.position + new Vector3(2.5f,2.5f,0), Quaternion.Euler(0,0,-45));
-                    Instantiate(projectile, transform.position + new Vector3(-2.5f,2.5f,0), Quaternion.Euler(0,0,45));
-                    Instantiate(projectile, transform.position + new Vector3(2.5f,-2.5f,0), Quaternion.Euler(0,0,-135));
-                    Instantiate(projectile, transform.position + new Vector3(-2.5f,-2.5f,0), Quaternion.Euler(0,0,135));
+                    float[] rotations = new float[] { -90, 0, 90, -180, -45, 45, -135, 135 };
+
+                    for (int i = 0; i < rotations.Length; i++)
+                    {
+                        Instantiate(projectile, transform.position + positions[i], Quaternion.Euler(0, 0, rotations[i]+startAngle));
+                    }
 
                     yield return new WaitForSeconds(0.5f);
                     anim.SetBool("isShooting", false);

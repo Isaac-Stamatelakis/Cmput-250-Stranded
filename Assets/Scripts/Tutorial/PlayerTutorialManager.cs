@@ -2,74 +2,69 @@ using UnityEngine;
 using TMPro;
 using Dialogue;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+using PlayerModule;
+using Rooms;
 
 public class PlayerTutorialManager : MonoBehaviour
 {
-    public TextMeshProUGUI firstInstructionText;  
-    public TextMeshProUGUI secondInstructionText; 
-    public TextMeshProUGUI thirdInstructionText;  
-    public GameObject dialogueTutorial;          
-
+    public TextMeshProUGUI textMeshProUGUI;
     private bool waitingForMovement = true;
     private bool waitingForRun = false;
     private bool waitingForThirdInstruction = false;
+    private int index;
+    private List<string> text = new List<string>{
+        "Use The ARROW KEYS \nor WASD to Move!",
+        "Hold SHIFT to Run!",
+        "Pick up a Weapon!",
+        "Left Click to Attack!",
+        "Press P to Pause!",
+        "Go Through the Door!"
+    };
 
     void Update()
     {
-        // Hard coded, change later
-        Image image = gameObject.GetComponent<Image>();
-        if (DialogUIController.Instance.ShowingDialog) {
-            image.enabled = false;
-            return;
+        textMeshProUGUI.text = text[index];
+        switch (index) {
+            case 0:
+                if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || 
+                    Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || 
+                    Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) ||
+                    Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)
+                )) {
+                    index ++;
+                }
+                break;
+            case 1:
+                if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))) {
+                    index ++;
+                }
+                break;
+            case 2:
+                if (Player.Instance.GetComponent<PlayerAttack>().currentWeapon != null) {
+                    index ++;
+                }
+                break;
+            case 3:
+                if (Input.GetMouseButtonDown(0)) {
+                    index++;
+                }
+                break;
+            case 4:
+                if (Input.GetKeyDown(KeyCode.P)) {
+                    index ++;
+                }
+                break;
+            case 5:
+                if (!LevelManager.getInstance().CurrentLevel.CurrentRoomClear()) {
+                    index++;
+                }
+                break;
         }
-        if (waitingForMovement) {
-            ShowFirstInstruction();
-        }
-        image.enabled = true;
-        if (waitingForMovement && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) ||
-                                   Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) ||
-                                   Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)))
-        {
-            waitingForMovement = false;
-            ShowSecondInstruction();
+        if (index >= text.Count) {
+            GameObject.Destroy(gameObject);
         }
 
-        if (waitingForRun && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
-        {
-            waitingForRun = false;
-            ShowThirdInstruction();  
-        }
-
-        if (waitingForThirdInstruction && Input.GetMouseButtonDown(0))
-        {
-            HideAllInstructions();  
-        }
-    }
-
-    public void ShowFirstInstruction()
-    {
-        firstInstructionText.gameObject.SetActive(true);   
-        secondInstructionText.gameObject.SetActive(false);
-        thirdInstructionText.gameObject.SetActive(false);  
-        waitingForMovement = true;
-    }
-
-    void ShowSecondInstruction()
-    {
-        firstInstructionText.gameObject.SetActive(false);  
-        secondInstructionText.gameObject.SetActive(true);  
-        waitingForRun = true;
-    }
-
-    void ShowThirdInstruction()
-    {
-        secondInstructionText.gameObject.SetActive(false);  
-        thirdInstructionText.gameObject.SetActive(true);    
-        waitingForThirdInstruction = true;                 
-    }
-
-    void HideAllInstructions()
-    {
-        GameObject.Destroy(gameObject);
     }
 }

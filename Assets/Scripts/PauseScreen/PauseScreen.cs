@@ -13,6 +13,11 @@ public class PauseScreen : MonoBehaviour
     [SerializeField] private Button titleScreen;
     [SerializeField] private PauseScreenVerifier pauseScreenVerifierPrefab;
 
+    public void Update() {
+        if (Input.GetKeyDown(KeyCode.P)) {
+            GameObject.Destroy(gameObject);
+        }
+    }
     public void Start() {
         Player.Instance.setDialog(true);
         Time.timeScale = 0;
