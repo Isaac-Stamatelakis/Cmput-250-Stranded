@@ -20,6 +20,12 @@ namespace Rooms
             }
             return instance;
         }
+
+        public void reset() {
+            CurrentLevel = null;
+            CurrentLevelPrefab = null;
+            playerData = null;
+        }
     }
 }
 

@@ -41,13 +41,13 @@ namespace TitleScreen {
 
         public void FixedUpdate() {
             if (hovering) {
-                song.pitch -= pitchChangeRate;
+                song.pitch += pitchChangeRate;
                 song.volume += pitchChangeRate/10;
                 if (song.volume > 0.6f) {
                     song.volume = 0.6f;
                 }
-                if (song.pitch < -3) {
-                    song.pitch = -3;
+                if (song.pitch > 3) {
+                    song.pitch = 3;
                 }
             } else {
                 song.volume -= pitchChangeRate/10;
@@ -55,7 +55,7 @@ namespace TitleScreen {
                     song.volume = 0.3f;
                 }
                 if (song.pitch < 1) {
-                    song.pitch += pitchChangeRate;
+                    song.pitch -= pitchChangeRate;
                 } else {
                     song.pitch = 1;
                 }
