@@ -65,6 +65,25 @@ namespace Rooms {
             if (!roomDoor.Room.isClear() && !roomDoor.Connection.Room.isClear()) {
                 return;
             }
+            Direction direction = roomDoor.Direction;
+            bool inputDown = false;
+            switch (direction) {
+                case Direction.Left:
+                    inputDown = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
+                break;
+                case Direction.Right:
+                    inputDown = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
+                break;
+                case Direction.Up:
+                    inputDown = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
+                break;
+                case Direction.Down:
+                    inputDown = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
+                break;
+            }
+            if (!inputDown) {
+                return;
+            }
             
             if (roomDoor.Room.isClear()) {
                 PlayerUI playerUI = Player.Instance.PlayerUI;

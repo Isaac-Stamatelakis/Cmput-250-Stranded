@@ -23,6 +23,7 @@ namespace Rooms
 
         public void reset() {
             CurrentLevel = null;
+            CurrentLevelPrefab = null;
             playerData = null;
         }
     }

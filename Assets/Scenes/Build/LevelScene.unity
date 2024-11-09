@@ -481,7 +481,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2627170884295187212, guid: 86e9befc570406c498e14bce619974bd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 5605487721146580832, guid: 86e9befc570406c498e14bce619974bd, type: 3}
       propertyPath: m_VerticalAlignment

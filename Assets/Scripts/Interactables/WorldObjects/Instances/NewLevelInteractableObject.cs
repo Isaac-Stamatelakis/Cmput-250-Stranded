@@ -32,10 +32,24 @@ public class NewLevelInteractableObject : InteractableGameObject, IRoomClearList
         LevelManager levelManager = LevelManager.getInstance();
         bool clear = levelManager.CurrentLevel.CurrentRoomClear();
         if (clear) {
-            levelManager.playerData = Player.Instance.serialize();
-            LevelManager.getInstance().CurrentLevelPrefab = level;
-            SceneManager.LoadScene("LevelScene");
+            PlayerUI playerUI = Player.Instance.PlayerUI;
+            PlayerLevelComponent playerLevelComponent = Player.Instance.GetComponent<PlayerLevelComponent>();
+            int upgrades = playerLevelComponent.RemainingUpgrades;
+            PlayerExperienceUI playerExperienceUI = playerUI.PlayerExperienceUI;
+            if (upgrades > 0 && !playerExperienceUI.SelectorDisplayed) {
+                playerExperienceUI.displayLevelSelector(loadNewLevel);
+            } else {
+                loadNewLevel();
+            }
+            
         }
+    }
+
+    private void loadNewLevel() {
+        LevelManager levelManager = LevelManager.getInstance();
+        levelManager.playerData = Player.Instance.serialize();
+        LevelManager.getInstance().CurrentLevelPrefab = level;
+        SceneManager.LoadScene("LevelScene");
     }
     /*
     private IEnumerator loadLevel() {

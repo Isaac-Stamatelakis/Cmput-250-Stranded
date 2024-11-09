@@ -24,6 +24,11 @@ public class PlayerExperienceUI : MonoBehaviour
             displayLevelSelector(null);
         });
         levelUpButton.gameObject.SetActive(false);
+        createDict();
+        
+    }
+
+    public void createDict() {
         playerUpgradeSpriteDict = new Dictionary<PlayerUpgrade, Sprite>();
         foreach (var pair in playerUpgradeSpritePairs) {
             if (playerUpgradeSpriteDict.ContainsKey(pair.PlayerUpgrade)) {
@@ -63,6 +68,9 @@ public class PlayerExperienceUI : MonoBehaviour
         experienceTextRatio.text = $"{experience} / {levelUpExperience}";
     }
     public Sprite getUpgradeSprite(PlayerUpgrade playerUpgrade) {
+        if (playerUpgradeSpriteDict == null) {
+            createDict();
+        }
         if (playerUpgradeSpriteDict.ContainsKey(playerUpgrade)) {
             return playerUpgradeSpriteDict[playerUpgrade];
         }
