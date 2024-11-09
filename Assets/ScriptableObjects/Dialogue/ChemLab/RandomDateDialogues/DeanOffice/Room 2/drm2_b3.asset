@@ -15,4 +15,4 @@ MonoBehaviour:
   Speaker: {fileID: 11400000, guid: 26cd8e64faf67704498c9af43846159e, type: 2}
   Text: "Oh, you poor, misguided souls. I hold the cure here, the only thing that
     can stop this\u2026 if you can take it from me."
-  nextDialog: {fileID: 0}
+  nextDialog: {fileID: 11400000, guid: fa40520457cb84949ac6df21b8146989, type: 2}

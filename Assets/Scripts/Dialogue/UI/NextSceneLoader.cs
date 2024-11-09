@@ -10,7 +10,7 @@ public class NextSceneLoader : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); 
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -20,6 +20,6 @@ public class NextSceneLoader : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene("ending cutscene");
+        SceneManager.LoadScene(sceneName);
     }
 }

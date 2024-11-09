@@ -409,6 +409,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7363912352082844847, guid: 86e9befc570406c498e14bce619974bd, type: 3}
+      propertyPath: endingSceneName
+      value: ending cutscene
+      objectReference: {fileID: 0}
     - target: {fileID: 7363912352284349947, guid: 86e9befc570406c498e14bce619974bd, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
