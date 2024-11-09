@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
   Text: You destroyed everything. All for your twisted dream.
-  nextDialog: {fileID: 0}
+  nextDialog: {fileID: 11400000, guid: 4a86bcea45988445ba9cb6aae705954d, type: 2}

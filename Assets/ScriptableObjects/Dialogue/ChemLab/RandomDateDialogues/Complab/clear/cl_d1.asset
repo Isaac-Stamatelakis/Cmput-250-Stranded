@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
   Text: "We\u2026 we did it. That was\u2026 brutal."
-  nextDialog: {fileID: 11400000, guid: 98e466632e44c4ad3b443b5d1a0b48e1, type: 2}
+  nextDialog: {fileID: 11400000, guid: 936574a0cda014da4ac25b51e1b5ddb8, type: 2}

@@ -447,8 +447,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textIndicator: {fileID: 3859503000369728241}
   boss: {fileID: 0}
-  DateRandomDialogs: {fileID: 11400000, guid: cf9dbd489cc07124c9ba3a6246079acd, type: 2}
-  OnRoomClearDialog: {fileID: 0}
+  DateRandomDialogs: {fileID: 11400000, guid: dbe43bf2d9ad34f2ca5889fab9c26f6b, type: 2}
+  OnRoomClearDialog: {fileID: 11400000, guid: 8de4e2566f49d4e1db574815fb85f936, type: 2}
 --- !u!1 &236417111040961369
 GameObject:
   m_ObjectHideFlags: 0
@@ -3040,7 +3040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textIndicator: {fileID: 4734069069460790795}
   boss: {fileID: 0}
-  DateRandomDialogs: {fileID: 11400000, guid: cf9dbd489cc07124c9ba3a6246079acd, type: 2}
+  DateRandomDialogs: {fileID: 11400000, guid: f6f1cdb0559de44f48040ffcd3053905, type: 2}
   OnRoomClearDialog: {fileID: 0}
 --- !u!1 &1772863110584844176
 GameObject:
@@ -4066,7 +4066,7 @@ MonoBehaviour:
   m_VoxelSize: 0.1
   m_BuildHeightMesh: 0
   m_HideEditorLogs: 0
-  m_NavMeshData: {fileID: 23800000, guid: 8b9e65d1479943444aefc8e851e56551, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 640796928821c6f4db56703a5ac93d54, type: 2}
 --- !u!114 &7821367010945247901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5534,7 +5534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textIndicator: {fileID: 8723754028694736158}
   boss: {fileID: 0}
-  DateRandomDialogs: {fileID: 11400000, guid: 2765334eeb46f834480d1c769b055eab, type: 2}
+  DateRandomDialogs: {fileID: 11400000, guid: 867da2309ad9c44b58c8a8fe3d219894, type: 2}
   OnRoomClearDialog: {fileID: 0}
 --- !u!1 &4148613037591541199
 GameObject:
@@ -7028,7 +7028,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textIndicator: {fileID: 4323780544758729425}
   boss: {fileID: 0}
-  DateRandomDialogs: {fileID: 11400000, guid: 2765334eeb46f834480d1c769b055eab, type: 2}
+  DateRandomDialogs: {fileID: 11400000, guid: fe6b36c7b674345bb98480016aca1790, type: 2}
   OnRoomClearDialog: {fileID: 0}
 --- !u!1 &4323780544845345938
 GameObject:
@@ -47699,7 +47699,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textIndicator: {fileID: 8430716216762576935}
   boss: {fileID: 0}
-  DateRandomDialogs: {fileID: 11400000, guid: cf9dbd489cc07124c9ba3a6246079acd, type: 2}
+  DateRandomDialogs: {fileID: 11400000, guid: 3d45e85428b114fcd833f7ba936e51dd, type: 2}
   OnRoomClearDialog: {fileID: 0}
 --- !u!1 &7295479681655599582
 GameObject:
@@ -48549,7 +48549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textIndicator: {fileID: 7665462329656974134}
   boss: {fileID: 0}
-  DateRandomDialogs: {fileID: 11400000, guid: 2765334eeb46f834480d1c769b055eab, type: 2}
+  DateRandomDialogs: {fileID: 11400000, guid: 1912218b7e190489c92913ac95e3e5bf, type: 2}
   OnRoomClearDialog: {fileID: 0}
 --- !u!1 &8005461727875603615
 GameObject:

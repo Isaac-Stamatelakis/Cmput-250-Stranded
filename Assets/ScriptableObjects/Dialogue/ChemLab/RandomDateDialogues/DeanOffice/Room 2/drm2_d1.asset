@@ -15,4 +15,4 @@ MonoBehaviour:
   Speaker: {fileID: 11400000, guid: 26cd8e64faf67704498c9af43846159e, type: 2}
   Text: "You\u2026 you did this. All those people\u2026 my friends\u2026 you turned
     them into monsters."
-  nextDialog: {fileID: 0}
+  nextDialog: {fileID: 11400000, guid: 3ffd8a962b6e74fd28423fd4fec75db2, type: 2}

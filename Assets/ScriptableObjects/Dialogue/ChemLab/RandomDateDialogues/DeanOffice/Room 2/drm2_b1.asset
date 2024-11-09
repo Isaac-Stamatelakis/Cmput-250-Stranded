@@ -15,4 +15,4 @@ MonoBehaviour:
   Speaker: {fileID: 11400000, guid: 26cd8e64faf67704498c9af43846159e, type: 2}
   Text: "So, you\u2019ve made it this far. Impressive\u2026 I didn\u2019t think you
     had it in you."
-  nextDialog: {fileID: 11400000, guid: 58a52a21d7fec4598b00779c61b4d47e, type: 2}
+  nextDialog: {fileID: 11400000, guid: 169027a9f998c44ab90715ce24ce50af, type: 2}
