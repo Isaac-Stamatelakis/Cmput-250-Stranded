@@ -71,7 +71,7 @@ public class bossRoutine : MonoBehaviour
             }
             yield return new WaitForSeconds(1);
 
-            if (canAttack) {
+            if (canAttack && !enemyHealth.isDying) {
                 if (attack == 0) {
 
                     playerPos = player.transform.position;

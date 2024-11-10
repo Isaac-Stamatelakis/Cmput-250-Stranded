@@ -59,7 +59,7 @@ public class NormalDate : MonoBehaviour
 
             float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
 
-            float currentFollowSpeed = playerMoveScript.isRunning ? playerMoveScript.runSpeed : playerMoveScript.walkSpeed;
+            float currentFollowSpeed = playerMoveScript.walkSpeed;
 
             if (distanceToPlayer > maxDistance)
             {

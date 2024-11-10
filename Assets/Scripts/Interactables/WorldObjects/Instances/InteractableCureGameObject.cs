@@ -26,8 +26,8 @@ public class InteractableCureGameObject : InteractableGameObject
             }
         }
         Debug.Log("TRIGGERING ENDING CUTSCENE");
-        
-        
+
+
         // Call the Cure() method on the DatePlayer object
         if (datePlayer != null)
         {

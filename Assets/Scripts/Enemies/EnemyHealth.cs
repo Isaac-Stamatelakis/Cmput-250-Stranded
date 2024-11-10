@@ -36,7 +36,7 @@ public class EnemyHealth : MonoBehaviour
 
         this.health -= amount;
 
-        if(health <= 0)
+        if(health <= 0 && !isDying)
         {
             Die();
         }
