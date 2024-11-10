@@ -484,7 +484,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d02558b2297f574458550d0f9ae03713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 1728457036206511758}
+  TryAgain: {fileID: 1728457036206511758}
+  Home: {fileID: 6693849347770419292}
+  pauseScreenVerifierPrefab: {fileID: 449049602937645339, guid: 416850181bf604f4595d89de5b509112, type: 3}
 --- !u!1 &6699898625524005618
 GameObject:
   m_ObjectHideFlags: 0

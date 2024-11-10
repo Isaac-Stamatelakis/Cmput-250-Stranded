@@ -11,14 +11,18 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private int experience = 5;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite iconSprite;
+    [SerializeField] private AudioClip deathSound;
+    private AudioSource audioSource;
     private BossHealthBar healthBar;
     private bool flashingColor = false;
+    public bool isDying = false;
 
     public void Start() {
         if (spriteRenderer == null) {
             spriteRenderer = GetComponent<SpriteRenderer>();
         }
         maxHealth = health;
+        audioSource = GetComponent<AudioSource>();
     }
     public void Damage(int amount)
     {
@@ -56,6 +60,8 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
+        isDying = true;
+        audioSource.PlayOneShot(deathSound);
         Player.Instance.GetComponent<PlayerLevelComponent>().addExperience(experience);
         DateHealUpgrade dateHealUpgrade = Player.Instance.DatePlayer.GetComponentInChildren<DateHealUpgrade>();
         if (dateHealUpgrade != null) {
@@ -65,7 +71,7 @@ public class EnemyHealth : MonoBehaviour
         if (enemyDrop != null) {
             enemyDrop.DropItem();
         }
-        Destroy(gameObject);
+        Destroy(gameObject, deathSound != null ? deathSound.length : 0);
         if (healthBar != null) {
             healthBar.gameObject.SetActive(false);
         }

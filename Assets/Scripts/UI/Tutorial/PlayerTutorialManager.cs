@@ -16,7 +16,6 @@ public class PlayerTutorialManager : MonoBehaviour
     private int index;
     private List<string> text = new List<string>{
         "Use The ARROW KEYS \nor WASD to Move!",
-        "Hold SHIFT to Run!",
         "Pick up a Weapon!",
         "Left Click to Attack!",
         "Press P to Pause!",
@@ -37,26 +36,21 @@ public class PlayerTutorialManager : MonoBehaviour
                 }
                 break;
             case 1:
-                if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))) {
-                    index ++;
-                }
-                break;
-            case 2:
                 if (Player.Instance.GetComponent<PlayerAttack>().currentWeapon != null) {
                     index ++;
                 }
                 break;
-            case 3:
+            case 2:
                 if (Input.GetMouseButtonDown(0)) {
                     index++;
                 }
                 break;
-            case 4:
+            case 3:
                 if (Input.GetKeyDown(KeyCode.P)) {
                     index ++;
                 }
                 break;
-            case 5:
+            case 4:
                 if (!LevelManager.getInstance().CurrentLevel.CurrentRoomClear()) {
                     index++;
                 }
