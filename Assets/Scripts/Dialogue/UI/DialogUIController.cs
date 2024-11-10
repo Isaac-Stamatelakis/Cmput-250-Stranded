@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,11 @@ namespace Dialogue
         private static DialogUIController instance;
         public static DialogUIController Instance => instance;
         public bool ShowingDialog => dialogueBoxUI.gameObject.activeInHierarchy;
+
+        internal void DisplayDialogue(object dialogueTree)
+        {
+            throw new NotImplementedException();
+        }
 
         public void Awake()
         {

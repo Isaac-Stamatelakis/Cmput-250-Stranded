@@ -20,7 +20,7 @@ public class BackgroundIntroductionListener : MonoBehaviour
 
     public void Update() {
         if (Input.GetKey(KeyCode.Space)) {
-            director.time += 5*Time.deltaTime;
+            director.time += 10*Time.deltaTime;
         }
     }
     

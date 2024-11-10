@@ -1,14 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rooms;
 
 namespace Dialogue {
-    public class TutorialDialogSequencer : DialogueSequencer
+    public class TutorialDialogSequencer : TriggerableEvent
     {
         [SerializeField] private PlayerTutorialManager playerTutorialManagerPrefab;
+        public DialogueTree dialogueTree;
+        private static bool hasPlayedDialogue = false;
         public override void trigger()
         {
-            DialogUIController.Instance.DisplayDialogue(dialogueTree,displayTutorial);
+            if (!hasPlayedDialogue)
+            {
+                DialogUIController.Instance.DisplayDialogue(dialogueTree);
+                hasPlayedDialogue = true;
+            }
+        }
+
+        public static void ResetDialogueFlag()
+        {
+            hasPlayedDialogue = false;
         }
 
         private void displayTutorial() {

@@ -522,6 +522,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6740832714939041957, guid: 7182cdf241dbfe24a8658d63e2c961ab, type: 3}
+      propertyPath: orthographic size
+      value: 11.765625
+      objectReference: {fileID: 0}
     - target: {fileID: 6740832715346391452, guid: 7182cdf241dbfe24a8658d63e2c961ab, type: 3}
       propertyPath: playerUI
       value: 
@@ -530,6 +534,10 @@ PrefabInstance:
       propertyPath: playerUI
       value: 
       objectReference: {fileID: 1465035972}
+    - target: {fileID: 6740832715346391484, guid: 7182cdf241dbfe24a8658d63e2c961ab, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 716691005, guid: bab40114cd36a3b41aebdd70b3c5910b, type: 3}
     - target: {fileID: 6740832715346391485, guid: 7182cdf241dbfe24a8658d63e2c961ab, type: 3}
       propertyPath: m_RootOrder
       value: 0
