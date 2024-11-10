@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using PlayerModule;
 using Rooms;
+using Dialogue;
 
 namespace PlayerModule {
     public class PlayerDeathScreenUI : MonoBehaviour
@@ -12,6 +13,7 @@ namespace PlayerModule {
         [SerializeField] private Button TryAgain;
         [SerializeField] private Button Home;
         [SerializeField] private PauseScreenVerifier pauseScreenVerifierPrefab;
+  
         public void Start() {
             Player.Instance.setDialog(true);
             Time.timeScale = 0;
@@ -31,6 +33,7 @@ namespace PlayerModule {
         {
             LevelManager.getInstance().reset();
             SceneManager.LoadScene("TitleScene");
+            TutorialDialogSequencer.ResetDialogueFlag();
         }
 
         public void OnDestroy()

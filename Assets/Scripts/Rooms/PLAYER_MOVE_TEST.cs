@@ -72,9 +72,9 @@ namespace PlayerModule
             }
             
             //isRunning = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-            float currentSpeed = 15f;
+            float currentSpeed = 12f;
             if (playerLevelComponent.hasUpgrade(PlayerUpgrade.Speed)) {
-                currentSpeed = 20f;
+                currentSpeed = 17f;
             }
             if (moveDirection != Vector2.zero)
             {

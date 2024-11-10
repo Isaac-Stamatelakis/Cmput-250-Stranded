@@ -10,6 +10,7 @@ using Rooms;
 public class PlayerTutorialManager : MonoBehaviour
 {
     public TextMeshProUGUI textMeshProUGUI;
+    public DatePlayer datePlayer;
     private bool waitingForMovement = true;
     private bool waitingForRun = false;
     private bool waitingForThirdInstruction = false;
