@@ -9,6 +9,8 @@ using UnityEngine.SceneManagement;
 
 public class DatePlayer : MonoBehaviour
 {
+    [SerializeField] private AudioClip curedSound;
+    private AudioSource audioSource;
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     public float followSpeed = 8f;
@@ -19,6 +21,7 @@ public class DatePlayer : MonoBehaviour
     private List<DialogObject> selectableRandomDialogues;
     private Queue<DialogObject> unselectableRandomDialogues;
     public DialogObject cureDialog;
+
     public float boostSpeed = 20f;
     public float followDistance = 2f;
     public float stopDistance = 1f;
@@ -42,6 +45,7 @@ public class DatePlayer : MonoBehaviour
         this.defaultShader = spriteRenderer.material;
         lastPosition = transform.position;
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -176,6 +180,7 @@ public class DatePlayer : MonoBehaviour
 
     public IEnumerator Cure()
     {
+        audioSource.PlayOneShot(curedSound);
         isCured = true;
         float delay = 0.1f;
         while (delay > 0) {
