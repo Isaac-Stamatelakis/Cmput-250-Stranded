@@ -192,7 +192,7 @@ public class DatePlayer : MonoBehaviour
     }
 
     private void goToEnd() {
-        SceneManager.LoadScene("ending cutscene");
+        SceneManager.LoadScene("EndingCutscene");
     }
 
 

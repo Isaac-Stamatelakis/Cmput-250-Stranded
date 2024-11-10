@@ -9,10 +9,16 @@ using Rooms;
 public class PauseScreen : MonoBehaviour
 {
     [SerializeField] private Button resume;
+    [SerializeField] private Button restartLevel;
     [SerializeField] private Button restart;
     [SerializeField] private Button titleScreen;
     [SerializeField] private PauseScreenVerifier pauseScreenVerifierPrefab;
 
+    public void Update() {
+        if (Input.GetKeyDown(KeyCode.P)) {
+            GameObject.Destroy(gameObject);
+        }
+    }
     public void Start() {
         Player.Instance.setDialog(true);
         Time.timeScale = 0;
@@ -21,7 +27,7 @@ public class PauseScreen : MonoBehaviour
             GameObject.Destroy(gameObject);
         });
 
-        restart.onClick.AddListener(() => {
+        restartLevel.onClick.AddListener(() => {
             PauseScreenVerifier pauseScreenVerifier = GameObject.Instantiate(pauseScreenVerifierPrefab);
             pauseScreenVerifier.display(restartLevelCallback,"Are you sure you want to restart this level?", null,"Restart");
             pauseScreenVerifier.transform.SetParent(transform,false);
@@ -42,14 +48,16 @@ public class PauseScreen : MonoBehaviour
     }
 
     private void restartCallback() {
+        LevelManager.getInstance().reset();
         SceneManager.LoadScene("LevelScene");
     }
 
     private void restartLevelCallback() {
-        LevelSceneLoader.loadCurrentLevel();
+        SceneManager.LoadScene("LevelScene");
     }
 
     private void titleScreenCallback() {
+        LevelManager.getInstance().reset();
         SceneManager.LoadScene("TitleScene");
     }
 

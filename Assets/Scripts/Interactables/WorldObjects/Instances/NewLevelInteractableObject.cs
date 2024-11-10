@@ -10,8 +10,7 @@ using PlayerModule;
 
 public class NewLevelInteractableObject : InteractableGameObject, IRoomClearListener
 {
-    [SerializeField] private AssetReference newLevelReference;
-    private Level level;
+    [SerializeField] private Level level;
     public override void Start()
     {
         defaultMaterial = GetComponent<TilemapRenderer>().material;
@@ -33,12 +32,26 @@ public class NewLevelInteractableObject : InteractableGameObject, IRoomClearList
         LevelManager levelManager = LevelManager.getInstance();
         bool clear = levelManager.CurrentLevel.CurrentRoomClear();
         if (clear) {
-            levelManager.playerData = Player.Instance.serialize();
-            LevelManager.getInstance().CurrentLevelPrefab = level;
-            SceneManager.LoadScene("LevelScene");
+            PlayerUI playerUI = Player.Instance.PlayerUI;
+            PlayerLevelComponent playerLevelComponent = Player.Instance.GetComponent<PlayerLevelComponent>();
+            int upgrades = playerLevelComponent.RemainingUpgrades;
+            PlayerExperienceUI playerExperienceUI = playerUI.PlayerExperienceUI;
+            if (upgrades > 0 && !playerExperienceUI.SelectorDisplayed) {
+                playerExperienceUI.displayLevelSelector(loadNewLevel);
+            } else {
+                loadNewLevel();
+            }
+            
         }
     }
 
+    private void loadNewLevel() {
+        LevelManager levelManager = LevelManager.getInstance();
+        levelManager.playerData = Player.Instance.serialize();
+        LevelManager.getInstance().CurrentLevelPrefab = level;
+        SceneManager.LoadScene("LevelScene");
+    }
+    /*
     private IEnumerator loadLevel() {
         if (newLevelReference == null) {
             Debug.LogError($"Level reference for {name} is null");
@@ -63,6 +76,7 @@ public class NewLevelInteractableObject : InteractableGameObject, IRoomClearList
         this.level = assetLevel;
         Addressables.Release(handle);
     }
+    */
     public override void highlight()
     {
         GetComponent<TilemapRenderer>().material = highlightShader;
@@ -75,6 +89,6 @@ public class NewLevelInteractableObject : InteractableGameObject, IRoomClearList
 
     public void trigger()
     {
-        StartCoroutine(loadLevel());
+        //StartCoroutine(loadLevel());
     }
 }
