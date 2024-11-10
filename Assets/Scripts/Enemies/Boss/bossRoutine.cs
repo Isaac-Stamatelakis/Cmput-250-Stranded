@@ -22,6 +22,7 @@ public class bossRoutine : MonoBehaviour
     [SerializeField] private float chargeSpeed = 40;
     [SerializeField] private GameObject projectile;
     [SerializeField] private float attackSpeed = 2f;
+    public EnemyHealth enemyHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +53,7 @@ public class bossRoutine : MonoBehaviour
     IEnumerator canBossAttack() {
         int attack;
 
-        while (true) {
+        while (!enemyHealth.isDying) {
 
             Debug.Log("waiting");
 

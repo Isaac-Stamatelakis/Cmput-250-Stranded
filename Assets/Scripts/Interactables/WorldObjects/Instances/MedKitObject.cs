@@ -19,7 +19,7 @@ public class MedKitObject : InteractableGameObject
         if (playerHealth.isFull()) {
             return;
         }
-        Player.Instance.Heal(25);
+        Player.Instance.Heal(50);
         interactable = false;
         GameObject.Destroy(gameObject);
     }
