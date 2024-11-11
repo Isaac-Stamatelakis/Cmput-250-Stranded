@@ -14,12 +14,12 @@ namespace PlayerModule
         public Animator animator;
 
         public bool isMoving = false;   
-        public bool isRunning = false;
+        //public bool isRunning = false;
         private PlayerAttack playerAttack;
         public bool isInCutscene = false;
 
-        public float walkSpeed = 10f;
-        public float runSpeed = 20f;
+        public float walkSpeed = 20f;
+        //public float runSpeed = 20f;
 
         Vector2 moveDirection;
 
@@ -71,10 +71,10 @@ namespace PlayerModule
                 animator.SetBool("isRight", true);
             }
             
-            isRunning = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-            float currentSpeed = isRunning ? runSpeed : walkSpeed;
+            //isRunning = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+            float currentSpeed = 12f;
             if (playerLevelComponent.hasUpgrade(PlayerUpgrade.Speed)) {
-                currentSpeed *= 1.25f;
+                currentSpeed = 17f;
             }
             if (moveDirection != Vector2.zero)
             {
@@ -88,19 +88,19 @@ namespace PlayerModule
             
 
             isMoving = moveDirection != Vector2.zero;
-            if (isMoving)
-            {
-                if (isRunning)
-                {
-                    animator.speed = 1.5f;
-                    playerWalkSFX.playSound(PlayerWalkSFX.PlayerMovementSound.Run);
-                }
-                else
-                {
-                    animator.speed = 1.0f;
-                    playerWalkSFX.playSound(PlayerWalkSFX.PlayerMovementSound.Walk);
-                }
-            }
+            //if (isMoving)
+            //{
+                //if (isRunning)
+                //{
+                //    animator.speed = 1.5f;
+                //    playerWalkSFX.playSound(PlayerWalkSFX.PlayerMovementSound.Run);
+                //}
+                //else
+                //{
+                //    animator.speed = 1.0f;
+                //    playerWalkSFX.playSound(PlayerWalkSFX.PlayerMovementSound.Walk);
+                //}
+            //}
         }
 
         void FixedUpdate()

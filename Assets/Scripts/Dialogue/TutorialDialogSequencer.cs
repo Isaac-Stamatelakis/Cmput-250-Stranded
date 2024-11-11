@@ -15,6 +15,7 @@ namespace Dialogue {
             {
                 DialogUIController.Instance.DisplayDialogue(dialogueTree);
                 hasPlayedDialogue = true;
+                DialogUIController.Instance.DisplayDialogue(dialogueTree, displayTutorial);
             }
         }
 

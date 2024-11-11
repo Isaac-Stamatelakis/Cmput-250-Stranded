@@ -13,6 +13,7 @@ namespace Dialogue
         private static DialogUIController instance;
         public static DialogUIController Instance => instance;
         public bool ShowingDialog => dialogueBoxUI.gameObject.activeInHierarchy;
+        private DialogCallBack onCompleteCallback;
 
         internal void DisplayDialogue(object dialogueTree)
         {
@@ -43,6 +44,8 @@ namespace Dialogue
             {
                 NextSceneLoader.Instance.LoadScene("ending cutscene");
             }
+            onCompleteCallback?.Invoke();
+            onCompleteCallback = null;
         }
     }
 }

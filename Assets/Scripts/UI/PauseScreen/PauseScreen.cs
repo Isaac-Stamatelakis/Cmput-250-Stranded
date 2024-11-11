@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using PlayerModule;
 using Rooms;
+using Dialogue;
 
 public class PauseScreen : MonoBehaviour
 {
@@ -50,15 +51,18 @@ public class PauseScreen : MonoBehaviour
     private void restartCallback() {
         LevelManager.getInstance().reset();
         SceneManager.LoadScene("LevelScene");
+        TutorialDialogSequencer.ResetDialogueFlag();
     }
 
     private void restartLevelCallback() {
         SceneManager.LoadScene("LevelScene");
+
     }
 
     private void titleScreenCallback() {
         LevelManager.getInstance().reset();
         SceneManager.LoadScene("TitleScene");
+        TutorialDialogSequencer.ResetDialogueFlag();
     }
 
     public void OnDestroy() {

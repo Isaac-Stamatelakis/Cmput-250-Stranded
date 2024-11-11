@@ -72,7 +72,7 @@ public class DatePlayer : MonoBehaviour
         PLAYER_MOVE_TEST playerMoveScript = Player.Instance.GetComponent<PLAYER_MOVE_TEST>();
 
         float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
-        float currentFollowSpeed = playerMoveScript.isRunning ? playerMoveScript.runSpeed : playerMoveScript.walkSpeed;
+        float currentFollowSpeed = playerMoveScript.walkSpeed;
 
         if (distanceToPlayer > maxDistance)
         {
@@ -197,6 +197,7 @@ public class DatePlayer : MonoBehaviour
     }
 
     private void goToEnd() {
+        TutorialDialogSequencer.ResetDialogueFlag();
         SceneManager.LoadScene("EndingCutscene");
     }
 
