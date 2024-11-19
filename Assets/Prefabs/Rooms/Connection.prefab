@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6798707407534949606}
   - component: {fileID: 1023575071861990531}
   - component: {fileID: 6912165622437513773}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Connection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   m_Component:
   - component: {fileID: 793992889716828284}
   - component: {fileID: 7797217640151410536}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
