@@ -682,6 +682,10 @@ PrefabInstance:
       propertyPath: m_LinearDrag
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 6740832715346391458, guid: 7182cdf241dbfe24a8658d63e2c961ab, type: 3}
+      propertyPath: walkSpeed
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 6740832715346391463, guid: 7182cdf241dbfe24a8658d63e2c961ab, type: 3}
       propertyPath: m_Radius
       value: 0.46813166

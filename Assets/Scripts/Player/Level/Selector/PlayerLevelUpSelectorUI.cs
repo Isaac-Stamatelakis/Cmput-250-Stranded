@@ -41,8 +41,8 @@ namespace PlayerModule {
         public void upgradeSelect(int index) {
             GameObject.Destroy(gameObject);
             PlayerLevelComponent playerLevelComponent = Player.Instance.GetComponent<PlayerLevelComponent>();
-            playerLevelComponent.addComponent(playerUpgrades[index]);
-            playerLevelComponent.iterateUpgrades();
+            playerLevelComponent.AddPlayerUpgrade(playerUpgrades[index]);
+            playerLevelComponent.IterateUpgrades();
             PlayerExperienceUI playerExperienceUI = Player.Instance.PlayerUI.PlayerExperienceUI;
             if (playerLevelComponent.RemainingUpgrades <= 0) {
                 playerExperienceUI.hideLevelUpOption();
@@ -57,11 +57,12 @@ namespace PlayerModule {
 
         public void displayDescription(int index) {
             bool hide = index <= -1;
-            if (hide) {
+            if (hide)
+            {
                 upgradeDescription.text = "";
                 return;
             }
-            upgradeDescription.text = playerUpgrades[index].getDescription();
+            upgradeDescription.text = playerUpgrades[index].GetDescription();
             
         }
 

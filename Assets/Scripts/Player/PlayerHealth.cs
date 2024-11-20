@@ -57,7 +57,7 @@ public class PlayerHealth : MonoBehaviour
             throw new System.ArgumentOutOfRangeException("Cannot have negative Damage");
         }
         PlayerLevelComponent playerLevelComponent = GetComponent<PlayerLevelComponent>();
-        if (playerLevelComponent.hasUpgrade(PlayerUpgrade.DamageReduction)) {
+        if (playerLevelComponent.HasUpgrade(PlayerUpgrade.DamageReduction)) {
             amount = Mathf.FloorToInt(amount * PlayerUpgradeUtils.DAMAGE_REDUCTION_MODIFIER);
         }
         if (playerLevelComponent.DateAura) {

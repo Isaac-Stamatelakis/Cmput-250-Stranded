@@ -73,7 +73,7 @@ namespace PlayerModule
             
             //isRunning = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
             float currentSpeed = walkSpeed;
-            if (playerLevelComponent.hasUpgrade(PlayerUpgrade.Speed))
+            if (playerLevelComponent.HasUpgrade(PlayerUpgrade.Speed))
             {
                 currentSpeed *= PlayerUpgradeUtils.SPEED_UPGRADE_MODIFIER;
             }
