@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using PlayerModule;
 using UnityEngine;
 
 public class DateAttackUpgrade : MonoBehaviour
@@ -12,7 +13,7 @@ public class DateAttackUpgrade : MonoBehaviour
     }
     public void FixedUpdate() {
         counter ++;
-        if (counter >= 100) {
+        if (counter >= 50*PlayerUpgradeUtils.DATE_ATTACK_RATE) {
             attack();
             counter = 0;
         }
@@ -30,7 +31,7 @@ public class DateAttackUpgrade : MonoBehaviour
         }
         DateProjectile projectile = GameObject.Instantiate(projectilePrefab);
         projectile.transform.position = transform.position;
-        projectile.shootPosition(closestHit.transform.position,5);
+        projectile.shootPosition(closestHit.transform.position,PlayerUpgradeUtils.DATE_ATTACK_DAMAGE);
     }
 
     

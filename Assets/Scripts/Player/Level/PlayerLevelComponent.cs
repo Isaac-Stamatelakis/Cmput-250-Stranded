@@ -24,6 +24,9 @@ namespace PlayerModule {
         public static float DAMAGE_REDUCTION_MODIFIER = 0.8f;
         public static int DATE_KILL_HEAL_COUNT = 5;
         public static int DATE_KILL_HEAL_AMOUNT = 10;
+        public static int DATE_AURA_RANGE = 4;
+        public static int DATE_ATTACK_DAMAGE = 8;
+        public static int DATE_ATTACK_RATE = 2;
         public static string formatPercentIncrease(float val, bool inverse=false) {
             float percent;
             if (inverse) {
@@ -39,21 +42,25 @@ namespace PlayerModule {
         public static string getDescription(this PlayerUpgrade playerUpgrade) {
             switch (playerUpgrade) {
                 case PlayerUpgrade.Attack:
-                    return $"Strength Increase\nDeal an additional {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.DAMAGE_UPGRADE_MODIFIER)} damage!";
+                    return $"Strength Increase\nDeal an additional {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.DAMAGE_UPGRADE_MODIFIER)} Damage!";
                 case PlayerUpgrade.Health:
-                    return $"Health Increase\nGain {PlayerUpgradeUtils.HEALTH_UPGRADE_MODIFER} health";
+                    return $"Health Increase\nGain {PlayerUpgradeUtils.HEALTH_UPGRADE_MODIFER} Health";
                 case PlayerUpgrade.Speed:
-                    return $"Coffee\nMove {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.SPEED_UPGRADE_MODIFIER)} faster!";
+                    return $"Coffee\nMove {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.SPEED_UPGRADE_MODIFIER)} Faster!";
                 case PlayerUpgrade.Healing:
-                    return $"Healing Increase\nHeal {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.HEAL_UPGRADE_MODIFIER)} more!";
+                    return $"Healing Increase\nHeal {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.HEAL_UPGRADE_MODIFIER)} More!";
                 case PlayerUpgrade.DamageReduction:
-                    return $"Pet Rock\nReduce Damage by {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.DAMAGE_REDUCTION_MODIFIER,true)}!";
+                    return $"Pet Rock\nReduce Damage Taken by {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.DAMAGE_REDUCTION_MODIFIER,true)}!";
                 case PlayerUpgrade.DateAura:
-                    return $"Date Aura\nStand near your date for a buff!";
+                    return $"Date Aura\nStand Near Your Date for a Buff!\n" +
+                           $"Deal an Additional {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.DAMAGE_UPGRADE_MODIFIER)} Damage\n" +
+                           $"Reduce Damage Taken by {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.DAMAGE_REDUCTION_MODIFIER,true)}!";
                 case PlayerUpgrade.DateHeal:
-                    return $"Increased Love\nKill {PlayerUpgradeUtils.DATE_KILL_HEAL_COUNT} enemies for your date to heal you {PlayerUpgradeUtils.DATE_KILL_HEAL_AMOUNT} health!";
+                    return $"Increased Love\nKill {PlayerUpgradeUtils.DATE_KILL_HEAL_COUNT} Enemies For Your Date to Heal you {PlayerUpgradeUtils.DATE_KILL_HEAL_AMOUNT} Health!";
                 case PlayerUpgrade.DateAttack:
-                    return $"Date Attack\nYour date aids you in combat!";
+                    return $"Date Attack\n" +
+                           $"Every {PlayerUpgradeUtils.DATE_ATTACK_RATE} Your Date Throws Her Book\n" +
+                           $"Dealing {PlayerUpgradeUtils.DATE_ATTACK_DAMAGE} Damage!";
                 default:
                     return "";
             }
