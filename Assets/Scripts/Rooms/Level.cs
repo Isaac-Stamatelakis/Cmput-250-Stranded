@@ -20,7 +20,9 @@ namespace Rooms {
         [SerializeField] private Transform spawnPositionObject;
         private List<Room> rooms = new List<Room>();
         private Dictionary<TileMapLayer, Tilemap> tileMapDict;
-        private Dictionary<Vector2Int, RoomObject> positionRoomObjectCollection; 
+        private Dictionary<Vector2Int, RoomObject> positionRoomObjectCollection;
+        private Room currentRoom;
+        public Room CurrentRoom => currentRoom;
         public void Load() {
             Player.Instance.DatePlayer = datePlayer;
             tileMapDict = new Dictionary<TileMapLayer, Tilemap>();
@@ -34,7 +36,6 @@ namespace Rooms {
             connectRoomDoors();
             deactivateRoomElements();
             loadRoom(rooms[levelData.SpawnRoomIndex]);
-            
         }
 
         public bool CurrentRoomClear() {
@@ -65,7 +66,9 @@ namespace Rooms {
             }
         }
 
-        public void loadRoom(Room room) {
+        public void loadRoom(Room room)
+        {
+            currentRoom = room;
             clearTileMaps();
             loadedRoomObject.reset();
             loadRoomTileMap(room);

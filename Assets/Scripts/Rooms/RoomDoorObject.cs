@@ -92,7 +92,11 @@ namespace Rooms {
             if (!inputDown) {
                 return;
             }
-            
+
+            if (!Player.Instance.CanMove)
+            {
+                return;
+            }
             if (roomDoor.Room.isClear()) {
                 PlayerUI playerUI = Player.Instance.PlayerUI;
                 PlayerLevelComponent playerLevelComponent = Player.Instance.GetComponent<PlayerLevelComponent>();

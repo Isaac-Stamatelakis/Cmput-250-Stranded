@@ -88,7 +88,7 @@ namespace PlayerModule
             
 
             isMoving = moveDirection != Vector2.zero;
-            
+            //rb.velocity = moveDirection * walkSpeed;
             //if (isMoving)
             //{
                 //if (isRunning)
@@ -106,10 +106,12 @@ namespace PlayerModule
 
         void FixedUpdate()
         {
+
             if (moveDirection != Vector2.zero)
             {
                 rb.MovePosition(rb.position + moveDirection * Time.fixedDeltaTime);
             }
+
         }
 
         void setAnimationsFalse()

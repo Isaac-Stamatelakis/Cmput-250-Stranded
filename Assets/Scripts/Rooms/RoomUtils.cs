@@ -189,8 +189,6 @@ namespace Rooms {
             Dictionary<TileMapLayer, TileBase[,]> layerTileDict = new Dictionary<TileMapLayer, TileBase[,]>();
             List<TileMapLayer> layers = Enum.GetValues(typeof(TileMapLayer)).Cast<TileMapLayer>().ToList();
             Vector2Int size = roomBounds.Size;
-            Debug.Log(size);
-            Debug.Log(roomBounds);
             foreach (TileMapLayer layer in layers) {
                 layerTileDict[layer] = new TileBase[size.x,size.y];
             }

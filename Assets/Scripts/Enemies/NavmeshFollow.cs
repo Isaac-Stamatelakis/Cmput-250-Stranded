@@ -48,7 +48,10 @@ public class NavmeshFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        anim.SetBool("isWalking",!hasCollided);
+        StartCoroutine(moveTo(player.transform.position));
         
+        /*
         if (!hasCollided) {
             anim.SetBool("isWalking", true);
 
@@ -62,6 +65,7 @@ public class NavmeshFollow : MonoBehaviour
             obs.carving = true;
             StartCoroutine(stop());
         }
+        */
 
         sr.flipX = transform.position.x > player.transform.position.x;
     }
@@ -80,13 +84,17 @@ public class NavmeshFollow : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D coll) {
         if (coll.gameObject.CompareTag("Player")) {
-            anim.speed = animSpeed * 1f;
+            anim.speed = animSpeed * 1.25f;
             anim.SetBool("isAttacking", true);
             hasCollided = true;
-            
+            Vector2 dir = (transform.position - coll.transform.position).normalized;
+            Debug.Log(dir);
+            Vector2 forceDir = dir.x > 0 ? Vector2.left : Vector2.right;
+            Rigidbody2D rb = coll.gameObject.GetComponent<Rigidbody2D>();
+            rb.AddForce(forceDir*25,ForceMode2D.Impulse);
             
             //Vector2 knockback = (transform.position+ sr.bounds.center - (coll.transform.position+coll.gameObject.GetComponent<SpriteRenderer>().bounds.center)).normalized;
-            //Vector2  knockback = (transform.position - coll.transform.position).normalized;
+            
             //Debug.Log(knockback);
             //Rigidbody2D rb = coll.gameObject.GetComponent<Rigidbody2D>();
             //rb.AddForce(knockback*1000,ForceMode2D.Impulse);

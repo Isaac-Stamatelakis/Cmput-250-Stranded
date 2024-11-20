@@ -678,6 +678,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 243e0869827fc374f86b65c4c06cd9dc, type: 2}
+    - target: {fileID: 6740832715346391456, guid: 7182cdf241dbfe24a8658d63e2c961ab, type: 3}
+      propertyPath: m_LinearDrag
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 6740832715346391463, guid: 7182cdf241dbfe24a8658d63e2c961ab, type: 3}
       propertyPath: m_Radius
       value: 0.46813166
