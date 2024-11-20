@@ -88,6 +88,7 @@ namespace PlayerModule
             
 
             isMoving = moveDirection != Vector2.zero;
+            
             //if (isMoving)
             //{
                 //if (isRunning)
@@ -108,18 +109,6 @@ namespace PlayerModule
             if (moveDirection != Vector2.zero)
             {
                 rb.MovePosition(rb.position + moveDirection * Time.fixedDeltaTime);
-            } else {
-                rb.velocity = Vector2.zero;
-            }
-        }
-
-        void OnCollisionEnter2D(Collision2D collision)
-        {
-            RoomDoorObject roomDoorObject = collision.gameObject.GetComponent<RoomDoorObject>();
-
-            if (roomDoorObject != null)
-            {
-                roomDoorObject.switchRoom();
             }
         }
 

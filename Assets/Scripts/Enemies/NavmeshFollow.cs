@@ -79,24 +79,25 @@ public class NavmeshFollow : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D coll) {
-        if (coll.gameObject.tag == "Player") {
-            anim.speed = animSpeed * .35f;
+        if (coll.gameObject.CompareTag("Player")) {
+            anim.speed = animSpeed * 1f;
             anim.SetBool("isAttacking", true);
-            Debug.Log("collided with player");
             hasCollided = true;
+            
+            
+            //Vector2 knockback = (transform.position+ sr.bounds.center - (coll.transform.position+coll.gameObject.GetComponent<SpriteRenderer>().bounds.center)).normalized;
+            //Vector2  knockback = (transform.position - coll.transform.position).normalized;
+            //Debug.Log(knockback);
+            //Rigidbody2D rb = coll.gameObject.GetComponent<Rigidbody2D>();
+            //rb.AddForce(knockback*1000,ForceMode2D.Impulse);
 
-            Vector2 knockback = (transform.position - coll.transform.position).normalized;
-            rb.isKinematic = false;
-            rb.AddForce(knockback * weapon.knockback, ForceMode2D.Impulse);
-
-            StartCoroutine(ReenableKinematicAfterKnockback());
+            //StartCoroutine(ReenableKinematicAfterKnockback());
         }
     }
 
     private void OnCollisionExit2D(Collision2D coll) {
         anim.speed = animSpeed;
         anim.SetBool("isAttacking", false);
-        Debug.Log("stopped colliding");
         hasCollided = false;
         
     }

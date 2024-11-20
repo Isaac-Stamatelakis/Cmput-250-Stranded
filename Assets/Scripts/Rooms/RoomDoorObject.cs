@@ -54,6 +54,14 @@ namespace Rooms {
                 light2D.color = Color.red;
             }
         }
+
+        void OnTriggerStay2D(Collider2D other)
+        {
+            if (other.tag == "Player")
+            {
+                switchRoom();
+            }
+        }
         public void setLocked() {
             this.locked = true;
             light2D.color = Color.black;
