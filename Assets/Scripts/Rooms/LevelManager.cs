@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Difficulty;
 using UnityEngine;
 using PlayerModule;
 
@@ -11,6 +12,8 @@ namespace Rooms
         public PlayerData playerData;
         public Level CurrentLevelPrefab;
         public Level CurrentLevel;
+        private DifficultyModifier difficulty;
+        public DifficultyModifier DifficultyModifier => difficulty;
         private LevelManager() {
 
         }
@@ -25,6 +28,11 @@ namespace Rooms
             CurrentLevel = null;
             CurrentLevelPrefab = null;
             playerData = null;
+        }
+
+        public void setModifier(DifficultyModifier DifficultyModifier)
+        {
+            this.difficulty = DifficultyModifier;
         }
     }
 }
