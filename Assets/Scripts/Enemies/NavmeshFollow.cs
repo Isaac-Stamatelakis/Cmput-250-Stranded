@@ -88,7 +88,6 @@ public class NavmeshFollow : MonoBehaviour
             anim.SetBool("isAttacking", true);
             hasCollided = true;
             Vector2 dir = (transform.position - coll.transform.position).normalized;
-            Debug.Log(dir);
             Vector2 forceDir = dir.x > 0 ? Vector2.left : Vector2.right;
             Rigidbody2D rb = coll.gameObject.GetComponent<Rigidbody2D>();
             rb.AddForce(forceDir*25,ForceMode2D.Impulse);

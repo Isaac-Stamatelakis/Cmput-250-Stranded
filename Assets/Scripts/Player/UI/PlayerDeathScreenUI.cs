@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using PlayerModule;
 using Rooms;
 using Dialogue;
+using Difficulty;
 
 namespace PlayerModule {
     public class PlayerDeathScreenUI : MonoBehaviour
@@ -19,6 +20,12 @@ namespace PlayerModule {
             Time.timeScale = 0;
             TryAgain.onClick.AddListener(() => {
                 int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+                LevelManager levelManager = LevelManager.getInstance();
+                DifficultyModifier difficultyModifier = levelManager.DifficultyModifier;
+                if (!difficultyModifier.CheckPoints)
+                {
+                    levelManager.reset();
+                }
                 SceneManager.LoadScene(currentSceneIndex);
             });
             Home.onClick.AddListener(() => {

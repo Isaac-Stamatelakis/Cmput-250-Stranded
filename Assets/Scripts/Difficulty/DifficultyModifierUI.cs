@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Rooms;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Difficulty
@@ -23,7 +25,7 @@ namespace Difficulty
         {
 
             InitalizeScrollbar(HealingModifier, DifficultyUtils.HealingModifiers);
-            InitalizeScrollbar(BossModifier, DifficultyUtils.BossModifiers);
+            InitalizeScrollbar(BossModifier, DifficultyUtils.BossHealthModifier);
             InitalizeScrollbar(ZombieModifier, DifficultyUtils.ZombieModifiers);
             
             var presetButtons = PresetButtons.GetComponentsInChildren<Button>();
@@ -47,7 +49,7 @@ namespace Difficulty
             scrollbar.onValueChanged.AddListener((float value) =>
             {
                 TextMeshProUGUI textElement = scrollbar.GetComponentInChildren<TextMeshProUGUI>();
-                textElement.text = $"{values[GetScrollBarStepValue(HealingModifier)]:F1}x";
+                textElement.text = $"{values[GetScrollBarStepValue(scrollbar)]:F1}x";
             });
         }
 
@@ -55,11 +57,14 @@ namespace Difficulty
         {
             DifficultyModifier modifier = new DifficultyModifier(
                 OneHealthToggle.isOn,
-                OneHealthToggle.isOn,
+                CheckPointToggle.isOn,
                 GetScrollBarStepValue(ZombieModifier),
                 GetScrollBarStepValue(HealingModifier),
                     GetScrollBarStepValue(BossModifier)
             );
+            LevelManager.getInstance().setModifier(modifier);
+            string sceneName = SkipIntroToggle.isOn ? "LevelScene" : "BackgroundStory";
+            SceneManager.LoadScene(sceneName);
         }
 
         private void SetScrollBarStepValue(int step, Scrollbar scrollbar)
@@ -69,7 +74,7 @@ namespace Difficulty
 
         private int GetScrollBarStepValue(Scrollbar scrollbar)
         {
-            return Mathf.RoundToInt(scrollbar.value * (scrollbar.numberOfSteps - 1));
+            return (int) (scrollbar.value * (scrollbar.numberOfSteps-1));
         }
 
         private void CancelClick()
@@ -82,7 +87,10 @@ namespace Difficulty
             SetScrollBarStepValue(modifier.HealingModifier, HealingModifier);
             SetScrollBarStepValue(modifier.BossModifier, BossModifier);
             SetScrollBarStepValue(modifier.ZombieModifier, ZombieModifier);
-            
+
+            CheckPointToggle.isOn = modifier.CheckPoints;
+            OneHealthToggle.isOn = modifier.OneHealthMode;
+
         }
     }
 }

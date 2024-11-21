@@ -40,6 +40,14 @@ public class AttackArea : MonoBehaviour
             }
             if (playerLevelComponent.DateAura) {
                 damage = (int) (damage * PlayerUpgradeUtils.DAMAGE_UPGRADE_MODIFIER);
+                if (playerLevelComponent.HasUpgrade(PlayerUpgrade.AngryRock))
+                {
+                    damage = (int) (damage * PlayerUpgradeUtils.DAMAGE_UPGRADE_MODIFIER);
+                }
+            }
+            if (playerLevelComponent.HasUpgrade(PlayerUpgrade.AngryRock))
+            {
+                damage = (int) (damage * PlayerUpgradeUtils.DAMAGE_UPGRADE_MODIFIER);
             }
             health.Damage(damage);
             hasDamaged = true; 

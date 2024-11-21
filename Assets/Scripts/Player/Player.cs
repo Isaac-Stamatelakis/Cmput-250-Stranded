@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Rooms;
 using UnityEngine;
 
 namespace PlayerModule {
@@ -27,9 +28,13 @@ namespace PlayerModule {
             DatePlayer.transform.position = position;
         }
 
-        public void Heal(float amount) {
-            if (GetComponent<PlayerLevelComponent>().HasUpgrade(PlayerUpgrade.Healing)) {
-                amount *= 1.5f;
+        public void Heal(float amount)
+        {
+            float healModifier = LevelManager.getInstance().DifficultyModifier.GetHealingModifier();
+            amount*=healModifier;
+            if (GetComponent<PlayerLevelComponent>().HasUpgrade(PlayerUpgrade.Healing))
+            {
+                amount *= PlayerUpgradeUtils.HEAL_UPGRADE_MODIFIER;
             }
             GetComponent<PlayerHealth>().Heal(amount);
         }

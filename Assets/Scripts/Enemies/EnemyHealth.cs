@@ -56,6 +56,11 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+    public void multiplyHealth(float amount)
+    {
+        this.health = (int) (health * amount);
+    }
+
     public void setHealthBar(BossHealthBar bossHealthBar) {
         this.healthBar = bossHealthBar;
         healthBar.display(health,health,iconSprite,name);

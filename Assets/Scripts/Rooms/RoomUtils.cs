@@ -4,6 +4,8 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.Tilemaps;
 using System;
+using Difficulty;
+using Object = UnityEngine.Object;
 
 namespace Rooms {
     public static class RoomUtils
@@ -152,6 +154,17 @@ namespace Rooms {
             }
             if (roomElementCollection == null) {
                 return;
+            }
+            
+            bool noHealing = LevelManager.getInstance().DifficultyModifier.HealingModifier == 0;
+            if (noHealing)
+            {
+                MedKitObject[] medKitObjects = roomElementCollection.GetComponentsInChildren<MedKitObject>();
+                Debug.Log(medKitObjects.Length);
+                foreach (MedKitObject medKitObject in medKitObjects)
+                {
+                    Object.Destroy(medKitObject.gameObject);
+                }
             }
             bool enclosed = roomBounds.XMax != bounds.xMax && roomBounds.XMin != bounds.xMin && roomBounds.YMax != bounds.yMax && roomBounds.YMin != bounds.yMin;
             if (!enclosed) {

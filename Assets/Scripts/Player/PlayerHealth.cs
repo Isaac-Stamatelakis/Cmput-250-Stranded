@@ -36,6 +36,12 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void setMaxHealth(float health)
+    {
+        this.health = health;
+        this.maxHealth = health;
+    }
+
     public bool isFull() {
         float epsilon = 0.1f;
         return maxHealth-health < epsilon;
@@ -57,7 +63,7 @@ public class PlayerHealth : MonoBehaviour
             throw new System.ArgumentOutOfRangeException("Cannot have negative Damage");
         }
         PlayerLevelComponent playerLevelComponent = GetComponent<PlayerLevelComponent>();
-        if (playerLevelComponent.HasUpgrade(PlayerUpgrade.DamageReduction)) {
+        if (playerLevelComponent.HasUpgrade(PlayerUpgrade.PetRock)) {
             amount = Mathf.FloorToInt(amount * PlayerUpgradeUtils.DAMAGE_REDUCTION_MODIFIER);
         }
         if (playerLevelComponent.DateAura) {

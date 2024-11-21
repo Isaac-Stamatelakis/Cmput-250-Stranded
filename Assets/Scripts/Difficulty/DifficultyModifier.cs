@@ -26,9 +26,14 @@ namespace Difficulty
             return DifficultyUtils.ZombieModifiers[ZombieModifier];
         }
 
-        public float GetBossModifier()
+        public float GetBossHealthModifier()
         {
-            return DifficultyUtils.BossModifiers[BossModifier];
+            return DifficultyUtils.BossHealthModifier[BossModifier];
+        }
+
+        public float GetBossSpeedModifier()
+        {
+            return DifficultyUtils.BossSpeedModifier[BossModifier];
         }
 
         public float GetHealingModifier()

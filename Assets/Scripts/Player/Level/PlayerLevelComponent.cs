@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Linq;
+using Difficulty;
+using Rooms;
 
 namespace PlayerModule {
     /// <summary>
@@ -13,10 +15,11 @@ namespace PlayerModule {
         Health,
         Speed,
         Healing,
-        DamageReduction,
+        PetRock,
         DateAura,
         DateHeal,
-        DateAttack
+        DateAttack,
+        AngryRock
     }
     /// <summary>
     /// Various utils and hard coded values for player upgrade system
@@ -57,7 +60,7 @@ namespace PlayerModule {
                     return $"Coffee\nMove {PlayerUpgradeUtils.FormatPercentIncrease(PlayerUpgradeUtils.SPEED_UPGRADE_MODIFIER)} Faster!";
                 case PlayerUpgrade.Healing:
                     return $"Healing Increase\nHeal {PlayerUpgradeUtils.FormatPercentIncrease(PlayerUpgradeUtils.HEAL_UPGRADE_MODIFIER)} More!";
-                case PlayerUpgrade.DamageReduction:
+                case PlayerUpgrade.PetRock:
                     return $"Pet Rock\nReduce Damage Taken by {PlayerUpgradeUtils.FormatPercentIncrease(PlayerUpgradeUtils.DAMAGE_REDUCTION_MODIFIER,true)}!";
                 case PlayerUpgrade.DateAura:
                     return $"Date Aura\nStand Near Your Date for a Buff!\n" +
@@ -69,6 +72,8 @@ namespace PlayerModule {
                     return $"Date Attack\n" +
                            $"Every {PlayerUpgradeUtils.DATE_ATTACK_RATE} Seconds Your Date Throws Her Book " +
                            $"Dealing {PlayerUpgradeUtils.DATE_ATTACK_DAMAGE} Damage!";
+                case PlayerUpgrade.AngryRock:
+                    return $"Angry Pet Rock\nThe Torture You're Putting Yourself Through Hurts Him... He Grants You Many Powerful Upgrades";
                 default:
                     return "";
             }
@@ -89,7 +94,7 @@ namespace PlayerModule {
         private List<PlayerUpgrade> nextSelectableUpgrades;
         public List<PlayerUpgrade> SelectableUpgrades => nextSelectableUpgrades;
         public int RemainingUpgrades => playerLevel.Level-playerUpgrades.Count;
-        private bool dateAura = false;
+        private bool dateAura;
         public bool DateAura => dateAura;
         /// <summary>
         /// Returns true if the player has a given upgrade
@@ -132,12 +137,31 @@ namespace PlayerModule {
         public List<PlayerUpgrade> GenerateSelectableUpgrades() {
             PlayerUpgrade[] enumValues = (PlayerUpgrade[])Enum.GetValues(typeof(PlayerUpgrade));
             List<PlayerUpgrade> unselected = new List<PlayerUpgrade>();
+            
             foreach (PlayerUpgrade playerUpgrade in enumValues) {
                 if (playerUpgrades.Contains(playerUpgrade)) {
                     continue;
                 }
                 unselected.Add(playerUpgrade);
             }
+            DifficultyModifier modifier = LevelManager.getInstance().DifficultyModifier;
+            if (modifier.OneHealthMode)
+            {
+                unselected.Remove(PlayerUpgrade.PetRock);
+                unselected.Remove(PlayerUpgrade.Health);
+            }
+            else
+            {
+                unselected.Remove(PlayerUpgrade.AngryRock);
+            }
+
+            bool noHealing = modifier.HealingModifier == 0;
+            if (noHealing || modifier.OneHealthMode)
+            {
+                unselected.Remove(PlayerUpgrade.Healing);
+                unselected.Remove(PlayerUpgrade.DateHeal);
+            }
+            
             if (unselected.Count < PlayerUpgradeUtils.NUMBER_OF_CHOICES) {
                 return unselected;
             }
@@ -168,6 +192,7 @@ namespace PlayerModule {
                 sfx.PlaySoundClip(PlayerLevelSFX.LevelUp);
                 playerUI.PlayerExperienceUI.displayLevelUpOption();
             }
+            
         }
         
         /// <summary>
@@ -181,6 +206,10 @@ namespace PlayerModule {
                     Player.Instance.GetComponent<PlayerHealth>().IncreaseHealth(PlayerUpgradeUtils.HEALTH_UPGRADE_MODIFER);
                     break;
             }
+            
+            
+            
+            
             // Only has an effect with certain upgrades
             Player.Instance.DatePlayer.activeUpgrade(playerUpgrade);
 

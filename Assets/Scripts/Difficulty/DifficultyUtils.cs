@@ -38,8 +38,8 @@ namespace Difficulty {
     {
         public static readonly List<float> ZombieModifiers = new List<float> { 0.5f, 1f, 1.5f,2f,3f};
         public static readonly List<float> HealingModifiers = new List<float> { 0, 0.5f, 1f, 1.5f };
-        public static readonly List<float> BossModifiers = new List<float> { 0.5f, 1f, 1.5f,2f,3f};
-
+        public static readonly List<float> BossHealthModifier = new List<float> { 0.5f, 1f, 1.5f,2f,3f};
+        public static readonly List<float> BossSpeedModifier = new List<float> { 1.5f, 1f, 0.5f,0.25f,0.05f}; // Good luck
         public static readonly int DEFAULT_ZOMBIE_MODIFIER = 1;
         public static readonly int DEFAULT_HEALING_MODIFIER = 2;
         public static readonly int DEFAULT_BOSS_MODIFIER = 1;
