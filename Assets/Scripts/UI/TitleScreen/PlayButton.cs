@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Difficulty;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -8,6 +9,7 @@ using UnityEngine.EventSystems;
 namespace TitleScreen {
     public class PlayButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
+        public DifficultyModifierUI difficultyModifierUIPrefab;
         public SpriteRenderer Background;
         public AudioSource song;
         private Color targetColor = Color.white;
@@ -15,16 +17,16 @@ namespace TitleScreen {
         public float FadeSpeed = 5f;
         private bool hovering;
         public float pitchChangeRate = 0.1f;
-        private static readonly string SCENE_NAME = "BackgroundStory";
         void Start()
         {
             Button button = GetComponent<Button>();
-            button.onClick.AddListener(loadScene);
+            button.onClick.AddListener(Press);
             song.time = 20f;
         }
 
-        private void loadScene() {
-            SceneManager.LoadScene(SCENE_NAME);
+        private void Press() {
+            DifficultyModifierUI difficultyModifierUI = Instantiate(difficultyModifierUIPrefab);
+            difficultyModifierUI.transform.SetParent(transform.parent.parent,false);
         }
 
         public void OnPointerExit(PointerEventData eventData)

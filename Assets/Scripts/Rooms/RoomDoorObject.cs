@@ -54,6 +54,14 @@ namespace Rooms {
                 light2D.color = Color.red;
             }
         }
+
+        void OnTriggerStay2D(Collider2D other)
+        {
+            if (other.tag == "Player")
+            {
+                switchRoom();
+            }
+        }
         public void setLocked() {
             this.locked = true;
             light2D.color = Color.black;
@@ -84,7 +92,11 @@ namespace Rooms {
             if (!inputDown) {
                 return;
             }
-            
+
+            if (!Player.Instance.CanMove)
+            {
+                return;
+            }
             if (roomDoor.Room.isClear()) {
                 PlayerUI playerUI = Player.Instance.PlayerUI;
                 PlayerLevelComponent playerLevelComponent = Player.Instance.GetComponent<PlayerLevelComponent>();

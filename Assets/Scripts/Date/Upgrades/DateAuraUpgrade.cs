@@ -12,8 +12,14 @@ public class DateAuraUpgrade : MonoBehaviour
         playerLevelComponent = Player.Instance.GetComponent<PlayerLevelComponent>();
 
     }
-    public void FixedUpdate() {
-        RaycastHit2D hit = Physics2D.CircleCast(transform.position, 3, Vector2.zero, Mathf.Infinity, playerLayer);
-        playerLevelComponent.setDateAura(hit.collider != null);
+    public void FixedUpdate()
+    {
+        float range = PlayerUpgradeUtils.DATE_AURA_RANGE;
+        if (playerLevelComponent.HasUpgrade(PlayerUpgrade.AngryRock))
+        {
+            range *= 1.5f;
+        }
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position,range, Vector2.zero, Mathf.Infinity, playerLayer);
+        playerLevelComponent.SetDateAura(hit.collider != null);
     }
 }

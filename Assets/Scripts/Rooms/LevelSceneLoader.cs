@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Difficulty;
 using UnityEngine;
 using PlayerModule;
 
@@ -7,10 +8,16 @@ namespace Rooms {
     public class LevelSceneLoader : MonoBehaviour
     {
         public Level defaultLevel;
+        public DifficultyPresets testingDifficulty;
         public void Start() {
             LevelManager levelManager = LevelManager.getInstance();
             if (levelManager.CurrentLevelPrefab == null) {
                 levelManager.CurrentLevelPrefab = defaultLevel;
+            }
+
+            if (levelManager.DifficultyModifier == null)
+            {
+                levelManager.setModifier(testingDifficulty.GetDifficultyModifier());
             }
             loadCurrentLevel();
             Player.Instance.refreshUI();
@@ -23,13 +30,19 @@ namespace Rooms {
             Level level = GameObject.Instantiate(levelManager.CurrentLevelPrefab);
             levelManager.CurrentLevel = level;
             level.Load();
+            Player player = Player.Instance;;
             Debug.Log($"Level {level.name} Loaded");
             if (levelManager.playerData != null) {
-                Player player = Player.Instance;
+                player = Player.Instance;
                 player.unseralize(levelManager.playerData);
                 Debug.Log($"Unserialized Player Data: {levelManager.playerData}");
             }
-            Player.Instance.refreshUI();
+
+            if (levelManager.DifficultyModifier.OneHealthMode)
+            {
+                player.GetComponent<PlayerHealth>().setMaxHealth(1);
+            }
+            player.refreshUI();
         }
     }
 }

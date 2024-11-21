@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using PlayerModule;
+using Rooms;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -12,10 +13,12 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite iconSprite;
     [SerializeField] private AudioClip deathSound;
+    [SerializeField] private EnemyDeathBloodCollection dropBloodCollection;
     private AudioSource audioSource;
     private BossHealthBar healthBar;
     private bool flashingColor = false;
     public bool isDying = false;
+    private ParticleSystem damagedParticleSystem;
 
     public void Start() {
         if (spriteRenderer == null) {
@@ -23,6 +26,7 @@ public class EnemyHealth : MonoBehaviour
         }
         maxHealth = health;
         audioSource = GetComponent<AudioSource>();
+        damagedParticleSystem = GetComponentInChildren<ParticleSystem>();
     }
     public void Damage(int amount)
     {
@@ -34,6 +38,13 @@ public class EnemyHealth : MonoBehaviour
             StartCoroutine(ColorOnHit());
         }
 
+        if (damagedParticleSystem)
+        {
+            damagedParticleSystem.Play();
+        }
+
+        
+
         this.health -= amount;
 
         if(health <= 0 && !isDying)
@@ -43,6 +54,11 @@ public class EnemyHealth : MonoBehaviour
         if (healthBar != null) {
             healthBar.display(health,maxHealth,iconSprite,name);
         }
+    }
+
+    public void multiplyHealth(float amount)
+    {
+        this.health = (int) (health * amount);
     }
 
     public void setHealthBar(BossHealthBar bossHealthBar) {
@@ -62,8 +78,14 @@ public class EnemyHealth : MonoBehaviour
     {
         isDying = true;
         audioSource.PlayOneShot(deathSound);
-        Player.Instance.GetComponent<PlayerLevelComponent>().addExperience(experience);
+        Player.Instance.GetComponent<PlayerLevelComponent>().AddExperience(experience);
         DateHealUpgrade dateHealUpgrade = Player.Instance.DatePlayer.GetComponentInChildren<DateHealUpgrade>();
+        if (dropBloodCollection)
+        {
+            GameObject blood = dropBloodCollection.GetBlood();
+            blood.transform.position = transform.position;
+            LevelManager.getInstance().CurrentLevel.CurrentRoom.addRoomObject(blood.transform);
+        }
         if (dateHealUpgrade != null) {
             dateHealUpgrade.addKill();
         }

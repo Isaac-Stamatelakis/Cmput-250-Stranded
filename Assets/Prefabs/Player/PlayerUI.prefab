@@ -1080,6 +1080,8 @@ MonoBehaviour:
     Sprite: {fileID: -121865746, guid: 3262e44288aa1f743a9dc12b90dd577b, type: 3}
   - PlayerUpgrade: 4
     Sprite: {fileID: -1603955306, guid: e305f4e2feb4d5442aba56f73992d200, type: 3}
+  - PlayerUpgrade: 8
+    Sprite: {fileID: 21300000, guid: 174d916ba8a8da04194d32641109d8d1, type: 3}
 --- !u!114 &4722506306162871142
 MonoBehaviour:
   m_ObjectHideFlags: 0

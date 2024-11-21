@@ -24,7 +24,7 @@ public class ExperienceBook : InteractableGameObject
         if (!clear) {
             return;
         }
-        Player.Instance.GetComponent<PlayerLevelComponent>().addExperience(experience);
+        Player.Instance.GetComponent<PlayerLevelComponent>().AddExperience(experience);
         interactable = false;
         GameObject.Destroy(gameObject);
     }
