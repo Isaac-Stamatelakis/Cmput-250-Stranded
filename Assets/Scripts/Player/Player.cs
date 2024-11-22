@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Rooms;
@@ -11,6 +12,7 @@ namespace PlayerModule {
         public DatePlayer DatePlayer;
         private bool inCutscene;
         private bool inDialog;
+        public PlayerStats PlayerStats = new PlayerStats();
         public bool CanMove => !inCutscene && !inDialog;
         [SerializeField] private PlayerUI playerUI;
         public PlayerUI PlayerUI => playerUI;
@@ -23,6 +25,12 @@ namespace PlayerModule {
         public void Awake() {
             instance = this;
         }
+
+        public void Update()
+        {
+            PlayerStats.Time += Time.deltaTime;
+        }
+
         public void SetPosition(Vector3 position) {
             this.transform.position = position;
             DatePlayer.transform.position = position;
@@ -36,6 +44,7 @@ namespace PlayerModule {
             {
                 amount *= PlayerUpgradeUtils.HEAL_UPGRADE_MODIFIER;
             }
+            PlayerStats.Healing += amount;
             GetComponent<PlayerHealth>().Heal(amount);
         }
 
@@ -48,12 +57,14 @@ namespace PlayerModule {
             if (playerLevelComponent.HasUpgrade(PlayerUpgrade.Health)) {
                 health -= PlayerUpgradeUtils.HEALTH_UPGRADE_MODIFER;
             }
+            
             return new PlayerData(
                 level: playerLevelComponent.PlayerLevel.Level,
                 experience: playerLevelComponent.PlayerLevel.Experience,
                 health: health,
                 upgrades: playerLevelComponent.PlayerUpgrades,
-                weapon: playerAttack.currentWeapon
+                weapon: playerAttack.currentWeapon,
+                playerStats: PlayerStats
             );
         }
 
@@ -67,8 +78,10 @@ namespace PlayerModule {
             foreach (PlayerUpgrade playerUpgrade in playerData.upgrades) {
                 playerLevelComponent.AddPlayerUpgrade(playerUpgrade);
             }
+            this.PlayerStats = playerData.playerStats;
             playerLevelComponent.SetExperienceAndLevel(new PlayerLevel(playerData.Experience,playerData.Level));
         }
+        
 
         public void refreshUI() {
             PlayerHealth playerHealth = GetComponent<PlayerHealth>();

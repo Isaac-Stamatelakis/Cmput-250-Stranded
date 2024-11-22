@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using PlayerModule;
 using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
@@ -13,8 +14,9 @@ public class EnemyAttack : MonoBehaviour
         {
             // Get the PlayerHealth component and apply damage
             PlayerHealth health = collider.gameObject.GetComponent<PlayerHealth>();
+            Player player = Player.Instance;
+            player.PlayerStats.DamageTaken += damage;
             health.Damage(damage);
-            Debug.Log("damge player");
         }
     }
 }

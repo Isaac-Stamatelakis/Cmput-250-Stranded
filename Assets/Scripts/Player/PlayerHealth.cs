@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using PlayerModule;
+using Rooms;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -118,7 +119,8 @@ public class PlayerHealth : MonoBehaviour
 
         dead = true;
         playerHurtSFX.PlaySound(PlayerHurtSound.Death);
-
+        
+        LevelManager.getInstance().AddDeath();
         // Check if the death screen UI prefab and Canvas exist
         if (playerDeathScreenUIPrefab != null)
         {

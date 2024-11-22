@@ -12,6 +12,8 @@ namespace Rooms
         public PlayerData playerData;
         public Level CurrentLevelPrefab;
         public Level CurrentLevel;
+        private int playerDeaths;
+        public int Deaths => playerDeaths;
         private DifficultyModifier difficulty;
         public DifficultyModifier DifficultyModifier => difficulty;
         private LevelManager() {
@@ -28,6 +30,12 @@ namespace Rooms
             CurrentLevel = null;
             CurrentLevelPrefab = null;
             playerData = null;
+            playerDeaths = 0;
+        }
+
+        public void AddDeath()
+        {
+            playerDeaths++;
         }
 
         public void setModifier(DifficultyModifier DifficultyModifier)

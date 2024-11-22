@@ -71,7 +71,7 @@ namespace PlayerModule {
                 case PlayerUpgrade.DateAttack:
                     return $"Date Attack\n" +
                            $"Every {PlayerUpgradeUtils.DATE_ATTACK_RATE} Seconds Your Date Throws Her Book " +
-                           $"Dealing {PlayerUpgradeUtils.DATE_ATTACK_DAMAGE} Damage!";
+                           $"Dealing {PlayerUpgradeUtils.DATE_ATTACK_DAMAGE} Damage!";          
                 case PlayerUpgrade.AngryRock:
                     return $"Angry Pet Rock\nThe Pain You're Enduring Enrages Him... He Amplifies All Your Upgrades...";
                 default:

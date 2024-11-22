@@ -584,16 +584,16 @@ GameObject:
   - component: {fileID: 6740832715346391484}
   - component: {fileID: 6740832715346391458}
   - component: {fileID: 6740832715346391456}
-  - component: {fileID: 6740832715346391463}
   - component: {fileID: 6740832715346391454}
   - component: {fileID: 6740832715346391453}
   - component: {fileID: 6740832715346391452}
   - component: {fileID: 6740832715346391451}
   - component: {fileID: 6740832715346391450}
   - component: {fileID: 6740832715346391522}
+  - component: {fileID: 1548140087}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -660,7 +660,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -476830642, guid: 3e7880ff510968b44ba1d3cfefd4536b, type: 3}
+  m_Sprite: {fileID: -657610103, guid: bab40114cd36a3b41aebdd70b3c5910b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -687,7 +687,7 @@ MonoBehaviour:
   animator: {fileID: 6740832715346391454}
   isMoving: 0
   isInCutscene: 0
-  walkSpeed: 10
+  walkSpeed: 12
 --- !u!50 &6740832715346391456
 Rigidbody2D:
   serializedVersion: 4
@@ -701,7 +701,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 80
+  m_LinearDrag: 40
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -709,22 +709,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &6740832715346391463
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6740832715346391486}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.87956494}
-  serializedVersion: 2
-  m_Radius: 0.3982609
 --- !u!95 &6740832715346391454
 Animator:
   serializedVersion: 5
@@ -735,7 +719,7 @@ Animator:
   m_GameObject: {fileID: 6740832715346391486}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 519915d03e4a61f4987e01724aad4bc1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 243e0869827fc374f86b65c4c06cd9dc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -819,6 +803,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dateAuraShader: {fileID: 2100000, guid: f29076f5b50f7124f8c97637561a0a19, type: 2}
   sfx: {fileID: 5210240684083445699}
+--- !u!70 &1548140087
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6740832715346391486}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.16246367}
+  m_Size: {x: 0.65968674, y: 1.8801796}
+  m_Direction: 0
 --- !u!1 &6843059345785616017
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,14 +1113,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7636584391833305058}
-  - component: {fileID: 7636584391833305059}
-  m_Layer: 6
+  - component: {fileID: 7136131262210022320}
+  m_Layer: 13
   m_Name: Feet
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7636584391833305058
 Transform:
   m_ObjectHideFlags: 0
@@ -1129,15 +1129,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7636584391833304989}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: -0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6740832715346391485}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &7636584391833305059
-CircleCollider2D:
+--- !u!61 &7136131262210022320
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1149,9 +1149,19 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.02417785, y: -0.26595646}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 0.66151, y: 0.5647985}
+  m_EdgeRadius: 0
 --- !u!1 &7636584392209183185
 GameObject:
   m_ObjectHideFlags: 0

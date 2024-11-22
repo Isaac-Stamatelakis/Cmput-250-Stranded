@@ -50,6 +50,7 @@ public class AttackArea : MonoBehaviour
                 }
             }
             
+            Player.Instance.PlayerStats.DamageDealt += damage;
             health.Damage(damage);
             hasDamaged = true; 
         }

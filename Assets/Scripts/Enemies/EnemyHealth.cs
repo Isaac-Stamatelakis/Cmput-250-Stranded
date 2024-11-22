@@ -78,8 +78,10 @@ public class EnemyHealth : MonoBehaviour
     {
         isDying = true;
         audioSource.PlayOneShot(deathSound);
-        Player.Instance.GetComponent<PlayerLevelComponent>().AddExperience(experience);
-        DateHealUpgrade dateHealUpgrade = Player.Instance.DatePlayer.GetComponentInChildren<DateHealUpgrade>();
+        Player player = Player.Instance;
+        player.GetComponent<PlayerLevelComponent>().AddExperience(experience);
+        DateHealUpgrade dateHealUpgrade = player.DatePlayer.GetComponentInChildren<DateHealUpgrade>();
+        player.PlayerStats.Kills++;
         if (dropBloodCollection)
         {
             GameObject blood = dropBloodCollection.GetBlood();
