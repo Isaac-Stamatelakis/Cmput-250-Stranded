@@ -3700,6 +3700,7 @@ GameObject:
   - component: {fileID: 4323780544392805945}
   - component: {fileID: 4323780544392805944}
   - component: {fileID: 4323780544392805951}
+  - component: {fileID: 7875831333693068786}
   m_Layer: 0
   m_Name: Deans Office
   m_TagString: Untagged
@@ -3760,9 +3761,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cf8915260eb034ca1a050e14fcd9c390, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_audioClip: {fileID: 8300000, guid: 9091427b50d7f6e4eb43fc80e4c3e273, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3846,6 +3847,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7875831333693068786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4323780544392805946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d80e4fcc0940a244da7a09ccbc34b82b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossMusic: {fileID: 4323780544392805951}
+  fadeDuration: 8
+  lowVolume: 0.2
+  highVolume: 0.35
 --- !u!1 &4323780544683518229
 GameObject:
   m_ObjectHideFlags: 0
@@ -20787,10 +20804,30 @@ PrefabInstance:
       propertyPath: enemyHealth
       value: 
       objectReference: {fileID: 3506594301138635119}
+    - target: {fileID: 250383000893655799, guid: 1534a50ca241a1541bed2b2e1aab72e1, type: 3}
+      propertyPath: chargeAttackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: bab426a1e0b11f8448cb557876ed785f, type: 3}
+    - target: {fileID: 250383000893655799, guid: 1534a50ca241a1541bed2b2e1aab72e1, type: 3}
+      propertyPath: projectileAttackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d4e4dd10207a89642aa646aa8a731240, type: 3}
+    - target: {fileID: 250383000893655800, guid: 1534a50ca241a1541bed2b2e1aab72e1, type: 3}
+      propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 250383000893655800, guid: 1534a50ca241a1541bed2b2e1aab72e1, type: 3}
       propertyPath: deathSound
       value: 
       objectReference: {fileID: 8300000, guid: 970f36917f216b34595be3402cebd9e8, type: 3}
+    - target: {fileID: 250383000893655800, guid: 1534a50ca241a1541bed2b2e1aab72e1, type: 3}
+      propertyPath: bossMusicController
+      value: 
+      objectReference: {fileID: 7875831333693068786}
+    - target: {fileID: 250383000893655802, guid: 1534a50ca241a1541bed2b2e1aab72e1, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 250383000893655802, guid: 1534a50ca241a1541bed2b2e1aab72e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.23
@@ -20838,7 +20875,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 250383000893655798, guid: 1534a50ca241a1541bed2b2e1aab72e1, type: 3}
   m_PrefabInstance: {fileID: 3733597286712148887}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &7771828272585764369
+--- !u!82 &6416093298652380833
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20850,8 +20887,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.407
+  m_Pitch: 0.5
   Loop: 0
   Mute: 0
   Spatialize: 0

@@ -8,7 +8,8 @@ public class bossRoutine : MonoBehaviour
     //components
     private Player player;
     private Animator anim;
-    
+    private AudioSource audioSource;
+
     //static positions for charge attack
     private Vector3 playerPos;
     private Vector3 bossPos;
@@ -22,13 +23,17 @@ public class bossRoutine : MonoBehaviour
     [SerializeField] private float chargeSpeed = 40;
     [SerializeField] private GameObject projectile;
     [SerializeField] private float attackSpeed = 2f;
+    public AudioClip chargeAttackSound;
+    public AudioClip projectileAttackSound;
     public EnemyHealth enemyHealth;
 
     // Start is called before the first frame update
     void Start()
     {
+        enemyHealth.isBoss = true;
         player = Player.Instance;
         anim = GetComponentInChildren<Animator>();
+        audioSource = GetComponent<AudioSource>();
 
         //this is the main boss attack cycle
         StartCoroutine(canBossAttack());
@@ -73,6 +78,8 @@ public class bossRoutine : MonoBehaviour
 
             if (canAttack && !enemyHealth.isDying) {
                 if (attack == 0) {
+                    audioSource.pitch = 0.8f;
+                    audioSource.PlayOneShot(chargeAttackSound);
 
                     playerPos = player.transform.position;
                     bossPos = transform.position;
@@ -88,7 +95,8 @@ public class bossRoutine : MonoBehaviour
                 } else {
 
                     Debug.Log("firing pejectiles");
-
+                    audioSource.pitch = Random.Range(0.4f, 0.5f);
+                    audioSource.PlayOneShot(projectileAttackSound);
                     anim.SetBool("isAboutToShoot", false);
                     anim.SetBool("isShooting", true);
                     

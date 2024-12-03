@@ -217,6 +217,10 @@ SpriteAtlas:
   - {fileID: 21300000, guid: b6d7ff94f2a7b294d87c7eeec1f99720, type: 3}
   - {fileID: 21300000, guid: e0b8bba4e9a15cb48a5263c15b869116, type: 3}
   - {fileID: 21300000, guid: c1204cb4bf9979842855e9a3961ee418, type: 3}
+  - {fileID: 2053886152, guid: df3c41c4a57a4d846ad97bdef9fe8afd, type: 3}
+  - {fileID: -964726348, guid: df3c41c4a57a4d846ad97bdef9fe8afd, type: 3}
+  - {fileID: -268855394, guid: df3c41c4a57a4d846ad97bdef9fe8afd, type: 3}
+  - {fileID: -599532467, guid: df3c41c4a57a4d846ad97bdef9fe8afd, type: 3}
   - {fileID: 21300000, guid: cfb015c434ed36548af7b1ef388cab5d, type: 3}
   - {fileID: 21300000, guid: 9c78bac422a15a84fa4ec4dd953ef81e, type: 3}
   - {fileID: -844731014, guid: 12607cc406066ac409cc589277d56f2a, type: 3}
@@ -716,6 +720,10 @@ SpriteAtlas:
   - concrete_floor_2
   - ComputerLabGreenWallBottom_U_False_L_True_D_False_R_True
   - ComputerLabLightGreen_U_False_L_True_D_True_R_False_diag
+  - r_down_attack1
+  - r_up_attack
+  - r_up_attack1
+  - r_down_attack
   - LabWallTop_U_True_L_True_D_False_R_False
   - BrickWall_U_True_L_True_D_True_R_True
   - c_back1

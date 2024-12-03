@@ -54,16 +54,32 @@ public class PlayerAttack : MonoBehaviour
 
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;
-
-        if (mousePosition.x < transform.position.x)
+        Vector3 direction = mousePosition - transform.position;
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
         {
-            playerAnimator.SetTrigger("AttackLeft");
-            Debug.Log("Attacking Left");
+            if (direction.x < 0)
+            {
+                playerAnimator.SetTrigger("AttackLeft");
+                Debug.Log("Attacking Left");
+            }
+            else
+            {
+                playerAnimator.SetTrigger("AttackRight");
+                Debug.Log("Attacking Right");
+            }
         }
         else
         {
-            playerAnimator.SetTrigger("AttackRight");
-            Debug.Log("Attacking Right");
+            if (direction.y > 0)
+            {
+                playerAnimator.SetTrigger("AttackUp");
+                Debug.Log("Attacking up");
+            }
+            else
+            {
+                playerAnimator.SetTrigger("AttackDown");
+                Debug.Log("Attacking down");
+            }
         }
 
         AttackArea attackAreaScript = attackArea.GetComponent<AttackArea>();
