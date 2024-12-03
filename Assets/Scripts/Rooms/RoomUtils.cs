@@ -4,6 +4,8 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.Tilemaps;
 using System;
+using Difficulty;
+using Object = UnityEngine.Object;
 
 namespace Rooms {
     public static class RoomUtils
@@ -153,6 +155,17 @@ namespace Rooms {
             if (roomElementCollection == null) {
                 return;
             }
+            
+            bool noHealing = LevelManager.getInstance().DifficultyModifier.HealingModifier == 0;
+            if (noHealing)
+            {
+                MedKitObject[] medKitObjects = roomElementCollection.GetComponentsInChildren<MedKitObject>();
+                Debug.Log(medKitObjects.Length);
+                foreach (MedKitObject medKitObject in medKitObjects)
+                {
+                    Object.Destroy(medKitObject.gameObject);
+                }
+            }
             bool enclosed = roomBounds.XMax != bounds.xMax && roomBounds.XMin != bounds.xMin && roomBounds.YMax != bounds.yMax && roomBounds.YMin != bounds.yMin;
             if (!enclosed) {
                 //Debug.LogWarning($"Room not enclosed with start {start} and bounds {bounds}");
@@ -189,8 +202,6 @@ namespace Rooms {
             Dictionary<TileMapLayer, TileBase[,]> layerTileDict = new Dictionary<TileMapLayer, TileBase[,]>();
             List<TileMapLayer> layers = Enum.GetValues(typeof(TileMapLayer)).Cast<TileMapLayer>().ToList();
             Vector2Int size = roomBounds.Size;
-            Debug.Log(size);
-            Debug.Log(roomBounds);
             foreach (TileMapLayer layer in layers) {
                 layerTileDict[layer] = new TileBase[size.x,size.y];
             }

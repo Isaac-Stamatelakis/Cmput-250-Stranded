@@ -12,12 +12,14 @@ public class PlayerAttack : MonoBehaviour
     private float timer = 0f;             
     public PlayerAttackSFX attackSFX;           
     private RuntimeAnimatorController originalAnimatorController;
+    private ParticleSystem particleSystem;
     private int attackLayerIndex;
 
     void Start()
     {
         originalAnimatorController = playerAnimator.runtimeAnimatorController;
         attackLayerIndex = playerAnimator.GetLayerIndex("Attack Layer");
+        particleSystem = GetComponentInChildren<ParticleSystem>();
 
     }
 
@@ -54,6 +56,7 @@ public class PlayerAttack : MonoBehaviour
 
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;
+        
         Vector3 direction = mousePosition - transform.position;
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
         {
@@ -82,6 +85,9 @@ public class PlayerAttack : MonoBehaviour
             }
         }
 
+        int dir = attackLeft ? 1 : -1;
+        particleSystem.transform.Translate(0.5f * dir, 0, 0);
+
         AttackArea attackAreaScript = attackArea.GetComponent<AttackArea>();
         if (attackAreaScript != null)
         {
@@ -97,6 +103,9 @@ public class PlayerAttack : MonoBehaviour
         attackPerformed = false;
         playerAnimator.SetBool("isAttacking", false);
         attackArea.SetActive(false);
+        bool attackedLeft = particleSystem.transform.localPosition.x > 0;
+        int dir = attackedLeft ? -1 : 1;
+        particleSystem.transform.Translate(0.5f * dir, 0, 0);
         AttackArea attackAreaScript = attackArea.GetComponent<AttackArea>();
         if (attackAreaScript != null)
         {

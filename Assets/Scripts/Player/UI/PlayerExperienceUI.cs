@@ -44,7 +44,7 @@ public class PlayerExperienceUI : MonoBehaviour
         }
         selectorDisplayed = true;
         PlayerLevelComponent playerLevelComponent = Player.Instance.GetComponent<PlayerLevelComponent>();
-        playerLevelComponent.generateSelectableUpgrades();
+        playerLevelComponent.GenerateSelectableUpgrades();
         if (playerLevelComponent.SelectableUpgrades.Count == 0) {
             return;
         }

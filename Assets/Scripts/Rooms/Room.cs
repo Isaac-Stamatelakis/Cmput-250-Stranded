@@ -40,6 +40,11 @@ namespace Rooms {
         public bool isClear() {
             return ZombieSpawnInstructions.Count==0;
         }
+
+        public void addRoomObject(Transform objectTransform)
+        {
+            objectTransform.SetParent(roomObjects.transform);
+        }
     }
 
     public enum LineDirection {

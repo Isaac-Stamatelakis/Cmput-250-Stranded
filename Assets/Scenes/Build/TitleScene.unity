@@ -981,6 +981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd6cf41a74a44bd489d88069c2a575a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficultyModifierUIPrefab: {fileID: 3976765056977381292, guid: e4cbb1f634b8c25499a818dd12e915f0, type: 3}
   Background: {fileID: 19139977}
   song: {fileID: 1698940214}
   HoverColor: {r: 0.1981132, g: 0, b: 0, a: 1}

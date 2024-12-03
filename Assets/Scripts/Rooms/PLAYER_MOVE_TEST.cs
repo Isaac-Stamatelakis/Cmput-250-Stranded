@@ -72,9 +72,10 @@ namespace PlayerModule
             }
             
             //isRunning = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-            float currentSpeed = 12f;
-            if (playerLevelComponent.hasUpgrade(PlayerUpgrade.Speed)) {
-                currentSpeed = 17f;
+            float currentSpeed = walkSpeed;
+            if (playerLevelComponent.HasUpgrade(PlayerUpgrade.Speed))
+            {
+                currentSpeed *= PlayerUpgradeUtils.SPEED_UPGRADE_MODIFIER;
             }
             if (moveDirection != Vector2.zero)
             {
@@ -88,6 +89,7 @@ namespace PlayerModule
             
 
             isMoving = moveDirection != Vector2.zero;
+            //rb.velocity = moveDirection * walkSpeed;
             //if (isMoving)
             //{
                 //if (isRunning)
@@ -105,22 +107,12 @@ namespace PlayerModule
 
         void FixedUpdate()
         {
+
             if (moveDirection != Vector2.zero)
             {
                 rb.MovePosition(rb.position + moveDirection * Time.fixedDeltaTime);
-            } else {
-                rb.velocity = Vector2.zero;
             }
-        }
 
-        void OnCollisionEnter2D(Collision2D collision)
-        {
-            RoomDoorObject roomDoorObject = collision.gameObject.GetComponent<RoomDoorObject>();
-
-            if (roomDoorObject != null)
-            {
-                roomDoorObject.switchRoom();
-            }
         }
 
         void setAnimationsFalse()

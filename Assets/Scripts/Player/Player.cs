@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Rooms;
 using UnityEngine;
 
 namespace PlayerModule {
@@ -27,9 +28,13 @@ namespace PlayerModule {
             DatePlayer.transform.position = position;
         }
 
-        public void Heal(float amount) {
-            if (GetComponent<PlayerLevelComponent>().hasUpgrade(PlayerUpgrade.Healing)) {
-                amount *= 1.5f;
+        public void Heal(float amount)
+        {
+            float healModifier = LevelManager.getInstance().DifficultyModifier.GetHealingModifier();
+            amount*=healModifier;
+            if (GetComponent<PlayerLevelComponent>().HasUpgrade(PlayerUpgrade.Healing))
+            {
+                amount *= PlayerUpgradeUtils.HEAL_UPGRADE_MODIFIER;
             }
             GetComponent<PlayerHealth>().Heal(amount);
         }
@@ -40,7 +45,7 @@ namespace PlayerModule {
             PlayerAttack playerAttack = GetComponent<PlayerAttack>();
             float health = playerHealth.Health;
             // Prevents healing from increase max health
-            if (playerLevelComponent.hasUpgrade(PlayerUpgrade.Health)) {
+            if (playerLevelComponent.HasUpgrade(PlayerUpgrade.Health)) {
                 health -= PlayerUpgradeUtils.HEALTH_UPGRADE_MODIFER;
             }
             return new PlayerData(
@@ -60,18 +65,18 @@ namespace PlayerModule {
             playerHealth.setHealth(playerData.Health);
             playerAttack.SetWeapon(playerData.weapon);
             foreach (PlayerUpgrade playerUpgrade in playerData.upgrades) {
-                playerLevelComponent.addComponent(playerUpgrade);
+                playerLevelComponent.AddPlayerUpgrade(playerUpgrade);
             }
-            playerLevelComponent.setExperienceAndLevel(new PlayerLevel(playerData.Experience,playerData.Level));
+            playerLevelComponent.SetExperienceAndLevel(new PlayerLevel(playerData.Experience,playerData.Level));
         }
 
         public void refreshUI() {
             PlayerHealth playerHealth = GetComponent<PlayerHealth>();
             PlayerLevelComponent playerLevelComponent = GetComponent<PlayerLevelComponent>();
 
-            playerLevelComponent.iterateUpgrades();
+            playerLevelComponent.IterateUpgrades();
             playerHealth.Damage(0);
-            playerLevelComponent.addExperience(0);
+            playerLevelComponent.AddExperience(0);
         }
     }
 }

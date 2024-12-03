@@ -3,28 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Linq;
+using Difficulty;
+using Rooms;
 
 namespace PlayerModule {
+    /// <summary>
+    /// Represents a player upgrade
+    /// </summary>
     public enum PlayerUpgrade {
         Attack,
         Health,
         Speed,
         Healing,
-        DamageReduction,
+        PetRock,
         DateAura,
         DateHeal,
-        DateAttack
+        DateAttack,
+        AngryRock
     }
-
+    /// <summary>
+    /// Various utils and hard coded values for player upgrade system
+    /// </summary>
     public static class PlayerUpgradeUtils {
         public static readonly float DAMAGE_UPGRADE_MODIFIER = 1.2f;
         public static readonly float SPEED_UPGRADE_MODIFIER = 1.25f;
-        public static int HEALTH_UPGRADE_MODIFER = 25;
-        public static float HEAL_UPGRADE_MODIFIER = 1.5f;
-        public static float DAMAGE_REDUCTION_MODIFIER = 0.8f;
-        public static int DATE_KILL_HEAL_COUNT = 5;
-        public static int DATE_KILL_HEAL_AMOUNT = 10;
-        public static string formatPercentIncrease(float val, bool inverse=false) {
+        public static readonly int HEALTH_UPGRADE_MODIFER = 25;
+        public static readonly float HEAL_UPGRADE_MODIFIER = 1.5f;
+        public static readonly float DAMAGE_REDUCTION_MODIFIER = 0.8f;
+        public static readonly int DATE_KILL_HEAL_COUNT = 5;
+        public static readonly int DATE_KILL_HEAL_AMOUNT = 10;
+        public static readonly int DATE_AURA_RANGE = 4;
+        public static readonly int DATE_ATTACK_DAMAGE = 8;
+        public static readonly int DATE_ATTACK_RATE = 2;
+        public static readonly int NUMBER_OF_CHOICES = 3;
+        public static string FormatPercentIncrease(float val, bool inverse=false) {
             float percent;
             if (inverse) {
                 percent = 1-val;
@@ -34,31 +46,42 @@ namespace PlayerModule {
             return (percent).ToString("P0").Replace(" ","");
         }
     }
-
+    /// <summary>
+    /// Provides descriptions for a given player upgrade enum
+    /// </summary>
     public static class PlayerUpgradeExtension {
-        public static string getDescription(this PlayerUpgrade playerUpgrade) {
+        public static string GetDescription(this PlayerUpgrade playerUpgrade) {
             switch (playerUpgrade) {
                 case PlayerUpgrade.Attack:
-                    return $"Strength Increase\nDeal an additional {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.DAMAGE_UPGRADE_MODIFIER)} damage!";
+                    return $"Strength Increase\nDeal an additional {PlayerUpgradeUtils.FormatPercentIncrease(PlayerUpgradeUtils.DAMAGE_UPGRADE_MODIFIER)} Damage!";
                 case PlayerUpgrade.Health:
-                    return $"Health Increase\nGain {PlayerUpgradeUtils.HEALTH_UPGRADE_MODIFER} health";
+                    return $"Health Increase\nGain {PlayerUpgradeUtils.HEALTH_UPGRADE_MODIFER} Health";
                 case PlayerUpgrade.Speed:
-                    return $"Coffee\nMove {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.SPEED_UPGRADE_MODIFIER)} faster!";
+                    return $"Coffee\nMove {PlayerUpgradeUtils.FormatPercentIncrease(PlayerUpgradeUtils.SPEED_UPGRADE_MODIFIER)} Faster!";
                 case PlayerUpgrade.Healing:
-                    return $"Healing Increase\nHeal {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.HEAL_UPGRADE_MODIFIER)} more!";
-                case PlayerUpgrade.DamageReduction:
-                    return $"Pet Rock\nReduce Damage by {PlayerUpgradeUtils.formatPercentIncrease(PlayerUpgradeUtils.DAMAGE_REDUCTION_MODIFIER,true)}!";
+                    return $"Healing Increase\nHeal {PlayerUpgradeUtils.FormatPercentIncrease(PlayerUpgradeUtils.HEAL_UPGRADE_MODIFIER)} More!";
+                case PlayerUpgrade.PetRock:
+                    return $"Pet Rock\nReduce Damage Taken by {PlayerUpgradeUtils.FormatPercentIncrease(PlayerUpgradeUtils.DAMAGE_REDUCTION_MODIFIER,true)}!";
                 case PlayerUpgrade.DateAura:
-                    return $"Date Aura\nStand near your date for a buff!";
+                    return $"Date Aura\nStand Near Your Date for a Buff!\n" +
+                           $"Deal an Additional {PlayerUpgradeUtils.FormatPercentIncrease(PlayerUpgradeUtils.DAMAGE_UPGRADE_MODIFIER)} Damage and " +
+                           $"Reduce Damage Taken by {PlayerUpgradeUtils.FormatPercentIncrease(PlayerUpgradeUtils.DAMAGE_REDUCTION_MODIFIER,true)}!";
                 case PlayerUpgrade.DateHeal:
-                    return $"Increased Love\nKill {PlayerUpgradeUtils.DATE_KILL_HEAL_COUNT} enemies for your date to heal you {PlayerUpgradeUtils.DATE_KILL_HEAL_AMOUNT} health!";
+                    return $"Increased Love\nKill {PlayerUpgradeUtils.DATE_KILL_HEAL_COUNT} Enemies For Your Date to Heal you {PlayerUpgradeUtils.DATE_KILL_HEAL_AMOUNT} Health!";
                 case PlayerUpgrade.DateAttack:
-                    return $"Date Attack\nYour date aids you in combat!";
+                    return $"Date Attack\n" +
+                           $"Every {PlayerUpgradeUtils.DATE_ATTACK_RATE} Seconds Your Date Throws Her Book " +
+                           $"Dealing {PlayerUpgradeUtils.DATE_ATTACK_DAMAGE} Damage!";
+                case PlayerUpgrade.AngryRock:
+                    return $"Angry Pet Rock\nThe Pain You're Enduring Enrages Him... He Amplifies All Your Upgrades...";
                 default:
                     return "";
             }
         }
     }
+    /// <summary>
+    /// Handles logic for player upgrade system
+    /// </summary>
     public class PlayerLevelComponent : MonoBehaviour
     {
         [SerializeField] private Material dateAuraShader;
@@ -71,20 +94,33 @@ namespace PlayerModule {
         private List<PlayerUpgrade> nextSelectableUpgrades;
         public List<PlayerUpgrade> SelectableUpgrades => nextSelectableUpgrades;
         public int RemainingUpgrades => playerLevel.Level-playerUpgrades.Count;
-        private bool dateAura = false;
+        private bool dateAura;
         public bool DateAura => dateAura;
-        public bool hasUpgrade(PlayerUpgrade playerUpgrade) {
+        /// <summary>
+        /// Returns true if the player has a given upgrade
+        /// </summary>
+        /// <param name="playerUpgrade">Upgrade to check</param>
+        /// <returns></returns>
+        public bool HasUpgrade(PlayerUpgrade playerUpgrade) {
             return playerUpgrades.Contains(playerUpgrade);
         }
         public void Start() {
             defaultShader = GetComponent<SpriteRenderer>().sharedMaterial;
         }
-
-        public void setExperienceAndLevel(PlayerLevel playerLevel) {
+        
+        /// <summary>
+        /// Sets the data structure PlayerLevel which stores both player experience and playe level to a given value
+        /// </summary>
+        /// <param name="playerLevel">Value to set</param>
+        public void SetExperienceAndLevel(PlayerLevel playerLevel) {
             this.playerLevel = playerLevel;
         }
-
-        public void setDateAura(bool state) {
+        
+        /// <summary>
+        /// Toggles the player aura buff on and off
+        /// </summary>
+        /// <param name="state">on/off for aura buff</param>
+        public void SetDateAura(bool state) {
             if (state == dateAura) {
                 return;
             }
@@ -92,49 +128,88 @@ namespace PlayerModule {
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.material = dateAura ? dateAuraShader : defaultShader;
         }
-
-        public List<PlayerUpgrade> generateSelectableUpgrades() {
-            int NUMBER_OF_CHOICES = 2;
+        
+        /// <summary>
+        /// Randomly generates a hard coded number of upgrades that the player can select from
+        /// when they level up
+        /// </summary>
+        /// <returns>Upgrades the player can select</returns>
+        public List<PlayerUpgrade> GenerateSelectableUpgrades() {
             PlayerUpgrade[] enumValues = (PlayerUpgrade[])Enum.GetValues(typeof(PlayerUpgrade));
             List<PlayerUpgrade> unselected = new List<PlayerUpgrade>();
+            
             foreach (PlayerUpgrade playerUpgrade in enumValues) {
                 if (playerUpgrades.Contains(playerUpgrade)) {
                     continue;
                 }
                 unselected.Add(playerUpgrade);
             }
-            if (unselected.Count < NUMBER_OF_CHOICES) {
+            DifficultyModifier modifier = LevelManager.getInstance().DifficultyModifier;
+            if (modifier.OneHealthMode)
+            {
+                unselected.Remove(PlayerUpgrade.PetRock);
+                unselected.Remove(PlayerUpgrade.Health);
+            }
+            else
+            {
+                unselected.Remove(PlayerUpgrade.AngryRock);
+            }
+
+            bool noHealing = modifier.HealingModifier == 0;
+            if (noHealing || modifier.OneHealthMode)
+            {
+                unselected.Remove(PlayerUpgrade.Healing);
+                unselected.Remove(PlayerUpgrade.DateHeal);
+            }
+            
+            if (unselected.Count < PlayerUpgradeUtils.NUMBER_OF_CHOICES) {
                 return unselected;
             }
             System.Random random = new System.Random();
             return unselected
                 .OrderBy(n => random.Next())
-                .Take(NUMBER_OF_CHOICES)
+                .Take(PlayerUpgradeUtils.NUMBER_OF_CHOICES)
                 .ToList();
         }
-
-        public void iterateUpgrades() {
-            nextSelectableUpgrades = generateSelectableUpgrades();
+        
+        /// <summary>
+        /// Updates selectable upgrades from pool of unchosen upgrades
+        /// </summary>
+        public void IterateUpgrades() {
+            nextSelectableUpgrades = GenerateSelectableUpgrades();
         }
 
-
-        public void addExperience(int amount) {
-            bool leveledUp = playerLevel.addExperience(amount);
+        /// <summary>
+        /// Adds experience to the player
+        /// Levels the player up if amount required amount to level up
+        /// </summary>
+        /// <param name="amount">Amount to add</param>
+        public void AddExperience(int amount) {
+            bool leveledUp = playerLevel.AddExperience(amount);
             PlayerUI playerUI = Player.Instance.PlayerUI;
-            playerUI.PlayerExperienceUI.displayExperience(playerLevel.Level,playerLevel.Experience,playerLevel.getLevelUpExperience());
+            playerUI.PlayerExperienceUI.displayExperience(playerLevel.Level,playerLevel.Experience,playerLevel.GetLevelUpExperience());
             if (leveledUp) {
                 sfx.PlaySoundClip(PlayerLevelSFX.LevelUp);
                 playerUI.PlayerExperienceUI.displayLevelUpOption();
             }
+            
         }
-
-        public void addComponent(PlayerUpgrade playerUpgrade) {
+        
+        /// <summary>
+        /// Gives the player a given upgrade
+        /// </summary>
+        /// <param name="playerUpgrade">Player Upgrade to Give</param>
+        public void AddPlayerUpgrade(PlayerUpgrade playerUpgrade) {
             playerUpgrades.Add(playerUpgrade);
             switch (playerUpgrade) {
                 case PlayerUpgrade.Health:
                     Player.Instance.GetComponent<PlayerHealth>().IncreaseHealth(PlayerUpgradeUtils.HEALTH_UPGRADE_MODIFER);
                     break;
             }
+            
+            
+            
+            
             // Only has an effect with certain upgrades
             Player.Instance.DatePlayer.activeUpgrade(playerUpgrade);
 
@@ -143,7 +218,9 @@ namespace PlayerModule {
         }
         
     }
-
+    /// <summary>
+    /// Stores data about a players level and experience
+    /// </summary>
     public class PlayerLevel {
         public int Experience;
         public int Level;
@@ -159,20 +236,19 @@ namespace PlayerModule {
         }
 
         // Adds experience. Returns true if player levels up
-        public bool addExperience(int amount) {
+        public bool AddExperience(int amount) {
             Experience += amount;
-            int levelRequirement = getLevelUpExperience();
+            int levelRequirement = GetLevelUpExperience();
             bool leveledUp = false;
             while (Experience >= levelRequirement) {
                 Experience -= levelRequirement;
                 Level++;
-                levelRequirement = getLevelUpExperience();
+                levelRequirement = GetLevelUpExperience();
                 leveledUp = true;
             }
             return leveledUp;
         }
-
-        public int getLevelUpExperience() {
+        public int GetLevelUpExperience() {
             return 2*Level*Level + 10*Level + 25;
         }
     }

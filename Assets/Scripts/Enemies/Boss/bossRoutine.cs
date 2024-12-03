@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Difficulty;
 using UnityEngine;
 using PlayerModule;
+using Rooms;
 
 public class bossRoutine : MonoBehaviour
 {
@@ -37,6 +39,12 @@ public class bossRoutine : MonoBehaviour
 
         //this is the main boss attack cycle
         StartCoroutine(canBossAttack());
+        DifficultyModifier modifier = LevelManager.getInstance().DifficultyModifier;
+        float healthModifier = modifier.GetBossHealthModifier();
+        float speedModifier = modifier.GetBossSpeedModifier();
+        
+        enemyHealth.multiplyHealth(healthModifier);
+        attackSpeed *= speedModifier;
     }
 
     // Update is called once per frame

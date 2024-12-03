@@ -10,19 +10,20 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] PlayerDeathScreenUI playerDeathScreenUIPrefab;
     [SerializeField] private PlayerUI playerUI;
     [SerializeField] private PlayerHurtSFX playerHurtSFX;
+    private ParticleSystem particleSystem;
     private bool dead;
     private float maxHealth;
-    private int invincibleFrames = 0; // Initialize to zero
+    private int invincibleFrames = 0;
     public float Health => health;
     public float MaxHealth => maxHealth;
 
     public void Start()
     {
-        // If max health is zero then player has not been unseraialized from data
-        bool initalized = maxHealth > 0;
+        bool initalized = maxHealth > 0; // If max health is zero then player has not been unseraialized from data
         if (!initalized) {
             setHealth(health);
         }
+        particleSystem = GetComponentInChildren<ParticleSystem>();
 
     }
 
@@ -33,6 +34,12 @@ public class PlayerHealth : MonoBehaviour
         {
             playerUI.displayHealth(health, maxHealth);
         }
+    }
+
+    public void setMaxHealth(float health)
+    {
+        this.health = health;
+        this.maxHealth = health;
     }
 
     public bool isFull() {
@@ -56,7 +63,7 @@ public class PlayerHealth : MonoBehaviour
             throw new System.ArgumentOutOfRangeException("Cannot have negative Damage");
         }
         PlayerLevelComponent playerLevelComponent = GetComponent<PlayerLevelComponent>();
-        if (playerLevelComponent.hasUpgrade(PlayerUpgrade.DamageReduction)) {
+        if (playerLevelComponent.HasUpgrade(PlayerUpgrade.PetRock)) {
             amount = Mathf.FloorToInt(amount * PlayerUpgradeUtils.DAMAGE_REDUCTION_MODIFIER);
         }
         if (playerLevelComponent.DateAura) {
@@ -70,6 +77,7 @@ public class PlayerHealth : MonoBehaviour
         } else if (amount > 0) {
             // Prevents playign hurt sound when refreshing ui by damaging 0
             playerHurtSFX.PlaySound(PlayerHurtSound.Damaged);
+            particleSystem.Play();
         }
 
         if (playerUI != null)
