@@ -31,8 +31,10 @@ namespace SummaryPage
             AssignText(Healing, $"{playerStats.Healing:F1}");
             AssignText(EnemiesKilled, playerStats.Kills.ToString());
             AssignText(Deaths, deaths.ToString());
+            
             DifficultyPresets? preset = null;
             DifficultyPresets[] presets = Enum.GetValues(typeof(DifficultyPresets)).Cast<DifficultyPresets>().ToArray();
+            
             foreach (DifficultyPresets possiblePreset in presets)
             {
                 if (!possiblePreset.GetDifficultyModifier().Equals(modifier)) continue;

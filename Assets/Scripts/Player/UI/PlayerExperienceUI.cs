@@ -84,11 +84,9 @@ public class PlayerExperienceUI : MonoBehaviour
         }
         levelUpButton.gameObject.SetActive(true);
         Color[] levelUpColors = {
-            Color.red,     // Color for Level Up
-            Color.yellow,  // Second color
-            Color.green,   // Third color
-            Color.blue,    // Fourth color
-            Color.magenta  // Fifth color
+            Color.black,
+            Color.gray,
+            Color.black,
         };
         levelUpText.display("LEVEL UP",levelUpColors);
     }
