@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cae2666990c0bb459d13c257dd7c11f, type: 3}
-  m_Name: Player2
+  m_Script: {fileID: 11500000, guid: ce36dbeadeb4871459f37365458ae67f, type: 3}
+  m_Name: Torn paper
   m_EditorClassIdentifier: 
-  Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
-  Text: "We\u2019re here to make sure it doesn\u2019t stay that way. Come on."
-  nextDialog: {fileID: 0}
+  sprite: {fileID: 762224164, guid: 3ce944ae6269dec439f83b1625bedb3d, type: 3}

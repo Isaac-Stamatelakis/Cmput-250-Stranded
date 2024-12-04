@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Player2-1-2
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
-  Text: "We\u2019ve come too far to turn back now. We fight"
+  Text: They're not hiding anymore.
   nextDialog: {fileID: 0}

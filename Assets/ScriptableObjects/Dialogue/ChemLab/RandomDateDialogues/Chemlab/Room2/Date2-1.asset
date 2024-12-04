@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Date2-1
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
-  Text: "Do we even stand a chance? There are too many of them. I\u2019ve seen what
-    they can do."
-  nextDialog: {fileID: 11400000, guid: 2ec10379792354a739f1e16f43a4aaf6, type: 2}
+  Text: "They used to be... like us, didn\u2019t they?"
+  nextDialog: {fileID: 0}
