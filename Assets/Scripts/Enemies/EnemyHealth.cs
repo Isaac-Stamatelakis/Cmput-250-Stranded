@@ -66,11 +66,20 @@ public class EnemyHealth : MonoBehaviour
         healthBar.display(health,health,iconSprite,name);
     }
 
+    public float getHealth() {
+        return health;
+    }
+
+    public float getMaxHealth() {
+        return maxHealth;
+    }
+
     private IEnumerator ColorOnHit() {
         flashingColor = true;
+        Color defaultColor = spriteRenderer.color;
         spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        spriteRenderer.color = Color.white;
+        spriteRenderer.color = defaultColor;
         flashingColor = false;
     }
 

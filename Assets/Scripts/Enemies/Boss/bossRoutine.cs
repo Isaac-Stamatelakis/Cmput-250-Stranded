@@ -10,6 +10,7 @@ public class bossRoutine : MonoBehaviour
     //components
     private Player player;
     private Animator anim;
+    private SpriteRenderer spr;
     
     //static positions for charge attack
     private Vector3 playerPos;
@@ -24,13 +25,20 @@ public class bossRoutine : MonoBehaviour
     [SerializeField] private float chargeSpeed = 40;
     [SerializeField] private GameObject projectile;
     [SerializeField] private float attackSpeed = 2f;
-    public EnemyHealth enemyHealth;
+    [SerializeField] private GameObject BossZombies;
 
+
+    //stuff related for half health stuff
+    public EnemyHealth enemyHealth;
+    private bool halfHealth = false;
+    
     // Start is called before the first frame update
     void Start()
     {
         player = Player.Instance;
         anim = GetComponentInChildren<Animator>();
+        spr = GetComponentInChildren<SpriteRenderer>();
+        enemyHealth = GetComponent<EnemyHealth>();
 
         //this is the main boss attack cycle
         StartCoroutine(canBossAttack());
@@ -40,11 +48,15 @@ public class bossRoutine : MonoBehaviour
         
         enemyHealth.multiplyHealth(healthModifier);
         attackSpeed *= speedModifier;
+
+        //Debug.Log($"{totalHealth}");
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log($"{enemyHealth.getMaxHealth()}");
+        Debug.Log($"{enemyHealth.getHealth()}");
         if (canChargeAttack) {
             transform.position += (playerPos - bossPos).normalized * (chargeSpeed * Time.deltaTime);
         }
@@ -56,6 +68,15 @@ public class bossRoutine : MonoBehaviour
         Vector3 position = transform.position;
         position.z = -2;
         transform.position = position;
+
+        Debug.Log($"is half: {(enemyHealth.getHealth() < (enemyHealth.getMaxHealth()/2)) && !halfHealth}");
+        if ((enemyHealth.getHealth() < (enemyHealth.getMaxHealth()/2)) && !halfHealth) {
+            //Debug.Log(spr==null);
+            Debug.Log("spawning zmobies");
+            Debug.Log($"is it set: {BossZombies}");
+            BossZombies.SetActive(true);
+            halfHealth = true;
+        }
     }
 
     IEnumerator canBossAttack() {

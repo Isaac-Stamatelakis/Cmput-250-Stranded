@@ -24,7 +24,7 @@ public class DatePlayer : MonoBehaviour
 
     public float boostSpeed = 20f;
     public float followDistance = 2f;
-    public float stopDistance = 1f;
+    public float stopDistance = 0.2f;
     public float maxDistance = 10f;
 
     private Vector2 playerOffset = new Vector2(0, -0.5f);
@@ -37,15 +37,20 @@ public class DatePlayer : MonoBehaviour
     public bool isInCutscene = false;
     public bool isCured = false; // Boolean to track if DatePlayer is cured
 
+    private UnityEngine.AI.NavMeshAgent nav;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = transform.Find("sprite").GetComponent<SpriteRenderer>();
         SetRandomDialogues(RandomDialogues);
         this.defaultShader = spriteRenderer.material;
         lastPosition = transform.position;
-        animator = GetComponent<Animator>();
+        animator = transform.Find("sprite").GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+
+        nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        nav.updateRotation = false;
     }
 
     void FixedUpdate()
@@ -72,53 +77,58 @@ public class DatePlayer : MonoBehaviour
         PLAYER_MOVE_TEST playerMoveScript = Player.Instance.GetComponent<PLAYER_MOVE_TEST>();
 
         float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
-        float currentFollowSpeed = playerMoveScript.walkSpeed;
+        nav.speed = playerMoveScript.walkSpeed;
 
         if (distanceToPlayer > maxDistance)
         {
-            currentFollowSpeed = boostSpeed;
+            nav.speed = boostSpeed;
         }
         Vector2 targetPosition = (Vector2)playerTransform.position + playerOffset;
         Vector2 directionToPlayer = (targetPosition - (Vector2)transform.position).normalized;
 
         if (distanceToPlayer > stopDistance)
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer, distanceToPlayer);
 
-            if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
-            {
-                Vector2 avoidanceDirection = Vector3.Cross(directionToPlayer, Vector3.forward).normalized;
-                rb.MovePosition(rb.position + (directionToPlayer + avoidanceDirection * 0.5f) * currentFollowSpeed * Time.fixedDeltaTime);
-            }
-            else
-            {
-                rb.MovePosition(rb.position + directionToPlayer * currentFollowSpeed * Time.fixedDeltaTime);
-                stuckFrames = 0;
-            }
+            nav.SetDestination(targetPosition);
+            //Debug.Log($"player is {directionToPlayer} from date");
+            //RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer, distanceToPlayer);
 
-            // Check if DatePlayer hasn't moved for too long
-            if (Vector2.Distance(transform.position, lastPosition) < 0.05f) // Minimal movement detected
-            {
-                stuckFrames++;
-                if (stuckFrames >= maxStuckFrames)
-                {
-                    // Force random movement if stuck for too long
-                    Vector2 randomDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
-                    rb.MovePosition(rb.position + randomDirection * boostSpeed * Time.fixedDeltaTime);
-                    stuckFrames = 0; // Reset stuck frames after forcing movement
-                }
-            }
-            else
-            {
-                stuckFrames = 0;
-            }
+            // if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer("Wall"))
+            // {
+            //     Vector2 avoidanceDirection = Vector3.Cross(directionToPlayer, Vector3.forward).normalized;
+            //     rb.MovePosition(rb.position + (directionToPlayer + avoidanceDirection * 0.5f) * currentFollowSpeed * Time.fixedDeltaTime);
+            // }
+            // else
+            // {
+            //     rb.MovePosition(rb.position + directionToPlayer * currentFollowSpeed * Time.fixedDeltaTime);
+            //     stuckFrames = 0;
+            // }
 
-            lastPosition = transform.position;
+            // // Check if DatePlayer hasn't moved for too long
+            // if (Vector2.Distance(transform.position, lastPosition) < 0.05f) // Minimal movement detected
+            // {
+            //     stuckFrames++;
+            //     if (stuckFrames >= maxStuckFrames)
+            //     {
+            //         // Force random movement if stuck for too long
+            //         Vector2 randomDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+            //         rb.MovePosition(rb.position + randomDirection * boostSpeed * Time.fixedDeltaTime);
+            //         stuckFrames = 0; // Reset stuck frames after forcing movement
+            //     }
+            // }
+            // else
+            // {
+            //     stuckFrames = 0;
+            // }
+
+            // lastPosition = transform.position;
 
             // Setting animations based on isCured state
             ResetMovementAnimationBools();
+            Debug.Log($"doing left = {directionToPlayer.x<0}");
             if (directionToPlayer.x < 0)
             {
+                Debug.Log("date trying to move left");
                 animator.SetBool(isCured ? "ndate_left" : "date_left", true);
             }
             else if (directionToPlayer.x > 0)
