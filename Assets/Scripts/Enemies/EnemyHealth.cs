@@ -16,8 +16,10 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private EnemyDeathBloodCollection dropBloodCollection;
     private AudioSource audioSource;
     private BossHealthBar healthBar;
+    public BossMusicController bossMusicController;
     private bool flashingColor = false;
     public bool isDying = false;
+    public bool isBoss = false;
     private ParticleSystem damagedParticleSystem;
 
     public void Start() {
@@ -86,8 +88,13 @@ public class EnemyHealth : MonoBehaviour
     private void Die()
     {
         isDying = true;
-        audioSource.PlayOneShot(deathSound);
-        Player.Instance.GetComponent<PlayerLevelComponent>().AddExperience(experience);
+        if (isBoss)
+        {
+            audioSource.pitch = 0.9f;
+            audioSource.PlayOneShot(deathSound);
+            bossMusicController.BossDefeated();
+        }
+        Player.Instance.GetComponent<PlayerLevelComponent>().addExperience(experience);
         DateHealUpgrade dateHealUpgrade = Player.Instance.DatePlayer.GetComponentInChildren<DateHealUpgrade>();
         if (dropBloodCollection)
         {
