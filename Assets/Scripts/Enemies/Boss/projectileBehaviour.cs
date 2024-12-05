@@ -5,6 +5,7 @@ using UnityEngine;
 public class projectileBehaviour : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
+    [SerializeField] private int projectileDamage = 15;
     private Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -27,7 +28,7 @@ public class projectileBehaviour : MonoBehaviour
             {
                 // Get the PlayerHealth component and apply damage
                 PlayerHealth health = col.gameObject.GetComponent<PlayerHealth>();
-                health.Damage(10);
+                health.Damage(projectileDamage);
                 Debug.Log("damge player");
             }
 

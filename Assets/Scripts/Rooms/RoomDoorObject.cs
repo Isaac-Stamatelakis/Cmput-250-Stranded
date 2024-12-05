@@ -112,10 +112,14 @@ namespace Rooms {
 
         private void doSwitch() {
             Transform playerTransform = Player.Instance.transform;
+            GameObject date = GameObject.Find("DatePlayer");
+            UnityEngine.AI.NavMeshAgent dateNav = date.GetComponent<UnityEngine.AI.NavMeshAgent>();
             Room room = roomDoor.Room;
             LevelManager.getInstance().CurrentLevel.loadRoom(roomDoor.Connection.Room);
             Vector3 spawnPosition = roomDoor.Connection.getEnterPosition(playerTransform.position);
             Player.Instance.SetPosition(spawnPosition);
+            dateNav.Warp(spawnPosition);
+            
         }
     }
 }

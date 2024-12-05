@@ -81,7 +81,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -332689373, guid: 032437a660c0ba24e8f8bcb826215368, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -118,7 +118,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1209337982418823840}
   m_Enabled: 0
   m_AgentTypeID: 0
-  m_Radius: 1
+  m_Radius: 1.2
   m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50

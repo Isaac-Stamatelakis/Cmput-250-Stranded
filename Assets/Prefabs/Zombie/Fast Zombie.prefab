@@ -80,7 +80,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1625801912, guid: 8e08eb1644d013c41b6dccfba7913624, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -117,7 +117,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1209337982418823840}
   m_Enabled: 0
   m_AgentTypeID: 0
-  m_Radius: 1
+  m_Radius: 1.2
   m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -191,6 +191,9 @@ MonoBehaviour:
   experience: 10
   spriteRenderer: {fileID: 0}
   iconSprite: {fileID: 0}
+  deathSound: {fileID: 0}
+  dropBloodCollection: {fileID: 0}
+  isDying: 0
 --- !u!95 &4643692383435145670
 Animator:
   serializedVersion: 5
