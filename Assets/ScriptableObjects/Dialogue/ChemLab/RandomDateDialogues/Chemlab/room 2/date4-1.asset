@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cae2666990c0bb459d13c257dd7c11f, type: 3}
-  m_Name: Player2-1-2
+  m_Name: date4-1
   m_EditorClassIdentifier: 
-  Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
-  Text: They're not hiding anymore.
+  Speaker: {fileID: 0}
+  Text: 
   nextDialog: {fileID: 0}

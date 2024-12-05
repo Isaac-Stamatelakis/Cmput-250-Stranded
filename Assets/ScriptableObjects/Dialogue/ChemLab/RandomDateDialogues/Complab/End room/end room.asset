@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a9fd90a19506f540a7da3094e78b735, type: 3}
-  m_Name: room 1
+  m_Name: end room
   m_EditorClassIdentifier: 
   dialogs:
-  - {fileID: 11400000, guid: 7f0a91ea93aab4023a384ccb0c2e9fa4, type: 2}
+  - {fileID: 11400000, guid: cceabd1d797f04091ad009f877745cbf, type: 2}
