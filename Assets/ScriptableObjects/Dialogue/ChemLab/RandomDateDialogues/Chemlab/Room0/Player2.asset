@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Player2
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
-  Text: Do you think the dean is behind this mess? It feels planned.
-  nextDialog: {fileID: 11400000, guid: 382c673a769dd48c680166bfb7199014, type: 2}
+  Text: "We\u2019re here to make sure it doesn\u2019t stay that way. Come on."
+  nextDialog: {fileID: 0}

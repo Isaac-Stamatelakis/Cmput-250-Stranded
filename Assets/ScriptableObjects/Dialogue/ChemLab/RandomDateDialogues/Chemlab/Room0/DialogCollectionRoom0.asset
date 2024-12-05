@@ -13,9 +13,4 @@ MonoBehaviour:
   m_Name: DialogCollectionRoom0
   m_EditorClassIdentifier: 
   dialogs:
-  - {fileID: 11400000, guid: 2bf4a706725b8c5409ba3eed4b92b9c1, type: 2}
-  - {fileID: 11400000, guid: 56c8810d7e67b4209a7e359be9f8c801, type: 2}
-  - {fileID: 11400000, guid: c7fce4ed61cfa4470acc6ee3ad0239d7, type: 2}
-  - {fileID: 11400000, guid: 8036327fb80ac4763b66600557bef626, type: 2}
-  - {fileID: 11400000, guid: 33d2e588573c247f1b7119e570f3cc3e, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: bd06fb9bcc32349a4a9ccebfc7b8034d, type: 2}

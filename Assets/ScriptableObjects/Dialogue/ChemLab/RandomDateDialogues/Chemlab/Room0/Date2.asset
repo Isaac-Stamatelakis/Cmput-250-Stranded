@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Date2
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
-  Text: I get it, but we can handle it. Just stick close
-  nextDialog: {fileID: 0}
+  Text: Playground? Feels more like a tomb now.
+  nextDialog: {fileID: 11400000, guid: 56c8810d7e67b4209a7e359be9f8c801, type: 2}
