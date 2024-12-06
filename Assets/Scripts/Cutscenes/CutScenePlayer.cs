@@ -59,6 +59,7 @@ public abstract class CutScenePlayer : MonoBehaviour
             if (currentIndex >= StoryElements.Length)
             {
                 OnEnd();
+                GameObject.Destroy(gameObject);
                 return;
             }
             DisplayStoryElement(StoryElements[currentIndex]);

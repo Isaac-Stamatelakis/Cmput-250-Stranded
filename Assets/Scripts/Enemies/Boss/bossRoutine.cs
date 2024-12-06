@@ -48,9 +48,12 @@ public class bossRoutine : MonoBehaviour
         DifficultyModifier modifier = LevelManager.getInstance().DifficultyModifier;
         float healthModifier = modifier.GetBossHealthModifier();
         float speedModifier = modifier.GetBossSpeedModifier();
-        
         enemyHealth.multiplyHealth(healthModifier);
         attackSpeed *= speedModifier;
+        BossHealthBar bossHealthBar = BossHealthBar.Instance;
+        enemyHealth.setHealthBar(bossHealthBar);
+        bossHealthBar.gameObject.SetActive(true);
+        
 
         //Debug.Log($"{totalHealth}");
     }

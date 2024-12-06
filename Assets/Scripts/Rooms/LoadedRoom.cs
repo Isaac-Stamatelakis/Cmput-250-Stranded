@@ -74,10 +74,10 @@ namespace Rooms {
             }
 
             if (room.RoomObjectContainer.Boss != null) {
-                BossHealthBar bossHealthBar = BossHealthBar.Instance;
-                bossHealthBar.gameObject.SetActive(true);
+                
+                
                 EnemyHealth boss = room.RoomObjectContainer.Boss;
-                boss.setHealthBar(bossHealthBar);
+                
                 boss.gameObject.SetActive(true);
                 boss.transform.SetParent(enemyContainer);
                  for (int i = 0; i < doorContainer.childCount; i++) {

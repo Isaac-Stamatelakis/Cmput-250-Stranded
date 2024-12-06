@@ -246,6 +246,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 615141389}
     m_Modifications:
+    - target: {fileID: 675860816057420378, guid: 63f9cb854a785cd4b867e825c68e9604, type: 3}
+      propertyPath: m_fontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 675860816057420378, guid: 63f9cb854a785cd4b867e825c68e9604, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 675860816057420378, guid: 63f9cb854a785cd4b867e825c68e9604, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 675860816057420378, guid: 63f9cb854a785cd4b867e825c68e9604, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 675860816057420378, guid: 63f9cb854a785cd4b867e825c68e9604, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 2929082237185714162, guid: 63f9cb854a785cd4b867e825c68e9604, type: 3}
       propertyPath: m_Name
       value: BossHealthBar
@@ -457,7 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultLevel: {fileID: 4323780544392805944, guid: 21f1c27a8880e0341a07644b3e577c25, type: 3}
-  testingDifficulty: 1
+  testingDifficulty: 3
 --- !u!4 &1856416340
 Transform:
   m_ObjectHideFlags: 0
