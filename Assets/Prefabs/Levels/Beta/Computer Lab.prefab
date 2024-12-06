@@ -44324,8 +44324,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-<<<<<<< HEAD
-=======
 --- !u!1 &4698089088339030008
 GameObject:
   m_ObjectHideFlags: 0
@@ -45684,11 +45682,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-<<<<<<< HEAD
---- !u!1 &5291524624600112157
-=======
 --- !u!1 &5270891415291024169
->>>>>>> main
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45696,35 +45690,28 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
   - component: {fileID: 864603911441340994}
   - component: {fileID: 553726014726286204}
   m_Layer: 0
   m_Name: torn_pages_1 (1)
-=======
   - component: {fileID: 3304621710471125281}
   - component: {fileID: 527248483436931307}
   - component: {fileID: 933147066183553342}
   m_Layer: 5
   m_Name: text
->>>>>>> main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
 --- !u!4 &864603911441340994
 Transform:
-=======
 --- !u!224 &3304621710471125281
 RectTransform:
->>>>>>> main
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 5291524624600112157}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.48, y: -16, z: 0}
@@ -45736,7 +45723,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &553726014726286204
 SpriteRenderer:
-=======
   m_GameObject: {fileID: 5270891415291024169}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -45753,12 +45739,10 @@ SpriteRenderer:
   m_Pivot: {x: 0.5, y: 1.5447778}
 --- !u!222 &527248483436931307
 CanvasRenderer:
->>>>>>> main
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 5291524624600112157}
   m_Enabled: 1
   m_CastShadows: 0
@@ -45805,7 +45789,6 @@ CanvasRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-=======
   m_GameObject: {fileID: 5270891415291024169}
   m_CullTransparentMesh: 1
 --- !u!114 &933147066183553342
@@ -48206,11 +48189,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-<<<<<<< HEAD
 --- !u!1 &6654821761133996008
-=======
---- !u!1 &6751056841492650392
->>>>>>> main
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48218,35 +48197,28 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
   - component: {fileID: 3522588977210373806}
   - component: {fileID: 7885280385662701529}
   m_Layer: 0
   m_Name: chair (7)
-=======
   - component: {fileID: 2816007022487614937}
   - component: {fileID: 5556314676294685152}
   - component: {fileID: 7529733541277254633}
   m_Layer: 5
   m_Name: paper
->>>>>>> main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
 --- !u!4 &3522588977210373806
 Transform:
-=======
 --- !u!224 &2816007022487614937
 RectTransform:
->>>>>>> main
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 6654821761133996008}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.88, y: -20.27, z: 0}
@@ -48258,7 +48230,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7885280385662701529
 SpriteRenderer:
-=======
   m_GameObject: {fileID: 6751056841492650392}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -48277,12 +48248,10 @@ SpriteRenderer:
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5556314676294685152
 CanvasRenderer:
->>>>>>> main
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 6654821761133996008}
   m_Enabled: 1
   m_CastShadows: 0
@@ -48329,7 +48298,6 @@ CanvasRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-=======
   m_GameObject: {fileID: 6751056841492650392}
   m_CullTransparentMesh: 1
 --- !u!114 &7529733541277254633
@@ -49658,11 +49626,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-<<<<<<< HEAD
---- !u!1 &7649190820656237377
-=======
 --- !u!1 &7481567910549850603
->>>>>>> main
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49670,35 +49634,28 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
   - component: {fileID: 5156196761327813278}
   - component: {fileID: 8040249786768053476}
   m_Layer: 0
   m_Name: torn_pages_0
-=======
   - component: {fileID: 4057313544929990215}
   - component: {fileID: 5960282677845061736}
   - component: {fileID: 8544148620005557661}
   m_Layer: 5
   m_Name: text
->>>>>>> main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
 --- !u!4 &5156196761327813278
 Transform:
-=======
 --- !u!224 &4057313544929990215
 RectTransform:
->>>>>>> main
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 7649190820656237377}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.36, y: -12.51, z: 0}
@@ -49710,7 +49667,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8040249786768053476
 SpriteRenderer:
-=======
   m_GameObject: {fileID: 7481567910549850603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -49727,12 +49683,10 @@ SpriteRenderer:
   m_Pivot: {x: 0.5, y: 1.5447778}
 --- !u!222 &5960282677845061736
 CanvasRenderer:
->>>>>>> main
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 7649190820656237377}
   m_Enabled: 1
   m_CastShadows: 0
@@ -49779,7 +49733,6 @@ CanvasRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-=======
   m_GameObject: {fileID: 7481567910549850603}
   m_CullTransparentMesh: 1
 --- !u!114 &8544148620005557661

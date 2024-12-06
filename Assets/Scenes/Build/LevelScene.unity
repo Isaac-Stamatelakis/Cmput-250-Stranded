@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 103229942f2c6964cad717772bcc4d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLevel: {fileID: 4323780544392805944, guid: d15520d77815d3b4e93eb7bca8be47f4, type: 3}
+  defaultLevel: {fileID: 4323780544392805944, guid: 21f1c27a8880e0341a07644b3e577c25, type: 3}
   testingDifficulty: 1
 --- !u!4 &1856416340
 Transform:
@@ -591,6 +591,22 @@ PrefabInstance:
     - target: {fileID: 7363912352877690169, guid: 86e9befc570406c498e14bce619974bd, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363912353130516797, guid: 86e9befc570406c498e14bce619974bd, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363912353130516797, guid: 86e9befc570406c498e14bce619974bd, type: 3}
+      propertyPath: m_Color.g
+      value: 0.87309647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363912353130516797, guid: 86e9befc570406c498e14bce619974bd, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363912353130516798, guid: 86e9befc570406c498e14bce619974bd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86e9befc570406c498e14bce619974bd, type: 3}
