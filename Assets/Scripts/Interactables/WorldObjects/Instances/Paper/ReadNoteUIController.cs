@@ -34,7 +34,7 @@ public class ReadNoteUIController : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.E))
         {
             gameObject.SetActive(false);
             Player.Instance.setDialog(false);

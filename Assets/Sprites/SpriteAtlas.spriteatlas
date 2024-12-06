@@ -315,6 +315,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 0a946b473f79b6041beb5264e7d670c7, type: 3}
   - {fileID: 21300000, guid: a806d157ccec4e0479da687ac7a94fb6, type: 3}
   - {fileID: 21300000, guid: 2cc89757473cfb84589a1844c05807e8, type: 3}
+  - {fileID: 21300000, guid: 27815677ad9c3e94a82a70e35af6d528, type: 3}
   - {fileID: 21300000, guid: 0c34ba77ff5fcbe44bfe9cda00a3b8d7, type: 3}
   - {fileID: 21300000, guid: 9cc1fc87de8816b47a0bf980488ef3c5, type: 3}
   - {fileID: 21300000, guid: a1122a97804a119419881aeaf7b25ebe, type: 3}
@@ -823,6 +824,7 @@ SpriteAtlas:
   - ComputerLabLightGreen_U_False_L_True_D_False_R_False
   - ComputerLabGreenWallBottom_U_True_L_False_D_True_R_False
   - ComputerBeigeWallBottom_U_True_L_True_D_False_R_False
+  - aura_heart
   - LabWallBottom_U_True_L_False_D_True_R_True
   - ComputerBeigeWallBottom_U_True_L_False_D_False_R_True
   - BrickWall_U_False_L_False_D_True_R_True_diag

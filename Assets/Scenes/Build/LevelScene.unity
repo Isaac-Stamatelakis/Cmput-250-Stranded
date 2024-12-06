@@ -477,7 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultLevel: {fileID: 4323780544392805944, guid: d15520d77815d3b4e93eb7bca8be47f4, type: 3}
-  testingDifficulty: 3
+  testingDifficulty: 1
 --- !u!4 &1856416340
 Transform:
   m_ObjectHideFlags: 0
@@ -546,11 +546,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4047966325338651154, guid: 86e9befc570406c498e14bce619974bd, type: 3}
       propertyPath: m_fontSize
-      value: 32
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 4047966325338651154, guid: 86e9befc570406c498e14bce619974bd, type: 3}
       propertyPath: m_fontSizeBase
-      value: 32
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 4719418981545282429, guid: 86e9befc570406c498e14bce619974bd, type: 3}
       propertyPath: m_AnchorMax.x
