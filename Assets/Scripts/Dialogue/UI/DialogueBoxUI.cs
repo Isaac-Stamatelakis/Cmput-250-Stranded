@@ -22,6 +22,7 @@ namespace Dialogue
         private float skipChars = 0;
         private bool canFastSkip = true;
         private DialogCallBack callBack;
+        private HashSet<DialogObject> previousDialogs = new HashSet<DialogObject>();
 
         public string CurrentDialog => currentDialog?.name;
 
@@ -64,18 +65,32 @@ namespace Dialogue
             DisplayDialogue(dialogue); // Call the existing method to handle the dialogue display
         }
 
+        private void EndDialogSequence()
+        {
+            Player.Instance.setDialog(false);
+            gameObject.SetActive(false);
+            callBack?.Invoke(); // Invoke the callback if set
+            callBack = null;
+            previousDialogs = new HashSet<DialogObject>();
+        }
         public void DisplayDialogue(DialogObject dialogue)
         {
-            skipChars = 0;
-            Player.Instance.setDialog(dialogue != null);
-            if (dialogue == null)
+            if (previousDialogs.Contains(dialogue))
             {
-                gameObject.SetActive(false);
-                callBack?.Invoke(); // Invoke the callback if set
-                callBack = null;
+                Debug.LogWarning($"Duplicate dialog would have resulted in a an infinite loop {dialogue.name}");
+                EndDialogSequence();
                 return;
             }
-
+            skipChars = 0;
+            
+            if (dialogue == null)
+            {
+                EndDialogSequence();
+                return;
+            }
+            previousDialogs.Add(dialogue);
+            
+            /* Commented out by Isaac: Don't think we need this
             // Check if this is the final dialogue ('nd_p3')
             if (dialogue.name == "nd_p3")
             {
@@ -83,6 +98,7 @@ namespace Dialogue
                 NextSceneLoader.Instance.LoadScene("ending cutscene");
                 return;
             }
+            */
 
             spaceInfoPanel.gameObject.SetActive(true);
             TextMeshProUGUI spaceText = spaceInfoPanel.GetComponentInChildren<TextMeshProUGUI>();
