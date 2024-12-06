@@ -85,7 +85,7 @@ public class PlayerExperienceUI : MonoBehaviour
         levelUpButton.gameObject.SetActive(true);
         Color[] levelUpColors = {
             Color.black,
-            Color.gray,
+            Color.black,
             Color.black,
         };
         levelUpText.display("LEVEL UP",levelUpColors);

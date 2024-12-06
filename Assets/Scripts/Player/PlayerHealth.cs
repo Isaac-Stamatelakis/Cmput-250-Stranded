@@ -75,7 +75,8 @@ public class PlayerHealth : MonoBehaviour
         if (health <= 0)
         {
             health = 0;
-        } else if (amount > 0) {
+        }
+        if (amount > 0) {
             // Prevents playign hurt sound when refreshing ui by damaging 0
             playerHurtSFX.PlaySound(PlayerHurtSound.Damaged);
             particleSystem.Play();

@@ -14,7 +14,9 @@ namespace PlayerModule {
         [SerializeField] PlayerUpgradeUIElement uiElementPrefab;
         private List<PlayerUpgrade> playerUpgrades;
         private VoidCallBack callBack;
-        public void display(List<PlayerUpgrade> playerUpgrades) {
+        public void display(List<PlayerUpgrade> playerUpgrades)
+        {
+            Time.timeScale = 0f;
             PlayerExperienceUI playerExperienceUI = Player.Instance.PlayerUI.PlayerExperienceUI;
             Player.Instance.setDialog(true);
             backButton.onClick.AddListener(() => {
@@ -68,6 +70,7 @@ namespace PlayerModule {
 
         public void OnDestroy() {
             PlayerExperienceUI playerExperienceUI = Player.Instance.PlayerUI.PlayerExperienceUI;
+            Time.timeScale = 1f;
             playerExperienceUI.setSelectorDisplayed(false);
             Player.Instance.setDialog(false);
         }
