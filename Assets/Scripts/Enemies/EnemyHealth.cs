@@ -16,8 +16,10 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private EnemyDeathBloodCollection dropBloodCollection;
     private AudioSource audioSource;
     private BossHealthBar healthBar;
+    public BossMusicController bossMusicController;
     private bool flashingColor = false;
     public bool isDying = false;
+    public bool isBoss = false;
     private ParticleSystem damagedParticleSystem;
 
     public void Start() {
@@ -66,11 +68,20 @@ public class EnemyHealth : MonoBehaviour
         healthBar.display(health,health,iconSprite,name);
     }
 
+    public float getHealth() {
+        return health;
+    }
+
+    public float getMaxHealth() {
+        return maxHealth;
+    }
+
     private IEnumerator ColorOnHit() {
         flashingColor = true;
+        Color defaultColor = spriteRenderer.color;
         spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        spriteRenderer.color = Color.white;
+        spriteRenderer.color = defaultColor;
         flashingColor = false;
     }
 
@@ -82,6 +93,12 @@ public class EnemyHealth : MonoBehaviour
         player.GetComponent<PlayerLevelComponent>().AddExperience(experience);
         DateHealUpgrade dateHealUpgrade = player.DatePlayer.GetComponentInChildren<DateHealUpgrade>();
         player.PlayerStats.Kills++;
+        if (isBoss)
+        {
+            audioSource.pitch = 0.9f;
+            audioSource.PlayOneShot(deathSound);
+            bossMusicController.BossDefeated();
+        }
         if (dropBloodCollection)
         {
             GameObject blood = dropBloodCollection.GetBlood();

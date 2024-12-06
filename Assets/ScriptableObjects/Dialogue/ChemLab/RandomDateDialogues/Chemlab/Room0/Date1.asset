@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Date1
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
-  Text: "It\u2019s the calm before the storm. I just hope we\u2019re ready when they
-    show up."
+  Text: "This is where it started, isn\u2019t it? All the rumors... they led back
+    here."
   nextDialog: {fileID: 0}

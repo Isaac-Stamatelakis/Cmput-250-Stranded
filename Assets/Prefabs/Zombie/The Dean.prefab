@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 250383000215901853}
-  - component: {fileID: 250383000215901852}
   - component: {fileID: 250383000215901858}
+  - component: {fileID: 250383000215901852}
   m_Layer: 10
   m_Name: bossAnimations
   m_TagString: Untagged
@@ -33,27 +33,6 @@ Transform:
   m_Father: {fileID: 250383000893655802}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &250383000215901852
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 250383000215901855}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 07d03b1b2bcdbc24dad8922213436c80, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &250383000215901858
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -106,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &250383000215901852
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250383000215901855}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 07d03b1b2bcdbc24dad8922213436c80, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &250383000893655798
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,9 +182,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b357ee2e59b63294e9cab4e8bc791cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeSpeed: 40
+  chargeSpeed: 35
   projectile: {fileID: 5575287030619783462, guid: de6cc6e270ab21c499e3c703dc58260b, type: 3}
   attackSpeed: 2
+  enemyHealth: {fileID: 0}
 --- !u!114 &250383000893655800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +202,9 @@ MonoBehaviour:
   experience: 0
   spriteRenderer: {fileID: 250383000215901858}
   iconSprite: {fileID: -1258940765, guid: 549c0abd1be31f1478b0d787f3a6d47b, type: 3}
+  deathSound: {fileID: 0}
+  dropBloodCollection: {fileID: 0}
+  isDying: 0
 --- !u!114 &250383000893655803
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Player1-2
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
-  Text: "Stay close. I\u2019ve got a bad feeling about the next room."
-  nextDialog: {fileID: 11400000, guid: 3e70ced7dc60c4ca789794a4141ee401, type: 2}
+  Text: "It\u2019s never about the consequences, is it? Just the results. And now
+    we\u2019re standing in the middle of their failure."
+  nextDialog: {fileID: 0}

@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Player1
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
-  Text: This place is way too quiet. Do you think the zombies are waiting for us
-    somewhere?
-  nextDialog: {fileID: 11400000, guid: bd06fb9bcc32349a4a9ccebfc7b8034d, type: 2}
+  Text: The Dean's work. This lab... it was his playground.
+  nextDialog: {fileID: 11400000, guid: 382c673a769dd48c680166bfb7199014, type: 2}

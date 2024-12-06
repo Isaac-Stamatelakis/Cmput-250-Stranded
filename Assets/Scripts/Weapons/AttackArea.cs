@@ -74,12 +74,30 @@ public class AttackArea : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;
 
-        bool left = mousePosition.x < player.position.x;
-        if (left) {
-            transform.rotation = Quaternion.Euler(0, 0, 180);
-        } else { // right
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+        Vector3 direction = mousePosition - player.position;
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        {
+            if (direction.x < 0)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 180);
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
         }
+        else
+        {
+            if (direction.y > 0) 
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 90);
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 270);
+            }
+        }
+
     }
 
 
