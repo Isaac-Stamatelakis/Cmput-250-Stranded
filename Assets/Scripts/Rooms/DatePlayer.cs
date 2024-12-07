@@ -208,7 +208,7 @@ public class DatePlayer : MonoBehaviour
 
     private void goToEnd() {
         TutorialDialogSequencer.ResetDialogueFlag();
-        SceneManager.LoadScene("EndingCutscene");
+        SceneManager.LoadScene("EndingScene");
     }
 
 

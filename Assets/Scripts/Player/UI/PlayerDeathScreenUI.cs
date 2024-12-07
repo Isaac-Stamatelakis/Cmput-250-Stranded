@@ -29,10 +29,8 @@ namespace PlayerModule {
                 SceneManager.LoadScene(currentSceneIndex);
             });
             Home.onClick.AddListener(() => {
-                PauseScreenVerifier pauseScreenVerifier = GameObject.Instantiate(pauseScreenVerifierPrefab);
+                PauseScreenVerifier pauseScreenVerifier = GameObject.Instantiate(pauseScreenVerifierPrefab, transform, false);
                 pauseScreenVerifier.display(titleScreenCallback, "Are you sure you want to exit?", null, "Exit");
-                pauseScreenVerifier.transform.SetParent(transform, false);
-
             });
 
         }

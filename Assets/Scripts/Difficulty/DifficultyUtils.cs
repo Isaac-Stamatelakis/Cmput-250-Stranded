@@ -28,7 +28,7 @@ namespace Difficulty {
                 case DifficultyPresets.Insane:
                     return new DifficultyModifier(false, false, 3, 0, 3);
                 case DifficultyPresets.Impossible:
-                    return new DifficultyModifier(true, false, 4, 0, 4);
+                    return new DifficultyModifier(true, false, 3, 0, 3);
                 default:
                     throw new InvalidEnumArgumentException($"Did not cover case for {p}");
             }
@@ -36,10 +36,10 @@ namespace Difficulty {
     }
     public static class DifficultyUtils
     {
-        public static readonly List<float> ZombieModifiers = new List<float> { 0.5f, 1f, 1.5f,2f,3f};
+        public static readonly List<float> ZombieModifiers = new List<float> { 0.5f, 1f, 1.5f,2f};
         public static readonly List<float> HealingModifiers = new List<float> { 0, 0.5f, 1f, 1.5f };
-        public static readonly List<float> BossHealthModifier = new List<float> { 0.5f, 1f, 1.5f,2f,3f};
-        public static readonly List<float> BossSpeedModifier = new List<float> { 1.5f, 1f, 0.5f,0.25f,0.05f}; // Good luck
+        public static readonly List<float> BossHealthModifier = new List<float> { 0.5f, 1f, 1.5f,2f};
+        public static readonly List<float> BossSpeedModifier = new List<float> { 1.5f, 1f, 0.5f,0}; // Good luck
         public static readonly int DEFAULT_ZOMBIE_MODIFIER = 1;
         public static readonly int DEFAULT_HEALING_MODIFIER = 2;
         public static readonly int DEFAULT_BOSS_MODIFIER = 1;

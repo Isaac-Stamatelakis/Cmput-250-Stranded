@@ -16,6 +16,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private EnemyDeathBloodCollection dropBloodCollection;
     private AudioSource audioSource;
     private BossHealthBar healthBar;
+    public BossHealthBar HealthBar => healthBar;
     public BossMusicController bossMusicController;
     private bool flashingColor = false;
     public bool isDying = false;
@@ -32,6 +33,9 @@ public class EnemyHealth : MonoBehaviour
     }
     public void Damage(int amount)
     {
+        if (healthBar != null) {
+            healthBar.display(health,maxHealth,iconSprite,name);
+        }
         if(amount < 0)
         {
             throw new System.ArgumentOutOfRangeException("Cannot have negative Damage");
@@ -40,7 +44,7 @@ public class EnemyHealth : MonoBehaviour
             StartCoroutine(ColorOnHit());
         }
 
-        if (damagedParticleSystem)
+        if (damagedParticleSystem != null)
         {
             damagedParticleSystem.Play();
         }
@@ -53,9 +57,7 @@ public class EnemyHealth : MonoBehaviour
         {
             Die();
         }
-        if (healthBar != null) {
-            healthBar.display(health,maxHealth,iconSprite,name);
-        }
+        
     }
 
     public void multiplyHealth(float amount)
@@ -88,14 +90,17 @@ public class EnemyHealth : MonoBehaviour
     private void Die()
     {
         isDying = true;
+        audioSource.PlayOneShot(deathSound);
+        Player player = Player.Instance;
+        player.GetComponent<PlayerLevelComponent>().AddExperience(experience);
+        DateHealUpgrade dateHealUpgrade = player.DatePlayer.GetComponentInChildren<DateHealUpgrade>();
+        player.PlayerStats.Kills++;
         if (isBoss)
         {
             audioSource.pitch = 0.9f;
             audioSource.PlayOneShot(deathSound);
             bossMusicController.BossDefeated();
         }
-        Player.Instance.GetComponent<PlayerLevelComponent>().addExperience(experience);
-        DateHealUpgrade dateHealUpgrade = Player.Instance.DatePlayer.GetComponentInChildren<DateHealUpgrade>();
         if (dropBloodCollection)
         {
             GameObject blood = dropBloodCollection.GetBlood();

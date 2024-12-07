@@ -84,9 +84,8 @@ public class PlayerAttack : MonoBehaviour
                 Debug.Log("Attacking down");
             }
         }
-
-        int dir = attackLeft ? 1 : -1;
-        particleSystem.transform.Translate(0.5f * dir, 0, 0);
+        
+        //particleSystem.transform.Translate(0.5f * dir, 0, 0);
 
         AttackArea attackAreaScript = attackArea.GetComponent<AttackArea>();
         if (attackAreaScript != null)

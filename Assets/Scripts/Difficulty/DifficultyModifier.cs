@@ -40,6 +40,20 @@ namespace Difficulty
         {
             return DifficultyUtils.HealingModifiers[HealingModifier];
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || obj is not DifficultyModifier difficultyModifier)
+            {
+                return false;
+            }
+            return difficultyModifier.OneHealthMode == OneHealthMode 
+                   && difficultyModifier.CheckPoints == CheckPoints 
+                   && difficultyModifier.ZombieModifier == ZombieModifier
+                   && difficultyModifier.HealingModifier == HealingModifier
+                   && difficultyModifier.BossModifier == BossModifier;
+            
+        }
     }
 }
 

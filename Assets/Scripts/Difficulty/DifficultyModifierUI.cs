@@ -63,7 +63,7 @@ namespace Difficulty
                     GetScrollBarStepValue(BossModifier)
             );
             LevelManager.getInstance().setModifier(modifier);
-            string sceneName = SkipIntroToggle.isOn ? "LevelScene" : "BackgroundStory";
+            string sceneName = SkipIntroToggle.isOn ? "LevelScene" : "OpeningScene";
             SceneManager.LoadScene(sceneName);
         }
 

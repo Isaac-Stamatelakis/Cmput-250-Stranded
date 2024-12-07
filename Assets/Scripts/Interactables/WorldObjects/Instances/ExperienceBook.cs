@@ -13,7 +13,7 @@ public class ExperienceBook : InteractableGameObject
         if (clear) {
             return $"<color=green>Gather Knowledge</color>";
         } else {
-            return "<color=red>Cannot Gather Knowledge\nNot a Safe Learning Enviroment</color>";
+            return "<color=red>Cannot Gather Knowledge\nNot a Safe Learning Environment</color>";
         }
 
     }
