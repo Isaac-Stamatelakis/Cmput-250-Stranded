@@ -18,7 +18,7 @@ public class PlayerTutorialManager : MonoBehaviour
     private List<string> text = new List<string>{
         "Use The ARROW KEYS \nor WASD to Move!",
         "Pick up a Weapon!",
-        "Left Click to Attack!",
+        "Left Click to Attack in your Mouse Direction",
         "Press P to Pause!",
         "Go Through the Door!"
     };

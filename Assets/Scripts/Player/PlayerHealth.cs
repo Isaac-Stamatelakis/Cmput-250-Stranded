@@ -57,7 +57,7 @@ public class PlayerHealth : MonoBehaviour
             return;
         }
 
-        invincibleFrames = 10;
+        invincibleFrames = 12;
 
         if (amount < 0)
         {
@@ -76,6 +76,7 @@ public class PlayerHealth : MonoBehaviour
         {
             health = 0;
         }
+        Player.Instance.PlayerStats.DamageTaken += amount;
         if (amount > 0) {
             // Prevents playign hurt sound when refreshing ui by damaging 0
             playerHurtSFX.PlaySound(PlayerHurtSound.Damaged);
