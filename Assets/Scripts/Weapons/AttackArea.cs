@@ -52,7 +52,32 @@ public class AttackArea : MonoBehaviour
             
             Player.Instance.PlayerStats.DamageDealt += damage;
             health.Damage(damage);
+            NavmeshFollow navmeshFollow = collider.GetComponent<NavmeshFollow>();
+            if (navmeshFollow != null)
+            {
+                Vector3 eulerAngles = transform.rotation.eulerAngles;
+                Vector2Int knockbackDirection = AngleToDirectionVector(eulerAngles.z);
+                navmeshFollow.KnockBack(knockbackDirection, weapon.knockback);
+            }
             hasDamaged = true; 
+        }
+    }
+
+    private Vector2Int AngleToDirectionVector(float angle)
+    {
+        switch (angle)
+        {   
+            case 0:
+                return Vector2Int.right;
+            case 90:
+                return Vector2Int.up;
+            case 180:
+                return Vector2Int.left;
+            case 270:
+                return Vector2Int.down;
+            default:
+                Debug.LogWarning($"Invalid Angle {angle}");
+                return Vector2Int.left;
         }
     }
 

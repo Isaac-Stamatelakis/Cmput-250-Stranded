@@ -22,7 +22,13 @@ namespace PlayerModule
         //public float runSpeed = 20f;
 
         Vector2 moveDirection;
+        private int stunFrames = 0;
 
+        public void ApplyKnockback(Vector2 knockback)
+        {
+            stunFrames = 5;
+            rb.AddForce(knockback, ForceMode2D.Impulse);
+        }
         public void Start()
         {
             rb = GetComponent<Rigidbody2D>();
@@ -32,6 +38,11 @@ namespace PlayerModule
         }
         public void Update() {
             moveDirection = Vector2.zero;
+            if (stunFrames > 0)
+            {
+                setAnimationsFalse();
+                return;
+            }
             if (!Player.Instance.CanMove) {
                 setAnimationsFalse();
                 rb.velocity = Vector2.zero;
@@ -107,9 +118,20 @@ namespace PlayerModule
 
         void FixedUpdate()
         {
-
+            stunFrames--;
             if (moveDirection != Vector2.zero)
             {
+                /*
+                Vector2 velocity = rb.velocity;
+                if (velocity.magnitude > 0.01f) // Counteract weird bug where force is not applied when player moves in force direction
+                {
+                    //int xDir = velocity.x > 0 ? 1 : -1;
+                    //int yDir = velocity.y > 0 ? 1 : -1;
+                    velocity -= velocity / 10;
+                }
+                rb.velocity = velocity;
+                */
+                
                 rb.MovePosition(rb.position + moveDirection * Time.fixedDeltaTime);
             }
 

@@ -16,7 +16,7 @@ MonoBehaviour:
   damage: 5
   range: 2.5
   attackTime: 0.15
-  knockback: 0
+  knockback: 4
   artwork: {fileID: -1715389575, guid: c44c051cb389ab84fa0a34321cacafee, type: 3}
   swingSound: {fileID: 8300000, guid: 2554517f7750a5745b40df4dba61a4e5, type: 3}
   weaponAnimatorOverride: {fileID: 22100000, guid: dd4b6a0d5bb2b004f91cd6743e568e77, type: 2}

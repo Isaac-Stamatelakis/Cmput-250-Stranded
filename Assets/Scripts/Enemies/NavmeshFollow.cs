@@ -16,7 +16,8 @@ public class NavmeshFollow : MonoBehaviour
     private Rigidbody2D rb;
     public int speed = 5;
     public float animSpeed = 0.1f;
-    public Weapon weapon;
+    private bool isKnockedBack;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -35,14 +36,37 @@ public class NavmeshFollow : MonoBehaviour
         obs.carving = true;
 
         rb = GetComponent<Rigidbody2D>();
-        rb.isKinematic = true;
+        //rb.isKinematic = true;
 
         player = Player.Instance;
         hasCollided = false;
 
         zom.speed = speed;
+    }
 
+    public void KnockBack(Vector2Int direction, float force)
+    {
+        if (!isKnockedBack)
+        {
+            StartCoroutine(KnockbackCoroutine(direction, force, 0.1f));
+        }
+    }
+    private IEnumerator KnockbackCoroutine(Vector2Int direction, float force, float duration)
+    {
+        if (!zom.isOnNavMesh)
+        {
+            yield break;
+        }
+        isKnockedBack = true;
+        zom.isStopped = true;
         
+        Vector2 forceDir = force * (Vector2)direction;
+        rb.AddForce(forceDir, ForceMode2D.Impulse);
+        
+        yield return new WaitForSeconds(duration);
+        
+        zom.isStopped = false;
+        isKnockedBack = false;
     }
 
     // Update is called once per frame
@@ -112,6 +136,6 @@ public class NavmeshFollow : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         rb.velocity = Vector2.zero;
-        rb.isKinematic = true;
+        //rb.isKinematic = true;
     }
 }

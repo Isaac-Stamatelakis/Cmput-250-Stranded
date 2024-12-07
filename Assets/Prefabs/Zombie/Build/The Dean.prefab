@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 250383000893655801}
   - component: {fileID: 3264359613910117900}
   - component: {fileID: 1354548526659447341}
+  - component: {fileID: 3250216222588188936}
   m_Layer: 10
   m_Name: The Dean
   m_TagString: Untagged
@@ -275,6 +276,19 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: -0.3, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &3250216222588188936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250383000893655798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c335e0c92debd746a9e28f6f1c2895b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Knockback: 100
 --- !u!1001 &8331273796338649535
 PrefabInstance:
   m_ObjectHideFlags: 0
