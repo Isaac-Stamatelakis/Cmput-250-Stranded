@@ -127,5 +127,7 @@ public class PlayerAttack : MonoBehaviour
         {
             playerAnimator.runtimeAnimatorController = originalAnimatorController;
         }
+        WeaponStatsUI weaponStatsUI = FindObjectOfType<WeaponStatsUI>();
+        WeaponStatsUI.Instance?.UpdateWeaponStats(currentWeapon);
     }
 }

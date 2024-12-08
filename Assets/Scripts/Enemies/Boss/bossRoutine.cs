@@ -109,6 +109,7 @@ public class bossRoutine : MonoBehaviour
             if (canAttack && !enemyHealth.isDying) {
                 if (attack == 0) {
                     audioSource.pitch = 0.8f;
+                    audioSource.volume = 0.8f;
                     audioSource.PlayOneShot(chargeAttackSound);
 
                     playerPos = player.transform.position;
