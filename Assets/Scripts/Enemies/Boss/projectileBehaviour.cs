@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using PlayerModule;
 using UnityEngine;
 
 public class projectileBehaviour : MonoBehaviour
@@ -30,10 +29,6 @@ public class projectileBehaviour : MonoBehaviour
                 // Get the PlayerHealth component and apply damage
                 PlayerHealth health = col.gameObject.GetComponent<PlayerHealth>();
                 health.Damage(projectileDamage);
-                Vector3 eulerAngles = transform.rotation.eulerAngles;
-                float angle = eulerAngles.z + 90f;
-                Vector2 direction = new Vector2(Mathf.Cos(Mathf.Deg2Rad *angle), Mathf.Sin(Mathf.Deg2Rad * angle));
-                col.gameObject.GetComponent<PLAYER_MOVE_TEST>().ApplyKnockback(direction*150);
                 Debug.Log("damge player");
             }
 

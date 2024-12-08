@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cae2666990c0bb459d13c257dd7c11f, type: 3}
   m_Name: rm3_d2
   m_EditorClassIdentifier: 
-  Speaker: {fileID: 0}
-  Text: 
-  nextDialog: {fileID: 0}
+  Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
+  Text: "You\u2019ve done more for me than I deserve."
+  nextDialog: {fileID: 11400000, guid: deb3c62724b5049b2a8f5ef426a0d6f6, type: 2}

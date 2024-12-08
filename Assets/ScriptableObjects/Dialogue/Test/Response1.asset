@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Response1
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
-  Text: "It\u2019s getting worse\u2026 I can feel the infection spreading. But I\u2019m
-    not giving up yet. We still have time."
+  Text: "This lab was supposed to be a beacon of hope. Instead, it became a nightmare.
+    The Dean's experiments\u2026 they got out of control."
   nextDialog: {fileID: 0}

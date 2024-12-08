@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Date1-2
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
-  Text: "They probably didn\u2019t care. If this was all about some \u2018breakthrough,\u2019
+  Text: "They probably didn\u2019t care. If this was all about some \"breakthrough\",
     the consequences didn\u2019t matter to them."
   nextDialog: {fileID: 11400000, guid: ea84acb14156942a7825de4341829be0, type: 2}

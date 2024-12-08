@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: rm1_d1
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
-  Text: "Yeah\u2026 well, at least I\u2019m not alone. That makes it\u2026 a little
-    less terrifying."
-  nextDialog: {fileID: 11400000, guid: 53eafce65455c4069a18403f377c6be8, type: 2}
+  Text: "That\u2019s why they started this? To fix population decline?"
+  nextDialog: {fileID: 11400000, guid: e68f0bc7580f947a8a861ec90f3bc77f, type: 2}

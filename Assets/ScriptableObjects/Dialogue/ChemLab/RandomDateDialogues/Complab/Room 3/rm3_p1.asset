@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: rm3_p1
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
-  Text: "Yeah\u2026 tight quarters, limited exits. We\u2019ll have to be careful.
-    These things could pop out from anywhere."
-  nextDialog: {fileID: 0}
+  Text: "Yeah\u2026 back when things were normal. Before all this... but even now,
+    you\u2019re my reason to keep fighting."
+  nextDialog: {fileID: 11400000, guid: 2972b95acebca4276b052e3a3eaab747, type: 2}

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: rm4_p1
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
-  Text: "Stay close. If we get separated here, it\u2019ll be hard to find each other
-    again. We\u2019ll just have to move fast and stay low."
-  nextDialog: {fileID: 0}
+  Text: "He didn\u2019t just let it happen. He made it happen. This was his experiment,
+    his way of deciding who gets to live and who doesn\u2019t."
+  nextDialog: {fileID: 11400000, guid: 5608637744fac4571a910a5d274a98fd, type: 2}

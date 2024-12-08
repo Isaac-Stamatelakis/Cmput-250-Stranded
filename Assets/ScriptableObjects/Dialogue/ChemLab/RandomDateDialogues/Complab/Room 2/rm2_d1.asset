@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: rm2_d1
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
-  Text: "This hallway\u2026 it\u2019s even tighter than the last room. We can\u2019t
-    afford to make any noise here."
+  Text: "So the serum wasn\u2019t just a serum anymore. It became a virus."
   nextDialog: {fileID: 11400000, guid: 27281200365c74adcbccbff634d14d9c, type: 2}

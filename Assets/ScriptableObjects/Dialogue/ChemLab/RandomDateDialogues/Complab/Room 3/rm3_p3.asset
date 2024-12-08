@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cae2666990c0bb459d13c257dd7c11f, type: 3}
   m_Name: rm3_p3
   m_EditorClassIdentifier: 
-  Speaker: {fileID: 0}
-  Text: 
-  nextDialog: {fileID: 0}
+  Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
+  Text: "I wrote that because\u2026 you gave me something I didn\u2019t know I needed.
+    Even now, with everything falling apart, I feel like I have a reason to keep
+    going. To fight."
+  nextDialog: {fileID: 11400000, guid: c76305eeb3b634b1ab1477057b8acf6d, type: 2}

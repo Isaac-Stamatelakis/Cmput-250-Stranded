@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: rm2_p1
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
-  Text: "Yeah, it\u2019s cramped... We\u2019ll have to stay sharp."
+  Text: Yeah. Once it started spreading, there was no stopping it. This is how we
+    got here.
   nextDialog: {fileID: 0}

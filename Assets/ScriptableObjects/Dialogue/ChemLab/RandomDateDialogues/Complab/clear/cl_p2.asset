@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: cl_p2
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
-  Text: "He\u2019s hiding up there, watching everything fall apart, thinking he\u2019s
-    untouchable. But he\u2019s wrong. We\u2019re coming for him."
+  Text: "The Dean. He\u2019s behind everything. We end this now."
   nextDialog: {fileID: 11400000, guid: c41932a52d6c84780af51bacb47f9c65, type: 2}

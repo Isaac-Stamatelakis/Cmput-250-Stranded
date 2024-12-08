@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cae2666990c0bb459d13c257dd7c11f, type: 3}
   m_Name: player4-2
   m_EditorClassIdentifier: 
-  Speaker: {fileID: 0}
-  Text: 
+  Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
+  Text: "It\u2019s always like this. Lives don\u2019t matter when they think the
+    \u2018bigger picture\u2019 is more important."
   nextDialog: {fileID: 0}
