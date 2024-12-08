@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: drm2_b3
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: 26cd8e64faf67704498c9af43846159e, type: 2}
-  Text: "Sacrifices are always necessary for greatness. Weakness must be purged so
-    the strong can thrive. Can\u2019t you see? This campus is just the beginning."
+  Text: Greatness demands sacrifice. The weak must fall for the strong to thrive.
+    This campus is just the beginning.
   nextDialog: {fileID: 11400000, guid: 58a52a21d7fec4598b00779c61b4d47e, type: 2}

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using PlayerModule;
 using UnityEngine;
 
 public class projectileBehaviour : MonoBehaviour
@@ -18,19 +17,10 @@ public class projectileBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (DialogueState.IsDialogueActive)
-        {
-            rb.velocity = Vector2.zero; // Stop projectile movement
-            return;
-        }
-
-        rb.velocity = transform.up * speed; // Continue moving when not in dialogue
+        rb.velocity = transform.up * speed;
     }
 
     void OnCollisionEnter2D (Collision2D col) {
-
-        if (DialogueState.IsDialogueActive) return;
-
         if (col.gameObject.name != "projectile(Clone)") {
             Debug.Log("bullet hit");
 
@@ -39,10 +29,6 @@ public class projectileBehaviour : MonoBehaviour
                 // Get the PlayerHealth component and apply damage
                 PlayerHealth health = col.gameObject.GetComponent<PlayerHealth>();
                 health.Damage(projectileDamage);
-                Vector3 eulerAngles = transform.rotation.eulerAngles;
-                float angle = eulerAngles.z + 90f;
-                Vector2 direction = new Vector2(Mathf.Cos(Mathf.Deg2Rad *angle), Mathf.Sin(Mathf.Deg2Rad * angle));
-                col.gameObject.GetComponent<PLAYER_MOVE_TEST>().ApplyKnockback(direction*150);
                 Debug.Log("damge player");
             }
 

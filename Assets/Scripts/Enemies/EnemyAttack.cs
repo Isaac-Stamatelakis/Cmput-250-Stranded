@@ -16,17 +16,7 @@ public class EnemyAttack : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collider)
     {
-
-        if (DialogueState.IsDialogueActive)
-        {
-            StopEnemyAnimation(); // Stop animations during dialogue
-            return;
-        }
-
-        ResumeEnemyAnimation();
-        // Prevent attacks while dialogue is active
-        if (DialogueState.IsDialogueActive) return;
-
+        
         // Check if the object the enemy collided with has a PlayerHealth component
         if (collider.gameObject.GetComponent<PlayerHealth>() != null)
         {
@@ -46,26 +36,11 @@ public class EnemyAttack : MonoBehaviour
                     return;
                 }
             }
-
+            
             PlayerHealth health = collider.gameObject.GetComponent<PlayerHealth>();
             Player player = Player.Instance;
+            player.PlayerStats.DamageTaken += damage;
             health.Damage(damage);
-        }
-    }
-
-    private void StopEnemyAnimation()
-    {
-        if (animator != null)
-        {
-            animator.speed = 0; // Freeze animation
-        }
-    }
-
-    private void ResumeEnemyAnimation()
-    {
-        if (animator != null)
-        {
-            animator.speed = 1; // Resume animation
         }
     }
 }

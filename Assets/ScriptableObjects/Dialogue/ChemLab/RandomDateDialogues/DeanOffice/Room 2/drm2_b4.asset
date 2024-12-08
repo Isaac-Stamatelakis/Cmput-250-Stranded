@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: 26cd8e64faf67704498c9af43846159e, type: 2}
   Text: "A monster? If ensuring humanity\u2019s survival makes me a monster, then
-    so be it. But don\u2019t pretend you\u2019re any better. You\u2019ve made it
-    this far because you\u2019ve embraced strength. You\u2019ve fought, you\u2019ve
-    survived\u2014just like I intended."
+    so be it. But you\u2019ve survived this long, haven\u2019t you?  Strength is
+    what matters."
   nextDialog: {fileID: 11400000, guid: c53deb07cf83b4c27822b5876cd84c9e, type: 2}
