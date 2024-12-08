@@ -701,7 +701,6 @@ RectTransform:
   - {fileID: 4293766876492607316}
   - {fileID: 8201930724548428738}
   - {fileID: 5912503928716779757}
-  - {fileID: 9135637247166177838}
   m_Father: {fileID: 4323780544758729427}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -50617,7 +50616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1225918043338129729, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: Header
-      value: "Incident Memo: Ethics and Observations  \nBy Dr. Victor Wren"
+      value: "Incident Report: Outbreak Origins  \nBy Dr. Victor Wren"
       objectReference: {fileID: 0}
     - target: {fileID: 1225918043338129729, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: Content
@@ -50625,12 +50624,13 @@ PrefabInstance:
         viability under real-world conditions. The chem lab became the epicenter,
         but containment efforts failed. Staff exposure occurred within hours\u2014violent
         outbursts, hunger, and regression followed.\n\nThis is not failure. This
-        is progress. Humanity is weak, but the serum will change that. Aggression
-        is a natural response to fear. Strength comes from survival, and only the
-        strong will thrive in this new world.\n\nThe cure was never part of the original
-        plan. It\u2019s insurance\u2014a failsafe for those who prove their worth.
-        It is hidden in my office, where it will remain safe. Let them fight for
-        it. The strongest will survive, and they will thank me for it."
+        is progress. Humanity is weak. The serum is not just a cure for population
+        decline\u2014it\u2019s the next step in evolution. Aggression is a natural
+        response to fear. Strength comes from survival, and only the strong will
+        thrive in this new world.\n\nThe cure was never part of the original plan.
+        It\u2019s insurance\u2014a failsafe for those who prove their worth. The
+        cure remains secure in my office. Only I hold the key to humanity\u2019s
+        survival. Let them come. They will see my vision soon enough."
       objectReference: {fileID: 0}
     - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: m_RootOrder
@@ -54178,84 +54178,6 @@ NavMeshObstacle:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2917422639780357545, guid: 719a1d76370a9f742a835c0a3c5c1d9a, type: 3}
   m_PrefabInstance: {fileID: 6126584078539424590}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &6215591982511484731
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 5533018907986183565}
-    m_Modifications:
-    - target: {fileID: 731360542921468956, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_Name
-      value: ReadableNote
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225918043338129729, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: Header
-      value: 'Research Log: Project Ascend - Initiation
-
-        By Dr. Victor Wren
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225918043338129729, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: Content
-      value: "The cure wasn\u2019t part of the original plan. It\u2019s insurance\u2014a
-        failsafe for the chosen few.  \n\nThe serum enhances, but at a cost. Humanity
-        must evolve, and only the strongest will survive. The cure will be reserved
-        for those who deserve it.  \n\nIt\u2019s locked in my office, where it will
-        remain safe\u2026 with me.\n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -10.599998
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 8.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.74895775
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.66261774
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 5123
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
---- !u!4 &9135637247166177838 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-  m_PrefabInstance: {fileID: 6215591982511484731}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6366440685541912665
 PrefabInstance:
