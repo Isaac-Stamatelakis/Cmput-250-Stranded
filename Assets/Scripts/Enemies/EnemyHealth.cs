@@ -16,6 +16,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private EnemyDeathBloodCollection dropBloodCollection;
     private AudioSource audioSource;
     private BossHealthBar healthBar;
+    public ZombieMusicController zombieMusicController;
     public BossHealthBar HealthBar => healthBar;
     public BossMusicController bossMusicController;
     private bool flashingColor = false;
@@ -48,14 +49,20 @@ public class EnemyHealth : MonoBehaviour
         {
             damagedParticleSystem.Play();
         }
-        
+
+        if (!isBoss && !isDying)
+        {
+            zombieMusicController.OnZombieHurt();
+        }
+
         this.health -= amount;
 
         if(health <= 0 && !isDying)
         {
             Die();
         }
-        
+
+
     }
 
     public void multiplyHealth(float amount)
@@ -88,7 +95,6 @@ public class EnemyHealth : MonoBehaviour
     private void Die()
     {
         isDying = true;
-        audioSource.PlayOneShot(deathSound);
         Player player = Player.Instance;
         player.GetComponent<PlayerLevelComponent>().AddExperience(experience);
         DateHealUpgrade dateHealUpgrade = player.DatePlayer.GetComponentInChildren<DateHealUpgrade>();
@@ -98,7 +104,7 @@ public class EnemyHealth : MonoBehaviour
             audioSource.pitch = 0.9f;
             audioSource.PlayOneShot(deathSound);
             bossMusicController.BossDefeated();
-        }
+        } 
         if (dropBloodCollection)
         {
             GameObject blood = dropBloodCollection.GetBlood();

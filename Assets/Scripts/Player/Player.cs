@@ -9,6 +9,7 @@ namespace PlayerModule {
     {
         private static Player instance;
         public static Player Instance => instance;
+        public Weapon currentWeapon;
         public DatePlayer DatePlayer;
         private bool inCutscene;
         private bool inDialog;
@@ -90,6 +91,8 @@ namespace PlayerModule {
             playerLevelComponent.IterateUpgrades();
             playerHealth.Damage(0);
             playerLevelComponent.AddExperience(0);
+            WeaponStatsUI weaponStatsUI = WeaponStatsUI.Instance;
+            weaponStatsUI.UpdateWeaponStats(currentWeapon);
         }
     }
 }
