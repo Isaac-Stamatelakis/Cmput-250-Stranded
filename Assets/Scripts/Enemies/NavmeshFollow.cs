@@ -17,6 +17,8 @@ public class NavmeshFollow : MonoBehaviour
     public int speed = 5;
     public float animSpeed = 0.1f;
     private bool isKnockedBack;
+
+    private bool isChasing = false;
     
 
     // Start is called before the first frame update
@@ -72,26 +74,30 @@ public class NavmeshFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        anim.SetBool("isWalking",!hasCollided);
-        StartCoroutine(moveTo(player.transform.position));
-        
-        /*
-        if (!hasCollided) {
-            anim.SetBool("isWalking", true);
-
-            obs.enabled = false;
-            obs.carving = false;
+        Debug.Log($"isChasing: {isChasing}");
+        if (Vector3.Distance(player.transform.position, transform.position) < 14 || isChasing) {
+            isChasing = true;
+            anim.SetBool("isWalking",!hasCollided);
             StartCoroutine(moveTo(player.transform.position));
-        } else {
-            anim.SetBool("isWalking", false);
+            
+            /*
+            if (!hasCollided) {
+                anim.SetBool("isWalking", true);
 
-            zom.enabled = false;
-            obs.carving = true;
-            StartCoroutine(stop());
+                obs.enabled = false;
+                obs.carving = false;
+                StartCoroutine(moveTo(player.transform.position));
+            } else {
+                anim.SetBool("isWalking", false);
+
+                zom.enabled = false;
+                obs.carving = true;
+                StartCoroutine(stop());
+            }
+            */
+
+            sr.flipX = transform.position.x > player.transform.position.x;
         }
-        */
-
-        sr.flipX = transform.position.x > player.transform.position.x;
     }
 
     private IEnumerator moveTo(Vector2 position) {

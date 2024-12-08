@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: TestDialogeTree
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
-  Text: How are you holding up? Do you think you can keep going?
+  Text: "This is where everything began\u2026 the start of all this madness."
   responses:
-  - Text: Tell me the truth. How bad is it?
+  - Text: What happened here?
     dialog: {fileID: 11400000, guid: 78735e3502d004a4cb6f084b8df2c19c, type: 2}
-  - Text: We should find a place to rest. Can you walk?
+  - Text: "Do you think we\u2019ll find anything useful?"
     dialog: {fileID: 11400000, guid: dbe8962e4f2aebf43a5c7802a6248559, type: 2}
-  - Text: You don't have to push yourself for me. I can do this alone.
+  - Text: "Do you think we\u2019ll make it out of here?"
     dialog: {fileID: 11400000, guid: d88a373fe82f84e85ad64a3cd1ee1e6c, type: 2}

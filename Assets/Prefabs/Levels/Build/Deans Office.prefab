@@ -18427,6 +18427,7 @@ Transform:
   - {fileID: 4323780544845345937}
   - {fileID: 4323780545396997388}
   - {fileID: 4323780543678015827}
+  - {fileID: 9198848706899823720}
   m_Father: {fileID: 4323780544392805945}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -32725,6 +32726,80 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BossZoms: {fileID: 3016949444583772132}
+--- !u!1 &7296956459697333234
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9198848706899823720}
+  - component: {fileID: 4004800577018446363}
+  - component: {fileID: 6616880880255185350}
+  m_Layer: 0
+  m_Name: DialogTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9198848706899823720
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7296956459697333234}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -25.88, y: 13.54, z: 0}
+  m_LocalScale: {x: 0.5625, y: 0.5875, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4323780544683518228}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &4004800577018446363
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7296956459697333234}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5, y: 5}
+  m_EdgeRadius: 0
+--- !u!114 &6616880880255185350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7296956459697333234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0536a77c236fb43c38b8c601976672ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  repeatable: 0
+  playerTutorialManagerPrefab: {fileID: 6016181210092501969, guid: a5cef3fb2bbc1124bafd2bf196f079dc, type: 3}
+  singleDialog: {fileID: 11400000, guid: 3ffd8a962b6e74fd28423fd4fec75db2, type: 2}
 --- !u!1 &7421557248101761503
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cae2666990c0bb459d13c257dd7c11f, type: 3}
   m_Name: date3-2
   m_EditorClassIdentifier: 
-  Speaker: {fileID: 0}
-  Text: 
-  nextDialog: {fileID: 0}
+  Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
+  Text: Do you think the board even knew what was happening?
+  nextDialog: {fileID: 11400000, guid: 045704cd588284247ab89f9d1996b459, type: 2}

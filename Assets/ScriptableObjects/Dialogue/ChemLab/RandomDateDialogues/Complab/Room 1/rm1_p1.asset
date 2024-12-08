@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: rm1_p1
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
-  Text: "You doing okay? I know this isn\u2019t exactly what you signed up for\u2026"
-  nextDialog: {fileID: 11400000, guid: 9fbdc0b7d883a489aad7ce5f9433979b, type: 2}
+  Text: Yeah. They thought if they could make people stronger, better, humanity could
+    survive. Even with fewer people.
+  nextDialog: {fileID: 11400000, guid: 53eafce65455c4069a18403f377c6be8, type: 2}

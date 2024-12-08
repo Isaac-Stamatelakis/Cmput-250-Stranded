@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cae2666990c0bb459d13c257dd7c11f, type: 3}
   m_Name: player3-1
   m_EditorClassIdentifier: 
-  Speaker: {fileID: 0}
-  Text: 
-  nextDialog: {fileID: 0}
+  Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
+  Text: "And they silenced anyone who tried to speak up. Whoever raised concerns\u2014they
+    were right. This was unethical.  But the Dean didn\u2019t care."
+  nextDialog: {fileID: 11400000, guid: 2fdb34cec7a394bffbfd6952621e9956, type: 2}

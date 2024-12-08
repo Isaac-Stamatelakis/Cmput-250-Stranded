@@ -957,19 +957,21 @@ MonoBehaviour:
     Image: {fileID: 0}
     Sound: {fileID: 0}
     DisableImage: 0
-  - Text: "The Dean\u2026 brilliant, ambitious, unyielding. But his quest for knowledge
-      took a dark turn\u2014a path no one could follow\u2026 except him."
+  - Text: "It started with Dr. Victor Wren\u2014the brilliant dean and lead scientist
+      of Project Ascend.  His promise was bold: to secure humanity\u2019s survival,
+      to evolve the weak into the strong."
     Image: {fileID: 0}
     Sound: {fileID: 0}
     DisableImage: 0
-  - Text: "They say he was working on something big\u2026 a breakthrough, he called
-      it. A way to unlock human potential. But his experiments went\u2026 wrong."
+  - Text: But ambition turned to obsession. His vision, once hopeful, twisted into
+      something monstrous. His breakthroughs became disasters. And what began as
+      salvation... became destruction.
     Image: {fileID: 0}
     Sound: {fileID: 0}
     DisableImage: 0
-  - Text: "It started as whispers, rumors of students falling ill. But before long,
-      they weren\u2019t students anymore. They became something else\u2026 twisted,
-      ravenous, driven by an insatiable hunger."
+  - Text: "Rumors turned to chaos. The serum didn\u2019t strengthen humanity\u2014it
+      tore it apart. The infected spread faster than anyone could have imagined.
+      The campus became a warzone\u2026 and a graveyard."
     Image: {fileID: 0}
     Sound: {fileID: 0}
     DisableImage: 0
@@ -985,7 +987,7 @@ MonoBehaviour:
     Image: {fileID: 0}
     Sound: {fileID: 0}
     DisableImage: 0
-  - Text: "That day in the chem lab, She were caught in the crossfire of the Dean
+  - Text: "That day in the chem lab, She was caught in the crossfire of the Dean
       twisted experiment. A scratch\u2026 a contaminated wound that started the infection.
       But she fought to resist it\u2014clinging to hope that a cure could still save
       her."
@@ -1394,7 +1396,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.4375
+  orthographic size: 14.65625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

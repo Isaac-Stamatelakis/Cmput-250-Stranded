@@ -15,4 +15,4 @@ MonoBehaviour:
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
   Text: "But\u2026 what if we\u2019re too late? What if the cure doesn\u2019t work,
     or\u2014"
-  nextDialog: {fileID: 0}
+  nextDialog: {fileID: 11400000, guid: 365b24acf29ab419281eb0bf759f7f85, type: 2}

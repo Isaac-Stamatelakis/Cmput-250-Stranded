@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1121503107953917886}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6944542245577689022
 SpriteRenderer:
@@ -448,8 +448,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textIndicator: {fileID: 3859503000369728241}
   boss: {fileID: 0}
-  DateRandomDialogs: {fileID: 11400000, guid: dbe43bf2d9ad34f2ca5889fab9c26f6b, type: 2}
-  OnRoomClearDialog: {fileID: 11400000, guid: 6c8b0667579014dd3bb0fed196eccf79, type: 2}
+  DateRandomDialogs: {fileID: 11400000, guid: c12779b22e1c24895b9bce200f6f4de4, type: 2}
+  OnRoomClearDialog: {fileID: 11400000, guid: 98e466632e44c4ad3b443b5d1a0b48e1, type: 2}
 --- !u!1 &236417111040961369
 GameObject:
   m_ObjectHideFlags: 0
@@ -2017,7 +2017,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1121503107953917886}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3083305842464712716
 SpriteRenderer:
@@ -2332,7 +2332,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7053743436948101212}
   - {fileID: 61605698182217274}
   - {fileID: 2080323700564398598}
   - {fileID: 8576035220126523494}
@@ -5301,7 +5300,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1121503107953917886}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7674065400124276278
 SpriteRenderer:
@@ -5837,7 +5836,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1121503107953917886}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8539609853406357140
 SpriteRenderer:
@@ -43342,7 +43341,6 @@ RectTransform:
   - {fileID: 6381480893453767419}
   - {fileID: 4020365042115928571}
   - {fileID: 982969997518539581}
-  - {fileID: 2345255890035971323}
   m_Father: {fileID: 7503655857948650594}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -44564,7 +44562,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1121503107953917886}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7928876997492392178
 SpriteRenderer:
@@ -44837,7 +44835,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1121503107953917886}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4043124988406747493
 SpriteRenderer:
@@ -46445,7 +46443,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1121503107953917886}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7666644337258163609
 SpriteRenderer:
@@ -46571,7 +46569,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1121503107953917886}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7932386809260283473
 SpriteRenderer:
@@ -46657,7 +46655,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1121503107953917886}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5306645869436665620
 SpriteRenderer:
@@ -46911,7 +46909,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1121503107953917886}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2341823116917423500
 SpriteRenderer:
@@ -47531,7 +47529,7 @@ MonoBehaviour:
   textIndicator: {fileID: 8430716216762576935}
   boss: {fileID: 0}
   DateRandomDialogs: {fileID: 11400000, guid: 3d45e85428b114fcd833f7ba936e51dd, type: 2}
-  OnRoomClearDialog: {fileID: 0}
+  OnRoomClearDialog: {fileID: 11400000, guid: 6a5e08374d4ee490ab642ffb4253ad69, type: 2}
 --- !u!1 &7389449081989218364
 GameObject:
   m_ObjectHideFlags: 0
@@ -48146,7 +48144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textIndicator: {fileID: 7665462329656974134}
   boss: {fileID: 0}
-  DateRandomDialogs: {fileID: 11400000, guid: 1912218b7e190489c92913ac95e3e5bf, type: 2}
+  DateRandomDialogs: {fileID: 11400000, guid: 16e4baa33007740e3a5ec98f05790297, type: 2}
   OnRoomClearDialog: {fileID: 0}
 --- !u!1 &8005461727875603615
 GameObject:
@@ -48703,7 +48701,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1121503107953917886}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8612075920524663715
 SpriteRenderer:
@@ -48996,7 +48994,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1121503107953917886}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8568782413133459917
 SpriteRenderer:
@@ -50064,7 +50062,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1121503107953917886}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6482052179886703654
 SpriteRenderer:
@@ -50417,80 +50415,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &578289909627525614
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 7171953313328446464}
-    m_Modifications:
-    - target: {fileID: 731360542921468956, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_Name
-      value: ReadableNote
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225918043338129729, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: Header
-      value: "Incident Report: Outbreak Origins  \nBy Dr. Victor Wren"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225918043338129729, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: Content
-      value: "The outbreak is no accident. It was necessary to test the serum\u2019s
-        viability in real-world conditions.  The chem lab was the epicenter, but
-        containment efforts failed. Now, the entire campus serves as the proving
-        ground.  The cure remains secure in my office. Only I hold the key to humanity\u2019s
-        survival.  Let them come. They will see my vision soon enough.\n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 11.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.8616291
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.5075384
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 61
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
---- !u!4 &2345255890035971323 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-  m_PrefabInstance: {fileID: 578289909627525614}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &850446677035982340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50904,14 +50828,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1225918043338129729, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: Header
-      value: "Personal Journal: Evolution  \nBy Dr. Victor Wren"
+      value: "Incident Report: Outbreak Origins  \nBy Dr. Victor Wren"
       objectReference: {fileID: 0}
     - target: {fileID: 1225918043338129729, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: Content
-      value: "Humanity is weak. The serum is not just a cure for population decline\u2014it\u2019s
-        the next step in evolution.  \nAggression is a natural response to fear.
-        Strength comes from survival. These subjects\u2026 they are proof.  \nOnly
-        the strong will thrive in the new world. This is not a failure. This is progress.\n"
+      value: "The outbreak is no accident. It was necessary to test the serum\u2019s
+        viability under real-world conditions. The chem lab became the epicenter,
+        but containment efforts failed. Staff exposure occurred within hours\u2014violent
+        outbursts, hunger, and regression followed.\n\nThis is not failure. This
+        is progress. Humanity is weak. The serum is not just a cure for population
+        decline\u2014it\u2019s the next step in evolution. Aggression is a natural
+        response to fear. Strength comes from survival, and only the strong will
+        thrive in this new world.\n\nThe cure was never part of the original plan.
+        It\u2019s insurance\u2014a failsafe for those who prove their worth. The
+        cure remains secure in my office. Only I hold the key to humanity\u2019s
+        survival. Let them come. They will see my vision soon enough."
       objectReference: {fileID: 0}
     - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: m_RootOrder
@@ -51073,81 +51004,6 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
---- !u!1001 &5289922089875068233
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1121503107953917886}
-    m_Modifications:
-    - target: {fileID: 731360542921468956, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_Name
-      value: ReadableNote
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225918043338129729, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: Header
-      value: "Research Log: Phase 2 Trials  \nBy Dr. Victor Wren"
-      objectReference: {fileID: 0}
-    - target: {fileID: 1225918043338129729, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: Content
-      value: "Subjects now show limited cognitive function post-serum administration.
-        Speech is fragmented but coherent.   However, aggression remains high. Infection
-        spreads through bites, accelerating serum absorption in secondary hosts.  
-        The virus appears\u2026 self-sustaining. A breakthrough? Or an anomaly? Further
-        observation required.  \n\nContainment is crucial. Phase 2 subjects are\u2026
-        unpredictable.\n"
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -30.71
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 31.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.8616291
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.5075384
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 61
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
---- !u!4 &7053743436948101212 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
-  m_PrefabInstance: {fileID: 5289922089875068233}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5383042340417444857
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55180,11 +55036,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1225918043338129729, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: Content
-      value: "Global fertility rates are plummeting. Resources dwindle as the population
-        ages. Humanity faces extinction unless radical action is taken.   \n\nProject
-        Ascend was created to answer this crisis. By enhancing human capabilities,
-        we secure the survival of the species.  \n\nBut progress demands sacrifice.
-        This must remain confidential\u2014public backlash could derail everything.\n\n"
+      value: "Global fertility rates are plummeting. Resources are dwindling, and
+        humanity faces extinction unless radical action is taken. Project Ascend
+        was created to address this crisis. By enhancing human capabilities, we secure
+        the survival of the species.\n\nThe serum shows promise. Early trials demonstrated
+        significant physical augmentation\u2014strength, endurance, and speed beyond
+        human limits. But something is wrong. Subjects exhibit headaches, aggression,
+        and disorientation. Infection spreads through bites, and symptoms worsen
+        in secondary hosts. Isolation chambers have been prepared for the more volatile
+        cases.\n\nProgress demands sacrifice. This must remain confidential\u2014public
+        backlash could derail everything. Humanity must evolve to survive. We are
+        on the verge of a breakthrough, but the risks are growing."
       objectReference: {fileID: 0}
     - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: m_RootOrder
@@ -55192,7 +55054,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.06
+      value: -7.0600014
       objectReference: {fileID: 0}
     - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: m_LocalPosition.y
@@ -55212,7 +55074,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: m_LocalRotation.z

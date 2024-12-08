@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: er_p1
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
-  Text: "Hang in there. We\u2019ve made it this far, haven\u2019t we? We\u2019re
-    not turning back now."
-  nextDialog: {fileID: 11400000}
+  Text: "Not for long. We\u2019re going to end this. We\u2019re going to take the
+    cure and make sure no one else suffers because of him."
+  nextDialog: {fileID: 11400000, guid: a2d28471e35a546869388c840803fbea, type: 2}

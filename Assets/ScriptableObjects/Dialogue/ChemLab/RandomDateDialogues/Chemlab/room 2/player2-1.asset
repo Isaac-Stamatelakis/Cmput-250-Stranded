@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5409dc8a8bf34c4fac0ce7c8959d6d7, type: 3}
+  m_Name: player2-1
+  m_EditorClassIdentifier: 
+  Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
+  Text: "Do you think we\u2019ll ever go back to normal?"
+  responses:
+  - Text: "Yes, we have to believe it\u2019ll happen."
+    dialog: {fileID: 11400000, guid: 4ca22b4a1b11947f6ab749c8ac0d6b89, type: 2}
+  - Text: "No, but we\u2019ll find a new normal."
+    dialog: {fileID: 11400000, guid: c786096a38888491abd31666377a574f, type: 2}

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cae2666990c0bb459d13c257dd7c11f, type: 3}
-  m_Name: drm_b4
+  m_Name: drm2_d3
   m_EditorClassIdentifier: 
-  Speaker: {fileID: 11400000, guid: 26cd8e64faf67704498c9af43846159e, type: 2}
-  Text: "You\u2026 fools\u2026 you don\u2019t understand\u2026 this\u2026 this could\u2019ve
-    changed everything"
-  nextDialog: {fileID: 11400000, guid: 169027a9f998c44ab90715ce24ce50af, type: 2}
+  Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
+  Text: "We\u2019re not afraid of you. Whatever test you throw at us, we\u2019ll
+    pass it"
+  nextDialog: {fileID: 11400000, guid: 78d12bd5048ce42bf84d85ce064448d4, type: 2}

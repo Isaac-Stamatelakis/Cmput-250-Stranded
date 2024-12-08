@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: drm2_b1
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: 26cd8e64faf67704498c9af43846159e, type: 2}
-  Text: "So, you\u2019ve made it this far. Impressive\u2026 I didn\u2019t think you
-    had it in you."
-  nextDialog: {fileID: 11400000, guid: 169027a9f998c44ab90715ce24ce50af, type: 2}
+  Text: "Ah, so you\u2019ve finally made it. You\u2019re just in time to witness
+    history in the making."
+  nextDialog: {fileID: 11400000, guid: 79e58e849a1a745c2b4f29d32b4b6658, type: 2}

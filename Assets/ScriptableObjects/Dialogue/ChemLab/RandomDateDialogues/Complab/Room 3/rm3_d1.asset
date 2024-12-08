@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: rm3_d1
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
-  Text: "A bathroom\u2026 why did it have to be a bathroom? I thought this place
-    couldn\u2019t get any worse."
+  Text: You wrote that about me?
   nextDialog: {fileID: 11400000, guid: 2f332148e2db1480bb25d0a6c3e20826, type: 2}

@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cae2666990c0bb459d13c257dd7c11f, type: 3}
   m_Name: drm2_d1
   m_EditorClassIdentifier: 
-  Speaker: {fileID: 11400000, guid: 26cd8e64faf67704498c9af43846159e, type: 2}
-  Text: "You\u2026 you did this. All those people\u2026 my friends\u2026 you turned
-    them into monsters."
-  nextDialog: {fileID: 11400000, guid: 3ffd8a962b6e74fd28423fd4fec75db2, type: 2}
+  Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
+  Text: "You\u2019re not a savior. You\u2019re a monster."
+  nextDialog: {fileID: 11400000, guid: f317d87cc57814678aa67cf998fb60e1, type: 2}

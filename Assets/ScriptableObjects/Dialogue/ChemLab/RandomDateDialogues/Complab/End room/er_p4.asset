@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cae2666990c0bb459d13c257dd7c11f, type: 3}
   m_Name: er_p4
   m_EditorClassIdentifier: 
-  Speaker: {fileID: 0}
-  Text: 
+  Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
+  Text: "Let\u2019s go."
   nextDialog: {fileID: 0}

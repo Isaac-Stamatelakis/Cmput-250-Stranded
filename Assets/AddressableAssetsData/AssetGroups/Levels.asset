@@ -21,10 +21,6 @@ MonoBehaviour:
     m_Address: Assets/Prefabs/Levels/IsaacTesting/IsaacLabTest.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: d15520d77815d3b4e93eb7bca8be47f4
-    m_Address: Assets/Prefabs/Levels/Beta/ChemLab.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
   - m_GUID: 21f1c27a8880e0341a07644b3e577c25
     m_Address: Assets/Prefabs/Levels/Beta/DeansOffice.prefab
     m_ReadOnly: 0
