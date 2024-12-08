@@ -529,6 +529,18 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 66e76c0f6dc5dc84cad0e64e99da782e, type: 3}
   - {fileID: 21300000, guid: 362c501f35fb7cf4f8b097d1ae3136af, type: 3}
   - {fileID: 21300000, guid: 0cd5851ff2385f243bebd2705278e2f9, type: 3}
+  - {fileID: -1704895682, guid: 45eaad1fa5e546c47b145bcfbce96a56, type: 3}
+  - {fileID: 1340270180, guid: 45eaad1fa5e546c47b145bcfbce96a56, type: 3}
+  - {fileID: -1981427712, guid: 45eaad1fa5e546c47b145bcfbce96a56, type: 3}
+  - {fileID: -428899944, guid: 45eaad1fa5e546c47b145bcfbce96a56, type: 3}
+  - {fileID: -1092270409, guid: 45eaad1fa5e546c47b145bcfbce96a56, type: 3}
+  - {fileID: 411354544, guid: 45eaad1fa5e546c47b145bcfbce96a56, type: 3}
+  - {fileID: -505446068, guid: 45eaad1fa5e546c47b145bcfbce96a56, type: 3}
+  - {fileID: 198664882, guid: 45eaad1fa5e546c47b145bcfbce96a56, type: 3}
+  - {fileID: -1391178312, guid: 45eaad1fa5e546c47b145bcfbce96a56, type: 3}
+  - {fileID: 1042361748, guid: 45eaad1fa5e546c47b145bcfbce96a56, type: 3}
+  - {fileID: 2007389764, guid: 45eaad1fa5e546c47b145bcfbce96a56, type: 3}
+  - {fileID: -819764554, guid: 45eaad1fa5e546c47b145bcfbce96a56, type: 3}
   - {fileID: 21300000, guid: 6bf2752f350751843a781cfd78970197, type: 3}
   - {fileID: 21300000, guid: ed0eae3f267bce44c974559a58ca8667, type: 3}
   - {fileID: 21300000, guid: 001a334fc5ec7e04d89cb1c81c71ae86, type: 3}
@@ -1038,6 +1050,18 @@ SpriteAtlas:
   - experience_book
   - ComputerLabLightGreen_U_False_L_False_D_False_R_True
   - frame_2
+  - tankZombie_8
+  - tankZombie_9
+  - tankZombie_4
+  - tankZombie_5
+  - tankZombie_6
+  - tankZombie_7
+  - tankZombie_0
+  - tankZombie_1
+  - tankZombie_2
+  - tankZombie_3
+  - tankZombie_11
+  - tankZombie_10
   - ComputerLabBrown_U_True_L_True_D_False_R_True
   - ComputerBeigeWallBottom_U_True_L_False_D_True_R_True
   - ComputerLabGreenWallBottom_U_False_L_False_D_False_R_False

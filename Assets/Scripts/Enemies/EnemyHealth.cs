@@ -48,9 +48,7 @@ public class EnemyHealth : MonoBehaviour
         {
             damagedParticleSystem.Play();
         }
-
         
-
         this.health -= amount;
 
         if(health <= 0 && !isDying)

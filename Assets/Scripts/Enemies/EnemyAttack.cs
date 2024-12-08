@@ -49,7 +49,6 @@ public class EnemyAttack : MonoBehaviour
 
             PlayerHealth health = collider.gameObject.GetComponent<PlayerHealth>();
             Player player = Player.Instance;
-            player.PlayerStats.DamageTaken += damage;
             health.Damage(damage);
         }
     }
