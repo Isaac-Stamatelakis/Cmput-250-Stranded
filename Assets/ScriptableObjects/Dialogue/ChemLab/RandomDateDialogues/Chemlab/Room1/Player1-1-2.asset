@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Player1-1-2
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
-  Text: '[Isolation chambers are being prepared.] Sounds like they knew things could
-    go south from the beginning. But why keep pushing?'
+  Text: '["Isolation chambers are being prepared."] Sounds like they knew things
+    could go south from the beginning. But why keep pushing?'
   nextDialog: {fileID: 11400000, guid: 3e70ced7dc60c4ca789794a4141ee401, type: 2}

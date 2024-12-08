@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: cl_d1
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
-  Text: "We\u2026 we did it. That was\u2026 brutal."
+  Text: Not yet. The real monster is still waiting.
   nextDialog: {fileID: 11400000, guid: 936574a0cda014da4ac25b51e1b5ddb8, type: 2}

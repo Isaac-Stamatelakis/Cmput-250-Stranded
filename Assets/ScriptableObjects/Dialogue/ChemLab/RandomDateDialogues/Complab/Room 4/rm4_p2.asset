@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: rm4_p2
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
-  Text: "Not until we make them. Let\u2019s show them we\u2019re not backing down."
-  nextDialog: {fileID: 0}
+  Text: "We\u2019re not part of his \"chosen few\",  but we\u2019re going to take
+    that cure anyway. Not for him, not for his ideals\u2014for us."
+  nextDialog: {fileID: 11400000, guid: 7cd24123207ec4ec09f4ea4a478d7aa1, type: 2}

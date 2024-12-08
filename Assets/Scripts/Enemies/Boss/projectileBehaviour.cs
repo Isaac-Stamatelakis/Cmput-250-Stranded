@@ -17,10 +17,19 @@ public class projectileBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = transform.up * speed;
+        if (DialogueState.IsDialogueActive)
+        {
+            rb.velocity = Vector2.zero; // Stop projectile movement
+            return;
+        }
+
+        rb.velocity = transform.up * speed; // Continue moving when not in dialogue
     }
 
     void OnCollisionEnter2D (Collision2D col) {
+
+        if (DialogueState.IsDialogueActive) return;
+
         if (col.gameObject.name != "projectile(Clone)") {
             Debug.Log("bullet hit");
 

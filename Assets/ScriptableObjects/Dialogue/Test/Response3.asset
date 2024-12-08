@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Response3
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
-  Text: "I\u2019m not leaving you. We\u2019re in this together. I can still help...
-    for now."
+  Text: "We don\u2019t have a choice. We\u2019ll find a way, no matter what."
   nextDialog: {fileID: 0}

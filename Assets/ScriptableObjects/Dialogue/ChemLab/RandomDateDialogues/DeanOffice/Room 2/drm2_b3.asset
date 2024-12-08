@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: drm2_b3
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: 26cd8e64faf67704498c9af43846159e, type: 2}
-  Text: "Oh, you poor, misguided souls. I hold the cure here, the only thing that
-    can stop this\u2026 if you can take it from me."
-  nextDialog: {fileID: 11400000, guid: fa40520457cb84949ac6df21b8146989, type: 2}
+  Text: "Sacrifices are always necessary for greatness. Weakness must be purged so
+    the strong can thrive. Can\u2019t you see? This campus is just the beginning."
+  nextDialog: {fileID: 11400000, guid: 58a52a21d7fec4598b00779c61b4d47e, type: 2}

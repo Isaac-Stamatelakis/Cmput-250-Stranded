@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: er_d1
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
-  Text: " I don\u2019t know how much longer I can keep going\u2026 the infection
-    feels\u2026 stronger."
-  nextDialog: {fileID: 0}
+  Text: "And he thinks he\u2019s the one who decides who survives? Who deserves to
+    live?!"
+  nextDialog: {fileID: 11400000, guid: cceabd1d797f04091ad009f877745cbf, type: 2}

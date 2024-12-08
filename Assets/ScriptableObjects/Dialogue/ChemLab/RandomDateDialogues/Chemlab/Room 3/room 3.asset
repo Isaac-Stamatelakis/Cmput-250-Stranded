@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a9fd90a19506f540a7da3094e78b735, type: 3}
   m_Name: room 3
   m_EditorClassIdentifier: 
-  dialogs: []
+  dialogs:
+  - {fileID: 11400000, guid: 12e4fd659642b442cb55256313f63839, type: 2}

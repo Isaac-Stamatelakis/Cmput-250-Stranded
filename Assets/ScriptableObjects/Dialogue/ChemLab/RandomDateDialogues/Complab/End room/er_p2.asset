@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cae2666990c0bb459d13c257dd7c11f, type: 3}
   m_Name: er_p2
   m_EditorClassIdentifier: 
-  Speaker: {fileID: 0}
-  Text: 
-  nextDialog: {fileID: 0}
+  Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
+  Text: "Hey, look at me. We\u2019ve made it this far, together. We\u2019ve fought
+    through everything he\u2019s thrown at us, and we\u2019re still standing. We
+    can do this."
+  nextDialog: {fileID: 11400000, guid: c8467a9aa6c914507bf0f0e255718156, type: 2}

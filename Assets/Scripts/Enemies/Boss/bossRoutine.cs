@@ -61,6 +61,14 @@ public class bossRoutine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (DialogueState.IsDialogueActive)
+        {
+            StopAllBossActions(); // Halt animations, movement, and attacks
+            return;
+        }
+
+        ResumeBossActions(); // Resume if dialogue is not active
+
         Debug.Log($"{enemyHealth.getMaxHealth()}");
         Debug.Log($"{enemyHealth.getHealth()}");
         if (canChargeAttack) {
@@ -85,10 +93,35 @@ public class bossRoutine : MonoBehaviour
         }
     }
 
+    private void StopAllBossActions()
+    {
+        if (anim != null)
+        {
+            anim.speed = 0; // Freeze animations
+        }
+    }
+
+    private void ResumeBossActions()
+    {
+        if (anim != null)
+        {
+            anim.speed = 1; // Resume animations
+        }
+    }
+
     IEnumerator canBossAttack() {
         int attack;
 
         while (!enemyHealth.isDying) {
+            // Stop actions and animations during dialog
+            if (DialogueState.IsDialogueActive)
+            {
+                yield return null;
+                continue;
+            }
+
+            // Resume animations
+            anim.speed = 1;
 
             Debug.Log("waiting");
 

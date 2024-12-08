@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: cl_p3
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
-  Text: "I promise. We\u2019re walking out of here with that cure. You\u2019re not
-    going anywhere."
+  Text: And for us.
   nextDialog: {fileID: 11400000, guid: adf0e883616c44b3991fa82303bce2e4, type: 2}

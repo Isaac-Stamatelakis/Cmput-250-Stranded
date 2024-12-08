@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b445575290bc6244da635616dbf63a74, type: 3}
   m_Name: The Dean
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 22fade1e2426f684a9c315c974f50d18, type: 3}
+  sprite: {fileID: -1258940765, guid: 549c0abd1be31f1478b0d787f3a6d47b, type: 3}

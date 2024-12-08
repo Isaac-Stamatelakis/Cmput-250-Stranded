@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: rm4_d2
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
-  Text: "Here they come\u2026 again. You think they ever stop?"
+  Text: "And the cure? It\u2019s not for the people he\u2019s turned into monsters.
+    It\u2019s for him\u2014his chosen few."
   nextDialog: {fileID: 11400000, guid: 72f37b456d7f84375a1700170a2f4b17, type: 2}

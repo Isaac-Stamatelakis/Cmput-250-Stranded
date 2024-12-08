@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: cl_d3
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
-  Text: "Promise me\u2026 no matter what happens, we don\u2019t leave until we have
-    that cure. I can\u2019t\u2026 I won\u2019t turn into one of those things."
+  Text: For everyone he hurt. For everyone we lost.
   nextDialog: {fileID: 11400000, guid: a9a2e0c1798ea4fa88fb7104ce30dda9, type: 2}

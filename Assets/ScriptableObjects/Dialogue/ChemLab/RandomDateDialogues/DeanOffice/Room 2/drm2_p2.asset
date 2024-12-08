@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: drm2_p2
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
-  Text: "You\u2019re going to pay for this, Dean."
+  Text: "Evolution? You\u2019ve killed people. Turned them into monsters. You destroyed
+    lives!"
   nextDialog: {fileID: 11400000, guid: b859b4ed5446c4aad923cf60490e0616, type: 2}

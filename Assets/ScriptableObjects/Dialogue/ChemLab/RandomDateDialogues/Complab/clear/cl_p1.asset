@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: cl_p1
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
-  Text: Yeah, but we made it. Somehow.
-  nextDialog: {fileID: 0}
+  Text: "It\u2019s over. The zombies are gone."
+  nextDialog: {fileID: 11400000, guid: 8de4e2566f49d4e1db574815fb85f936, type: 2}

@@ -482,8 +482,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 103229942f2c6964cad717772bcc4d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLevel: {fileID: 4323780544392805944, guid: d15520d77815d3b4e93eb7bca8be47f4, type: 3}
-  testingDifficulty: 4
+  defaultLevel: {fileID: 4323780544392805944, guid: 21f1c27a8880e0341a07644b3e577c25, type: 3}
+  testingDifficulty: 0
 --- !u!4 &1856416340
 Transform:
   m_ObjectHideFlags: 0
@@ -517,6 +517,10 @@ PrefabInstance:
     - target: {fileID: 5605487721146580832, guid: 86e9befc570406c498e14bce619974bd, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6771256813497995150, guid: 86e9befc570406c498e14bce619974bd, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7363912352284349947, guid: 86e9befc570406c498e14bce619974bd, type: 3}
       propertyPath: m_AnchorMax.x
@@ -665,7 +669,7 @@ PrefabInstance:
       objectReference: {fileID: 1548140085}
     - target: {fileID: 6740832714939041957, guid: 7182cdf241dbfe24a8658d63e2c961ab, type: 3}
       propertyPath: orthographic size
-      value: 12.53125
+      value: 14.46875
       objectReference: {fileID: 0}
     - target: {fileID: 6740832715051295941, guid: 7182cdf241dbfe24a8658d63e2c961ab, type: 3}
       propertyPath: m_IsActive
