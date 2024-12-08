@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ReadableNote : InteractableGameObject
 {
-    [SerializeField, TextArea(10, 10)] public string Header;
+    [SerializeField, TextArea(3, 3)] public string Header;
     [SerializeField, TextArea(10, 10)] public string Content;
     public override void interact()
     {

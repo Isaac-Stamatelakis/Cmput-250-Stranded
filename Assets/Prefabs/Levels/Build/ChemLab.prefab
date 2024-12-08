@@ -37824,11 +37824,11 @@ Tilemap:
       e33: 1
   m_TileColorArray:
   - m_RefCount: 72
-    m_Data: {r: 0.98842764, g: 0.53357184, b: 0.5902104, a: 1}
+    m_Data: {r: 0.75287277, g: 0.38597393, b: 0.4041417, a: 1}
   - m_RefCount: 2857
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 0
-    m_Data: {r: 0.9246319, g: 0.47429603, b: 0.5985909, a: 1}
+    m_Data: {r: 0.82732636, g: 0.3569605, b: 0.38087836, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -61601,6 +61601,10 @@ PrefabInstance:
         their worth will access the cure.\n\nThis campus has become a proving ground.
         Let them fight for it. Survival is evolution\u2019s ultimate test. The cure
         remains locked in my office, where it will remain safe\u2026 with me."
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225918043338129729, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: m_RootOrder
