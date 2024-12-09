@@ -43,6 +43,13 @@ namespace Rooms {
                 player.GetComponent<PlayerHealth>().setMaxHealth(1);
             }
             player.refreshUI();
+
+            WeaponStatsUI weaponStatsUI = WeaponStatsUI.Instance;
+            if (weaponStatsUI != null && player.currentWeapon != null)
+            {
+                weaponStatsUI.UpdateWeaponStats(player.currentWeapon);
+            }
+
         }
     }
 }

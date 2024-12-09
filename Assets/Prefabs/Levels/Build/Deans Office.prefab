@@ -18392,8 +18392,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossMusic: {fileID: 4323780544392805951}
   fadeDuration: 8
+  startVolume: 0.1
   lowVolume: 0.2
-  highVolume: 0.35
+  highVolume: 0.3
 --- !u!1 &4323780544683518229
 GameObject:
   m_ObjectHideFlags: 0
@@ -40409,9 +40410,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3506594301138635119}
     - target: {fileID: 250383000893655799, guid: 1534a50ca241a1541bed2b2e1aab72e1, type: 3}
+      propertyPath: officeTrigger
+      value: 
+      objectReference: {fileID: 6616880880255185350}
+    - target: {fileID: 250383000893655799, guid: 1534a50ca241a1541bed2b2e1aab72e1, type: 3}
       propertyPath: chargeAttackSound
       value: 
       objectReference: {fileID: 8300000, guid: bab426a1e0b11f8448cb557876ed785f, type: 3}
+    - target: {fileID: 250383000893655799, guid: 1534a50ca241a1541bed2b2e1aab72e1, type: 3}
+      propertyPath: bossMusicController
+      value: 
+      objectReference: {fileID: 7875831333693068786}
     - target: {fileID: 250383000893655799, guid: 1534a50ca241a1541bed2b2e1aab72e1, type: 3}
       propertyPath: projectileAttackSound
       value: 

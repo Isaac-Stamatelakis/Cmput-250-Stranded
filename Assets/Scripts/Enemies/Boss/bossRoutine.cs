@@ -4,6 +4,7 @@ using Difficulty;
 using UnityEngine;
 using PlayerModule;
 using Rooms;
+using Dialogue;
 
 public class bossRoutine : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class bossRoutine : MonoBehaviour
     public AudioClip chargeAttackSound;
     public AudioClip projectileAttackSound;
     public EnemyHealth enemyHealth;
+    public BossMusicController bossMusicController;
 
     //stuff related for half health stuff
     private bool halfHealth = false;
@@ -44,7 +46,18 @@ public class bossRoutine : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
         //this is the main boss attack cycle
-        StartCoroutine(canBossAttack());
+        StartCoroutine(WaitForDialogueCompletion());
+    }
+
+    IEnumerator WaitForDialogueCompletion()
+    {
+        bossMusicController.StartDialogue();
+        while (DialogueState.IsDialogueActive || !OfficeTrigger.hasPlayedDialogue)
+        {
+            yield return null;
+        }
+        bossMusicController.EndDialogue();
+
         DifficultyModifier modifier = LevelManager.getInstance().DifficultyModifier;
         float healthModifier = modifier.GetBossHealthModifier();
         float speedModifier = modifier.GetBossSpeedModifier();
@@ -53,9 +66,8 @@ public class bossRoutine : MonoBehaviour
         BossHealthBar bossHealthBar = BossHealthBar.Instance;
         enemyHealth.setHealthBar(bossHealthBar);
         bossHealthBar.gameObject.SetActive(true);
-        
 
-        //Debug.Log($"{totalHealth}");
+        StartCoroutine(canBossAttack());
     }
 
     // Update is called once per frame
@@ -109,6 +121,7 @@ public class bossRoutine : MonoBehaviour
             if (canAttack && !enemyHealth.isDying) {
                 if (attack == 0) {
                     audioSource.pitch = 0.8f;
+                    audioSource.volume = 0.8f;
                     audioSource.PlayOneShot(chargeAttackSound);
 
                     playerPos = player.transform.position;

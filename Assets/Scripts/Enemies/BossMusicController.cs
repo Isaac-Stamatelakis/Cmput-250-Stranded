@@ -2,31 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class BossMusicController : MonoBehaviour
 {
     public AudioSource bossMusic;
     public float fadeDuration = 2f;
-    public float lowVolume = 0.3f;
-    public float highVolume = 1f;
+    public float startVolume = 0.2f;
+    public float lowVolume = 0.4f;
+    public float highVolume = 0.6f;
 
     private bool musicFadingOut = false;
 
     void Start()
     {
         bossMusic.Play();
-        StartCoroutine(FadeMusicToVolume(highVolume));
+        StartCoroutine(FadeMusicToVolume(startVolume));
     }
 
-    //public void StartDialogue()
-    //{
-    //    StartCoroutine(FadeMusicToVolume(lowVolume));
-    //}
+    public void StartDialogue()
+    {
+        StartCoroutine(FadeMusicToVolume(lowVolume));
+    }
 
-    //public void EndDialogue()
-    //{
-    //    StartCoroutine(FadeMusicToVolume(highVolume));
-    //}
+    public void EndDialogue()
+    {
+        StartCoroutine(FadeMusicToVolume(highVolume));
+    }
 
     public void BossDefeated()
     {
@@ -52,4 +52,3 @@ public class BossMusicController : MonoBehaviour
         bossMusic.volume = targetVolume;
     }
 }
-
