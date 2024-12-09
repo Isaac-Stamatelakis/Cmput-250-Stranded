@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: drm2_b2
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: 26cd8e64faf67704498c9af43846159e, type: 2}
-  Text: Nightmare? No, my dear student, this is progress. Humanity has been stagnant
-    for too long. Project Ascend is the next step in evolution.
+  Text: Nightmare? No, my dear student, this is progress. Project Ascend is the next
+    step in evolution.
   nextDialog: {fileID: 11400000, guid: a7d760590eb9e404393613db15f6b039, type: 2}

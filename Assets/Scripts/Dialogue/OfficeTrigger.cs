@@ -8,7 +8,7 @@ namespace Dialogue
     {
         [SerializeField] private PlayerTutorialManager playerTutorialManagerPrefab;
         [SerializeField] private DialogObject singleDialog;
-        private static bool hasPlayedDialogue = false;
+        public static bool hasPlayedDialogue = false;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -39,15 +39,6 @@ namespace Dialogue
         private void EndDialogue()
         {
             DialogueState.IsDialogueActive = false; // Resume enemy behavior
-            displayTutorial();
-        }
-
-        private void displayTutorial()
-        {
-            PlayerTutorialManager playerTutorialManager = GameObject.Instantiate(playerTutorialManagerPrefab);
-            Transform canvasTransform = GameObject.Find("Canvas").transform;
-            playerTutorialManager.transform.SetParent(canvasTransform, false);
-            playerTutorialManager.transform.SetAsFirstSibling();
         }
     }
 }
