@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Datetree2-1
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
-  Text: Research. I was collecting data for my psychology project. Then... something
+  Text: Research. I was collecting data for my chemistry project. Then... something
     broke near me. A vial.
   nextDialog: {fileID: 11400000, guid: de5ccae866a914ac0ae8f12d43b1dd9e, type: 2}

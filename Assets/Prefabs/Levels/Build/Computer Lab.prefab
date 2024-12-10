@@ -7140,6 +7140,7 @@ RectTransform:
   m_Children:
   - {fileID: 4541940370541700462}
   - {fileID: 5533018907986183565}
+  - {fileID: 4646894690388174245}
   m_Father: {fileID: 4323780545350401410}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47529,7 +47530,7 @@ MonoBehaviour:
   textIndicator: {fileID: 8430716216762576935}
   boss: {fileID: 0}
   DateRandomDialogs: {fileID: 11400000, guid: 3d45e85428b114fcd833f7ba936e51dd, type: 2}
-  OnRoomClearDialog: {fileID: 11400000, guid: 6a5e08374d4ee490ab642ffb4253ad69, type: 2}
+  OnRoomClearDialog: {fileID: 0}
 --- !u!1 &7389449081989218364
 GameObject:
   m_ObjectHideFlags: 0
@@ -50832,17 +50833,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1225918043338129729, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: Content
-      value: "The outbreak is no accident. It was necessary to test the serum\u2019s
-        viability under real-world conditions. The chem lab became the epicenter,
-        but containment efforts failed. Staff exposure occurred within hours\u2014violent
-        outbursts, hunger, and regression followed.\n\nThis is not failure. This
-        is progress. Humanity is weak. The serum is not just a cure for population
-        decline\u2014it\u2019s the next step in evolution. Aggression is a natural
-        response to fear. Strength comes from survival, and only the strong will
-        thrive in this new world.\n\nThe cure was never part of the original plan.
-        It\u2019s insurance\u2014a failsafe for those who prove their worth. The
-        cure remains secure in my office. Only I hold the key to humanity\u2019s
-        survival. Let them come. They will see my vision soon enough."
+      value: "Humanity is weak. The serum is not just a cure for population decline\u2014it\u2019s
+        the next step in evolution.\n\nAggression is a natural response to fear.
+        Strength comes from survival. These subjects\u2026 they are proof.\n\nThe
+        outbreak was no accident. It was the necessary final step to validate the
+        serum under real-world conditions. The chem lab became the epicenter, but
+        containment failed. Now, the entire campus serves as the proving ground.\n\nThe
+        cure remains secure in my office, locked away for those who prove their worth.
+        Only the strongest will thrive in this new world.\n\nLet them come. They
+        will see my vision soon enough."
       objectReference: {fileID: 0}
     - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: m_RootOrder
@@ -54411,24 +54410,25 @@ PrefabInstance:
     - target: {fileID: 1225918043338129729, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: Content
       value: "It\u2019s strange how things work out. I never expected to meet someone
-        like her, not here, not in the middle of a university so big it feels like
-        a maze sometimes.\n\nI first saw her in the library, of all places. She was
-        sitting by the window, her headphones on, surrounded by open books and scribbled
-        notes. I was there to cram for my stats midterm, barely keeping my eyes open.
-        She caught me staring, and instead of giving me the usual \u2018what are
-        you looking at?\u2019 glare, she smiled.\n\nI panicked and pretended to read
-        the nearest book, which turned out to be upside down. Smooth, right? She
-        came over, laughed at me (in the nicest way possible), and said, \u2018You\u2019ll
-        never pass stats with that upside-down Shakespeare.\u2019\n\nWe started talking.
-        Turns out, we shared more than just a love for procrastinating and bad coffee.
-        She was passionate about her psych research, always going on about how people\u2019s
-        minds work under pressure. I didn\u2019t get half of what she said, but her
-        enthusiasm was\u2026 magnetic.\n\nWe exchanged numbers. A week later, we
-        were grabbing late-night snacks at the campus diner. She called it our \u2018first
-        unofficial date.\u2019 I didn\u2019t argue.\n\nThere\u2019s something about
-        her that makes me feel like I can handle anything. I guess that\u2019s why,
-        even now, as everything falls apart, I\u2019m holding on. Because I promised
-        I\u2019d look out for her, and she\u2026 she\u2019s worth fighting for.\n"
+        like her, especially in a university that feels like a maze. I first saw
+        her in the library, sitting by the window, headphones on, surrounded by open
+        books and a stack of chemistry journals. I was there to cram for my stats
+        midterm, barely staying awake. She caught me staring and, instead of glaring,
+        she smiled. I panicked, grabbed the nearest book, and pretended to read it\u2014upside
+        down. Smooth, right?\n\nShe walked over, laughed, and said, \"You\u2019ll
+        never pass stats with that upside-down Shakespeare.\" Her voice was calm
+        but confident, like someone who\u2019d already solved every problem life
+        could throw at her. We started talking, and it turned out she was deep into
+        chemistry research\u2014developing new compounds or something, though she
+        downplayed it as \u201Cjust a project.\u201D Her notes were full of diagrams
+        and equations I couldn\u2019t begin to understand. But the way she lit up
+        when she explained it was\u2026 magnetic.\n\nWe exchanged numbers, and a
+        week later, we were grabbing late-night snacks at the campus diner. She called
+        it our \"first unofficial date.\" I didn\u2019t argue. She makes me feel
+        like I can be better, stronger, more capable. For someone like me, who\u2019s
+        always felt like I\u2019m just fumbling through life, that means everything.
+        I don\u2019t know what the future holds, but I know one thing: I\u2019ll
+        protect her. She\u2019s worth it."
       objectReference: {fileID: 0}
     - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: m_RootOrder
@@ -54910,6 +54910,108 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2917422639780357545, guid: 719a1d76370a9f742a835c0a3c5c1d9a, type: 3}
   m_PrefabInstance: {fileID: 6803220076938413255}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &6961081098173653944
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4323780544758729427}
+    m_Modifications:
+    - target: {fileID: 2371053366075704861, guid: b2cb3fdca46ab40498612e4b70117a90, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371053366075704861, guid: b2cb3fdca46ab40498612e4b70117a90, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371053366075704861, guid: b2cb3fdca46ab40498612e4b70117a90, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371053366075704861, guid: b2cb3fdca46ab40498612e4b70117a90, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371053366075704861, guid: b2cb3fdca46ab40498612e4b70117a90, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371053366075704861, guid: b2cb3fdca46ab40498612e4b70117a90, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371053366075704861, guid: b2cb3fdca46ab40498612e4b70117a90, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371053366075704861, guid: b2cb3fdca46ab40498612e4b70117a90, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371053366075704861, guid: b2cb3fdca46ab40498612e4b70117a90, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371053366075704861, guid: b2cb3fdca46ab40498612e4b70117a90, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371053366075704861, guid: b2cb3fdca46ab40498612e4b70117a90, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371053366075704861, guid: b2cb3fdca46ab40498612e4b70117a90, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371053366075704861, guid: b2cb3fdca46ab40498612e4b70117a90, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371053366075704861, guid: b2cb3fdca46ab40498612e4b70117a90, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371053366075704861, guid: b2cb3fdca46ab40498612e4b70117a90, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371053366075704861, guid: b2cb3fdca46ab40498612e4b70117a90, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371053366075704861, guid: b2cb3fdca46ab40498612e4b70117a90, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371053366075704861, guid: b2cb3fdca46ab40498612e4b70117a90, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 11.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371053366075704861, guid: b2cb3fdca46ab40498612e4b70117a90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371053366075704861, guid: b2cb3fdca46ab40498612e4b70117a90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371053366075704861, guid: b2cb3fdca46ab40498612e4b70117a90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8272017021635102021, guid: b2cb3fdca46ab40498612e4b70117a90, type: 3}
+      propertyPath: m_Name
+      value: Ruler
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b2cb3fdca46ab40498612e4b70117a90, type: 3}
+--- !u!224 &4646894690388174245 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2371053366075704861, guid: b2cb3fdca46ab40498612e4b70117a90, type: 3}
+  m_PrefabInstance: {fileID: 6961081098173653944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7563439865489154822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55036,17 +55138,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1225918043338129729, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: Content
-      value: "Global fertility rates are plummeting. Resources are dwindling, and
-        humanity faces extinction unless radical action is taken. Project Ascend
-        was created to address this crisis. By enhancing human capabilities, we secure
-        the survival of the species.\n\nThe serum shows promise. Early trials demonstrated
-        significant physical augmentation\u2014strength, endurance, and speed beyond
-        human limits. But something is wrong. Subjects exhibit headaches, aggression,
-        and disorientation. Infection spreads through bites, and symptoms worsen
-        in secondary hosts. Isolation chambers have been prepared for the more volatile
-        cases.\n\nProgress demands sacrifice. This must remain confidential\u2014public
-        backlash could derail everything. Humanity must evolve to survive. We are
-        on the verge of a breakthrough, but the risks are growing."
+      value: "Global fertility rates are plummeting. Resources dwindle as the population
+        ages. Humanity faces extinction unless radical action is taken.\n\nProject
+        Ascend was created to address this crisis. By enhancing human capabilities,
+        we secure the survival of the species.\n\nThe serum shows promise, but the
+        risks grow. Infection spreads through bites, and symptoms worsen in secondary
+        hosts. Isolation chambers have been prepared for the volatile cases.\n\nProgress
+        demands sacrifice. This must remain confidential\u2014public backlash could
+        derail everything. Humanity must evolve to survive."
       objectReference: {fileID: 0}
     - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: m_RootOrder

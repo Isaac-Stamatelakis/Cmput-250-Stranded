@@ -914,6 +914,7 @@ RectTransform:
   - {fileID: 2517395530021193661}
   - {fileID: 4900689516227682527}
   - {fileID: 40971523954663666}
+  - {fileID: 1400367960984422510}
   m_Father: {fileID: 9074089335784796914}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2937,8 +2938,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textIndicator: {fileID: 4734069069460790795}
   boss: {fileID: 0}
-  DateRandomDialogs: {fileID: 0}
-  OnRoomClearDialog: {fileID: 11400000, guid: b7a84b69d23d341f887ee8f053e37229, type: 2}
+  DateRandomDialogs: {fileID: 11400000, guid: 352263de67ea94b97a19145c906c2630, type: 2}
+  OnRoomClearDialog: {fileID: 0}
 --- !u!1 &1790140470790023086
 GameObject:
   m_ObjectHideFlags: 0
@@ -37824,11 +37825,11 @@ Tilemap:
       e33: 1
   m_TileColorArray:
   - m_RefCount: 72
-    m_Data: {r: 0.75287277, g: 0.38597393, b: 0.4041417, a: 1}
+    m_Data: {r: 0.84066737, g: 0.5770999, b: 0.61501366, a: 1}
   - m_RefCount: 2857
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 0
-    m_Data: {r: 0.82732636, g: 0.3569605, b: 0.38087836, a: 1}
+    m_Data: {r: 0.7211765, g: 0.4880399, b: 0.4923946, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -59547,23 +59548,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1225918043338129729, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: Header
-      value: 'Research Log: Phase 1 and Ethical Concerns
+      value: 'Research Log: Ethical Concerns
 
         By Dr. Victor Wren'
       objectReference: {fileID: 0}
     - target: {fileID: 1225918043338129729, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: Content
-      value: "Subject 7 exhibited a 300% increase in strength. Remarkable, but it
-        came with uncontrollable aggression.\nTwo handlers were severely injured,
-        and we\u2019ve had three fatalities this week alone.\n\nCognitive degradation
-        is rapid\u2014subjects are losing their memories and regressing into violent,
-        primal behavior.\nConcerns were raised today about the ethics of the trials,
-        calling them inhumane.\n\nThey don\u2019t understand. This is bigger than
-        any of us\u2014bigger than ethics. Humanity stands on the edge of collapse.
-        Population decline is inevitable unless we evolve.\nLives are being destroyed,
-        but progress demands sacrifice.\n\nThe board can never know the extent of
-        these failures. If we stop now, we lose everything. I won\u2019t let that
-        happen."
+      value: "Concerns were raised today about the ethics of these trials, calling
+        them inhumane.\n\nThey don\u2019t understand. This is bigger than any of
+        us\u2014bigger than ethics. Humanity stands on the edge of collapse. Population
+        decline is inevitable unless we evolve.\n\nThe board must never discover
+        the full extent of these failures. Stopping now would mean losing everything.
+        That cannot be allowed to happen.\n\nLives will be lost, but history will
+        remember this as the moment humanity took its next step forward."
       objectReference: {fileID: 0}
     - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: m_RootOrder
@@ -61590,17 +61587,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1225918043338129729, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: Content
-      value: "Subject 12 breached its isolation chamber. Aggression levels reached
-        catastrophic heights, overwhelming handlers. Staff exposure began here in
-        the chem lab, spreading rapidly. Initial symptoms included violent outbursts,
-        vacant stares, and\u2026 hunger.\n\nThe lab is now on lockdown. Survivors
-        have been instructed to evacuate to the lower levels. Essential research,
-        including the cure, has been secured in my office.\n\nThe cure wasn\u2019t
-        part of the original plan\u2014it\u2019s insurance, a failsafe for the strongest
-        among us. The serum enhances humanity, but at a cost. Only those who prove
-        their worth will access the cure.\n\nThis campus has become a proving ground.
-        Let them fight for it. Survival is evolution\u2019s ultimate test. The cure
-        remains locked in my office, where it will remain safe\u2026 with me."
+      value: "Subject 12 breached its isolation chamber, triggering chaos. Aggression
+        levels reached catastrophic heights, overwhelming handlers.\n\nStaff exposure
+        began here in the chem lab. Initial signs of infection appeared within hours\u2014violent
+        outbursts, vacant stares, and\u2026 hunger.\n\nThe lab is now on lockdown.
+        Survivors have been instructed to evacuate to the lower levels. Essential
+        research, including the cure, has been secured in my office.\n\nNo one must
+        know the truth."
       objectReference: {fileID: 0}
     - target: {fileID: 1225918043338129729, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: m_Enabled
@@ -61667,6 +61660,16 @@ PrefabInstance:
     - target: {fileID: 731360542921468956, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: m_Name
       value: ReadableNote
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225918043338129729, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
+      propertyPath: Content
+      value: "The serum shows promise. Early trials demonstrate significant physical
+        augmentation\u2014strength, endurance, and speed all exceed baseline levels.\n\nBut
+        something is wrong. Subjects report headaches, disorientation, and heightened
+        aggression. These side effects were\u2026 unexpected.\n\nWe\u2019ve secured
+        isolation chambers to contain the more volatile cases. Despite this, the
+        potential here is limitless. If perfected, this could change humanity\u2019s
+        trajectory forever."
       objectReference: {fileID: 0}
     - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
       propertyPath: m_RootOrder
@@ -62288,6 +62291,85 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5888045593652192056, guid: ceab2d71c534b10498c6ed3a3a1f7c63, type: 3}
   m_PrefabInstance: {fileID: 4079175568266870713}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4315962918234916219
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2818354622048335250}
+    m_Modifications:
+    - target: {fileID: 731360542921468956, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
+      propertyPath: m_Name
+      value: ReadableNote
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225918043338129729, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
+      propertyPath: Header
+      value: 'Research Log: Phase 1 Observations
+
+        By Dr. Victor Wren'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1225918043338129729, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
+      propertyPath: Content
+      value: "Subject 7 exhibited a 300% increase in strength. Remarkable, but this
+        came with uncontrollable aggression.\nTwo handlers were severely injured,
+        and three fatalities occurred this week alone.\n\nCognitive degradation is
+        rapid\u2014subjects are losing memories and regressing into violent, primal
+        behavior.\n\nRecommendation: Halt trials temporarily. Serum composition requires
+        refinement to mitigate these\u2026 side effects.\n\nBut we can\u2019t stop
+        now. The stakes are too high, and failure is not an option. Progress demands
+        sacrifice."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.880001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.94832367
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.31730464
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 37
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
+--- !u!4 &1400367960984422510 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2921281816083434773, guid: 490db8a6ea8856a4d8646ace14c20a57, type: 3}
+  m_PrefabInstance: {fileID: 4315962918234916219}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4683386547861792426
 PrefabInstance:
