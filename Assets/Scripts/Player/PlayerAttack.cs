@@ -25,7 +25,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        if (!DialogUIController.Instance.ShowingDialog && Input.GetMouseButtonDown(0) && !attackPerformed)
+        if (!DialogUIController.Instance.ShowingDialog && !attackPerformed && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)))
         {
             Attack();
         }

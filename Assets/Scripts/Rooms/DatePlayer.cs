@@ -192,6 +192,7 @@ public class DatePlayer : MonoBehaviour
     {
         audioSource.PlayOneShot(curedSound);
         isCured = true;
+        Player.Instance.setDialog(true);
         float delay = 0.1f;
         while (delay > 0) {
             animator.SetBool("isCured", true);
@@ -207,6 +208,7 @@ public class DatePlayer : MonoBehaviour
     }
 
     private void goToEnd() {
+        Player.Instance.setDialog(false);
         TutorialDialogSequencer.ResetDialogueFlag();
         SceneManager.LoadScene("EndingScene");
     }
@@ -220,6 +222,7 @@ public class DatePlayer : MonoBehaviour
         }
         DialogObject dialogObject = cycleDialogues();
         DialogUIController.Instance.DisplayDialogue(dialogObject);
+        Player.Instance.setDialog(true);
     }
 
     private DialogObject cycleDialogues()

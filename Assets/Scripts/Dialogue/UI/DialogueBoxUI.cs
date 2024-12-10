@@ -75,6 +75,7 @@ namespace Dialogue
         }
         public void DisplayDialogue(DialogObject dialogue)
         {
+            Player.Instance.setDialog(true);
             if (previousDialogs.Contains(dialogue))
             {
                 Debug.LogWarning($"Duplicate dialog would have resulted in a an infinite loop {dialogue.name}");

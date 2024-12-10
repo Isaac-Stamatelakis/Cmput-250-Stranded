@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Rooms;
+using PlayerModule;
 
 namespace Dialogue {
     public class TutorialDialogSequencer : TriggerableEvent

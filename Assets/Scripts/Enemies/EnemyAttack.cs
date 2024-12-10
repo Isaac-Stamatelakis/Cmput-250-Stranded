@@ -36,11 +36,14 @@ public class EnemyAttack : MonoBehaviour
                     return;
                 }
             }
-            
             PlayerHealth health = collider.gameObject.GetComponent<PlayerHealth>();
-            Player player = Player.Instance;
-            player.PlayerStats.DamageTaken += damage;
-            health.Damage(damage);
+            EnemyHealth enemyHealth = GetComponent<EnemyHealth>();
+            if (!enemyHealth.isDying)
+            {
+                Player player = Player.Instance;
+                player.PlayerStats.DamageTaken += damage;
+                health.Damage(damage);
+            }
         }
     }
 }

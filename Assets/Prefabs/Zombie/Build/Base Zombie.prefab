@@ -253,7 +253,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -350,11 +350,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 7930781849673461476}
-  hurtSound: {fileID: 8300000, guid: 0211dadc883e2914eb60d9920f1bcf62, type: 3}
-  minInterval: 2
-  maxInterval: 5
-  minPitch: 0.4
-  maxPitch: 0.8
+  hurtSound: {fileID: 8300000, guid: 972aa5f78a3f2714ead048bc695bc984, type: 3}
+  minInterval: 1
+  maxInterval: 3
+  minPitch: 0.5
+  maxPitch: 0.9
 --- !u!1001 &8747861742105448297
 PrefabInstance:
   m_ObjectHideFlags: 0
