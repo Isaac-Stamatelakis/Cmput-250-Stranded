@@ -476,7 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 103229942f2c6964cad717772bcc4d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLevel: {fileID: 4323780544392805944, guid: 21f1c27a8880e0341a07644b3e577c25, type: 3}
+  defaultLevel: {fileID: 4323780544392805944, guid: d15520d77815d3b4e93eb7bca8be47f4, type: 3}
   testingDifficulty: 1
 --- !u!4 &1856416340
 Transform:
@@ -500,6 +500,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 966506706425402428, guid: 86e9befc570406c498e14bce619974bd, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2262050126979483871, guid: 86e9befc570406c498e14bce619974bd, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2563871009416071319, guid: 86e9befc570406c498e14bce619974bd, type: 3}
       propertyPath: m_SizeDelta.x
       value: 500
@@ -515,6 +523,14 @@ PrefabInstance:
     - target: {fileID: 2627170884295187212, guid: 86e9befc570406c498e14bce619974bd, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3248188710185657449, guid: 86e9befc570406c498e14bce619974bd, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3248188710185657449, guid: 86e9befc570406c498e14bce619974bd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3495528901353839073, guid: 86e9befc570406c498e14bce619974bd, type: 3}
       propertyPath: m_fontSize
@@ -737,6 +753,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6740832714939041957, guid: 7182cdf241dbfe24a8658d63e2c961ab, type: 3}
+      propertyPath: orthographic size
+      value: 14.65625
+      objectReference: {fileID: 0}
     - target: {fileID: 6740832715346391452, guid: 7182cdf241dbfe24a8658d63e2c961ab, type: 3}
       propertyPath: playerUI
       value: 

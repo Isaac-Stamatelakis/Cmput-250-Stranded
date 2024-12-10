@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Date1-1
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
-  Text: "He really thought this was going to save us. All this destruction\u2026
-    started right here."
+  Text: 'He really thought this was going to save us. '
   nextDialog: {fileID: 11400000, guid: f2b2e72b319bf464fa6e24bf236e39c2, type: 2}
