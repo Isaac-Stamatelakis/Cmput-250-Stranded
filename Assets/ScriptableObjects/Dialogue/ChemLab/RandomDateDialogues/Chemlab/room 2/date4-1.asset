@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: date4-1
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
-  Text: "They knew it was dangerous. They wrote it down. \u2018Two casualties.\u2019
+  Text: "They knew it was dangerous. They wrote it down. \u2018Three fatalities\u2019
     Did they stop? No. They just kept going."
   nextDialog: {fileID: 11400000, guid: de608a9a593564e2ca3f09db5f61f3d4, type: 2}

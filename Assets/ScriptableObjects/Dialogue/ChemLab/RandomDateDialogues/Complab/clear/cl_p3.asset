@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
   Text: And for us.
-  nextDialog: {fileID: 11400000, guid: adf0e883616c44b3991fa82303bce2e4, type: 2}
+  nextDialog: {fileID: 0}

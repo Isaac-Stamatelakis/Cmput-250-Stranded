@@ -129,11 +129,13 @@ public class DatePlayer : MonoBehaviour
             if (directionToPlayer.x < 0)
             {
                 Debug.Log("date trying to move left");
-                animator.SetBool(isCured ? "ndate_left" : "date_left", true);
+                    animator.SetBool(isCured ? "ndate_left" : "date_left", true);
+                
             }
             else if (directionToPlayer.x > 0)
             {
                 animator.SetBool(isCured ? "ndate_right" : "date_right", true);
+                
             }
         }
         else
@@ -162,14 +164,14 @@ public class DatePlayer : MonoBehaviour
     private void ResetMovementAnimationBools()
     {
         // Reset all movement-related animation parameters to avoid conflicts
-        animator.SetBool("ndate_left", false);
-        animator.SetBool("ndate_right", false);
-        animator.SetBool("nface_left", false);
-        animator.SetBool("nface_right", false);
         animator.SetBool("date_left", false);
         animator.SetBool("date_right", false);
         animator.SetBool("face_left", false);
         animator.SetBool("face_right", false);
+        animator.SetBool("ndate_left", false);
+        animator.SetBool("ndate_right", false);
+        animator.SetBool("nface_left", false);
+        animator.SetBool("nface_right", false);
     }
 
     void OnCollisionEnter2D(Collision2D collision)

@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: dm1_d2.2
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
-  Text: "Side by side, just like we\u2019ve done this whole time. Let\u2019s finish
-    what he started."
+  Text: "Let\u2019s finish this."
   nextDialog: {fileID: 0}

@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: erc_p1
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
-  Text: "[\u2018Progress demands sacrifice'] That\u2019s always how it starts, right?
-    They justify everything\u2014death, suffering\u2014all for their so-called greater
-    good."
-  nextDialog: {fileID: 11400000, guid: 3593fc8efa50e4b2ea6d089ffd392899, type: 2}
+  Text: "[\u2018Progress demands sacrifice'] That\u2019s always how it starts, right? "
+  nextDialog: {fileID: 11400000, guid: a7025ac4836ca4e2b8e448b45b2c9798, type: 2}

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: room 2
   m_EditorClassIdentifier: 
   dialogs:
-  - {fileID: 11400000, guid: 01fba7b9b0be9407e9f9c490305ba8d3, type: 2}
+  - {fileID: 11400000, guid: 1eb0c2501c4fb4ff1920ea8e144e45e2, type: 2}
