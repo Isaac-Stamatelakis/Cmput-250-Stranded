@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cae2666990c0bb459d13c257dd7c11f, type: 3}
   m_Name: drm1_p2
   m_EditorClassIdentifier: 
-  Speaker: {fileID: 0}
-  Text: 
-  nextDialog: {fileID: 0}
+  Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
+  Text: "We\u2019ll get the cure. And we\u2019ll make this right."
+  nextDialog: {fileID: 11400000, guid: 9a915d7b21d3242899c5b59e3fd976e1, type: 2}
