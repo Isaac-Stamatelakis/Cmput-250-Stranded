@@ -75,7 +75,7 @@ public class NavmeshFollow : MonoBehaviour
     void Update()
     {
         Debug.Log($"isChasing: {isChasing}");
-        if (Vector3.Distance(player.transform.position, transform.position) < 14 || isChasing) {
+        if (Vector3.Distance(player.transform.position, transform.position) < 18 || isChasing) {
             isChasing = true;
             anim.SetBool("isWalking",!hasCollided);
             StartCoroutine(moveTo(player.transform.position));
