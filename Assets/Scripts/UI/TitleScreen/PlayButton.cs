@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using Rooms;
 
 namespace TitleScreen {
     public class PlayButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
@@ -25,6 +26,7 @@ namespace TitleScreen {
         }
 
         private void Press() {
+            LevelManager.getInstance().reset();
             DifficultyModifierUI difficultyModifierUI = Instantiate(difficultyModifierUIPrefab);
             difficultyModifierUI.transform.SetParent(transform.parent.parent,false);
         }

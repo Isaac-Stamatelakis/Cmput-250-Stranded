@@ -1,44 +1,71 @@
+
 using System.Collections;
 using UnityEngine;
 using Rooms;
+using PlayerModule;
 
 namespace Dialogue
 {
     public class OfficeTrigger : TriggerableEvent
     {
         [SerializeField] private PlayerTutorialManager playerTutorialManagerPrefab;
-        [SerializeField] private DialogObject singleDialog;
-        public static bool hasPlayedDialogue = false;
+        [SerializeField] private DialogObject introDialog; // For the first room
+        [SerializeField] private DialogObject bossRoomDialog; // For the boss room
+        [SerializeField] private bool isBossRoom; // Toggle for boss room
+        private static bool hasPlayedIntroDialogue = false;
+        public static bool hasPlayedBossDialogue = false;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!hasPlayedDialogue && other.CompareTag("Player"))
+            if (other.CompareTag("Player"))
             {
-                trigger();
+                if (isBossRoom && !hasPlayedBossDialogue)
+                {
+                    TriggerBossDialogue();
+                }
+                else if (!isBossRoom && !hasPlayedIntroDialogue)
+                {
+                    TriggerIntroDialogue();
+                }
             }
         }
 
-        public override void trigger()
+        private void TriggerIntroDialogue()
         {
-            if (!hasPlayedDialogue)
-            {
-                hasPlayedDialogue = true;
-                DialogueState.IsDialogueActive = true; // Pause enemies and projectiles
+            hasPlayedIntroDialogue = true;
+            PlayDialogue(introDialog);
+        }
 
-                if (singleDialog != null)
-                {
-                    DialogUIController.Instance.DisplayDialogue(singleDialog, EndDialogue);
-                }
-                else
-                {
-                    Debug.LogWarning("No DialogObject assigned to OfficeTrigger.");
-                }
+        private void TriggerBossDialogue()
+        {
+            hasPlayedBossDialogue = true;
+            PlayDialogue(bossRoomDialog);
+        }
+
+        private void PlayDialogue(DialogObject dialog)
+        {
+            if (dialog != null)
+            {
+                DialogueState.IsDialogueActive = true; // Pause enemies and projectiles
+                Player.Instance.setDialog(true);
+
+                DialogUIController.Instance.DisplayDialogue(dialog, EndDialogue);
+            }
+            else
+            {
+                Debug.LogWarning("DialogObject is not assigned to this trigger.");
             }
         }
 
         private void EndDialogue()
         {
+            Player.Instance.setDialog(false);
             DialogueState.IsDialogueActive = false; // Resume enemy behavior
+        }
+
+        public override void trigger()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

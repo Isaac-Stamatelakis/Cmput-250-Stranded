@@ -17,11 +17,13 @@ public class EnemyHealth : MonoBehaviour
     private AudioSource audioSource;
     private BossHealthBar healthBar;
     public ZombieMusicController zombieMusicController;
+    private Weapon weapon;
     public BossHealthBar HealthBar => healthBar;
     public BossMusicController bossMusicController;
     private bool flashingColor = false;
     public bool isDying = false;
     public bool isBoss = false;
+    public bool isBossZombies = false;
     private ParticleSystem damagedParticleSystem;
 
     public void Start() {
@@ -50,11 +52,6 @@ public class EnemyHealth : MonoBehaviour
             damagedParticleSystem.Play();
         }
 
-        if (!isBoss && !isDying)
-        {
-            zombieMusicController.OnZombieHurt();
-        }
-
         this.health -= amount;
 
         if(health <= 0 && !isDying)
@@ -62,6 +59,10 @@ public class EnemyHealth : MonoBehaviour
             Die();
         }
 
+        if ((!isBoss && !isDying) || isBossZombies)
+        {
+            zombieMusicController.OnZombieHurt();
+        }
 
     }
 
@@ -99,12 +100,15 @@ public class EnemyHealth : MonoBehaviour
         player.GetComponent<PlayerLevelComponent>().AddExperience(experience);
         DateHealUpgrade dateHealUpgrade = player.DatePlayer.GetComponentInChildren<DateHealUpgrade>();
         player.PlayerStats.Kills++;
-        if (isBoss)
+        if (isBoss && !isBossZombies)
         {
             audioSource.pitch = 0.9f;
             audioSource.PlayOneShot(deathSound);
             bossMusicController.BossDefeated();
-        } 
+        } else
+        {
+            AudioManager.Instance.PlaySound(deathSound, 0.7f, 0.9f);
+        }
         if (dropBloodCollection)
         {
             GameObject blood = dropBloodCollection.GetBlood();
@@ -118,7 +122,13 @@ public class EnemyHealth : MonoBehaviour
         if (enemyDrop != null) {
             enemyDrop.DropItem();
         }
-        Destroy(gameObject, deathSound != null ? deathSound.length : 0);
+        if (isBoss)
+        {
+            Destroy(gameObject, deathSound != null ? deathSound.length : 0);
+        } else
+        {
+            Destroy(gameObject);
+        }
         if (healthBar != null) {
             healthBar.gameObject.SetActive(false);
         }

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Chem Lab Clear-7
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
-  Text: Anyway lets get out of here!
+  Text: Anyway let's keep going!
   nextDialog: {fileID: 0}

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: _Chem Lab Clear_Start
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: b6d9f38063c5dbd4eb217193a4ff6b75, type: 2}
-  Text: "I think... I think that\u2019s all of them"
+  Text: "I think... I think that\u2019s all of them on this floor"
   nextDialog: {fileID: 11400000, guid: cd31664b7bc7f9f4a94ac23c3c527ad0, type: 2}

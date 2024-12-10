@@ -52,7 +52,7 @@ public class bossRoutine : MonoBehaviour
     IEnumerator WaitForDialogueCompletion()
     {
         bossMusicController.StartDialogue();
-        while (DialogueState.IsDialogueActive || !OfficeTrigger.hasPlayedDialogue)
+        while (DialogueState.IsDialogueActive || !OfficeTrigger.hasPlayedBossDialogue)
         {
             yield return null;
         }
@@ -93,7 +93,12 @@ public class bossRoutine : MonoBehaviour
             Debug.Log("spawning zmobies");
             Debug.Log($"is it set: {BossZombies}");
             BossZombies.SetActive(true);
+            enemyHealth.isBossZombies = true;
             halfHealth = true;
+        }
+        if (enemyHealth.getHealth() <= 0)
+        {
+            enemyHealth.isBossZombies = false;
         }
     }
 

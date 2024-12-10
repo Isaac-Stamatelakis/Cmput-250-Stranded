@@ -1,3 +1,4 @@
+using PlayerModule;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,10 +10,13 @@ public class DateProjectile : MonoBehaviour
     private bool hit;
     public void shootPosition(Vector2 position, int damage)
     {
-        this.damage = damage;
-        float angle = Mathf.Atan2(position.y, position.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-        StartCoroutine(MoveToPosition(position));
+        if (Player.Instance.CanMove)
+        {
+            this.damage = damage;
+            float angle = Mathf.Atan2(position.y, position.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            StartCoroutine(MoveToPosition(position));
+        }
     }
 
     private IEnumerator MoveToPosition(Vector2 targetPosition)
