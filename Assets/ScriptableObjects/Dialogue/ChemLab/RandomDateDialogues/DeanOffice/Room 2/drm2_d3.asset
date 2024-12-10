@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
   Text: "We\u2019re not afraid of you. Whatever test you throw at us, we\u2019ll
-    pass it"
+    pass it."
   nextDialog: {fileID: 11400000, guid: 78d12bd5048ce42bf84d85ce064448d4, type: 2}

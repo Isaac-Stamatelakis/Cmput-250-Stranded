@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: erc_d1
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: a8fd8c24f6240994bac53b5dd37d0a2d, type: 2}
-  Text: "They really thought they were saving humanity. They saw the whole world
-    collapsing and thought they could fix it by turning people into\u2026 this."
+  Text: "They saw the whole world collapsing and thought they could fix it by turning
+    people into\u2026 this.\n"
   nextDialog: {fileID: 11400000, guid: 67e43769ba8554e1d9f50bf8180412b9, type: 2}

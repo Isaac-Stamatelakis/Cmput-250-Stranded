@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: sp_d3
   m_EditorClassIdentifier: 
   Speaker: {fileID: 11400000, guid: bbcf1f3208d15e843aa69fced93f6ee9, type: 2}
-  Text: "Right. I trust you. Let\u2019s stick together and keep moving"
+  Text: "Right. I trust you. Let\u2019s stick together and keep moving."
   nextDialog: {fileID: 0}
